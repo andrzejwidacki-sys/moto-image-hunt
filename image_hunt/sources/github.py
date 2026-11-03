@@ -62,8 +62,13 @@ def search(ctx: Ctx) -> Iterator[Item]:
                     data = ctx.http.get_json(f"{API}/search/code", headers=headers, interval=CODE_SEARCH_INTERVAL,
                                              params={"q": q, "per_page": 100, "page": page})
                 except HttpError as exc:
-                    if exc.status in (403, 422, 429):  # rate limit or query refused: stop this combination
-                        ctx.notes.append(f"GitHub: zapytanie '{q}' odrzucone (HTTP {exc.status}).")
+                    # status 0 + "429" = urllib3 gave up retrying a rate-limited response
+                    if exc.status in (403, 429) or (exc.status == 0 and "429" in exc.body):
+                        ctx.notes.append("GitHub: wyszukiwanie kodu przekroczyło limit zapytań - przerwano po "
+                                         f"{len(seen)} trafieniach (to normalne: limit to ok. 10 zapytań/min).")
+                        return
+                    if exc.status == 422:  # query refused: skip this combination only
+                        ctx.notes.append(f"GitHub: zapytanie '{q}' odrzucone (HTTP 422).")
                         break
                     raise
                 hits = data.get("items") or []

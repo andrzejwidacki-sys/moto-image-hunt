@@ -203,6 +203,18 @@ class GithubTests(unittest.TestCase):
         self.assertIn("/raw/main/", items[0].file_url)
         self.assertEqual([i.license for i in items], ["repo: MIT", "repo: no licence"])
 
+    def test_retry_exhaustion_on_429_is_a_note_not_an_error(self):
+        err = HttpError(0, "u", "HTTPSConnectionPool: Max retries exceeded (Caused by ResponseError('too many 429 error responses'))")
+        c = ctx(FakeHttp([(lambda u, p, h: True, err)]))
+        self.assertEqual(list(github.search(c)), [])
+        self.assertTrue(any("limit" in n for n in c.notes))
+        self.assertEqual(len([1 for u, p in c.http.calls if u.endswith("/search/code")]), 1)  # stopped at once
+
+    def test_real_network_failure_still_raises(self):
+        c = ctx(FakeHttp([(lambda u, p, h: True, HttpError(0, "u", "Name or service not known"))]))
+        with self.assertRaises(HttpError):
+            list(github.search(c))
+
     def test_rate_limit_is_noted_not_fatal(self):
         c = ctx(FakeHttp([(lambda u, p, h: True, HttpError(403, "u", "rate"))]))
         self.assertEqual(list(github.search(c)), [])
