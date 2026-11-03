@@ -9,8 +9,8 @@ Domyślny cel: **Bajaj Pulsar NS125**. Drugi, gotowy: Honda NS125. Własny model
 | Źródło | Klucz API | Co przeszukuje |
 |---|---|---|
 | Wikimedia Commons | nie | całe drzewa kategorii (`Category:Bajaj Pulsar` i znalezione kategorie z „Pulsar NS”), pełnotekstowe wyszukiwanie plików, prawdziwe kategorie każdego pliku, wideo |
-| Flickr | `FLICKR_API_KEY` | tylko licencje pozwalające na użycie komercyjne (CC BY, BY-SA, BY-ND, CC0, PD, gov) |
-| Pexels | `PEXELS_API_KEY` | zdjęcia i wideo |
+| Flickr | `FLICKR_API_KEY` (klucz wydaje Flickr tylko kontom Pro, po weryfikacji) | tylko licencje pozwalające na użycie komercyjne (CC BY, BY-SA, BY-ND, CC0, PD, gov) |
+| Pexels | `PEXELS_API_KEY` (stan na 3.11.2026 Pexels wstrzymał wydawanie nowych kluczy) | zdjęcia i wideo |
 | Pixabay | `PIXABAY_API_KEY` | zdjęcia i wideo |
 | Unsplash | `UNSPLASH_ACCESS_KEY` | zdjęcia |
 | GitHub | wbudowany `GITHUB_TOKEN` | pliki graficzne ze ścieżką zawierającą nazwę modelu (zawsze `CHECK`/`NO`, nigdy `OK`) |
@@ -21,7 +21,11 @@ Domyślny cel: **Bajaj Pulsar NS125**. Drugi, gotowy: Honda NS125. Własny model
 ## Uruchomienie
 
 1. Utwórz repozytorium i wgraj te pliki.
-2. *Settings → Secrets and variables → Actions → New repository secret*: dodaj klucze z tabeli (darmowe konta deweloperskie: Flickr App Garden, Pexels API, Pixabay API, Unsplash Developers). Commons działa bez żadnego.
+2. Bez żadnych kluczy działają: Wikimedia Commons, GitHub i Openverse (anonimowo). Opcjonalnie dodaj w *Settings → Secrets and variables → Actions → New repository secret*:
+   - `PIXABAY_API_KEY` - darmowe konto na pixabay.com; po zalogowaniu klucz widać na https://pixabay.com/api/docs/ przy parametrze `key`.
+   - `UNSPLASH_ACCESS_KEY` - darmowe konto, https://unsplash.com/developers → nowa aplikacja → **Access Key** (nie Secret Key).
+   - `FLICKR_API_KEY` - tylko konto Flickr Pro (płatne); zdjęcia z Flickra na licencjach CC częściowo pokrywa też Openverse.
+   - `PEXELS_API_KEY` - dopóki Pexels nie wznowi wydawania kluczy, pomiń.
 3. *Actions → Image hunt → Run workflow*. Parametry: cel, dodatkowe frazy (oddzielone `;`), limit wyników na zapytanie, wideo tak/nie, lista źródeł.
 4. Wynik: tabela w *Summary* przebiegu oraz artefakt `image-hunt-results`:
    - `report.md` - ile trafień na jakiej stronie (dokładnie ten model / rodzina / sama marka × OK/CHECK/NO)
