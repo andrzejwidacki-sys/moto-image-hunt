@@ -1,0 +1,88 @@
+# Search targets. Regexes run on normalised text (lower-case, punctuation -> spaces),
+# built from title + description + tags + categories + page/file URL.
+#
+#   exact       - the exact model                       -> match = "exact"
+#   require_any - context words that must also appear for "exact"
+#   exclude     - anything matching is dropped as irrelevant (e.g. astronomy "pulsar")
+#   family      - same model family (NS160/NS200 ...)   -> match = "family"
+#   brand       - same brand/series only                -> match = "brand"
+#   queries     - search phrases, most specific first
+#   commons_categories       - Wikimedia Commons categories walked recursively
+#   commons_category_search  - phrases used to *discover* extra categories
+#   commons_category_filter  - regex a discovered category name must match
+#   github_terms             - path terms for GitHub code search (image files)
+
+targets:
+  pulsar-ns125:
+    label: Bajaj Pulsar NS125
+    exact:
+      - '\bns ?125\b'
+      - '\b125 ?ns\b'
+    require_any: ['pulsar', 'bajaj']
+    exclude:
+      - 'honda'
+      - 'nsr ?125'
+      - 'neutron'
+      - 'millisecond'
+      - 'astronom'
+      - 'nebula'
+      - 'supernova'
+      - 'x ray'
+      - 'quasar'
+    family:
+      - '\bns ?(125|150|160|180|200)\b'
+      - '\b(125|150|160|180|200) ?ns\b'
+      - 'pulsar ?n ?(125|150|160|250)\b'
+      - 'rouser'
+    brand:
+      - 'pulsar'
+      - 'bajaj'
+    queries:
+      - 'Pulsar NS125'
+      - 'Bajaj Pulsar NS125'
+      - 'Pulsar NS 125'
+      - 'Bajaj NS125'
+      - 'NS125 motorcycle'
+      - 'Bajaj Pulsar NS'
+      - 'Pulsar NS160'
+      - 'Pulsar NS200'
+      - 'Bajaj Pulsar'
+    commons_categories:
+      - 'Category:Bajaj Pulsar'
+      - 'Category:Bajaj motorcycles'
+    commons_category_search:
+      - 'Pulsar NS125'
+      - 'Pulsar NS'
+      - 'Bajaj Pulsar'
+    commons_category_filter: 'bajaj|pulsar ?(ns|n)'
+    github_terms: ['ns125', 'pulsar-ns125', 'pulsar ns125', 'pulsar_ns125']
+
+  honda-ns125:
+    label: Honda NS125 (NS125R / NS125F)
+    exact:
+      - '\bns ?125 ?(r|f)?\b'
+    require_any: ['honda']
+    exclude:
+      - 'pulsar'
+      - 'bajaj'
+      - 'nsr ?125'
+      - 'neutron'
+    family:
+      - '\bnsr ?(50|80|125|150|250)\b'
+      - '\bns ?(50|400|250)\b'
+    brand:
+      - 'honda'
+    queries:
+      - 'Honda NS125'
+      - 'Honda NS125R'
+      - 'Honda NS125F'
+      - 'Honda NS 125'
+      - 'Honda NSR125'
+    commons_categories:
+      - 'Category:Honda NS125'
+      - 'Category:Honda NSR125'
+    commons_category_search:
+      - 'Honda NS125'
+      - 'Honda NSR125'
+    commons_category_filter: 'honda'
+    github_terms: ['ns125r', 'honda-ns125']
