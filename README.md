@@ -33,6 +33,12 @@ Domyślny cel: **Bajaj Pulsar NS125**. Drugi, gotowy: Honda NS125. Własny model
    - `results.csv`, `results.json` - pełne dane (linki, autor, licencja)
    - `attribution.txt` - gotowe podpisy do opisu filmu dla trafień wymagających atrybucji
 
+## Podglądy zdjęć i gałąź `results`
+
+Po wyszukiwaniu workflow pobiera podglądy najlepszych trafień (do `max_images`, domyślnie 80; tylko zdjęcia z werdyktem OK lub CHECK, zmniejszone do 1280 px) i zapisuje wszystkie wyniki na osobnej gałęzi **`results`** (nadpisywanej przy każdym przebiegu; `main` zostaje czysta). Znajdziesz tam `report.md`, `results.csv`, `attribution.txt`, `gallery.html` oraz folder `images/` z `index.json` (autor, licencja, link do źródła dla każdego podglądu). Wyłączysz to parametrem `publish_results`.
+
+Podglądy to kopie do przeglądania - przed użyciem w filmie pobierz oryginał ze strony źródła i podaj autora, jeśli licencja tego wymaga. W repozytorium publicznym gałąź `results` jest widoczna dla wszystkich; jeśli to nie ma być publiczne, ustaw repozytorium jako prywatne.
+
 ## Jak czytać werdykty
 
 - **OK** - komercyjnie + montaż dozwolone (CC BY i BY-SA wymagają podpisu autora; BY-SA: przeróbka na tej samej licencji).

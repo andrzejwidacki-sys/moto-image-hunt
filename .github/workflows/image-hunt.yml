@@ -23,9 +23,17 @@ on:
         description: "all albo lista: commons,flickr,pexels,pixabay,unsplash,github,openverse"
         type: string
         default: all
+      max_images:
+        description: "Ile podglądów zdjęć pobrać do repozytorium (0 = żadnych)"
+        type: string
+        default: "80"
+      publish_results:
+        description: "Zapisz wyniki i podglądy na gałęzi 'results' tego repozytorium"
+        type: boolean
+        default: true
 
 permissions:
-  contents: read
+  contents: write   # only used to push the 'results' branch
 
 jobs:
   hunt:
@@ -64,10 +72,32 @@ jobs:
           if [ "$INCLUDE_VIDEO" = "true" ]; then args+=(--include-video); fi
           python -m image_hunt "${args[@]}"
 
+      - name: Download previews
+        if: always() && hashFiles('results/results.json') != ''
+        env:
+          MAX_IMAGES: ${{ inputs.max_images }}
+        run: python -m image_hunt.fetch_images --results results --max "$MAX_IMAGES" --verbose
+
       - name: Summary
         if: always()
         run: |
           if [ -f results/report.md ]; then tee -a "$GITHUB_STEP_SUMMARY" < results/report.md; fi  # also echoes the report into the job log
+
+      - name: Publish results to the results branch
+        if: always() && inputs.publish_results && hashFiles('results/results.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          out="$RUNNER_TEMP/results-branch"
+          rm -rf "$out"
+          cp -r results "$out"
+          cd "$out"
+          git init -q -b results
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Image hunt results for run ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" results
 
       - uses: actions/upload-artifact@v4
         if: always()

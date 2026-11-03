@@ -100,10 +100,16 @@ def _safe_url(url: str) -> str:
     return html.escape(url, quote=True) if url.startswith(("http://", "https://")) else ""
 
 
-def build_gallery(items: list[Item], label: str) -> str:
+def local_key(item: Item) -> str:
+    return f"{item.source}|{item.id}"
+
+
+def build_gallery(items: list[Item], label: str, local: dict[str, str] | None = None) -> str:
+    """`local` maps local_key(item) -> relative path of a downloaded preview (used instead of hot-linking)."""
+    local = local or {}
     cards = []
     for i in items:
-        thumb = _safe_url(i.thumb_url)
+        thumb = html.escape(local[local_key(i)], quote=True) if local_key(i) in local else _safe_url(i.thumb_url)
         img = (f'<img src="{thumb}" loading="lazy" referrerpolicy="no-referrer" alt="">' if thumb
                else '<div class="nothumb">brak miniatury</div>')
         cards.append(

@@ -21,7 +21,7 @@ BASE = {"action": "query", "format": "json", "formatversion": "2"}
 IMAGEINFO = {
     "prop": "imageinfo|categories",
     "iiprop": "url|size|mime|extmetadata",
-    "iiurlwidth": "480",
+    "iiurlwidth": "960",
     "iiextmetadatafilter": "LicenseShortName|LicenseUrl|UsageTerms|Artist|Credit|ImageDescription"
                            "|AttributionRequired|Copyrighted",
     "cllimit": "max",

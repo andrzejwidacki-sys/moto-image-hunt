@@ -55,7 +55,12 @@ class WorkflowTests(unittest.TestCase):
         # no user input interpolated directly into a shell script
         for step in wf["jobs"]["hunt"]["steps"]:
             self.assertNotIn("${{ inputs", step.get("run", ""))
-        self.assertEqual(wf["permissions"], {"contents": "read"})
+        self.assertEqual(wf["permissions"], {"contents": "write"})  # needed only to push the results branch
+        steps = {s.get("name"): s for s in wf["jobs"]["hunt"]["steps"] if s.get("name")}
+        self.assertIn("inputs.publish_results", steps["Publish results to the results branch"]["if"])
+        order = [s.get("name") or s.get("uses") for s in wf["jobs"]["hunt"]["steps"]]
+        self.assertLess(order.index("Search"), order.index("Download previews"))
+        self.assertLess(order.index("Download previews"), order.index("Publish results to the results branch"))
         # every secret the code can use is passed to the search step
         from image_hunt.sources import ALL
         env = next(s for s in wf["jobs"]["hunt"]["steps"] if s.get("name") == "Search")["env"]

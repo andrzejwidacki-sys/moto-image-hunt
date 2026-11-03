@@ -74,6 +74,30 @@ class Http:
         except ValueError as exc:
             raise HttpError(r.status_code, r.url, "response is not JSON: " + r.text[:120]) from exc
 
+    def get_bytes(self, url: str, max_bytes: int = 8_000_000, timeout: int = 60) -> tuple[bytes, str]:
+        """Download a file. Returns (content, lower-case content type). Refuses files over max_bytes."""
+        self._check_deadline(url)
+        self._wait(url)
+        started = time.monotonic()
+        try:
+            r = self.session.get(url, timeout=timeout, stream=True)
+        except requests.RequestException as exc:
+            self._log("ERR", started, url, None)
+            raise HttpError(0, url, str(exc)) from exc
+        try:
+            self._log(r.status_code, started, url, None)
+            if r.status_code >= 400:
+                raise HttpError(r.status_code, url, r.text[:200])
+            chunks, size = [], 0
+            for chunk in r.iter_content(65536):
+                size += len(chunk)
+                if size > max_bytes:
+                    raise HttpError(0, url, f"file larger than {max_bytes} bytes")
+                chunks.append(chunk)
+            return b"".join(chunks), r.headers.get("Content-Type", "").split(";")[0].strip().lower()
+        finally:
+            r.close()
+
     def post_form(self, url: str, data: dict, timeout: int = 40) -> dict:
         self._wait(url)
         try:
