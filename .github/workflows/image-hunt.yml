@@ -67,7 +67,7 @@ jobs:
       - name: Summary
         if: always()
         run: |
-          if [ -f results/report.md ]; then cat results/report.md >> "$GITHUB_STEP_SUMMARY"; fi
+          if [ -f results/report.md ]; then tee -a "$GITHUB_STEP_SUMMARY" < results/report.md; fi  # also echoes the report into the job log
 
       - uses: actions/upload-artifact@v4
         if: always()
