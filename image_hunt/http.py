@@ -1,6 +1,7 @@
 """Small polite HTTP client: retries, per-host spacing, readable errors."""
 from __future__ import annotations
 
+import sys
 import time
 from urllib.parse import urlsplit
 
@@ -18,7 +19,9 @@ class HttpError(Exception):
 
 
 class Http:
-    def __init__(self, user_agent: str, min_interval: float = 0.25):
+    def __init__(self, user_agent: str, min_interval: float = 0.25, verbose: bool = False):
+        self.verbose = verbose
+        self.deadline: float | None = None  # time.monotonic() value; set per source by the runner
         self.session = requests.Session()
         self.session.headers["User-Agent"] = user_agent
         retry = Retry(
@@ -33,6 +36,17 @@ class Http:
         self.min_interval = min_interval
         self._last: dict[str, float] = {}
 
+    def _check_deadline(self, url: str) -> None:
+        if self.deadline is not None and time.monotonic() > self.deadline:
+            raise HttpError(0, url, "source time budget exceeded")
+
+    def _log(self, status, started: float, url: str, params: dict | None) -> None:
+        if self.verbose:
+            parts = urlsplit(url)
+            q = (params or {}).get("q") or (params or {}).get("srsearch") or (params or {}).get("cmtitle") or ""
+            print(f"[http] {status} {time.monotonic() - started:5.1f}s {parts.netloc}{parts.path} {str(q)[:60]}",
+                  file=sys.stderr, flush=True)
+
     def _wait(self, url: str, interval: float | None = None) -> None:
         host = urlsplit(url).netloc
         gap = self.min_interval if interval is None else interval
@@ -43,11 +57,16 @@ class Http:
 
     def get_json(self, url: str, params: dict | None = None, headers: dict | None = None,
                  interval: float | None = None, timeout: int = 40) -> dict:
+        self._check_deadline(url)
         self._wait(url, interval)
+        self._check_deadline(url)
+        started = time.monotonic()
         try:
             r = self.session.get(url, params=params, headers=headers, timeout=timeout)
         except requests.RequestException as exc:
+            self._log("ERR", started, url, params)
             raise HttpError(0, url, str(exc)) from exc
+        self._log(r.status_code, started, url, params)
         if r.status_code >= 400:
             raise HttpError(r.status_code, r.url, r.text)
         try:

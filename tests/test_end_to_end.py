@@ -65,6 +65,52 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("OPENVERSE_CLIENT_ID", env)
 
 
+class TimeBudgetTests(unittest.TestCase):
+    def test_http_refuses_requests_after_deadline_without_touching_network(self):
+        import time
+        from image_hunt.http import Http
+        h = Http("test-agent")
+        h.deadline = time.monotonic() - 1
+        with self.assertRaises(HttpError) as cm:
+            h.get_json("https://example.invalid/never-called")
+        self.assertIn("budget", str(cm.exception))
+
+    def test_runner_sets_and_clears_deadline_and_keeps_partial_results(self):
+        import types
+        from unittest import mock
+        from image_hunt import runner
+        from image_hunt.models import Item
+
+        seen = {}
+
+        def search(ctx):
+            seen["deadline"] = ctx.http.deadline
+            yield Item(source="dummy", kind="image", id="1", title="Bajaj Pulsar NS125", page_url="https://x/1",
+                       file_url="", thumb_url="", creator="A", license="CC0 1.0", license_url="", verdict="OK",
+                       attribution_required=False)
+            raise HttpError(0, "u", "source time budget exceeded")
+
+        dummy = types.SimpleNamespace(NAME="dummy", ENV=[], search=search)
+        ctx = Ctx(http=FakeHttp([]), queries=["q"], target=TARGETS["pulsar-ns125"], env={})
+        with mock.patch.dict(runner.BY_NAME, {"dummy": dummy}):
+            items, statuses = runner.run(ctx, ["dummy"], source_budget=5)
+        self.assertIsNotNone(seen["deadline"])          # set while the source ran
+        self.assertIsNone(ctx.http.deadline)            # cleared afterwards
+        self.assertEqual(len(items), 1)                 # result obtained before the timeout is kept
+        self.assertEqual(statuses[0].status, "partial")
+        self.assertIn("budget", statuses[0].message)
+
+    def test_commons_category_filter_accepts_vehicle_rejects_astronomy(self):
+        import re
+        from image_hunt.models import normalise
+        pat = TARGETS["pulsar-ns125"]["commons_category_filter"]
+        for yes in ("Category:Bajaj Pulsar", "Category:Bajaj Pulsar NS200", "Category:Pulsar NS125", "Category:Pulsar RS200"):
+            self.assertTrue(re.search(pat, normalise(yes)), yes)
+        for no in ("Category:Pulsars", "Category:Pulsar nebula", "Category:Bajaj Chetak", "Category:Bajaj RE",
+                   "Category:Bajaj scooters", "Category:Millisecond pulsars"):
+            self.assertFalse(re.search(pat, normalise(no)), no)
+
+
 class EndToEnd(unittest.TestCase):
     def build(self):
         pexels_photo = {"id": 1, "url": "https://www.pexels.com/photo/bajaj-pulsar-ns125-red-1/", "alt": "Pulsar NS125 | red <b>bike</b>",

@@ -60,7 +60,7 @@ jobs:
           OPENVERSE_CLIENT_SECRET: ${{ secrets.OPENVERSE_CLIENT_SECRET }}
           GITHUB_TOKEN: ${{ github.token }}
         run: |
-          args=(--target "$TARGET" --extra-queries "$EXTRA_QUERIES" --max-per-query "$MAX_PER_QUERY" --sources "$SOURCES" --out results)
+          args=(--target "$TARGET" --extra-queries "$EXTRA_QUERIES" --max-per-query "$MAX_PER_QUERY" --sources "$SOURCES" --out results --verbose --source-budget 420)
           if [ "$INCLUDE_VIDEO" = "true" ]; then args+=(--include-video); fi
           python -m image_hunt "${args[@]}"
 

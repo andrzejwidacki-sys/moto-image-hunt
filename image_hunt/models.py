@@ -148,4 +148,10 @@ def dedupe_keys(item: Item) -> set[str]:
         m = re.search(r"commons\.wikimedia\.org/wiki/(file:[^?]+)", u)
         if m:
             keys.add("commons:" + m.group(1).replace("_", " "))
+    # Aggregators link to the same file through different URLs; title + author is the stable part.
+    title = re.sub(r"^file ", "", normalise(item.title))
+    title = re.sub(r" (jpe?g|png|webp|gif|tiff?|webm|ogv)$", "", title)
+    who = normalise(item.creator)
+    if title and who:
+        keys.add(f"tc:{title}|{who}")
     return keys

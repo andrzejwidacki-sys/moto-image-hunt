@@ -49,12 +49,11 @@ targets:
       - 'Bajaj Pulsar'
     commons_categories:
       - 'Category:Bajaj Pulsar'
-      - 'Category:Bajaj motorcycles'
     commons_category_search:
       - 'Pulsar NS125'
       - 'Pulsar NS'
       - 'Bajaj Pulsar'
-    commons_category_filter: 'bajaj|pulsar ?(ns|n)'
+    commons_category_filter: 'bajaj pulsar|pulsar ?(ns|n|rs|as|ls)\d*\b'
     github_terms: ['ns125', 'pulsar-ns125', 'pulsar ns125', 'pulsar_ns125']
 
   honda-ns125:

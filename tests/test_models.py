@@ -101,3 +101,25 @@ class DedupeTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class CrossSourceDedupeTests(unittest.TestCase):
+    def test_commons_file_and_openverse_copy_collapse(self):
+        commons = item("Bajaj pulsar NS 125.jpg", creator="Kolomoiskii",
+                       page_url="https://commons.wikimedia.org/wiki/File:Bajaj_pulsar_NS_125.jpg",
+                       file_url="https://upload.wikimedia.org/wikipedia/commons/a/ab/Bajaj_pulsar_NS_125.jpg")
+        openverse = item("Bajaj pulsar NS 125", creator="Kolomoiskii",
+                         page_url="https://commons.wikimedia.org/w/index.php?curid=177459220",
+                         file_url="https://upload.wikimedia.org/wikipedia/commons/thumb/x.jpg")
+        self.assertTrue(dedupe_keys(commons) & dedupe_keys(openverse))
+        prefixed = item("File:Bajaj Pulsar 200 NS.jpg", creator="25 Cents FC", page_url="https://a/1")
+        plain = item("Bajaj Pulsar 200 NS.jpg", creator="25 Cents FC", page_url="https://b/2")
+        self.assertTrue(dedupe_keys(prefixed) & dedupe_keys(plain))
+
+    def test_same_title_different_author_is_not_merged(self):
+        a = item("Pulsar NS125", creator="Ann", page_url="https://a/1")
+        b = item("Pulsar NS125", creator="Bob", page_url="https://b/2")
+        self.assertFalse(dedupe_keys(a) & dedupe_keys(b))
+        c = item("Pulsar NS125", creator="", page_url="https://c/3")
+        d = item("Pulsar NS125", creator="", page_url="https://d/4")
+        self.assertFalse(dedupe_keys(c) & dedupe_keys(d))  # no author -> never merge on title alone

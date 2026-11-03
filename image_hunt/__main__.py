@@ -25,6 +25,8 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--include-video", action="store_true")
     ap.add_argument("--sources", default="all", help="comma list of: " + ", ".join(BY_NAME))
     ap.add_argument("--out", default="results")
+    ap.add_argument("--source-budget", type=float, default=420, help="max seconds per source (partial results kept)")
+    ap.add_argument("--verbose", action="store_true", help="log every HTTP request with its duration to stderr")
     args = ap.parse_args(argv)
 
     cfg = yaml.safe_load(Path(args.config).read_text(encoding="utf-8"))["targets"]
@@ -45,9 +47,9 @@ def main(argv: list[str] | None = None) -> int:
 
     repo = os.environ.get("GITHUB_REPOSITORY")
     agent = f"image-hunt/1.0 (+https://github.com/{repo})" if repo else "image-hunt/1.0 (open-licence image finder)"
-    ctx = Ctx(http=Http(agent), queries=queries, target=target, max_per_query=args.max_per_query,
+    ctx = Ctx(http=Http(agent, verbose=args.verbose), queries=queries, target=target, max_per_query=args.max_per_query,
               include_video=args.include_video, env=os.environ)
-    items, statuses = run(ctx, selected)
+    items, statuses = run(ctx, selected, source_budget=args.source_budget)
     write_all(Path(args.out), items, statuses, target["label"], queries)
 
     for st in statuses:

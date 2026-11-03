@@ -21,7 +21,7 @@ class SourceStatus:
     notes: list[str] = field(default_factory=list)
 
 
-def run(ctx: Ctx, selected: list[str] | None = None) -> tuple[list[Item], list[SourceStatus]]:
+def run(ctx: Ctx, selected: list[str] | None = None, source_budget: float = 420.0) -> tuple[list[Item], list[SourceStatus]]:
     modules = [BY_NAME[n] for n in selected] if selected else ALL
     items: list[Item] = []
     statuses: list[SourceStatus] = []
@@ -36,6 +36,7 @@ def run(ctx: Ctx, selected: list[str] | None = None) -> tuple[list[Item], list[S
             continue
         started = time.monotonic()
         ctx.notes = []
+        ctx.http.deadline = started + source_budget  # a slow source returns partial results instead of stalling the run
         try:
             for item in mod.search(ctx):
                 st.fetched += 1
@@ -51,6 +52,7 @@ def run(ctx: Ctx, selected: list[str] | None = None) -> tuple[list[Item], list[S
         except Exception as exc:  # one broken source must not sink the run
             st.status = "partial" if st.fetched else "error"
             st.message = f"{type(exc).__name__}: {exc}"[:400]
+        ctx.http.deadline = None
         st.seconds = round(time.monotonic() - started, 1)
         st.notes = list(ctx.notes)
 
