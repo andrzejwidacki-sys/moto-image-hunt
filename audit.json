@@ -1,0 +1,808 @@
+[
+ {
+  "title": "Bajaj Pulsar 200 ns grey and red.jpg",
+  "saved_as": "01-Bajaj_Pulsar_200_ns_grey_and_red.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bajaj_Pulsar_200_ns_grey_and_red.jpg",
+  "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Bajaj_Pulsar_200_ns_grey_and_red.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "size_px": [
+   2304,
+   4096
+  ],
+  "bytes_downloaded": 3837608,
+  "sha1_commons": "23775a6c7680b78e50a6fc7c4a5c8f65db6ea368",
+  "sha1_downloaded": "23775a6c7680b78e50a6fc7c4a5c8f65db6ea368",
+  "sha1_match": true,
+  "uploaded_by": "Sankar 1995",
+  "uploaded": "2017-10-20T15:34:16Z",
+  "upload_comment": "Uploaded using Android Commons app",
+  "categories": [
+   "Category:Bajaj Pulsar",
+   "Category:CC-BY-SA-3.0",
+   "Category:Photographs taken on 2017-09-19",
+   "Category:Self-published work",
+   "Category:Uploaded with Mobile/Android"
+  ],
+  "used_on": [],
+  "structured_data": {
+   "P571": [
+    {
+     "time": "+2017-09-19T00:00:00Z",
+     "timezone": 0,
+     "before": 0,
+     "after": 0,
+     "precision": 11,
+     "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+    }
+   ],
+   "P6216": [
+    {
+     "entity-type": "item",
+     "numeric-id": 50423863,
+     "id": "Q50423863"
+    }
+   ],
+   "P275": [
+    {
+     "entity-type": "item",
+     "numeric-id": 14946043,
+     "id": "Q14946043"
+    }
+   ],
+   "P7482": [
+    {
+     "entity-type": "item",
+     "numeric-id": 66458942,
+     "id": "Q66458942"
+    }
+   ],
+   "P170": [
+    null
+   ],
+   "P1163": [
+    "image/jpeg"
+   ],
+   "P4092": [
+    "23775a6c7680b78e50a6fc7c4a5c8f65db6ea368"
+   ],
+   "P3575": [
+    {
+     "amount": "+3837608",
+     "unit": "http://www.wikidata.org/entity/Q8799"
+    }
+   ],
+   "P2048": [
+    {
+     "amount": "+4096",
+     "unit": "http://www.wikidata.org/entity/Q355198"
+    }
+   ],
+   "P2049": [
+    {
+     "amount": "+2304",
+     "unit": "http://www.wikidata.org/entity/Q355198"
+    }
+   ],
+   "P6757": [
+    {
+     "amount": "+0.009996",
+     "unit": "http://www.wikidata.org/entity/Q11574"
+    }
+   ],
+   "P6790": [
+    {
+     "amount": "+2",
+     "unit": "1"
+    }
+   ],
+   "P2151": [
+    {
+     "amount": "+3.5",
+     "unit": "http://www.wikidata.org/entity/Q174789"
+    }
+   ],
+   "P6789": [
+    {
+     "amount": "+169",
+     "unit": "1"
+    }
+   ],
+   "P31": [
+    {
+     "entity-type": "item",
+     "numeric-id": 125191,
+     "id": "Q125191"
+    }
+   ]
+  },
+  "structured_data_labels": {
+   "Q125191": {
+    "label": "photograph",
+    "description": "image created by light falling on a light-sensitive surface"
+   },
+   "Q14946043": {
+    "label": "Creative Commons Attribution-ShareAlike 3.0 Unported",
+    "description": "Creative Commons license"
+   },
+   "Q50423863": {
+    "label": "copyrighted",
+    "description": "legal state of a work as recognised as an intellectual property of an entity"
+   },
+   "Q66458942": {
+    "label": "original creation by uploader",
+    "description": "value to indicate source of an image on Wikimedia Commons"
+   }
+  },
+  "exif": {
+   "Make": "Coolpad",
+   "Model": "CP8676_I02",
+   "Orientation": 1,
+   "Software": "Dazen Camera Application\n",
+   "DateTime": "2017:09:19 12:56:00",
+   "ExposureTime": "9996/1000000",
+   "FNumber": "20/10",
+   "ISOSpeedRatings": 169,
+   "DateTimeOriginal": "2017:09:19 12:56:00",
+   "FocalLength": "350/100"
+  },
+  "extmetadata": {
+   "ImageDescription": "<p>The Bajaj Pulsar 200NS is a sports bike made by Bajaj Auto. The NS stands for Naked Sport. The Pulsar 200NS has a single-cylinder, four-stroke, triple spark-ignition &amp; liquid-cooled engine. It uses a pressed steel perimeter frame and a box section swingarm, an underbelly exhaust, and rear nitrox-charged mono-shock suspension.\n</p>\nspecks :<a class=\"external free\" href=\"https://en.m.wikipedia.org/wiki/Bajaj_Pulsar_200NS\">https://en.m.wikipedia.org/wiki/Bajaj_Pulsar_200NS</a>",
+   "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Sankar_1995&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Sankar 1995 (page does not exist)\">Sankar 1995</a>",
+   "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+   "LicenseShortName": "CC BY-SA 3.0",
+   "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "DateTimeOriginal": "19 September 2017 (according to <span lang=\"en\" dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Exif\" class=\"extiw\" title=\"en:Exif\">Exif</a></span> data)",
+   "GPSLatitude": null,
+   "GPSLongitude": null,
+   "ObjectName": "Bajaj Pulsar 200 ns grey and red",
+   "Categories": "Bajaj Pulsar|Self-published work|Uploaded with Mobile/Android|Photographs taken on 2017-09-19",
+   "Restrictions": "",
+   "UsageTerms": "Creative Commons Attribution-Share Alike 3.0"
+  },
+  "wikitext": "== {{int:filedesc}} ==\n{{Information\n|description=The Bajaj Pulsar 200NS is a sports bike made by Bajaj Auto. The NS stands for Naked Sport. The Pulsar 200NS has a single-cylinder, four-stroke, triple spark-ignition & liquid-cooled engine. It uses a pressed steel perimeter frame and a box section swingarm, an underbelly exhaust, and rear nitrox-charged mono-shock suspension.\n\nspecks :https://en.m.wikipedia.org/wiki/Bajaj_Pulsar_200NS\n|source={{own}}\n|author=[[User:Sankar 1995|Sankar 1995]]\n|date={{According to EXIF data|2017-09-19}}\n}}\n== {{int:license-header}} ==\n{{self|cc-by-sa-3.0}}\n\n{{Uploaded from Mobile|platform=Android|version=2.4.2}}\n[[Category:Bajaj Pulsar]]",
+  "history": [
+   {
+    "ts": "2017-10-20T15:34:16Z",
+    "user": "Sankar 1995",
+    "comment": "Uploaded using Android Commons app",
+    "size": [
+     2304,
+     4096
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Bajaj Pulsar 200 NS.jpg",
+  "saved_as": "02-Bajaj_Pulsar_200_NS.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bajaj_Pulsar_200_NS.jpg",
+  "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Bajaj_Pulsar_200_NS.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "size_px": [
+   4000,
+   3000
+  ],
+  "bytes_downloaded": 2690745,
+  "sha1_commons": "936e6c187ffceaf403b3b5d0d15fe9ced7dbdfdd",
+  "sha1_downloaded": "936e6c187ffceaf403b3b5d0d15fe9ced7dbdfdd",
+  "sha1_match": true,
+  "uploaded_by": "25 Cents FC",
+  "uploaded": "2014-03-22T06:43:40Z",
+  "upload_comment": "User created page with UploadWizard",
+  "categories": [
+   "Category:Bajaj Pulsar",
+   "Category:CC-BY-SA-3.0",
+   "Category:Photographs by 25 Cents FC",
+   "Category:Self-published work",
+   "Category:Taken with Nokia N8"
+  ],
+  "used_on": [
+   "ar.wikipedia.org: باجاج_أوتو",
+   "en.wikipedia.org: Bajaj_Auto",
+   "en.wikipedia.org: Bajaj_Pulsar_NS200",
+   "ml.wikipedia.org: ബജാജ്_ഓട്ടോ",
+   "pa.wikipedia.org: ਬਜਾਜ_ਆਟੋ",
+   "ta.wikipedia.org: பஜாஜ்_ஆட்டோ",
+   "te.wikipedia.org: బజాజ్_ఆటో",
+   "th.wikipedia.org: บาจาจ",
+   "www.wikidata.org: Q19895488"
+  ],
+  "structured_data": {
+   "P571": [
+    {
+     "time": "+2014-03-21T00:00:00Z",
+     "timezone": 0,
+     "before": 0,
+     "after": 0,
+     "precision": 11,
+     "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+    }
+   ],
+   "P6216": [
+    {
+     "entity-type": "item",
+     "numeric-id": 50423863,
+     "id": "Q50423863"
+    }
+   ],
+   "P275": [
+    {
+     "entity-type": "item",
+     "numeric-id": 14946043,
+     "id": "Q14946043"
+    }
+   ],
+   "P7482": [
+    {
+     "entity-type": "item",
+     "numeric-id": 66458942,
+     "id": "Q66458942"
+    }
+   ],
+   "P170": [
+    null
+   ],
+   "P6757": [
+    {
+     "amount": "+0.003998",
+     "unit": "http://www.wikidata.org/entity/Q11574"
+    }
+   ],
+   "P6790": [
+    {
+     "amount": "+2.796875",
+     "unit": "1"
+    }
+   ],
+   "P2151": [
+    {
+     "amount": "+5.8984375",
+     "unit": "http://www.wikidata.org/entity/Q174789"
+    }
+   ],
+   "P6789": [
+    {
+     "amount": "+105",
+     "unit": "1"
+    }
+   ],
+   "P31": [
+    {
+     "entity-type": "item",
+     "numeric-id": 125191,
+     "id": "Q125191"
+    }
+   ],
+   "P1163": [
+    "image/jpeg"
+   ],
+   "P4092": [
+    "936e6c187ffceaf403b3b5d0d15fe9ced7dbdfdd"
+   ],
+   "P3575": [
+    {
+     "amount": "+2690745",
+     "unit": "http://www.wikidata.org/entity/Q8799"
+    }
+   ],
+   "P2048": [
+    {
+     "amount": "+3000",
+     "unit": "http://www.wikidata.org/entity/Q355198"
+    }
+   ],
+   "P2049": [
+    {
+     "amount": "+4000",
+     "unit": "http://www.wikidata.org/entity/Q355198"
+    }
+   ]
+  },
+  "structured_data_labels": {
+   "Q125191": {
+    "label": "photograph",
+    "description": "image created by light falling on a light-sensitive surface"
+   },
+   "Q14946043": {
+    "label": "Creative Commons Attribution-ShareAlike 3.0 Unported",
+    "description": "Creative Commons license"
+   },
+   "Q50423863": {
+    "label": "copyrighted",
+    "description": "legal state of a work as recognised as an intellectual property of an entity"
+   },
+   "Q66458942": {
+    "label": "original creation by uploader",
+    "description": "value to indicate source of an image on Wikimedia Commons"
+   }
+  },
+  "exif": {
+   "Make": "Nokia",
+   "Model": "N8-00",
+   "Orientation": 1,
+   "DateTime": "2014:03:21 12:45:20",
+   "ExposureTime": "3998/1000000",
+   "FNumber": "358/128",
+   "ISOSpeedRatings": 105,
+   "DateTimeOriginal": "2014:03:21 12:45:20",
+   "FocalLength": "755/128"
+  },
+  "extmetadata": {
+   "ImageDescription": "Bajaj Pulsar 200 NS is newly developed DTSi technology, which increased the power rating.",
+   "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:25_Cents_FC\" title=\"User:25 Cents FC\">25 Cents FC</a>",
+   "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+   "LicenseShortName": "CC BY-SA 3.0",
+   "LicenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "DateTimeOriginal": "2014-03-21 12:45:20",
+   "GPSLatitude": null,
+   "GPSLongitude": null,
+   "ObjectName": "Bajaj Pulsar 200 NS",
+   "Categories": "Bajaj Pulsar|Self-published work|Photographs by 25 Cents FC|Taken with Nokia N8",
+   "Restrictions": "",
+   "UsageTerms": "Creative Commons Attribution-Share Alike 3.0"
+  },
+  "wikitext": "=={{int:filedesc}}==\n{{Information\n|description={{en|1=Bajaj Pulsar 200 NS is newly developed DTSi technology, which increased the power rating.}}\n|date=2014-03-21 12:45:20\n|source={{own}}\n|author=[[User:25 Cents FC|25 Cents FC]]\n|permission=\n|other_versions=\n}}\n\n=={{int:license-header}}==\n{{self|cc-by-sa-3.0}}\n\n\n[[Category:Bajaj Pulsar]]\n[[Category:Photographs by 25 Cents FC]]\n[[Category:Taken with Nokia N8]]",
+  "history": [
+   {
+    "ts": "2014-03-22T06:43:40Z",
+    "user": "25 Cents FC",
+    "comment": "User created page with UploadWizard",
+    "size": [
+     4000,
+     3000
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Bj Pulsar NS 200.jpg",
+  "saved_as": "03-Bj_Pulsar_NS_200.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Bj_Pulsar_NS_200.jpg",
+  "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Bj_Pulsar_NS_200.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "size_px": [
+   5632,
+   4224
+  ],
+  "bytes_downloaded": 5235872,
+  "sha1_commons": "68f1d2fe013c5a88facc2e33caed7e863c00eaf2",
+  "sha1_downloaded": "68f1d2fe013c5a88facc2e33caed7e863c00eaf2",
+  "sha1_match": true,
+  "uploaded_by": "EEIM",
+  "uploaded": "2022-10-11T21:14:47Z",
+  "upload_comment": "Uploaded own work with UploadWizard",
+  "categories": [
+   "Category:Bajaj Pulsar",
+   "Category:CC-BY-SA-4.0",
+   "Category:Self-published work"
+  ],
+  "used_on": [
+   "en.wikipedia.org: Bajaj_Pulsar",
+   "es.wikipedia.org: Bajaj_Pulsar",
+   "es.wikipedia.org: Bajaj_Pulsar_200NS"
+  ],
+  "structured_data": {
+   "P571": [
+    {
+     "time": "+2022-09-30T00:00:00Z",
+     "timezone": 0,
+     "before": 0,
+     "after": 0,
+     "precision": 11,
+     "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+    }
+   ],
+   "P6757": [
+    {
+     "amount": "+0.011112",
+     "unit": "http://www.wikidata.org/entity/Q11574"
+    }
+   ],
+   "P6790": [
+    {
+     "amount": "+1.8",
+     "unit": "1"
+    }
+   ],
+   "P2151": [
+    {
+     "amount": "+3.62",
+     "unit": "http://www.wikidata.org/entity/Q174789"
+    }
+   ],
+   "P6789": [
+    {
+     "amount": "+80",
+     "unit": "1"
+    }
+   ],
+   "P1163": [
+    "image/jpeg"
+   ],
+   "P31": [
+    {
+     "entity-type": "item",
+     "numeric-id": 125191,
+     "id": "Q125191"
+    }
+   ],
+   "P6216": [
+    {
+     "entity-type": "item",
+     "numeric-id": 50423863,
+     "id": "Q50423863"
+    }
+   ],
+   "P275": [
+    {
+     "entity-type": "item",
+     "numeric-id": 18199165,
+     "id": "Q18199165"
+    }
+   ],
+   "P7482": [
+    {
+     "entity-type": "item",
+     "numeric-id": 66458942,
+     "id": "Q66458942"
+    }
+   ],
+   "P170": [
+    null
+   ],
+   "P4092": [
+    "68f1d2fe013c5a88facc2e33caed7e863c00eaf2"
+   ],
+   "P3575": [
+    {
+     "amount": "+5235872",
+     "unit": "http://www.wikidata.org/entity/Q8799"
+    }
+   ],
+   "P2048": [
+    {
+     "amount": "+4224",
+     "unit": "http://www.wikidata.org/entity/Q355198"
+    }
+   ],
+   "P2049": [
+    {
+     "amount": "+5632",
+     "unit": "http://www.wikidata.org/entity/Q355198"
+    }
+   ]
+  },
+  "structured_data_labels": {
+   "Q125191": {
+    "label": "photograph",
+    "description": "image created by light falling on a light-sensitive surface"
+   },
+   "Q18199165": {
+    "label": "Creative Commons Attribution-ShareAlike 4.0 International",
+    "description": "Creative Commons license"
+   },
+   "Q50423863": {
+    "label": "copyrighted",
+    "description": "legal state of a work as recognised as an intellectual property of an entity"
+   },
+   "Q66458942": {
+    "label": "original creation by uploader",
+    "description": "value to indicate source of an image on Wikimedia Commons"
+   }
+  },
+  "exif": {
+   "Make": "HUAWEI",
+   "Model": "MAR-LX3A",
+   "Orientation": 0,
+   "Software": "MAR-L23A 10.0.0.470(C605E5R4P3)",
+   "DateTime": "2022:09:30 17:04:33",
+   "ExposureTime": "11112000/1000000000",
+   "FNumber": "180/100",
+   "ISOSpeedRatings": 80,
+   "DateTimeOriginal": "2022:09:30 17:04:33",
+   "FocalLength": "3620/1000"
+  },
+  "extmetadata": {
+   "ImageDescription": "Bajaj Pulsar",
+   "Artist": "<a href=\"//commons.wikimedia.org/wiki/User:EEIM\" title=\"User:EEIM\">EEIM</a>",
+   "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+   "LicenseShortName": "CC BY-SA 4.0",
+   "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "DateTimeOriginal": "2022-09-30",
+   "GPSLatitude": null,
+   "GPSLongitude": null,
+   "ObjectName": "Bj Pulsar NS 200",
+   "Categories": "Bajaj Pulsar|Self-published work",
+   "Restrictions": "",
+   "UsageTerms": "Creative Commons Attribution-Share Alike 4.0"
+  },
+  "wikitext": "=={{int:filedesc}}==\n{{Information\n|description={{en|1=Bajaj Pulsar}}\n|date=2022-09-30\n|source={{own}}\n|author=[[User:EEIM|EEIM]]\n|permission=\n|other versions=\n}}\n\n=={{int:license-header}}==\n{{self|cc-by-sa-4.0}}\n\n[[Category:Bajaj Pulsar]]",
+  "history": [
+   {
+    "ts": "2022-10-11T21:14:47Z",
+    "user": "EEIM",
+    "comment": "Uploaded own work with UploadWizard",
+    "size": [
+     5632,
+     4224
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Highway road Guwahati to Sonapur assam IND.jpg",
+  "saved_as": "04-Highway_road_Guwahati_to_Sonapur_assam_IND.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Highway_road_Guwahati_to_Sonapur_assam_IND.jpg",
+  "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/Highway_road_Guwahati_to_Sonapur_assam_IND.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "size_px": [
+   4000,
+   3000
+  ],
+  "bytes_downloaded": 3863436,
+  "sha1_commons": "4ba6bcfdd08479837160fb1288cfdf6b3df0eb86",
+  "sha1_downloaded": "4ba6bcfdd08479837160fb1288cfdf6b3df0eb86",
+  "sha1_match": true,
+  "uploaded_by": "Podum 26",
+  "uploaded": "2020-11-02T18:41:42Z",
+  "upload_comment": "Uploaded own work with UploadWizard",
+  "categories": [
+   "Category:Bajaj Pulsar",
+   "Category:CC-BY-SA-4.0",
+   "Category:Files with coordinates missing SDC location of creation",
+   "Category:Roads in Indonesia",
+   "Category:Self-published work"
+  ],
+  "used_on": [],
+  "structured_data": {
+   "P7482": [
+    {
+     "entity-type": "item",
+     "numeric-id": 66458942,
+     "id": "Q66458942"
+    }
+   ],
+   "P275": [
+    {
+     "entity-type": "item",
+     "numeric-id": 18199165,
+     "id": "Q18199165"
+    }
+   ],
+   "P6216": [
+    {
+     "entity-type": "item",
+     "numeric-id": 50423863,
+     "id": "Q50423863"
+    }
+   ],
+   "P1259": [
+    {
+     "latitude": 26.100723,
+     "longitude": 91.87974,
+     "altitude": null,
+     "precision": 1e-06,
+     "globe": "http://www.wikidata.org/entity/Q2"
+    }
+   ],
+   "P571": [
+    {
+     "time": "+2020-10-11T00:00:00Z",
+     "timezone": 0,
+     "before": 0,
+     "after": 0,
+     "precision": 11,
+     "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+    }
+   ],
+   "P170": [
+    null
+   ],
+   "P6757": [
+    {
+     "amount": "+0.00040257648953301127",
+     "unit": "http://www.wikidata.org/entity/Q11574"
+    }
+   ],
+   "P6790": [
+    {
+     "amount": "+1.65",
+     "unit": "1"
+    }
+   ],
+   "P2151": [
+    {
+     "amount": "+4.755",
+     "unit": "http://www.wikidata.org/entity/Q174789"
+    }
+   ],
+   "P6789": [
+    {
+     "amount": "+125",
+     "unit": "1"
+    }
+   ],
+   "P31": [
+    {
+     "entity-type": "item",
+     "numeric-id": 125191,
+     "id": "Q125191"
+    }
+   ],
+   "P1163": [
+    "image/jpeg"
+   ]
+  },
+  "structured_data_labels": {
+   "Q125191": {
+    "label": "photograph",
+    "description": "image created by light falling on a light-sensitive surface"
+   },
+   "Q18199165": {
+    "label": "Creative Commons Attribution-ShareAlike 4.0 International",
+    "description": "Creative Commons license"
+   },
+   "Q50423863": {
+    "label": "copyrighted",
+    "description": "legal state of a work as recognised as an intellectual property of an entity"
+   },
+   "Q66458942": {
+    "label": "original creation by uploader",
+    "description": "value to indicate source of an image on Wikimedia Commons"
+   }
+  },
+  "exif": {
+   "Make": "OnePlus",
+   "Model": "HD1901",
+   "Orientation": 1,
+   "DateTime": "2020:10:11 13:15:37",
+   "ExposureTime": "1/2484",
+   "FNumber": "165/100",
+   "ISOSpeedRatings": 125,
+   "DateTimeOriginal": "2020:10:11 13:15:37",
+   "FocalLength": "4755/1000",
+   "GPSLatitude": 26.100722972222222,
+   "GPSLongitude": 91.87973997222221
+  },
+  "extmetadata": {
+   "ImageDescription": "Bs3 musturd yellow 200ns",
+   "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Podum_26&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Podum 26 (page does not exist)\">Podum 26</a>",
+   "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+   "LicenseShortName": "CC BY-SA 4.0",
+   "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "DateTimeOriginal": "2020-10-11 13:15:37",
+   "GPSLatitude": "26.100723",
+   "GPSLongitude": "91.879740",
+   "ObjectName": "Highway road Guwahati to Sonapur assam IND",
+   "Categories": "Roads in Indonesia|Bajaj Pulsar|Self-published work|Files with coordinates missing SDC location of creation",
+   "Restrictions": "",
+   "UsageTerms": "Creative Commons Attribution-Share Alike 4.0"
+  },
+  "wikitext": "empty\n\n=={{int:filedesc}}==\n{{Information\n| description    = {{en|1=Bs3 musturd yellow 200ns}}\n| date           = 2020-10-11 13:15:37\n| source         = {{own}}\n| author         = [[User:Podum 26|Podum 26]]\n| permission     = \n| other versions = \n}}\n{{Location|26.100723|91.87974}}\n\n=={{int:license-header}}==\n{{self|cc-by-sa-4.0}}\n\n[[Category:Bajaj Pulsar]]\n[[Category:Roads in Indonesia]]",
+  "history": [
+   {
+    "ts": "2020-11-02T18:41:42Z",
+    "user": "Podum 26",
+    "comment": "Uploaded own work with UploadWizard",
+    "size": [
+     4000,
+     3000
+    ]
+   }
+  ]
+ },
+ {
+  "title": "Moscow, Bajaj Pulsar NS200 red, Oct 2026 01.jpg",
+  "saved_as": "05-Moscow__Bajaj_Pulsar_NS200_red__Oct_2026_01.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Moscow,_Bajaj_Pulsar_NS200_red,_Oct_2026_01.jpg",
+  "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4e/Moscow%2C_Bajaj_Pulsar_NS200_red%2C_Oct_2026_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "size_px": [
+   3600,
+   2789
+  ],
+  "bytes_downloaded": 3881379,
+  "sha1_commons": "75376743f05946e39f138c226a3460db8254ec4d",
+  "sha1_downloaded": "75376743f05946e39f138c226a3460db8254ec4d",
+  "sha1_match": true,
+  "uploaded_by": "Retired electrician",
+  "uploaded": "2026-10-09T10:39:25Z",
+  "upload_comment": "Uploaded own work with UploadWizard",
+  "categories": [
+   "Category:Bajaj Pulsar",
+   "Category:Bajaj motorcycles in Russia",
+   "Category:CC-Zero",
+   "Category:Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license",
+   "Category:Moscow photographs taken on 2026-10-07",
+   "Category:Motorcycles in Moscow",
+   "Category:Photographs by Retired electrician/bikes,motorbikes,unibikes",
+   "Category:Self-published work",
+   "Category:Self-published work missing SDC copyright license"
+  ],
+  "used_on": [],
+  "structured_data": {
+   "P180": [
+    {
+     "entity-type": "item",
+     "numeric-id": 19895488,
+     "id": "Q19895488"
+    }
+   ],
+   "P571": [
+    {
+     "time": "+2026-10-07T00:00:00Z",
+     "timezone": 0,
+     "before": 0,
+     "after": 0,
+     "precision": 11,
+     "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+    }
+   ],
+   "P1163": [
+    "image/jpeg"
+   ],
+   "P6789": [
+    {
+     "amount": "+200",
+     "unit": "1"
+    }
+   ],
+   "P6757": [
+    {
+     "amount": "+0.001",
+     "unit": "http://www.wikidata.org/entity/Q11574"
+    }
+   ],
+   "P6790": [
+    {
+     "amount": "+5.6",
+     "unit": "1"
+    }
+   ],
+   "P2151": [
+    {
+     "amount": "+85",
+     "unit": "http://www.wikidata.org/entity/Q174789"
+    }
+   ]
+  },
+  "structured_data_labels": {
+   "Q19895488": {
+    "label": "Pulsar 200NS",
+    "description": "Sports bike manufactured by Bajaj Auto"
+   }
+  },
+  "exif": {
+   "Make": "Canon",
+   "Model": "EOS REBEL SL1",
+   "Software": "RawTherapee 5.12",
+   "DateTime": "2026:10:07 23:10:30",
+   "ExposureTime": "1/1000",
+   "FNumber": "56/10",
+   "ISOSpeedRatings": 200,
+   "DateTimeOriginal": "2026:10:07 12:44:55",
+   "FocalLength": "850/10"
+  },
+  "extmetadata": {
+   "ImageDescription": "Bajaj Pulsar NS200 где-то в Москве. На смену японцам приходят индусы.",
+   "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Retired_electrician&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Retired electrician (page does not exist)\">Retired electrician</a>",
+   "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+   "LicenseShortName": "CC0",
+   "LicenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "DateTimeOriginal": "2026-10-07 12:44:55",
+   "GPSLatitude": null,
+   "GPSLongitude": null,
+   "ObjectName": "Moscow, Bajaj Pulsar NS200 red, Oct 2026 01",
+   "Categories": "CC-Zero|Creative Commons CC0 1.0 Universal Public Domain Dedication missing SDC copyright license|Bajaj Pulsar|Self-published work|Self-published work missing SDC copyright license|Motorcycles in Moscow|Bajaj motorcycles in Russia|Photographs by Retired electrician/bikes,motorbikes,unibikes|Moscow photographs taken on 2026-10-07",
+   "Restrictions": "",
+   "UsageTerms": "Creative Commons Zero, Public Domain Dedication"
+  },
+  "wikitext": "=={{int:filedesc}}==\n{{Information\n|description={{ru|1=Bajaj Pulsar NS200 где-то в Москве. На смену японцам приходят индусы.}}\n|date=2026-10-07 12:44:55\n|source={{own}}\n|author=[[User:Retired electrician|Retired electrician]]\n|permission=\n|other versions=\n}}\n\n=={{int:license-header}}==\n{{self|cc-zero}}\n\n[[Category:Bajaj Pulsar]]\n[[Category:Bajaj motorcycles in Russia]]\n[[Category:Motorcycles in Moscow]]\n[[Category:Moscow photographs taken on 2026-10-07]]\n[[Category:Photographs by Retired electrician/bikes,motorbikes,unibikes]]",
+  "history": [
+   {
+    "ts": "2026-10-09T10:39:25Z",
+    "user": "Retired electrician",
+    "comment": "Uploaded own work with UploadWizard",
+    "size": [
+     3600,
+     2789
+    ]
+   }
+  ]
+ }
+]
