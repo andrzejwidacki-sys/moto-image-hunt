@@ -1,0 +1,47 @@
+name: Audit Unsplash photos
+
+on:
+  workflow_dispatch:
+    inputs:
+      titles:
+        description: "ID zdjęć Unsplash oddzielone średnikiem"
+        type: string
+        required: true
+      branch:
+        description: "Nazwa gałęzi na wyniki (audit-...)"
+        type: string
+        default: audit-unsplash
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: Audit
+        env:
+          TITLES: ${{ inputs.titles }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+        run: |
+          IFS=';' read -ra arr <<< "$TITLES"
+          python audit/audit_unsplash.py audit-out "${arr[@]}"
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ${{ inputs.branch }}
+        run: |
+          case "$BRANCH" in audit-*) ;; *) echo "branch must start with audit-"; exit 1;; esac
+          case "$BRANCH" in *[!A-Za-z0-9._-]*) echo "unsafe branch"; exit 1;; esac
+          cd audit-out
+          git init -q -b "$BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "Audit run ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
