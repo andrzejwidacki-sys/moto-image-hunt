@@ -38,7 +38,7 @@ def main(titles, out):
                 sd[pid] = [c.get("mainsnak", {}).get("datavalue", {}).get("value") for c in claims]
         except Exception as exc:  # structured data is optional
             sd = {"error": str(exc)}
-        ids = [v.get("id") for vals in sd.values() if isinstance(vals, list) for v in vals if isinstance(v, dict)]
+        ids = [v["id"] for vals in sd.values() if isinstance(vals, list) for v in vals if isinstance(v, dict) and isinstance(v.get("id"), str)]
         labels = {}
         if ids:
             w = S.get("https://www.wikidata.org/w/api.php", timeout=60, params={
