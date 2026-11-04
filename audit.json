@@ -1,0 +1,154 @@
+[
+ {
+  "title": "Subrata Ganguli with Pulsar NS 200.jpg",
+  "saved_as": "01-Subrata_Ganguli_with_Pulsar_NS_200.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Subrata_Ganguli_with_Pulsar_NS_200.jpg",
+  "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Subrata_Ganguli_with_Pulsar_NS_200.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "size_px": [
+   2160,
+   3840
+  ],
+  "bytes_downloaded": 539254,
+  "sha1_commons": "d3a3de046f844739c424a88edbbb2a9c6f106507",
+  "sha1_downloaded": "d3a3de046f844739c424a88edbbb2a9c6f106507",
+  "sha1_match": true,
+  "uploaded_by": "Amrit barman",
+  "uploaded": "2016-07-03T08:07:17Z",
+  "upload_comment": "Cross-wiki upload from bn.wikipedia.org",
+  "categories": [
+   "Category:Bajaj Pulsar",
+   "Category:CC-BY-SA-4.0",
+   "Category:Self-published work",
+   "Category:Subrata Ganguli",
+   "Category:Taken with Lava Iris X1",
+   "Category:Tezpur"
+  ],
+  "used_on": [],
+  "structured_data": {
+   "P571": [
+    {
+     "time": "+2016-07-03T00:00:00Z",
+     "timezone": 0,
+     "before": 0,
+     "after": 0,
+     "precision": 11,
+     "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+    }
+   ],
+   "P6216": [
+    {
+     "entity-type": "item",
+     "numeric-id": 50423863,
+     "id": "Q50423863"
+    }
+   ],
+   "P275": [
+    {
+     "entity-type": "item",
+     "numeric-id": 18199165,
+     "id": "Q18199165"
+    }
+   ],
+   "P7482": [
+    {
+     "entity-type": "item",
+     "numeric-id": 66458942,
+     "id": "Q66458942"
+    }
+   ],
+   "P170": [
+    null
+   ],
+   "P6757": [
+    {
+     "amount": "+0.001645",
+     "unit": "http://www.wikidata.org/entity/Q11574"
+    }
+   ],
+   "P6790": [
+    {
+     "amount": "+2.4",
+     "unit": "1"
+    }
+   ],
+   "P2151": [
+    {
+     "amount": "+3.5",
+     "unit": "http://www.wikidata.org/entity/Q174789"
+    }
+   ],
+   "P6789": [
+    {
+     "amount": "+125",
+     "unit": "1"
+    }
+   ],
+   "P1163": [
+    "image/jpeg"
+   ],
+   "P31": [
+    {
+     "entity-type": "item",
+     "numeric-id": 125191,
+     "id": "Q125191"
+    }
+   ]
+  },
+  "structured_data_labels": {
+   "Q125191": {
+    "label": "photograph",
+    "description": "image created by light falling on a light-sensitive surface"
+   },
+   "Q18199165": {
+    "label": "Creative Commons Attribution-ShareAlike 4.0 International",
+    "description": "Creative Commons license"
+   },
+   "Q50423863": {
+    "label": "copyrighted",
+    "description": "legal state of a work as recognised as an intellectual property of an entity"
+   },
+   "Q66458942": {
+    "label": "original creation by uploader",
+    "description": "value to indicate source of an image on Wikimedia Commons"
+   }
+  },
+  "exif": {
+   "Make": "Lava",
+   "Model": "X1 Selfie",
+   "Orientation": 1,
+   "Software": "Adobe Photoshop 7.0",
+   "DateTime": "2016:07:03 13:23:35",
+   "ExposureTime": "1645/1000000",
+   "FNumber": "24/10",
+   "ISOSpeedRatings": 125,
+   "DateTimeOriginal": "2016:06:30 11:18:45",
+   "FocalLength": "350/100"
+  },
+  "extmetadata": {
+   "ImageDescription": "Subrata Ganguli In Tezpur",
+   "Artist": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Amrit_barman&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Amrit barman (page does not exist)\">Amrit barman</a>",
+   "Credit": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+   "LicenseShortName": "CC BY-SA 4.0",
+   "LicenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+   "DateTimeOriginal": "2016-07-03",
+   "GPSLatitude": null,
+   "GPSLongitude": null,
+   "ObjectName": "Subrata Ganguli with Pulsar NS 200",
+   "Categories": "Taken with Lava Iris X1|Tezpur|Bajaj Pulsar|Self-published work|Subrata Ganguli",
+   "Restrictions": "",
+   "UsageTerms": "Creative Commons Attribution-Share Alike 4.0"
+  },
+  "wikitext": "== {{int:filedesc}} ==\n{{Information\n|description={{bn|1=Subrata Ganguli In Tezpur}}\n|date=2016-07-03\n|source={{own}}\n|author=[[User:Amrit barman|Amrit barman]]\n}}\n\n== {{int:license-header}} ==\n{{self|cc-by-sa-4.0}}\n\n\n[[Category:Subrata Ganguli]]\n[[Category:Taken with Lava Iris X1]]\n\n[[Category:Tezpur]]\n[[Category:Bajaj Pulsar]]",
+  "history": [
+   {
+    "ts": "2016-07-03T08:07:17Z",
+    "user": "Amrit barman",
+    "comment": "Cross-wiki upload from bn.wikipedia.org",
+    "size": [
+     2160,
+     3840
+    ]
+   }
+  ]
+ }
+]
