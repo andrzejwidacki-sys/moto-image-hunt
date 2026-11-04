@@ -3,10 +3,10 @@ name: Audit Unsplash photos
 on:
   workflow_dispatch:
     inputs:
-      titles:
-        description: "ID zdjęć Unsplash oddzielone średnikiem"
+      source_branch:
+        description: "Gałąź z wynikami wyszukiwania"
         type: string
-        required: true
+        default: results-pulsar-ns200
       branch:
         description: "Nazwa gałęzi na wyniki (audit-...)"
         type: string
@@ -24,15 +24,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install requests
+      - run: pip install requests Pillow
       - name: Audit
         env:
-          TITLES: ${{ inputs.titles }}
+          SOURCE_BRANCH: ${{ inputs.source_branch }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
-        run: |
-          IFS=';' read -ra arr <<< "$TITLES"
-          python audit/audit_unsplash.py audit-out "${arr[@]}"
+        run: python audit/audit_unsplash.py "$SOURCE_BRANCH" audit-out
       - name: Publish
+        if: always() && hashFiles('audit-out/audit.json') != ''
         env:
           GH_TOKEN: ${{ github.token }}
           BRANCH: ${{ inputs.branch }}
