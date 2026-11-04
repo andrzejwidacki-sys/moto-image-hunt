@@ -41,6 +41,28 @@ class DocumentedEndpoints(unittest.TestCase):
                     __import__("re").compile(pattern)
 
 
+class Ns200TargetTests(unittest.TestCase):
+    def test_classification(self):
+        from image_hunt.models import Item, classify
+        t = TARGETS["pulsar-ns200"]
+        mk = lambda title, tags=(): Item(source="x", kind="image", id=title, title=title, page_url="", file_url="",
+                                         thumb_url="", creator="", license="", license_url="", verdict="OK",
+                                         attribution_required=False, tags=list(tags))
+        cases = [
+            ("Bajaj Pulser ns200", "exact"), ("Pulsar NS 200 red", "exact"), ("Bj Pulsar NS 200.jpg", "exact"),
+            ("Rouser Ns200, Ns200, Bajaj ns200, pulsar ns200", "exact"), ("Pulsar 200NS grey", "exact"),
+            ("Motorcycle Pulsar NS200 and Royal Enfield Hunter350", "exact"),
+            ("BAJAJ Pulsar NS160", "family"), ("Pulsar NS125 front", "family"), ("Pulsar N250", "family"),
+            ("Black Pulsar 150 close up", "brand"), ("Bajaj Avenger 220 cruise", "brand"),
+            ("Honda CBR 600", "other"), ("Millisecond pulsar NASA", "other"), ("Pulsar astronomical NS200 plot", "other"),
+        ]
+        for title, expect in cases:
+            self.assertEqual(classify(mk(title), t), expect, title)
+        self.assertEqual(classify(mk("IMG_0001.jpg", ["depicts:Q19895488"]), t), "exact")   # structured-data evidence
+        self.assertEqual(classify(mk("IMG_0002.jpg", ["depicts:Q371514"]), t), "brand")
+        self.assertEqual(classify(mk("IMG_0003.jpg"), t), "other")
+
+
 class WorkflowTests(unittest.TestCase):
     def test_workflow_is_consistent(self):
         wf = yaml.safe_load((ROOT / ".github/workflows/image-hunt.yml").read_text(encoding="utf-8"))
@@ -57,7 +79,11 @@ class WorkflowTests(unittest.TestCase):
             self.assertNotIn("${{ inputs", step.get("run", ""))
         self.assertEqual(wf["permissions"], {"contents": "write"})  # needed only to push the results branch
         steps = {s.get("name"): s for s in wf["jobs"]["hunt"]["steps"] if s.get("name")}
-        self.assertIn("inputs.publish_results", steps["Publish results to the results branch"]["if"])
+        publish = steps["Publish results to the results branch"]
+        self.assertIn("inputs.publish_results", publish["if"])
+        self.assertIn("TARGET", publish["env"])
+        self.assertIn('branch="results-$TARGET"', publish["run"])      # one results branch per target
+        self.assertIn("unsafe target name", publish["run"])           # branch name is validated before use
         order = [s.get("name") or s.get("uses") for s in wf["jobs"]["hunt"]["steps"]]
         self.assertLess(order.index("Search"), order.index("Download previews"))
         self.assertLess(order.index("Download previews"), order.index("Publish results to the results branch"))

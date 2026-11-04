@@ -11,12 +11,14 @@ import re
 from collections import deque
 from typing import Iterator
 
+from ..http import HttpError
 from ..models import CHECK, OK, Item, judge_license, normalise
 from .base import Ctx, strip_html
 
 NAME = "commons"
 ENV: list[str] = []
 API = "https://commons.wikimedia.org/w/api.php"
+WIKIDATA = "https://www.wikidata.org/w/api.php"
 BASE = {"action": "query", "format": "json", "formatversion": "2"}
 IMAGEINFO = {
     "prop": "imageinfo|categories",
@@ -90,6 +92,25 @@ def to_item(page: dict, query: str, include_video: bool) -> Item | None:
     )
 
 
+def _wikidata(ctx: Ctx, specs: list[dict]) -> dict[str, dict]:
+    """Look up label + Commons category (P373) of the configured Wikidata items.
+
+    An item is only trusted (`ok`) when its English label matches the spec's `label` regex, so a wrong
+    Q-number in targets.yml can never silently tag unrelated photos."""
+    data = ctx.http.get_json(WIKIDATA, params={
+        "action": "wbgetentities", "ids": "|".join(s["id"] for s in specs),
+        "props": "labels|claims", "languages": "en", "format": "json"})
+    out: dict[str, dict] = {}
+    for s in specs:
+        ent = (data.get("entities") or {}).get(s["id"]) or {}
+        label = ((ent.get("labels") or {}).get("en") or {}).get("value", "")
+        cats = [c["mainsnak"]["datavalue"]["value"] for c in (ent.get("claims") or {}).get("P373", [])
+                if (c.get("mainsnak") or {}).get("datavalue")]
+        ok = bool(re.search(s["label"], label, re.I)) if s.get("label") else bool(label)
+        out[s["id"]] = {"label": label, "categories": cats, "ok": ok}
+    return out
+
+
 def _discover_categories(ctx: Ctx) -> list[str]:
     pattern = ctx.target.get("commons_category_filter")
     found: list[str] = []
@@ -130,10 +151,45 @@ def _walk(ctx: Ctx, roots: list[str], depth: int) -> tuple[dict[str, str], list[
 
 def search(ctx: Ctx) -> Iterator[Item]:
     seen_titles: set[str] = set()
+    depicts: dict[str, set[str]] = {}  # Wikidata id -> titles of files whose structured data says "depicts <id>"
+
+    def emit(item: Item | None, source_query: str = "") -> Item | None:
+        if item is None or item.id in seen_titles:
+            return None
+        seen_titles.add(item.id)
+        item.tags += [f"depicts:{q}" for q, titles in depicts.items() if item.id in titles]
+        return item
+
+    # Route 0: structured data ("depicts" statements) - finds files whatever their file name is
+    specs = ctx.target.get("commons_depicts", [])
+    extra_roots: list[str] = []
+    if specs:
+        try:
+            info = _wikidata(ctx, specs)
+        except HttpError as exc:
+            info = {}
+            ctx.notes.append(f"Commons: nie udało się odpytać Wikidata ({exc.status}) - pominięto wyszukiwanie po 'przedstawia'.")
+        for s in specs:
+            i = info.get(s["id"])
+            if not i or not i["ok"]:
+                if i is not None:
+                    ctx.notes.append(f"Commons: Wikidata {s['id']} ma etykietę '{i['label']}', nie pasuje do '{s.get('label')}' - pominięto.")
+                continue
+            ctx.notes.append(f"Commons: Wikidata {s['id']} = '{i['label']}'"
+                             + (f" (kategoria: {', '.join(i['categories'])})" if i["categories"] else ""))
+            extra_roots += ["Category:" + c for c in i["categories"]]
+            pages = _collect(ctx, {**IMAGEINFO, "generator": "search", "gsrsearch": f"haswbstatement:P180={s['id']}",
+                                   "gsrnamespace": "6", "gsrlimit": "50"}, limit=ctx.max_per_query * 2)
+            depicts[s["id"]] = {p["title"] for p in pages}
+            ctx.notes.append(f"Commons: {len(pages)} plików z deklaracją 'przedstawia {s['id']}'")
+            for page in pages:
+                item = emit(to_item(page, f"depicts:{s['id']}", ctx.include_video))
+                if item:
+                    yield item
 
     # Route 1: categories
     discovered = _discover_categories(ctx)
-    roots = list(dict.fromkeys(ctx.target.get("commons_categories", []) + discovered))
+    roots = list(dict.fromkeys(ctx.target.get("commons_categories", []) + extra_roots + discovered))
     files, visited = _walk(ctx, roots, depth=int(ctx.target.get("commons_depth", 3)))
     ctx.notes.append(f"Commons: przejrzano {len(visited)} kategorii ({len(files)} plików): "
                      + ", ".join(c.removeprefix("Category:") for c in visited[:25])
@@ -142,9 +198,8 @@ def search(ctx: Ctx) -> Iterator[Item]:
     for i in range(0, len(titles), 50):
         batch = titles[i:i + 50]
         for page in _collect(ctx, {**IMAGEINFO, "titles": "|".join(batch)}):
-            item = to_item(page, "category:" + files.get(page["title"], ""), ctx.include_video)
-            if item and item.id not in seen_titles:
-                seen_titles.add(item.id)
+            item = emit(to_item(page, "category:" + files.get(page["title"], ""), ctx.include_video))
+            if item:
                 yield item
 
     # Route 2: full-text search
@@ -152,7 +207,6 @@ def search(ctx: Ctx) -> Iterator[Item]:
         pages = _collect(ctx, {**IMAGEINFO, "generator": "search", "gsrsearch": q,
                                "gsrnamespace": "6", "gsrlimit": "50"}, limit=ctx.max_per_query)
         for page in pages:
-            item = to_item(page, q, ctx.include_video)
-            if item and item.id not in seen_titles:
-                seen_titles.add(item.id)
+            item = emit(to_item(page, q, ctx.include_video))
+            if item:
                 yield item

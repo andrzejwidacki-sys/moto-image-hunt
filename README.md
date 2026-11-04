@@ -2,7 +2,7 @@
 
 Workflow GitHub Actions, który szuka zdjęć i wideo wybranego motocykla w darmowych bazach i **sprawdza ich licencje pod kątem użycia w filmie na YouTube / w social mediach** (użycie komercyjne + montaż).
 
-Domyślny cel: **Bajaj Pulsar NS125**. Drugi, gotowy: Honda NS125. Własny model dodasz w `targets.yml`.
+Gotowe cele: **pulsar-ns125** (domyślny), **pulsar-ns200**, **honda-ns125**. Commons jest przeszukiwany także po danych strukturalnych („przedstawia: Pulsar 200NS”), więc znajduje zdjęcia o nazwach typu `IMG_1234.jpg`; identyfikator Wikidata jest przy każdym przebiegu weryfikowany po etykiecie. Własny model dodasz w `targets.yml`.
 
 ## Źródła
 
@@ -35,7 +35,7 @@ Domyślny cel: **Bajaj Pulsar NS125**. Drugi, gotowy: Honda NS125. Własny model
 
 ## Podglądy zdjęć i gałąź `results`
 
-Po wyszukiwaniu workflow pobiera podglądy najlepszych trafień (do `max_images`, domyślnie 80; tylko zdjęcia z werdyktem OK lub CHECK, zmniejszone do 1280 px) i zapisuje wszystkie wyniki na osobnej gałęzi **`results`** (nadpisywanej przy każdym przebiegu; `main` zostaje czysta). Znajdziesz tam `report.md`, `results.csv`, `attribution.txt`, `gallery.html` oraz folder `images/` z `index.json` (autor, licencja, link do źródła dla każdego podglądu). Wyłączysz to parametrem `publish_results`.
+Po wyszukiwaniu workflow pobiera podglądy najlepszych trafień (do `max_images`, domyślnie 80; tylko zdjęcia z werdyktem OK lub CHECK, zmniejszone do 1280 px) i zapisuje wszystkie wyniki na osobnej gałęzi **`results-<cel>`**, np. `results-pulsar-ns200` (każdy cel ma własną gałąź, nadpisywaną przy kolejnym przebiegu tego celu; `main` zostaje czysta). Znajdziesz tam `report.md`, `results.csv`, `attribution.txt`, `gallery.html` oraz folder `images/` z `index.json` (autor, licencja, link do źródła dla każdego podglądu). Wyłączysz to parametrem `publish_results`.
 
 Podglądy to kopie do przeglądania - przed użyciem w filmie pobierz oryginał ze strony źródła i podaj autora, jeśli licencja tego wymaga. W repozytorium publicznym gałąź `results` jest widoczna dla wszystkich; jeśli to nie ma być publiczne, ustaw repozytorium jako prywatne.
 

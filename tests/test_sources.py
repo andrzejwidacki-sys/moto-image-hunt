@@ -93,6 +93,49 @@ class CommonsTests(unittest.TestCase):
         self.assertEqual(commons.to_item(page, "q", False).verdict, CHECK)
 
 
+class CommonsDepictsTests(unittest.TestCase):
+    def setUp(self):
+        self.target = {**TARGET, "commons_categories": [], "commons_category_search": [],
+                       "commons_depicts": [{"id": "Q19895488", "label": "pulsar"}, {"id": "Q999", "label": "pulsar"}]}
+        entities = {"entities": {
+            "Q19895488": {"labels": {"en": {"value": "Pulsar 200NS"}},
+                          "claims": {"P373": [{"mainsnak": {"datavalue": {"value": "Bajaj Pulsar 200NS"}}}]}},
+            "Q999": {"labels": {"en": {"value": "Banana"}}, "claims": {}}}}
+        pages = lambda *ps: {"query": {"pages": list(ps)}}
+        img1 = commons_page(1, "File:IMG_0001.jpg", lic="CC0 1.0")
+        img2 = commons_page(2, "File:IMG_0002.jpg")
+        self.routes = [
+            (lambda u, p, h: u == commons.WIKIDATA, entities),
+            (lambda u, p, h: str(p.get("gsrsearch", "")).startswith("haswbstatement:P180=Q19895488"), pages(img1)),
+            (lambda u, p, h: p.get("list") == "search", {"query": {"search": []}}),
+            (lambda u, p, h: p.get("cmtitle") == "Category:Bajaj Pulsar 200NS", {"query": {"categorymembers": [
+                {"ns": 6, "title": "File:IMG_0001.jpg"}, {"ns": 6, "title": "File:IMG_0002.jpg"}]}}),
+            (api("titles"), pages(img1, img2)),
+            (api("generator", "search"), pages()),
+        ]
+
+    def test_depicts_tag_category_from_wikidata_and_label_check(self):
+        http = FakeHttp(self.routes)
+        c = Ctx(http=http, queries=["Pulsar NS200"], target=self.target, env={})
+        items = {i.id: i for i in commons.search(c)}
+        self.assertEqual(set(items), {"File:IMG_0001.jpg", "File:IMG_0002.jpg"})
+        self.assertEqual(items["File:IMG_0001.jpg"].tags, ["depicts:Q19895488"])  # tagged once, found by two routes
+        self.assertEqual(items["File:IMG_0002.jpg"].tags, [])
+        notes = " | ".join(c.notes)
+        self.assertIn("Pulsar 200NS", notes)
+        self.assertIn("Q999", notes)                       # wrong label -> reported and skipped
+        searched = [p.get("gsrsearch") for u, p in http.calls if p.get("gsrsearch")]
+        self.assertNotIn("haswbstatement:P180=Q999", searched)
+        walked = {p.get("cmtitle") for u, p in http.calls if p.get("cmtitle")}
+        self.assertIn("Category:Bajaj Pulsar 200NS", walked)  # Commons category taken from Wikidata P373
+
+    def test_wikidata_outage_is_a_note_not_a_failure(self):
+        routes = [(lambda u, p, h: u == commons.WIKIDATA, HttpError(503, "u", "down"))] + self.routes[2:]
+        c = Ctx(http=FakeHttp(routes), queries=[], target=self.target, env={})
+        list(commons.search(c))
+        self.assertTrue(any("Wikidata" in n for n in c.notes))
+
+
 class OpenverseTests(unittest.TestCase):
     def test_pagination_and_mapping(self):
         r = lambda i, lic, ver: {"id": f"id{i}", "title": f"Pulsar NS125 {i}", "creator": "Ann", "url": f"https://img/{i}.jpg",

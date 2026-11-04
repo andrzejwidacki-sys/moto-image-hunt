@@ -37,6 +37,7 @@ targets:
     brand:
       - 'pulsar'
       - 'bajaj'
+      - 'depicts q371514'
     queries:
       - 'Pulsar NS125'
       - 'Bajaj Pulsar NS125'
@@ -54,7 +55,62 @@ targets:
       - 'Pulsar NS'
       - 'Bajaj Pulsar'
     commons_category_filter: 'bajaj pulsar|pulsar ?(ns|n|rs|as|ls)\d*\b'
+    commons_depicts:               # Wikidata items; verified at run time against their English label
+      - {id: Q371514, label: 'pulsar'}
     github_terms: ['ns125', 'pulsar-ns125', 'pulsar ns125', 'pulsar_ns125']
+
+  pulsar-ns200:
+    label: Bajaj Pulsar NS200
+    exact:
+      - '\bns ?200\b'
+      - '\b200 ?ns\b'
+      - 'depicts q19895488'        # Commons structured data: "depicts Pulsar 200NS"
+    exclude:
+      - 'neutron'
+      - 'millisecond'
+      - 'astronom'
+      - 'nebula'
+      - 'supernova'
+      - 'x ray'
+      - 'quasar'
+    family:
+      - '\bns ?(125|150|160|180|250)\b'
+      - '\b(125|150|160|180|250) ?ns\b'
+      - 'pulsar ?(rs|as|n|ls) ?\d+'
+      - 'rouser'
+    brand:
+      - 'pulsar'
+      - 'pulser'
+      - 'bajaj'
+      - 'depicts q371514'
+    queries:
+      - 'Pulsar NS200'
+      - 'Bajaj Pulsar NS200'
+      - 'Pulsar NS 200'
+      - 'Pulsar 200NS'
+      - 'Bajaj Pulsar 200NS'
+      - 'Bajaj NS200'
+      - 'NS200'
+      - '200NS'
+      - 'Rouser NS200'
+      - 'Bajaj Pulser NS200'
+      - 'NS200 motorcycle'
+      - 'Pulsar NS'
+      - 'Bajaj Pulsar'
+      - 'Pulsar bike'
+      - 'Bajaj motorcycle'
+    commons_categories:
+      - 'Category:Bajaj Pulsar'
+    commons_category_search:
+      - 'Pulsar NS200'
+      - 'Pulsar 200NS'
+      - 'Pulsar NS'
+      - 'Bajaj Pulsar'
+    commons_category_filter: 'bajaj pulsar|pulsar ?(ns|n|rs|as|ls)\d*\b'
+    commons_depicts:
+      - {id: Q19895488, label: 'pulsar'}
+      - {id: Q371514, label: 'pulsar'}
+    github_terms: ['ns200', 'pulsar-ns200', 'pulsar_ns200']
 
   honda-ns125:
     label: Honda NS125 (NS125R / NS125F)
