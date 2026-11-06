@@ -19,6 +19,7 @@ case "$1" in
   openvoice)
     sudo apt-get update -qq && sudo apt-get install -y -qq libsndfile1 ffmpeg
     pip install torch torchaudio --index-url $CPU
+    pip install av
     pip install "git+https://github.com/myshell-ai/MeloTTS.git" "git+https://github.com/myshell-ai/OpenVoice.git"
     python -m unidic download
     curl -sSL -o ck.zip https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip && unzip -q ck.zip ;;
