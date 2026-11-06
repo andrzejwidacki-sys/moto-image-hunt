@@ -1,0 +1,71 @@
+name: TTS samples
+
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: "Modele oddzielone przecinkiem: piper,kokoro,chatterbox,qwen3tts,openvoice"
+        type: string
+        default: "piper,kokoro,chatterbox,qwen3tts,openvoice"
+      budget_min:
+        description: "Budżet czasu generowania na model (minuty)"
+        type: string
+        default: "40"
+
+permissions:
+  contents: write
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - id: m
+        env:
+          MODELS: ${{ inputs.models }}
+        run: |
+          python3 - <<'PY'
+          import json, os
+          allowed = ["piper", "kokoro", "chatterbox", "qwen3tts", "openvoice"]
+          want = [m.strip() for m in os.environ["MODELS"].split(",") if m.strip()]
+          bad = [m for m in want if m not in allowed]
+          assert not bad, f"nieznane modele: {bad}"
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("matrix=" + json.dumps({"model": want}) + "\n")
+          PY
+
+  tts:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install ${{ matrix.model }}
+        run: bash tts/install.sh "${{ matrix.model }}"
+      - name: Generate samples
+        env:
+          OUT: ${{ github.workspace }}/tts-out
+          BUDGET_MIN: ${{ inputs.budget_min }}
+          PYTHONUNBUFFERED: "1"
+        run: |
+          cd "$GITHUB_WORKSPACE/tts"
+          python "run_${{ matrix.model }}.py"
+      - name: Publish
+        if: always() && hashFiles('tts-out/report.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: tts-${{ matrix.model }}
+        run: |
+          cd tts-out
+          git init -q -b "$BRANCH"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "TTS run ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
