@@ -24,6 +24,8 @@ case "$1" in
     pip install --no-deps "git+https://github.com/myshell-ai/OpenVoice.git"
     pip install faster-whisper pydub librosa wavmark inflect unidecode
     python -m unidic download
-    curl -sSL -o ck.zip https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip && unzip -q ck.zip ;;
+    # checkpointy konwertera: najpierw HF (repo myshell-ai/OpenVoiceV2), awaryjnie S3; brak nie blokuje testu głosu bazowego
+    python -c "from huggingface_hub import snapshot_download; snapshot_download('myshell-ai/OpenVoiceV2', local_dir='checkpoints_v2')" || \
+      { curl -fsSL -o ck.zip https://myshell-public-repo-host.s3.amazonaws.com/openvoice/checkpoints_v2_0417.zip && unzip -q ck.zip; } || echo "BRAK checkpointow konwertera" ;;
   *) echo "nieznany model: $1"; exit 1 ;;
 esac
