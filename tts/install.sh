@@ -8,11 +8,11 @@ case "$1" in
     sudo apt-get update -qq && sudo apt-get install -y -qq espeak-ng
     pip install torch --index-url $CPU
     pip install kokoro ;;
-  chatterbox)
+  chatterbox|cbemo)
     pip install torch==2.6.0 torchaudio==2.6.0 --index-url $CPU
     pip install "git+https://github.com/resemble-ai/chatterbox.git" || pip install chatterbox-tts
     pip freeze | grep -i -E "chatterbox|torch|transformers" ;;
-  qwen3tts)
+  qwen3tts|qwen3emo)
     sudo apt-get update -qq && sudo apt-get install -y -qq sox libsox-dev
     pip install torch torchaudio --index-url $CPU
     pip install qwen-tts ;;

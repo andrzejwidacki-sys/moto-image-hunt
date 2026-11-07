@@ -35,7 +35,7 @@ jobs:
         run: |
           python3 - <<'PY'
           import json, os
-          allowed = ["piper", "kokoro", "chatterbox", "qwen3tts", "openvoice"]
+          allowed = ["piper", "kokoro", "chatterbox", "qwen3tts", "openvoice", "qwen3emo", "cbemo"]
           want = [m.strip() for m in os.environ["MODELS"].split(",") if m.strip()]
           bad = [m for m in want if m not in allowed]
           assert not bad, f"nieznane modele: {bad}"
