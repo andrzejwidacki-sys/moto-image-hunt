@@ -1,0 +1,110 @@
+[
+ {
+  "page": "https://freemusicarchive.org/music/holiznacc0/power-pop/drama/",
+  "slug": "music-holiznacc0-power-pop-drama",
+  "page_status": 200,
+  "license_evidence": [
+   "HoliznaCC0 - Drama - Free Music Archive",
+   "HoliznaCC0",
+   "rg\\/music\\/holiznacc0\\/power-pop\\/drama\\/\",\"title\":\"Drama\",\"artistName\":\"HoliznaCC0\",\"artistUrl\":\"https:\\/\\/freemusicarchive.org\\/music\\/holiznacc0\\/\",\"albumTitle\":\"Power Pop!\",\"playbackUrl\":\"https:\\/\\/f",
+   "a rel=\"license\" class=\"mb-2 inline-flex w-full\" target=\"_blank\" href=\"https://creativecommons.org/publicdomain/zero/1.0/\"",
+   "img src=\"https://i.creativecommons.org/p/zero/1.0/88x31.png\" /",
+   "class=\"font-[500] underline hover:text-orange\" target=\"_blank\" xmlns:cc=\"http://creativecommons.org/ns#\" href=\"https://freemusicarchive.org/music/holiznacc0/\" property=\"cc:attributionName\"",
+   "is licensed under a",
+   "a rel=\"license\" href=\"https://creativecommons.org/publicdomain/zero/1.0/\" target=\"_blank\" class=\"font-[500] underline hover:text-orange\"",
+   "CC0 1.0 Universal License"
+  ],
+  "mp3_candidates": [
+   "https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/FlryAAAFEblQ2Vmd9eIJN3FtlTyrElVoahvfmoOb.mp3"
+  ],
+  "track_info": {
+   "id": 212617,
+   "handle": "drama",
+   "url": "https://freemusicarchive.org/music/holiznacc0/power-pop/drama/",
+   "title": "Drama",
+   "artistName": "HoliznaCC0",
+   "artistUrl": "https://freemusicarchive.org/music/holiznacc0/",
+   "albumTitle": "Power Pop!",
+   "playbackUrl": "https://freemusicarchive.org/track/drama/stream/",
+   "downloadUrl": "https://freemusicarchive.org/track/drama/download/",
+   "fileName": "FlryAAAFEblQ2Vmd9eIJN3FtlTyrElVoahvfmoOb.mp3",
+   "fileUrl": "https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/FlryAAAFEblQ2Vmd9eIJN3FtlTyrElVoahvfmoOb.mp3"
+  },
+  "mp3_status": 200,
+  "mp3_ct": "audio/mpeg",
+  "mp3_bytes": 8431885,
+  "mp3_error": "FileNotFoundError(2, 'No such file or directory')"
+ },
+ {
+  "page": "https://freemusicarchive.org/music/holiznacc0/transformations/transformations-3/",
+  "slug": "music-holiznacc0-transformations-transformations-3",
+  "page_status": 200,
+  "license_evidence": [
+   "HoliznaCC0 - Transformations 3 - Free Music Archive",
+   "HoliznaCC0",
+   "rmations\\/transformations-3\\/\",\"title\":\"Transformations 3\",\"artistName\":\"HoliznaCC0\",\"artistUrl\":\"https:\\/\\/freemusicarchive.org\\/music\\/holiznacc0\\/\",\"albumTitle\":\"Transformations\",\"playbackUrl\":\"https:",
+   "a rel=\"license\" class=\"mb-2 inline-flex w-full\" target=\"_blank\" href=\"https://creativecommons.org/publicdomain/zero/1.0/\"",
+   "img src=\"https://i.creativecommons.org/p/zero/1.0/88x31.png\" /",
+   "class=\"font-[500] underline hover:text-orange\" target=\"_blank\" xmlns:cc=\"http://creativecommons.org/ns#\" href=\"https://freemusicarchive.org/music/holiznacc0/\" property=\"cc:attributionName\"",
+   "is licensed under a",
+   "a rel=\"license\" href=\"https://creativecommons.org/publicdomain/zero/1.0/\" target=\"_blank\" class=\"font-[500] underline hover:text-orange\"",
+   "CC0 1.0 Universal License"
+  ],
+  "mp3_candidates": [
+   "https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/jOC3CIFhdsYbVoVwWcMfup0RZWcjqtveBp64iOFj.mp3"
+  ],
+  "track_info": {
+   "id": 198053,
+   "handle": "transformations-3",
+   "url": "https://freemusicarchive.org/music/holiznacc0/transformations/transformations-3/",
+   "title": "Transformations 3",
+   "artistName": "HoliznaCC0",
+   "artistUrl": "https://freemusicarchive.org/music/holiznacc0/",
+   "albumTitle": "Transformations",
+   "playbackUrl": "https://freemusicarchive.org/track/transformations-3/stream/",
+   "downloadUrl": "https://freemusicarchive.org/track/transformations-3/download/",
+   "fileName": "jOC3CIFhdsYbVoVwWcMfup0RZWcjqtveBp64iOFj.mp3",
+   "fileUrl": "https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/jOC3CIFhdsYbVoVwWcMfup0RZWcjqtveBp64iOFj.mp3"
+  },
+  "mp3_status": 200,
+  "mp3_ct": "audio/mpeg",
+  "mp3_bytes": 8296320,
+  "mp3_error": "FileNotFoundError(2, 'No such file or directory')"
+ },
+ {
+  "page": "https://freemusicarchive.org/music/holiznacc0/public-domain-lofi/one-good-day",
+  "slug": "music-holiznacc0-public-domain-lofi-one-good-day",
+  "page_status": 200,
+  "license_evidence": [
+   "HoliznaCC0 - One Good Day - Free Music Archive",
+   "HoliznaCC0",
+   "public-domain-lofi\\/one-good-day\\/\",\"title\":\"One Good Day\",\"artistName\":\"HoliznaCC0\",\"artistUrl\":\"https:\\/\\/freemusicarchive.org\\/music\\/holiznacc0\\/\",\"albumTitle\":\"Public Domain Lofi\",\"playbackUrl\":\"htt",
+   "a rel=\"license\" class=\"mb-2 inline-flex w-full\" target=\"_blank\" href=\"https://creativecommons.org/publicdomain/zero/1.0/\"",
+   "img src=\"https://i.creativecommons.org/p/zero/1.0/88x31.png\" /",
+   "class=\"font-[500] underline hover:text-orange\" target=\"_blank\" xmlns:cc=\"http://creativecommons.org/ns#\" href=\"https://freemusicarchive.org/music/holiznacc0/\" property=\"cc:attributionName\"",
+   "is licensed under a",
+   "a rel=\"license\" href=\"https://creativecommons.org/publicdomain/zero/1.0/\" target=\"_blank\" class=\"font-[500] underline hover:text-orange\"",
+   "CC0 1.0 Universal License"
+  ],
+  "mp3_candidates": [
+   "https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/AQCAheI92mWqsSgQeYLB6CZ3J1hiaGZgtmA9VCes.mp3"
+  ],
+  "track_info": {
+   "id": 265875,
+   "handle": "one-good-day",
+   "url": "https://freemusicarchive.org/music/holiznacc0/public-domain-lofi/one-good-day/",
+   "title": "One Good Day",
+   "artistName": "HoliznaCC0",
+   "artistUrl": "https://freemusicarchive.org/music/holiznacc0/",
+   "albumTitle": "Public Domain Lofi",
+   "playbackUrl": "https://freemusicarchive.org/track/one-good-day/stream/",
+   "downloadUrl": "https://freemusicarchive.org/track/one-good-day/download/",
+   "fileName": "AQCAheI92mWqsSgQeYLB6CZ3J1hiaGZgtmA9VCes.mp3",
+   "fileUrl": "https://files.freemusicarchive.org/storage-freemusicarchive-org/tracks/AQCAheI92mWqsSgQeYLB6CZ3J1hiaGZgtmA9VCes.mp3"
+  },
+  "mp3_status": 200,
+  "mp3_ct": "audio/mpeg",
+  "mp3_bytes": 5180365,
+  "mp3_error": "FileNotFoundError(2, 'No such file or directory')"
+ }
+]
