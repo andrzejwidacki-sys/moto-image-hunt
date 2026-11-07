@@ -7,7 +7,7 @@ import numpy as np
 OUT = Path(os.environ.get("OUT", "tts-out"))
 OUT.mkdir(parents=True, exist_ok=True)
 TEXTS = json.loads((Path(__file__).parent / "texts.json").read_text(encoding="utf-8"))
-ORDER = [(k, l) for k in ("s1", "s2", "s3", "s4", "s5") for l in ("hi", "es", "en")]
+ORDER = [(k, l) for k in ("s1", "s3") for l in ("pl", "hi", "es", "en")]
 BUDGET_S = float(os.environ.get("BUDGET_MIN", "40")) * 60
 
 
