@@ -20,6 +20,8 @@ jobs:
         with:
           ref: mixcheck-in
           path: in
+      - name: Install ffmpeg
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: Whisper on mixes
         run: |
           python3 -m venv /tmp/asr
