@@ -26,7 +26,7 @@ for lang in ("en", "es", "hi"):
         for k, st in enumerate(STARTS, 1):
             sel = [w.word for w in ws if st <= (w.start + w.end) / 2 < st + 12]
             hyp = "".join(sel) if False else " ".join(x.strip() for x in sel)
-            ref = TEXTS[f"n{k}"][lang]
+            ref = TEXTS[f"v{k}"][lang]   # tekst do wymowy
             e = wer(words(ref, lang), words(hyp, lang))
             per.append({"scene": k, "wer": round(e, 3), "hyp": hyp, "ref": ref})
         outside = [w.word for w in ws if not any(st <= (w.start + w.end) / 2 < st + 12 for st in STARTS)]
