@@ -1,0 +1,209 @@
+{
+ "model": "cbemo",
+ "python": "3.11.18",
+ "cpus": 4,
+ "notes": {
+  "torch": "2.6.0+cpu"
+ },
+ "items": [
+  {
+   "model": "cbemo",
+   "text": "v1",
+   "lang": "es",
+   "voice": "ex0.5-cfg0.5",
+   "ok": true,
+   "file": "cbemo_v1_es_ex0.5-cfg0.5.wav",
+   "audio_s": 8.94,
+   "compute_s": 93.28,
+   "rtf": 10.43
+  },
+  {
+   "model": "cbemo",
+   "text": "v1",
+   "lang": "es",
+   "voice": "ex0.8-cfg0.4",
+   "ok": true,
+   "file": "cbemo_v1_es_ex0.8-cfg0.4.wav",
+   "audio_s": 9.02,
+   "compute_s": 80.04,
+   "rtf": 8.87
+  },
+  {
+   "model": "cbemo",
+   "text": "v1",
+   "lang": "es",
+   "voice": "ex1.1-cfg0.3",
+   "ok": true,
+   "file": "cbemo_v1_es_ex1.1-cfg0.3.wav",
+   "audio_s": 8.62,
+   "compute_s": 79.85,
+   "rtf": 9.26
+  },
+  {
+   "model": "cbemo",
+   "text": "v1",
+   "lang": "en",
+   "voice": "ex0.5-cfg0.5",
+   "ok": true,
+   "file": "cbemo_v1_en_ex0.5-cfg0.5.wav",
+   "audio_s": 6.78,
+   "compute_s": 64.42,
+   "rtf": 9.5
+  },
+  {
+   "model": "cbemo",
+   "text": "v1",
+   "lang": "en",
+   "voice": "ex0.8-cfg0.4",
+   "ok": true,
+   "file": "cbemo_v1_en_ex0.8-cfg0.4.wav",
+   "audio_s": 7.14,
+   "compute_s": 68.1,
+   "rtf": 9.54
+  },
+  {
+   "model": "cbemo",
+   "text": "v1",
+   "lang": "en",
+   "voice": "ex1.1-cfg0.3",
+   "ok": true,
+   "file": "cbemo_v1_en_ex1.1-cfg0.3.wav",
+   "audio_s": 6.94,
+   "compute_s": 67.19,
+   "rtf": 9.68
+  },
+  {
+   "model": "cbemo",
+   "text": "v3",
+   "lang": "es",
+   "voice": "ex0.5-cfg0.5",
+   "ok": true,
+   "file": "cbemo_v3_es_ex0.5-cfg0.5.wav",
+   "audio_s": 9.66,
+   "compute_s": 88.21,
+   "rtf": 9.13
+  },
+  {
+   "model": "cbemo",
+   "text": "v3",
+   "lang": "es",
+   "voice": "ex0.8-cfg0.4",
+   "ok": true,
+   "file": "cbemo_v3_es_ex0.8-cfg0.4.wav",
+   "audio_s": 9.66,
+   "compute_s": 84.73,
+   "rtf": 8.77
+  },
+  {
+   "model": "cbemo",
+   "text": "v3",
+   "lang": "es",
+   "voice": "ex1.1-cfg0.3",
+   "ok": true,
+   "file": "cbemo_v3_es_ex1.1-cfg0.3.wav",
+   "audio_s": 10.18,
+   "compute_s": 89.33,
+   "rtf": 8.78
+  },
+  {
+   "model": "cbemo",
+   "text": "v3",
+   "lang": "en",
+   "voice": "ex0.5-cfg0.5",
+   "ok": true,
+   "file": "cbemo_v3_en_ex0.5-cfg0.5.wav",
+   "audio_s": 8.26,
+   "compute_s": 75.2,
+   "rtf": 9.1
+  },
+  {
+   "model": "cbemo",
+   "text": "v3",
+   "lang": "en",
+   "voice": "ex0.8-cfg0.4",
+   "ok": true,
+   "file": "cbemo_v3_en_ex0.8-cfg0.4.wav",
+   "audio_s": 8.58,
+   "compute_s": 78.13,
+   "rtf": 9.11
+  },
+  {
+   "model": "cbemo",
+   "text": "v3",
+   "lang": "en",
+   "voice": "ex1.1-cfg0.3",
+   "ok": true,
+   "file": "cbemo_v3_en_ex1.1-cfg0.3.wav",
+   "audio_s": 8.74,
+   "compute_s": 78.81,
+   "rtf": 9.02
+  },
+  {
+   "model": "cbemo",
+   "text": "v5",
+   "lang": "es",
+   "voice": "ex0.5-cfg0.5",
+   "ok": true,
+   "file": "cbemo_v5_es_ex0.5-cfg0.5.wav",
+   "audio_s": 9.27,
+   "compute_s": 88.13,
+   "rtf": 9.51
+  },
+  {
+   "model": "cbemo",
+   "text": "v5",
+   "lang": "es",
+   "voice": "ex0.8-cfg0.4",
+   "ok": true,
+   "file": "cbemo_v5_es_ex0.8-cfg0.4.wav",
+   "audio_s": 11.55,
+   "compute_s": 105.31,
+   "rtf": 9.12
+  },
+  {
+   "model": "cbemo",
+   "text": "v5",
+   "lang": "es",
+   "voice": "ex1.1-cfg0.3",
+   "ok": true,
+   "file": "cbemo_v5_es_ex1.1-cfg0.3.wav",
+   "audio_s": 10.83,
+   "compute_s": 101.21,
+   "rtf": 9.35
+  },
+  {
+   "model": "cbemo",
+   "text": "v5",
+   "lang": "en",
+   "voice": "ex0.5-cfg0.5",
+   "ok": true,
+   "file": "cbemo_v5_en_ex0.5-cfg0.5.wav",
+   "audio_s": 9.87,
+   "compute_s": 92.68,
+   "rtf": 9.39
+  },
+  {
+   "model": "cbemo",
+   "text": "v5",
+   "lang": "en",
+   "voice": "ex0.8-cfg0.4",
+   "ok": true,
+   "file": "cbemo_v5_en_ex0.8-cfg0.4.wav",
+   "audio_s": 9.59,
+   "compute_s": 91.42,
+   "rtf": 9.53
+  },
+  {
+   "model": "cbemo",
+   "text": "v5",
+   "lang": "en",
+   "voice": "ex1.1-cfg0.3",
+   "ok": true,
+   "file": "cbemo_v5_en_ex1.1-cfg0.3.wav",
+   "audio_s": 9.23,
+   "compute_s": 88.32,
+   "rtf": 9.57
+  }
+ ],
+ "elapsed_s": 1545.9
+}
