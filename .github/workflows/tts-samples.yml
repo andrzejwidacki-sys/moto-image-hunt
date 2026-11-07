@@ -11,6 +11,10 @@ on:
         description: "Budżet czasu generowania na model (minuty)"
         type: string
         default: "60"
+      text_keys:
+        description: "Klucze tekstów z tts/texts.json (t1,t2,t3 = testy; n1..n5 = narracja scen)"
+        type: string
+        default: "t1,t2,t3"
       whisper_model:
         description: "Model Whisper do kontroli mowy (small, medium, large-v3 lub none)"
         type: string
@@ -57,6 +61,7 @@ jobs:
         env:
           OUT: ${{ github.workspace }}/tts-out
           BUDGET_MIN: ${{ inputs.budget_min }}
+          TEXT_KEYS: ${{ inputs.text_keys }}
           PYTHONUNBUFFERED: "1"
         run: |
           cd "$GITHUB_WORKSPACE/tts"
