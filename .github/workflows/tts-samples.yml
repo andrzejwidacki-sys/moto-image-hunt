@@ -10,7 +10,11 @@ on:
       budget_min:
         description: "Budżet czasu generowania na model (minuty)"
         type: string
-        default: "40"
+        default: "60"
+      whisper_model:
+        description: "Model Whisper do kontroli mowy (small, medium, large-v3 lub none)"
+        type: string
+        default: "medium"
 
 permissions:
   contents: write
@@ -38,7 +42,7 @@ jobs:
   tts:
     needs: plan
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 150
     strategy:
       fail-fast: false
       matrix: ${{ fromJSON(needs.plan.outputs.matrix) }}
@@ -57,6 +61,14 @@ jobs:
         run: |
           cd "$GITHUB_WORKSPACE/tts"
           python "run_${{ matrix.model }}.py"
+      - name: Whisper check
+        if: always() && inputs.whisper_model != 'none' && hashFiles('tts-out/report.json') != ''
+        continue-on-error: true
+        run: |
+          python -m venv /tmp/asr
+          /tmp/asr/bin/pip install -q faster-whisper num2words
+          cd "$GITHUB_WORKSPACE/tts"
+          /tmp/asr/bin/python check_whisper.py "$GITHUB_WORKSPACE/tts-out" "${{ inputs.whisper_model }}"
       - name: Publish
         if: always() && hashFiles('tts-out/report.json') != ''
         env:

@@ -15,5 +15,8 @@ for key, lang in ORDER:
         rep.note("stopped", "budżet czasu")
         break
     with rep.item(key, lang, "default") as it:
-        wav = model.generate(TEXTS[key][lang], language_id=lang)
-        it.save(wav.squeeze().detach().cpu().numpy(), model.sr)
+        parts = []
+        for sent in split_sentences(TEXTS[key][lang]):
+            w = model.generate(sent, language_id=lang)
+            parts += [w.squeeze().detach().cpu().numpy(), silence(model.sr)]
+        it.save(np.concatenate(parts), model.sr)

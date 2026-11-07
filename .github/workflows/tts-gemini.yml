@@ -11,6 +11,10 @@ on:
         description: "Gotowe głosy oddzielone przecinkiem"
         type: string
         default: "Kore"
+      whisper_model:
+        description: "Model Whisper do kontroli mowy (small, medium, large-v3 lub none)"
+        type: string
+        default: "medium"
 
 permissions:
   contents: write
@@ -18,7 +22,7 @@ permissions:
 jobs:
   gemini:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -35,6 +39,14 @@ jobs:
         run: |
           test -n "$GEMINI_API_KEY" || { echo "Brak sekretu GEMINI_API_KEY"; exit 1; }
           cd tts && python run_gemini.py
+      - name: Whisper check
+        if: always() && inputs.whisper_model != 'none' && hashFiles('tts-out/report.json') != ''
+        continue-on-error: true
+        run: |
+          python -m venv /tmp/asr
+          /tmp/asr/bin/pip install -q faster-whisper num2words
+          cd "$GITHUB_WORKSPACE/tts"
+          /tmp/asr/bin/python check_whisper.py "$GITHUB_WORKSPACE/tts-out" "${{ inputs.whisper_model }}"
       - name: Publish
         if: always() && hashFiles('tts-out/report.json') != ''
         env:

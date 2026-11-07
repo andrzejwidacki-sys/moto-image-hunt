@@ -7,8 +7,18 @@ import numpy as np
 OUT = Path(os.environ.get("OUT", "tts-out"))
 OUT.mkdir(parents=True, exist_ok=True)
 TEXTS = json.loads((Path(__file__).parent / "texts.json").read_text(encoding="utf-8"))
-ORDER = [(k, l) for k in ("s1", "s3") for l in ("pl", "hi", "es", "en")]
+ORDER = [(k, l) for k in ("t1", "t2", "t3") for l in ("hi", "es", "en", "pl")]
 BUDGET_S = float(os.environ.get("BUDGET_MIN", "40")) * 60
+
+
+def split_sentences(text):
+    """Dzieli tekst na zdania (kropka, ?, !, danda) bez cięcia liczb typu 199.5."""
+    parts = re.split(r"(?<=[.!?।])\s+", text.strip())
+    return [p for p in parts if p]
+
+
+def silence(sr, sec=0.25):
+    return np.zeros(int(sr * sec), dtype=np.float32)
 
 
 def safe(s):

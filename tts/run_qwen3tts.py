@@ -24,5 +24,8 @@ for key, lang in ORDER:
         continue
     for sp in (speakers or [])[:2]:
         with rep.item(key, lang, sp) as it:
-            wavs, sr = model.generate_custom_voice(text=TEXTS[key][lang], language=NAMES[lang], speaker=sp)
-            it.save(wavs[0], sr)
+            parts = []
+            for sent in split_sentences(TEXTS[key][lang]):
+                wavs, sr = model.generate_custom_voice(text=sent, language=NAMES[lang], speaker=sp)
+                parts += [np.asarray(wavs[0]), silence(sr)]
+            it.save(np.concatenate(parts), sr)
