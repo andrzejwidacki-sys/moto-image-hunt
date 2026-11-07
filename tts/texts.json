@@ -1,57 +1,82 @@
 {
-  "s1": {
-    "en": "A naked sport bike from India. Single-cylinder, liquid-cooled engine with a displacement of 199.5 cc.",
-    "es": "Una moto naked sport de la India. Motor monocilíndrico, refrigerado por líquido, con una cilindrada de 199,5 cc.",
-    "hi": "भारत की एक नेकेड स्पोर्ट बाइक। सिंगल-सिलेंडर, लिक्विड-कूल्ड इंजन, जिसकी क्षमता 199.5 सीसी है।",
-    "pl": "Nagi motocykl sportowy z Indii. Jednocylindrowy silnik chłodzony cieczą o pojemności 199,5 cm³."
-  },
-  "s3": {
-    "en": "In Argentina it is called the Rouser NS200. The engine cover reads DTS-i and “triple spark”, and the tank shroud carries a huge “200”.",
-    "es": "En Argentina se llama Rouser NS200. La tapa del motor dice DTS-i y «triple spark», y el panel del tanque lleva un enorme «200».",
-    "hi": "अर्जेंटीना में इसे Rouser NS200 कहा जाता है। इंजन कवर पर DTS-i और “triple spark” लिखा है, और टैंक श्राउड पर बड़ा-सा “200” है।",
-    "pl": "W Argentynie nazywa się Rouser NS200. Na pokrywie silnika widnieje napis DTS-i i „triple spark”, a na owiewce zbiornika ogromne „200”."
-  },
-  "t1": {
-    "en": "The Bajaj Pulsar NS200 is a naked sport bike from India. It has a single-cylinder engine with four valves and runs on 17-inch wheels. Many riders use it every day to get to work, and some owners add a top case for deliveries.",
-    "es": "La Bajaj Pulsar NS200 es una moto naked sport de la India. Tiene un motor monocilíndrico de cuatro válvulas y rueda sobre llantas de 17 pulgadas. Muchos conductores la usan todos los días para ir al trabajo, y algunos dueños le agregan un baúl para hacer repartos.",
-    "hi": "बजाज पल्सर NS200 भारत की एक नेकेड स्पोर्ट बाइक है। इसमें चार वाल्व वाला सिंगल-सिलेंडर इंजन है और यह 17 इंच के पहियों पर चलती है। बहुत से राइडर इसे रोज़ काम पर जाने के लिए इस्तेमाल करते हैं, और कुछ मालिक डिलीवरी के लिए इसमें टॉप केस लगा लेते हैं।",
-    "pl": "Bajaj Pulsar NS200 to nagi motocykl sportowy z Indii. Ma jednocylindrowy silnik z czterema zaworami i jeździ na 17-calowych kołach. Wielu kierowców używa go codziennie do dojazdu do pracy, a niektórzy właściciele dodają kufer do dostaw."
-  },
-  "t2": {
-    "en": "The engine displaces 199.5 cc and is liquid-cooled. The tyres are 100/80-17 at the front and 130/70-17 at the rear, both on 17-inch alloy wheels. In Argentina the same bike is sold as the Rouser NS200, and its engine cover reads DTS-i. One photo was taken in 2014, another on 7 October 2026 in Moscow, and the second one is published under a CC0 licence.",
-    "es": "El motor tiene una cilindrada de 199,5 cc y está refrigerado por líquido. Los neumáticos son 100/80-17 adelante y 130/70-17 atrás, ambos sobre llantas de aleación de 17 pulgadas. En Argentina la misma moto se vende como Rouser NS200, y la tapa del motor dice DTS-i. Una foto fue tomada en 2014, otra el 7 de octubre de 2026 en Moscú, y la segunda está publicada con licencia CC0.",
-    "hi": "इंजन की क्षमता 199.5 cc है और यह लिक्विड-कूल्ड है। टायर आगे 100/80-17 और पीछे 130/70-17 हैं, दोनों 17 इंच के अलॉय व्हील पर। अर्जेंटीना में यही बाइक Rouser NS200 के नाम से बिकती है, और उसके इंजन कवर पर DTS-i लिखा है। एक फ़ोटो 2014 में ली गई थी, दूसरी 7 अक्टूबर 2026 को मॉस्को में, और दूसरी फ़ोटो CC0 लाइसेंस के तहत प्रकाशित है।",
-    "pl": "Silnik ma pojemność 199,5 cc i jest chłodzony cieczą. Opony mają rozmiar 100/80-17 z przodu i 130/70-17 z tyłu, na 17-calowych obręczach ze stopu lekkiego. W Argentynie ten sam motocykl sprzedaje się jako Rouser NS200, a na pokrywie silnika widnieje napis DTS-i. Jedno zdjęcie zrobiono w 2014 roku, drugie 7 października 2026 roku w Moskwie, i to drugie opublikowano na licencji CC0."
-  },
-  "t3": {
-    "en": "Test passage with illustrative numbers. The bike has a 199.5 cm³ engine, roughly 1/5 of a litre. It makes 24.5 PS at 9,750 rpm and 18.5 N·m at 8,000 rpm. The tank holds 13 L, about 3 1/2 US gallons, and the bike weighs approximately 150 kg. Tyre pressure is 1.75 bar at the front and 2.0 bar at the rear. It reaches 100 km/h in about 4.5 s, and the top speed is near 140 km/h. Roughly 3/4 of the test rides took place at 20–25 °C, and 1 in 5 of them ended in rain.",
-    "es": "Texto de prueba con números ilustrativos. La moto tiene un motor de 199,5 cm³, casi 1/5 de litro. Entrega 24,5 PS a 9.750 rpm y 18,5 N·m a 8.000 rpm. El tanque contiene 13 L, unos 3 1/2 galones estadounidenses, y la moto pesa aproximadamente 150 kg. La presión de los neumáticos es de 1,75 bar adelante y 2,0 bar atrás. Llega a 100 km/h en unos 4,5 s, y la velocidad máxima ronda los 140 km/h. Cerca de 3/4 de las pruebas se hicieron a 20–25 °C, y 1 de cada 5 terminó con lluvia.",
-    "hi": "यह उदाहरण के लिए बनाया गया परीक्षण पाठ है, इसकी संख्याएँ काल्पनिक हैं। बाइक का इंजन 199.5 cm³ का है, यानी लगभग 1/5 लीटर। यह 9,750 rpm पर 24.5 PS और 8,000 rpm पर 18.5 N·m देता है। टैंक में 13 L आता है, यानी लगभग 3 1/2 अमेरिकी गैलन, और बाइक का वज़न करीब 150 kg है। टायर का दबाव आगे 1.75 bar और पीछे 2.0 bar है। यह लगभग 4.5 s में 100 km/h तक पहुँचती है, और अधिकतम रफ़्तार 140 km/h के आसपास है। लगभग 3/4 टेस्ट राइड 20–25 °C पर हुईं, और हर 5 में से 1 बारिश में खत्म हुई।",
-    "pl": "Tekst testowy z przykładowymi liczbami. Motocykl ma silnik o pojemności 199,5 cm³, czyli około 1/5 litra. Osiąga 24,5 PS przy 9750 obr./min oraz 18,5 N·m przy 8000 obr./min. Zbiornik mieści 13 l, czyli około 3 1/2 galona amerykańskiego, a motocykl waży około 150 kg. Ciśnienie w oponach wynosi 1,75 bara z przodu i 2,0 bara z tyłu. Do 100 km/h rozpędza się w około 4,5 s, a prędkość maksymalna to około 140 km/h. Około 3/4 jazd testowych odbyło się w temperaturze 20–25 °C, a 1 jazda na 5 zakończyła się deszczem."
-  },
-  "n1": {
-    "en": "A naked sport bike from India. Single-cylinder, liquid-cooled engine with a displacement of 199.5 cc.",
-    "es": "Una moto naked sport de la India. Motor monocilíndrico, refrigerado por líquido, con una cilindrada de 199,5 cc.",
-    "hi": "भारत की एक नेकेड स्पोर्ट बाइक। सिंगल-सिलेंडर, लिक्विड-कूल्ड इंजन, जिसकी क्षमता 199.5 सीसी है।"
-  },
-  "n2": {
-    "en": "Pressed steel perimeter frame, underbelly exhaust, 17-inch alloy wheels. This version has fuel injection, as the stickers show.",
-    "es": "Bastidor perimetral de acero prensado, escape bajo el motor, llantas de aleación de 17 pulgadas. Esta versión tiene inyección de combustible, como muestran los adhesivos.",
-    "hi": "प्रेस्ड स्टील का पेरिमीटर फ्रेम, इंजन के नीचे से निकलता एग्ज़ॉस्ट, 17 इंच के अलॉय व्हील। इस वर्ज़न में फ्यूल इंजेक्शन है, जैसा स्टिकरों से दिखता है।"
-  },
-  "n3": {
-    "en": "In Argentina it is called the Rouser NS200. The engine cover reads DTS-i and “triple spark”, and the tank shroud carries a huge “200”.",
-    "es": "En Argentina se llama Rouser NS200. La tapa del motor dice DTS-i y «triple spark», y el panel del tanque lleva un enorme «200».",
-    "hi": "अर्जेंटीना में इसे Rouser NS200 कहा जाता है। इंजन कवर पर DTS-i और “triple spark” लिखा है, और टैंक श्राउड पर बड़ा-सा “200” है।"
-  },
-  "n4": {
-    "en": "Owners love to modify it. This one has a non-factory exhaust, so it is not the stock version.",
-    "es": "A los dueños les encanta modificarla. Esta tiene un escape que no es de fábrica, así que no es la versión original.",
-    "hi": "मालिकों को इसे मॉडिफ़ाई करना पसंद है। इस बाइक में फ़ैक्टरी वाला नहीं, बाद में लगाया गया एग्ज़ॉस्ट है, इसलिए यह स्टॉक वर्ज़न नहीं है।"
-  },
-  "n5": {
-    "en": "October 2026, Moscow. An NS200 with a top case and a courier bag. The photographer wrote: “Indians are replacing the Japanese.”",
-    "es": "Octubre de 2026, Moscú. Una NS200 con baúl y bolso de reparto. El fotógrafo escribió: «Los indios están reemplazando a los japoneses».",
-    "hi": "अक्टूबर 2026, मॉस्को। टॉप केस और कूरियर बैग वाली एक NS200। फ़ोटोग्राफ़र ने लिखा: “भारतीय जापानियों की जगह ले रहे हैं।”"
-  }
+ "s1": {
+  "en": "A naked sport bike from India. Single-cylinder, liquid-cooled engine with a displacement of 199.5 cc.",
+  "es": "Una moto naked sport de la India. Motor monocilíndrico, refrigerado por líquido, con una cilindrada de 199,5 cc.",
+  "hi": "भारत की एक नेकेड स्पोर्ट बाइक। सिंगल-सिलेंडर, लिक्विड-कूल्ड इंजन, जिसकी क्षमता 199.5 सीसी है।",
+  "pl": "Nagi motocykl sportowy z Indii. Jednocylindrowy silnik chłodzony cieczą o pojemności 199,5 cm³."
+ },
+ "s3": {
+  "en": "In Argentina it is called the Rouser NS200. The engine cover reads DTS-i and “triple spark”, and the tank shroud carries a huge “200”.",
+  "es": "En Argentina se llama Rouser NS200. La tapa del motor dice DTS-i y «triple spark», y el panel del tanque lleva un enorme «200».",
+  "hi": "अर्जेंटीना में इसे Rouser NS200 कहा जाता है। इंजन कवर पर DTS-i और “triple spark” लिखा है, और टैंक श्राउड पर बड़ा-सा “200” है।",
+  "pl": "W Argentynie nazywa się Rouser NS200. Na pokrywie silnika widnieje napis DTS-i i „triple spark”, a na owiewce zbiornika ogromne „200”."
+ },
+ "t1": {
+  "en": "The Bajaj Pulsar NS200 is a naked sport bike from India. It has a single-cylinder engine with four valves and runs on 17-inch wheels. Many riders use it every day to get to work, and some owners add a top case for deliveries.",
+  "es": "La Bajaj Pulsar NS200 es una moto naked sport de la India. Tiene un motor monocilíndrico de cuatro válvulas y rueda sobre llantas de 17 pulgadas. Muchos conductores la usan todos los días para ir al trabajo, y algunos dueños le agregan un baúl para hacer repartos.",
+  "hi": "बजाज पल्सर NS200 भारत की एक नेकेड स्पोर्ट बाइक है। इसमें चार वाल्व वाला सिंगल-सिलेंडर इंजन है और यह 17 इंच के पहियों पर चलती है। बहुत से राइडर इसे रोज़ काम पर जाने के लिए इस्तेमाल करते हैं, और कुछ मालिक डिलीवरी के लिए इसमें टॉप केस लगा लेते हैं।",
+  "pl": "Bajaj Pulsar NS200 to nagi motocykl sportowy z Indii. Ma jednocylindrowy silnik z czterema zaworami i jeździ na 17-calowych kołach. Wielu kierowców używa go codziennie do dojazdu do pracy, a niektórzy właściciele dodają kufer do dostaw."
+ },
+ "t2": {
+  "en": "The engine displaces 199.5 cc and is liquid-cooled. The tyres are 100/80-17 at the front and 130/70-17 at the rear, both on 17-inch alloy wheels. In Argentina the same bike is sold as the Rouser NS200, and its engine cover reads DTS-i. One photo was taken in 2014, another on 7 October 2026 in Moscow, and the second one is published under a CC0 licence.",
+  "es": "El motor tiene una cilindrada de 199,5 cc y está refrigerado por líquido. Los neumáticos son 100/80-17 adelante y 130/70-17 atrás, ambos sobre llantas de aleación de 17 pulgadas. En Argentina la misma moto se vende como Rouser NS200, y la tapa del motor dice DTS-i. Una foto fue tomada en 2014, otra el 7 de octubre de 2026 en Moscú, y la segunda está publicada con licencia CC0.",
+  "hi": "इंजन की क्षमता 199.5 cc है और यह लिक्विड-कूल्ड है। टायर आगे 100/80-17 और पीछे 130/70-17 हैं, दोनों 17 इंच के अलॉय व्हील पर। अर्जेंटीना में यही बाइक Rouser NS200 के नाम से बिकती है, और उसके इंजन कवर पर DTS-i लिखा है। एक फ़ोटो 2014 में ली गई थी, दूसरी 7 अक्टूबर 2026 को मॉस्को में, और दूसरी फ़ोटो CC0 लाइसेंस के तहत प्रकाशित है।",
+  "pl": "Silnik ma pojemność 199,5 cc i jest chłodzony cieczą. Opony mają rozmiar 100/80-17 z przodu i 130/70-17 z tyłu, na 17-calowych obręczach ze stopu lekkiego. W Argentynie ten sam motocykl sprzedaje się jako Rouser NS200, a na pokrywie silnika widnieje napis DTS-i. Jedno zdjęcie zrobiono w 2014 roku, drugie 7 października 2026 roku w Moskwie, i to drugie opublikowano na licencji CC0."
+ },
+ "t3": {
+  "en": "Test passage with illustrative numbers. The bike has a 199.5 cm³ engine, roughly 1/5 of a litre. It makes 24.5 PS at 9,750 rpm and 18.5 N·m at 8,000 rpm. The tank holds 13 L, about 3 1/2 US gallons, and the bike weighs approximately 150 kg. Tyre pressure is 1.75 bar at the front and 2.0 bar at the rear. It reaches 100 km/h in about 4.5 s, and the top speed is near 140 km/h. Roughly 3/4 of the test rides took place at 20–25 °C, and 1 in 5 of them ended in rain.",
+  "es": "Texto de prueba con números ilustrativos. La moto tiene un motor de 199,5 cm³, casi 1/5 de litro. Entrega 24,5 PS a 9.750 rpm y 18,5 N·m a 8.000 rpm. El tanque contiene 13 L, unos 3 1/2 galones estadounidenses, y la moto pesa aproximadamente 150 kg. La presión de los neumáticos es de 1,75 bar adelante y 2,0 bar atrás. Llega a 100 km/h en unos 4,5 s, y la velocidad máxima ronda los 140 km/h. Cerca de 3/4 de las pruebas se hicieron a 20–25 °C, y 1 de cada 5 terminó con lluvia.",
+  "hi": "यह उदाहरण के लिए बनाया गया परीक्षण पाठ है, इसकी संख्याएँ काल्पनिक हैं। बाइक का इंजन 199.5 cm³ का है, यानी लगभग 1/5 लीटर। यह 9,750 rpm पर 24.5 PS और 8,000 rpm पर 18.5 N·m देता है। टैंक में 13 L आता है, यानी लगभग 3 1/2 अमेरिकी गैलन, और बाइक का वज़न करीब 150 kg है। टायर का दबाव आगे 1.75 bar और पीछे 2.0 bar है। यह लगभग 4.5 s में 100 km/h तक पहुँचती है, और अधिकतम रफ़्तार 140 km/h के आसपास है। लगभग 3/4 टेस्ट राइड 20–25 °C पर हुईं, और हर 5 में से 1 बारिश में खत्म हुई।",
+  "pl": "Tekst testowy z przykładowymi liczbami. Motocykl ma silnik o pojemności 199,5 cm³, czyli około 1/5 litra. Osiąga 24,5 PS przy 9750 obr./min oraz 18,5 N·m przy 8000 obr./min. Zbiornik mieści 13 l, czyli około 3 1/2 galona amerykańskiego, a motocykl waży około 150 kg. Ciśnienie w oponach wynosi 1,75 bara z przodu i 2,0 bara z tyłu. Do 100 km/h rozpędza się w około 4,5 s, a prędkość maksymalna to około 140 km/h. Około 3/4 jazd testowych odbyło się w temperaturze 20–25 °C, a 1 jazda na 5 zakończyła się deszczem."
+ },
+ "n1": {
+  "en": "A naked sport bike from India. Single-cylinder, liquid-cooled engine with a displacement of 199.5 cc.",
+  "es": "Una moto naked sport de la India. Motor monocilíndrico, refrigerado por líquido, con una cilindrada de 199,5 cc.",
+  "hi": "भारत की एक नेकेड स्पोर्ट बाइक। सिंगल-सिलेंडर, लिक्विड-कूल्ड इंजन, जिसकी क्षमता 199.5 सीसी है।"
+ },
+ "n2": {
+  "en": "Pressed steel perimeter frame, underbelly exhaust, 17-inch alloy wheels. This version has fuel injection, as the stickers show.",
+  "es": "Bastidor perimetral de acero prensado, escape bajo el motor, llantas de aleación de 17 pulgadas. Esta versión tiene inyección de combustible, como muestran los adhesivos.",
+  "hi": "प्रेस्ड स्टील का पेरिमीटर फ्रेम, इंजन के नीचे से निकलता एग्ज़ॉस्ट, 17 इंच के अलॉय व्हील। इस वर्ज़न में फ्यूल इंजेक्शन है, जैसा स्टिकरों से दिखता है।"
+ },
+ "n3": {
+  "en": "In Argentina it is called the Rouser NS200. The engine cover reads DTS-i and “triple spark”, and the tank shroud carries a huge “200”.",
+  "es": "En Argentina se llama Rouser NS200. La tapa del motor dice DTS-i y «triple spark», y el panel del tanque lleva un enorme «200».",
+  "hi": "अर्जेंटीना में इसे Rouser NS200 कहा जाता है। इंजन कवर पर DTS-i और “triple spark” लिखा है, और टैंक श्राउड पर बड़ा-सा “200” है।"
+ },
+ "n4": {
+  "en": "Owners love to modify it. This one has a non-factory exhaust, so it is not the stock version.",
+  "es": "A los dueños les encanta modificarla. Esta tiene un escape que no es de fábrica, así que no es la versión original.",
+  "hi": "मालिकों को इसे मॉडिफ़ाई करना पसंद है। इस बाइक में फ़ैक्टरी वाला नहीं, बाद में लगाया गया एग्ज़ॉस्ट है, इसलिए यह स्टॉक वर्ज़न नहीं है।"
+ },
+ "n5": {
+  "en": "October 2026, Moscow. An NS200 with a top case and a courier bag. The photographer wrote: “Indians are replacing the Japanese.”",
+  "es": "Octubre de 2026, Moscú. Una NS200 con baúl y bolso de reparto. El fotógrafo escribió: «Los indios están reemplazando a los japoneses».",
+  "hi": "अक्टूबर 2026, मॉस्को। टॉप केस और कूरियर बैग वाली एक NS200। फ़ोटोग्राफ़र ने लिखा: “भारतीय जापानियों की जगह ले रहे हैं।”"
+ },
+ "v1": {
+  "en": "A naked sport bike from India. Single-cylinder, liquid-cooled engine with a displacement of 199.5 cc.",
+  "es": "Una moto naked sport de la India. Motor monocilíndrico, refrigerado por líquido, con una cilindrada de 199,5 cc.",
+  "hi": "भारत की एक नेकेड स्पोर्ट बाइक। सिंगल-सिलेंडर, लिक्विड-कूल्ड इंजन, जिसकी क्षमता एक सौ निन्यानबे दशमलव पाँच सीसी है।"
+ },
+ "v2": {
+  "en": "Pressed steel perimeter frame, underbelly exhaust, 17-inch alloy wheels. This version has fuel injection, as the stickers show.",
+  "es": "Bastidor perimetral de acero prensado, escape bajo el motor, llantas de aleación de 17 pulgadas. Esta versión tiene inyección de combustible, como muestran los adhesivos.",
+  "hi": "प्रेस्ड स्टील का पेरिमीटर फ्रेम, इंजन के नीचे से निकलता एग्ज़ॉस्ट, 17 इंच के अलॉय व्हील। इस वर्ज़न में फ्यूल इंजेक्शन है, जैसा स्टिकरों से दिखता है।"
+ },
+ "v3": {
+  "en": "In Argentina it is called the Rouser NS200. The engine cover reads DTS-i and “triple spark”, and the tank shroud carries a huge “200”.",
+  "es": "En Argentina se llama Rouser NS200. La tapa del motor dice «de te ese i» y «triple spark», y el panel del tanque lleva un enorme «200».",
+  "hi": "अर्जेंटीना में इसे राउज़र एन एस दो सौ कहा जाता है। इंजन कवर पर डी टी एस आई और “ट्रिपल स्पार्क” लिखा है, और टैंक श्राउड पर बड़ा-सा “दो सौ” है।"
+ },
+ "v4": {
+  "en": "Owners love to modify it. This one has a non-factory exhaust, so it is not the stock version.",
+  "es": "A los dueños les encanta modificarla. Esta tiene un escape que no es de fábrica, así que no es la versión original.",
+  "hi": "मालिकों को इसे मॉडिफ़ाई करना पसंद है। इस बाइक में फ़ैक्टरी वाला नहीं, बाद में लगाया गया एग्ज़ॉस्ट है, इसलिए यह स्टॉक वर्ज़न नहीं है।"
+ },
+ "v5": {
+  "en": "October 2026, Moscow. An NS200 with a top case and a courier bag. The photographer wrote: “Indians are replacing the Japanese.”",
+  "es": "Octubre de 2026, Moscú. Una NS200 con baúl y bolso de reparto. El fotógrafo escribió: «Los indios están reemplazando a los japoneses».",
+  "hi": "अक्टूबर 2026, मॉस्को। टॉप केस और कूरियर बैग वाली एक एन एस दो सौ। फ़ोटोग्राफ़र ने लिखा: “भारतीय जापानियों की जगह ले रहे हैं।”"
+ }
 }
