@@ -2,13 +2,26 @@
   "s1": {
     "en": "A naked sport bike from India. Single-cylinder, liquid-cooled engine with a displacement of 199.5 cc.",
     "es": "Una moto naked sport de la India. Motor monocilíndrico, refrigerado por líquido, con una cilindrada de 199,5 cc.",
-    "hi": "भारत की एक नेकेड स्पोर्ट बाइक। सिंगल-सिलेंडर, लिक्विड-कूल्ड इंजन, जिसकी क्षमता 199.5 सीसी है।",
-    "pl": "Nagi motocykl sportowy z Indii. Jednocylindrowy silnik chłodzony cieczą o pojemności 199,5 cm³."
+    "hi": "भारत की एक नेकेड स्पोर्ट बाइक। सिंगल-सिलेंडर, लिक्विड-कूल्ड इंजन, जिसकी क्षमता 199.5 सीसी है।"
+  },
+  "s2": {
+    "en": "Pressed steel perimeter frame, underbelly exhaust, 17-inch alloy wheels. This version has fuel injection, as the stickers show.",
+    "es": "Bastidor perimetral de acero prensado, escape bajo el motor, llantas de aleación de 17 pulgadas. Esta versión tiene inyección de combustible, como muestran los adhesivos.",
+    "hi": "प्रेस्ड स्टील का पेरिमीटर फ्रेम, इंजन के नीचे से निकलता एग्ज़ॉस्ट, 17 इंच के अलॉय व्हील। इस वर्ज़न में फ्यूल इंजेक्शन है, जैसा स्टिकरों से दिखता है।"
   },
   "s3": {
     "en": "In Argentina it is called the Rouser NS200. The engine cover reads DTS-i and “triple spark”, and the tank shroud carries a huge “200”.",
     "es": "En Argentina se llama Rouser NS200. La tapa del motor dice DTS-i y «triple spark», y el panel del tanque lleva un enorme «200».",
-    "hi": "अर्जेंटीना में इसे Rouser NS200 कहा जाता है। इंजन कवर पर DTS-i और “triple spark” लिखा है, और टैंक श्राउड पर बड़ा-सा “200” है।",
-    "pl": "W Argentynie nazywa się Rouser NS200. Na pokrywie silnika widnieje napis DTS-i i „triple spark”, a na owiewce zbiornika ogromne „200”."
+    "hi": "अर्जेंटीना में इसे Rouser NS200 कहा जाता है। इंजन कवर पर DTS-i और “triple spark” लिखा है, और टैंक श्राउड पर बड़ा-सा “200” है।"
+  },
+  "s4": {
+    "en": "Owners love to modify it. This one has a non-factory exhaust, so it is not the stock version.",
+    "es": "A los dueños les encanta modificarla. Esta tiene un escape que no es de fábrica, así que no es la versión original.",
+    "hi": "मालिकों को इसे मॉडिफ़ाई करना पसंद है। इस बाइक में फ़ैक्टरी वाला नहीं, बाद में लगाया गया एग्ज़ॉस्ट है, इसलिए यह स्टॉक वर्ज़न नहीं है।"
+  },
+  "s5": {
+    "en": "October 2026, Moscow. An NS200 with a top case and a courier bag. The photographer wrote: “Indians are replacing the Japanese.”",
+    "es": "Octubre de 2026, Moscú. Una NS200 con baúl y bolso de reparto. El fotógrafo escribió: «Los indios están reemplazando a los japoneses».",
+    "hi": "अक्टूबर 2026, मॉस्को। टॉप केस और कूरियर बैग वाली एक NS200। फ़ोटोग्राफ़र ने लिखा: “भारतीय जापानियों की जगह ले रहे हैं।”"
   }
 }

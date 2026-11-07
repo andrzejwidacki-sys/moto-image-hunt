@@ -4,7 +4,6 @@ from common import *
 
 # Głosy do porównania. Licencje: patrz MODEL_CARD zapisane w tts-out/modelcards/
 VOICES = {
-    "pl": ["pl_PL-gosia-medium", "pl_PL-darkman-medium", "pl_PL-mc_speaker-medium", "pl_PL-mls_6892-low"],
     "hi": ["hi_IN-pratham-medium", "hi_IN-priyamvada-medium", "hi_IN-rohan-medium"],
     "es": ["es_MX-claude-high", "es_ES-mls_9972-low", "es_ES-davefx-medium", "es_ES-sharvard-medium"],
     "en": ["en_US-ryan-high", "en_GB-alan-medium"],
