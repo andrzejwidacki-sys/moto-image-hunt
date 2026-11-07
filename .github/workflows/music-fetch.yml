@@ -1,0 +1,31 @@
+name: Music fetch (CC0 candidates)
+
+on:
+  workflow_dispatch:
+    inputs:
+      track_urls:
+        description: "Adresy stron utworów (Free Music Archive), oddzielone spacją"
+        required: true
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Fetch
+        env:
+          TRACK_URLS: ${{ inputs.track_urls }}
+          OUT: music-out
+        run: python3 music/fetch.py
+      - name: Publish
+        if: always() && hashFiles('music-out/manifest.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd music-out
+          git init -q -b music-candidates
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "music fetch ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" music-candidates
