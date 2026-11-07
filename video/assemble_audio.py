@@ -10,8 +10,10 @@ Struktura filmu: tytuł 5 s, pięć scen po 12 s, karta końcowa 8 s (razem 73 s
 import argparse, json, subprocess, sys, tempfile
 from pathlib import Path
 
-SCENE_STARTS = [5, 17, 29, 41, 53]   # początki scen 1-5 w sekundach
-SCENE_LEN = 12.0
+TITLE_LEN = 5.0
+SCENE_LENS = [12.0] * 5   # długości scen 1-5 w sekundach (domyślnie 12 s); zmienia je --scene-durs
+SCENE_STARTS = [TITLE_LEN + 12.0 * i for i in range(5)]   # początki scen 1-5
+SCENE_LEN = 12.0          # używane tylko w miejscach, gdzie nie ma długości danej sceny
 LEAD = 0.6        # lektor zaczyna 0,6 s po wejściu sceny (po 0,4 s fade-in)
 TAIL = 0.5        # i kończy najpóźniej 0,5 s przed końcem sceny
 MAX_SPEEDUP = 1.15
@@ -26,6 +28,36 @@ def run(cmd, **kw):
 
 def dur(path):
     return float(run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(path)]).stdout)
+
+
+def pad_pauses(src, dst, pause):
+    """Wydłuża przerwy między zdaniami do `pause` s. Generator TTS wstawia między zdania 0,25 s cyfrowego zera,
+    więc przerwy to ciągi próbek równych zero (>= 0,2 s); skracamy je lub wydłużamy do `pause`."""
+    import numpy as np
+    from scipy.io import wavfile
+    sr, x = wavfile.read(str(src))
+    x = x.astype(np.float32) / 32768.0 if x.dtype == np.int16 else x.astype(np.float32)
+    mono = x if x.ndim == 1 else x.mean(axis=1)
+    z = np.abs(mono) < 1e-7
+    out, i, n, minrun = [], 0, len(mono), int(0.2 * sr)
+    while i < n:
+        if z[i]:
+            j = i
+            while j < n and z[j]:
+                j += 1
+            if j - i >= minrun and i > 0 and j < n:      # przerwa wewnątrz, nie na brzegach
+                shape = (int(pause * sr),) + x.shape[1:]
+                out.append(np.zeros(shape, dtype=np.float32))
+            else:
+                out.append(x[i:j])
+            i = j
+        else:
+            j = i
+            while j < n and not z[j]:
+                j += 1
+            out.append(x[i:j])
+            i = j
+    wavfile.write(str(dst), sr, np.concatenate(out))
 
 
 def prep_clip(src, dst, speed):
@@ -45,6 +77,8 @@ def main():
     ap.add_argument("--music")
     ap.add_argument("--out", required=True)
     ap.add_argument("--lufs", type=float, default=-14.0)
+    ap.add_argument("--pause", type=float, default=0.0, help="przerwa między zdaniami w lektorze (s); 0 = bez zmian")
+    ap.add_argument("--scene-durs", type=float, nargs=5, help="długości scen 1-5 w sekundach (domyślnie 12 każda); muszą zgadzać się z filmem")
     ap.add_argument("--stems", help="katalog, do którego zapisać ścieżki lektora (voice.wav) i muzyki po wyciszeniu (music.wav) oraz pomiar różnicy głośności w trakcie mowy")
     ap.add_argument("--duck-threshold", type=float, default=0.05, help="próg sidechaincompress (liniowo 0-1)")
     ap.add_argument("--duck-ratio", type=float, default=3.0)
@@ -52,12 +86,20 @@ def main():
     a = ap.parse_args()
 
     vdur = dur(a.video)
-    maxd = SCENE_LEN - LEAD - TAIL
+    global SCENE_STARTS, SCENE_LENS
+    if a.scene_durs:
+        SCENE_LENS = list(a.scene_durs)
+        SCENE_STARTS = [TITLE_LEN + sum(SCENE_LENS[:i]) for i in range(5)]
     report = {"video_s": round(vdur, 2), "clips": [], "warnings": []}
     tmp = Path(tempfile.mkdtemp(prefix="asm_"))
     prepped = []
     for i, (c, start) in enumerate(zip(a.clips, SCENE_STARTS), 1):
+        maxd = SCENE_LENS[i - 1] - LEAD - TAIL
         raw = tmp / f"raw{i}.wav"
+        if a.pause > 0:
+            padded = tmp / f"pad{i}.wav"
+            pad_pauses(c, padded, a.pause)
+            c = padded
         prep_clip(c, raw, 1.0)
         d0 = dur(raw)
         speed = 1.0
@@ -109,7 +151,7 @@ def main():
                         return float(line.split()[1])
             v, mu = lufs("voice.wav"), lufs("music.wav")
             row = {"scene": c["scene"], "voice_lufs": v, "music_lufs": mu, "voice_minus_music_db": round(v - mu, 1)}
-            g0, g1 = t1 + 1.0, c["start_s"] - LEAD + SCENE_LEN - 0.3   # przerwa po lektorze, po wygaszeniu ducking
+            g0, g1 = t1 + 1.0, c["start_s"] - LEAD + SCENE_LENS[c["scene"] - 1] - 0.3   # przerwa po lektorze, po wygaszeniu ducking
             if g1 - g0 >= 1.5:
                 row["music_gap_lufs"] = lufs("music.wav", g0, g1)
                 row["voice_minus_gap_db"] = round(v - row["music_gap_lufs"], 1)

@@ -18,5 +18,9 @@ for key, lang in ORDER:
         with rep.item(key, lang, v) as it:
             if code not in pipes:
                 pipes[code] = KPipeline(lang_code=code)
-            chunks = [np.asarray(a) for _, _, a in pipes[code](TEXTS[key][lang], voice=v) if a is not None]
-            it.save(np.concatenate(chunks), 24000)
+            # po zdaniu osobno, między zdaniami cyfrowa cisza (potem montaż może ją wydłużyć do dowolnej przerwy)
+            chunks = []
+            for sent in split_sentences(TEXTS[key][lang]):
+                chunks += [np.asarray(a) for _, _, a in pipes[code](sent, voice=v) if a is not None]
+                chunks.append(silence(24000))
+            it.save(np.concatenate(chunks[:-1]), 24000)
