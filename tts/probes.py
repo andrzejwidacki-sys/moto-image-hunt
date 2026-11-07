@@ -6,13 +6,13 @@ def P(label, en, es, hi, pl):
 
 HUN = "(दशमलव|पॉइंट|प्वाइंट|पॉइन्ट|दशम)"
 T2 = [
- P("17-inch", [r"17[- ]inch", r"seventeen[- ]inch"], [r"17 pulgadas", r"diecisiete pulgadas"], [r"17 इंच", r"सत्रह इंच"], [r"17[- ]cal", r"siedemnastocal", r"17 cali"]),
- P("199.5", [r"199\.5", r"ninety[- ]nine point five"], [r"199[,.]5", r"noventa y nueve (coma|punto) cinco"], [r"199[.,]5", r"निन्यान[वब]े? " + HUN], [r"199[,.]5", r"dziewięćdziesiąt dziewięć (przecinek|i) pięć"]),
+ P("17-inch", [r"17[- ]inch", r"seventeen[- ]inch"], [r"17 pulgadas", r"diecisiete pulgadas"], [r"17 इंच", r"सत्र\w* इंच", r"17[- ]inch"], [r"17[- ]cal", r"siedemnastocal", r"17 cali"]),
+ P("199.5", [r"199\.5", r"ninety[- ]nine point five"], [r"199[,.]5", r"noventa y nueve (coma|punto) cinco"], [r"199[.,]5", r"(निन्यान|नियान)\w* " + HUN, r"(निन्यान|नियान)\w* (पाँच|पांच|पाथ)"], [r"199[,.]5", r"dziewięćdziesiąt dziewięć (przecinek|i) pięć"]),
  P("cc", [r"\bc ?c\b", r"cubic cent", r"cm ?3|cm³"], [r"\bc ?c\b", r"centímetros cúbicos", r"cm ?3|cm³", r"ce ce"], [r"सीसी", r"\bcc\b", r"c ?c\b", r"सेंटीमीटर|सेमी|क्यूबिक"], [r"\bc ?c\b", r"ce ce", r"cm ?3|cm³", r"centymetr"]),
- P("100/80-17", [r"100/80[- ]?17", r"100 (over|slash|by) 80", r"hundred (over|slash|by) eighty"], [r"100/80[- ]?17", r"cien (sobre|entre|barra) ochenta"], [r"100/80[- ]?17", r"सौ.{0,12}अस्सी"], [r"100/80[- ]?17", r"sto (na|przez|slash|ukośnik) osiemdziesiąt"]),
- P("130/70-17", [r"130/70[- ]?17", r"130 (over|slash|by) 70", r"thirty (over|slash|by) seventy"], [r"130/70[- ]?17", r"ciento treinta (sobre|entre|barra) setenta"], [r"130/70[- ]?17", r"तीस.{0,12}सत्तर"], [r"130/70[- ]?17", r"sto trzydzieści (na|przez|slash|ukośnik) siedemdziesiąt"]),
- P("Rouser NS200", [r"rouser"], [r"rouser"], [r"rouser", r"राउज़र|राउसर|रौज़र|राऊज़र"], [r"rouser"]),
- P("NS200", [r"ns ?200", r"n s (200|two hundred)"], [r"ns ?200", r"ene ese (200|doscientos)"], [r"ns ?200", r"एन ?एस ?(200|दो सौ)"], [r"ns ?200", r"en es (200|dwieście)"]),
+ P("100/80-17", [r"100[/ -]+80[/ -]+17", r"100 (over|slash|by) 80", r"hundred (over|slash|by|and) eighty"], [r"100[/ -]+80[/ -]+17", r"100 barra 80", r"cien (sobre|entre|barra)? ?ochenta"], [r"100[/ -]+80[/ -]+17", r"(100|एक स[ोौ]).{0,20}(80|अस्सी).{0,25}(17|सत्र)"], [r"100[/ -]+80[/ -]+17", r"sto (na|przez|slash|ukośnik)? ?osiemdziesiąt"]),
+ P("130/70-17", [r"130[/ -]+70[/ -]+17", r"130 (over|slash|by) 70", r"thirty (over|slash|by|and) seventy"], [r"130[/ -]+70[/ -]+17", r"130 barra 70", r"ciento treinta (sobre|entre|barra)? ?setenta"], [r"130[/ -]+70[/ -]+17", r"(130|एक स[ोौ] तीस).{0,20}(70|सत्तर).{0,25}(17|सत्र)"], [r"130[/ -]+70[/ -]+17", r"sto trzydzieści (na|przez|slash|ukośnik)? ?siedemdziesiąt"]),
+ P("Rouser NS200", [r"rouser"], [r"rouser"], [r"rouser", r"राउज़र|राउसर|रौज़र|राऊज़र|वाउसर|रौसर"], [r"rouser"]),
+ P("NS200", [r"ns ?200", r"n s (200|two hundred)"], [r"ns ?200", r"ene ese (200|doscientos)"], [r"ns ?200", r"(एन|इन) ?(एस|स) ?(200|दो सौ)", r"इनस ?200"], [r"ns ?200", r"en es (200|dwieście)"]),
  P("DTS-i", [r"dts[- ]?i", r"d ?t ?s[- ]?i"], [r"dts[- ]?i", r"d ?t ?s[- ]?i"], [r"dts[- ]?i", r"d ?t ?s[- ]?i", r"डीटीएस"], [r"dts[- ]?i", r"d ?t ?s[- ]?i"]),
  P("2014", [r"2014", r"twenty fourteen", r"two thousand (and )?fourteen"], [r"2014", r"dos mil catorce"], [r"2014", r"दो ह[ज़ज]ार चौदह"], [r"2014", r"dwa tysiące czternast"]),
  P("7 October", [r"7 oct", r"7th of oct", r"october 7", r"seventh of oct"], [r"7 de octubre", r"siete de octubre"], [r"7 अक्टूबर", r"सात अक्टूबर"], [r"7 października", r"siódmego października"]),

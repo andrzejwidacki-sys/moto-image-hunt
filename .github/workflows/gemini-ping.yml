@@ -1,0 +1,30 @@
+name: Gemini ping
+
+on:
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check secret and API (key is never printed)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then echo "SEKRET: brak GEMINI_API_KEY"; exit 0; fi
+          echo "SEKRET: jest (długość ${#GEMINI_API_KEY} znaków)"
+          code=$(curl -s -m 30 -o /tmp/models.json -w "%{http_code}" -H "x-goog-api-key: $GEMINI_API_KEY" "https://generativelanguage.googleapis.com/v1beta/models?pageSize=200")
+          echo "HTTP: $code"
+          if [ "$code" = "200" ]; then
+            python3 -c "
+          import json
+          m = json.load(open('/tmp/models.json'))['models']
+          print('modeli:', len(m))
+          for x in m:
+              if 'tts' in x['name'].lower() or 'speech' in x['name'].lower() or 'audio' in x.get('displayName','').lower():
+                  print('TTS:', x['name'], '|', x.get('supportedGenerationMethods'))
+          "
+          else
+            head -c 400 /tmp/models.json | sed 's/AIza[0-9A-Za-z_-]*/[KLUCZ]/g'
+          fi
