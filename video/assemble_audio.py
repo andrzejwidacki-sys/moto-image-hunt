@@ -45,6 +45,9 @@ def main():
     ap.add_argument("--music")
     ap.add_argument("--out", required=True)
     ap.add_argument("--lufs", type=float, default=-14.0)
+    ap.add_argument("--stems", help="katalog, do którego zapisać ścieżki lektora (voice.wav) i muzyki po wyciszeniu (music.wav) oraz pomiar różnicy głośności w trakcie mowy")
+    ap.add_argument("--duck-threshold", type=float, default=0.05, help="próg sidechaincompress (liniowo 0-1)")
+    ap.add_argument("--duck-ratio", type=float, default=3.0)
     ap.add_argument("--music-db", type=float, default=-9.0, help="głośność muzyki względem lektora w przerwach (dB); pod głosem dodatkowo ją przyciszamy")
     a = ap.parse_args()
 
@@ -83,7 +86,8 @@ def main():
         inputs += ["-i", str(music_path)]
         fc.append(f"[{n}:a]aformat=sample_rates=48000:channel_layouts=stereo,aloop=loop=-1:size=2147483647,atrim=0:{vdur},asetpts=N/SR/TB,volume={a.music_db}dB,afade=t=in:d=2,afade=t=out:st={vdur - 3:.2f}:d=3[mus]")
         fc.append("[voice]asplit=2[vmix][vsc]")
-        fc.append("[mus][vsc]sidechaincompress=threshold=0.02:ratio=10:attack=15:release=500:makeup=1[duck]")
+        fc.append(f"[mus][vsc]sidechaincompress=threshold={a.duck_threshold}:ratio={a.duck_ratio}:attack=20:release=500:makeup=1[duck]")
+        fc_pre = list(fc)   # graf do momentu, w którym są osobno [vmix] i [duck]
         fc.append("[vmix][duck]amix=inputs=2:normalize=0:duration=longest[mix]")
     else:
         fc.append("[voice]anull[mix]")
@@ -91,12 +95,33 @@ def main():
     mixwav = tmp / "mix.wav"
     run(["ffmpeg", "-v", "error", "-y", "-i", a.video, *inputs, "-filter_complex", ";".join(fc), "-map", "[aout]", str(mixwav)])
 
+    if a.stems and a.music:
+        sd = Path(a.stems); sd.mkdir(parents=True, exist_ok=True)
+        run(["ffmpeg", "-v", "error", "-y", "-i", a.video, *inputs, "-filter_complex", ";".join(fc_pre),
+             "-map", "[vmix]", str(sd / "voice.wav"), "-map", "[duck]", str(sd / "music.wav")])
+        report["speech_vs_music"] = []
+        for c in report["clips"]:
+            t0, t1 = c["start_s"], c["start_s"] + c["final_s"]
+            def lufs(f, t0=t0, t1=t1):
+                r = run(["ffmpeg", "-hide_banner", "-nostats", "-ss", f"{t0}", "-to", f"{t1}", "-i", str(sd / f), "-af", "ebur128", "-f", "null", "-"])
+                for line in r.stderr.split("Summary:")[-1].splitlines():
+                    if line.strip().startswith("I:"):
+                        return float(line.split()[1])
+            v, mu = lufs("voice.wav"), lufs("music.wav")
+            row = {"scene": c["scene"], "voice_lufs": v, "music_lufs": mu, "voice_minus_music_db": round(v - mu, 1)}
+            g0, g1 = t1 + 1.0, c["start_s"] - LEAD + SCENE_LEN - 0.3   # przerwa po lektorze, po wygaszeniu ducking
+            if g1 - g0 >= 1.5:
+                row["music_gap_lufs"] = lufs("music.wav", g0, g1)
+                row["voice_minus_gap_db"] = round(v - row["music_gap_lufs"], 1)
+            report["speech_vs_music"].append(row)
+
     # normalizacja głośności w dwóch przebiegach (liniowa, bez pompowania)
     tgt = f"I={a.lufs}:TP=-1.5:LRA=11"
     p1 = run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(mixwav), "-af", f"loudnorm={tgt}:print_format=json", "-f", "null", "-"])
     m = json.loads(p1.stderr[p1.stderr.rindex("{"):])
     ln = (f"loudnorm={tgt}:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}"
-          f":measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+          f":measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true"
+          ",alimiter=limit=0.8:level=disabled")   # zabezpieczenie szczytów, tryb liniowy loudnorm ich nie ogranicza
     run(["ffmpeg", "-v", "error", "-y", "-i", a.video, "-i", str(mixwav), "-af", ln, "-map", "0:v:0", "-map", "1:a:0",
          "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-t", f"{vdur}", a.out])
 

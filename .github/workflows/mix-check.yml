@@ -1,0 +1,38 @@
+name: Mix check (Whisper on final audio)
+
+on:
+  workflow_dispatch:
+    inputs:
+      whisper_model:
+        description: "Model Whisper"
+        default: "medium"
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: mixcheck-in
+          path: in
+      - name: Whisper on mixes
+        run: |
+          python3 -m venv /tmp/asr
+          /tmp/asr/bin/pip install -q faster-whisper num2words
+          /tmp/asr/bin/python music/check_mix.py in mix-out "${{ inputs.whisper_model }}"
+      - name: Publish
+        if: always() && hashFiles('mix-out/mixcheck.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd mix-out
+          git init -q -b mixcheck-out
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "mixcheck ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" mixcheck-out
