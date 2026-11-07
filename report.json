@@ -1,0 +1,220 @@
+{
+ "model": "qwen3emo",
+ "python": "3.11.18",
+ "cpus": 4,
+ "notes": {
+  "model_id": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+  "supported_speakers": [
+   "aiden",
+   "dylan",
+   "eric",
+   "ono_anna",
+   "ryan",
+   "serena",
+   "sohee",
+   "uncle_fu",
+   "vivian"
+  ]
+ },
+ "items": [
+  {
+   "model": "qwen3emo",
+   "text": "v1",
+   "lang": "es",
+   "voice": "aiden-neutral",
+   "ok": true,
+   "file": "qwen3emo_v1_es_aiden-neutral.wav",
+   "audio_s": 11.38,
+   "compute_s": 62.12,
+   "rtf": 5.46
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v1",
+   "lang": "es",
+   "voice": "aiden-excited",
+   "ok": true,
+   "file": "qwen3emo_v1_es_aiden-excited.wav",
+   "audio_s": 12.34,
+   "compute_s": 67.74,
+   "rtf": 5.49
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v1",
+   "lang": "es",
+   "voice": "aiden-docu",
+   "ok": true,
+   "file": "qwen3emo_v1_es_aiden-docu.wav",
+   "audio_s": 10.26,
+   "compute_s": 55.5,
+   "rtf": 5.41
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v1",
+   "lang": "en",
+   "voice": "aiden-neutral",
+   "ok": true,
+   "file": "qwen3emo_v1_en_aiden-neutral.wav",
+   "audio_s": 8.58,
+   "compute_s": 45.83,
+   "rtf": 5.34
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v1",
+   "lang": "en",
+   "voice": "aiden-excited",
+   "ok": true,
+   "file": "qwen3emo_v1_en_aiden-excited.wav",
+   "audio_s": 8.42,
+   "compute_s": 45.51,
+   "rtf": 5.4
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v1",
+   "lang": "en",
+   "voice": "aiden-docu",
+   "ok": true,
+   "file": "qwen3emo_v1_en_aiden-docu.wav",
+   "audio_s": 8.58,
+   "compute_s": 46.39,
+   "rtf": 5.41
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v3",
+   "lang": "es",
+   "voice": "aiden-neutral",
+   "ok": true,
+   "file": "qwen3emo_v3_es_aiden-neutral.wav",
+   "audio_s": 12.74,
+   "compute_s": 69.45,
+   "rtf": 5.45
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v3",
+   "lang": "es",
+   "voice": "aiden-excited",
+   "ok": true,
+   "file": "qwen3emo_v3_es_aiden-excited.wav",
+   "audio_s": 16.26,
+   "compute_s": 93.63,
+   "rtf": 5.76
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v3",
+   "lang": "es",
+   "voice": "aiden-docu",
+   "ok": true,
+   "file": "qwen3emo_v3_es_aiden-docu.wav",
+   "audio_s": 12.66,
+   "compute_s": 69.4,
+   "rtf": 5.48
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v3",
+   "lang": "en",
+   "voice": "aiden-neutral",
+   "ok": true,
+   "file": "qwen3emo_v3_en_aiden-neutral.wav",
+   "audio_s": 11.7,
+   "compute_s": 63.34,
+   "rtf": 5.41
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v3",
+   "lang": "en",
+   "voice": "aiden-excited",
+   "ok": true,
+   "file": "qwen3emo_v3_en_aiden-excited.wav",
+   "audio_s": 12.42,
+   "compute_s": 68.95,
+   "rtf": 5.55
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v3",
+   "lang": "en",
+   "voice": "aiden-docu",
+   "ok": true,
+   "file": "qwen3emo_v3_en_aiden-docu.wav",
+   "audio_s": 12.18,
+   "compute_s": 67.07,
+   "rtf": 5.51
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v5",
+   "lang": "es",
+   "voice": "aiden-neutral",
+   "ok": true,
+   "file": "qwen3emo_v5_es_aiden-neutral.wav",
+   "audio_s": 12.83,
+   "compute_s": 67.64,
+   "rtf": 5.27
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v5",
+   "lang": "es",
+   "voice": "aiden-excited",
+   "ok": true,
+   "file": "qwen3emo_v5_es_aiden-excited.wav",
+   "audio_s": 12.27,
+   "compute_s": 65.52,
+   "rtf": 5.34
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v5",
+   "lang": "es",
+   "voice": "aiden-docu",
+   "ok": true,
+   "file": "qwen3emo_v5_es_aiden-docu.wav",
+   "audio_s": 14.11,
+   "compute_s": 76.19,
+   "rtf": 5.4
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v5",
+   "lang": "en",
+   "voice": "aiden-neutral",
+   "ok": true,
+   "file": "qwen3emo_v5_en_aiden-neutral.wav",
+   "audio_s": 10.03,
+   "compute_s": 51.86,
+   "rtf": 5.17
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v5",
+   "lang": "en",
+   "voice": "aiden-excited",
+   "ok": true,
+   "file": "qwen3emo_v5_en_aiden-excited.wav",
+   "audio_s": 10.75,
+   "compute_s": 56.65,
+   "rtf": 5.27
+  },
+  {
+   "model": "qwen3emo",
+   "text": "v5",
+   "lang": "en",
+   "voice": "aiden-docu",
+   "ok": true,
+   "file": "qwen3emo_v5_en_aiden-docu.wav",
+   "audio_s": 10.83,
+   "compute_s": 57.51,
+   "rtf": 5.31
+  }
+ ],
+ "elapsed_s": 1173.8
+}
