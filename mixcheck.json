@@ -1,0 +1,224 @@
+[
+ {
+  "lang": "en",
+  "kind": "mix",
+  "scenes": [
+   {
+    "scene": 1,
+    "wer": 0.043,
+    "hyp": "A naked sport bike from India. Single cylinder, liquid -cooled engine with a displacement of 199 .5 cc.",
+    "ref": "A naked sport bike from India. Single-cylinder, liquid-cooled engine with a displacement of 199.5 cc."
+   },
+   {
+    "scene": 2,
+    "wer": 0.0,
+    "hyp": "Pressed steel perimeter frame, underbelly exhaust, 17 -inch alloy wheels. This version has fuel injection, as the stickers show.",
+    "ref": "Pressed steel perimeter frame, underbelly exhaust, 17-inch alloy wheels. This version has fuel injection, as the stickers show."
+   },
+   {
+    "scene": 3,
+    "wer": 0.071,
+    "hyp": "In Argentina, it is called the Rouser NS200. The engine cover reads DTSI and triple spark, and the tank shroud carries a huge 200.",
+    "ref": "In Argentina it is called the Rouser NS200. The engine cover reads DTS-i and “triple spark”, and the tank shroud carries a huge “200”."
+   },
+   {
+    "scene": 4,
+    "wer": 0.0,
+    "hyp": "Owners love to modify it. This one has a non -factory exhaust, so it is not the stock version.",
+    "ref": "Owners love to modify it. This one has a non-factory exhaust, so it is not the stock version."
+   },
+   {
+    "scene": 5,
+    "wer": 0.0,
+    "hyp": "October 2026, Moscow. An NS200 with a top case and a courier bag. The photographer wrote, Indians are replacing the Japanese.",
+    "ref": "October 2026, Moscow. An NS200 with a top case and a courier bag. The photographer wrote: “Indians are replacing the Japanese.”"
+   }
+  ],
+  "words_outside_scenes": ""
+ },
+ {
+  "lang": "en",
+  "kind": "voice",
+  "scenes": [
+   {
+    "scene": 1,
+    "wer": 0.043,
+    "hyp": "A naked sport bike from India. Single cylinder, liquid -cooled engine with a displacement of 199 .5 cc.",
+    "ref": "A naked sport bike from India. Single-cylinder, liquid-cooled engine with a displacement of 199.5 cc."
+   },
+   {
+    "scene": 2,
+    "wer": 0.0,
+    "hyp": "Pressed steel perimeter frame, underbelly exhaust, 17 inch alloy wheels. This version has fuel injection, as the stickers show.",
+    "ref": "Pressed steel perimeter frame, underbelly exhaust, 17-inch alloy wheels. This version has fuel injection, as the stickers show."
+   },
+   {
+    "scene": 3,
+    "wer": 0.071,
+    "hyp": "In Argentina, it is called the Rouser NS200. The engine cover reads DTSI and triple spark, and the tank shroud carries a huge 200.",
+    "ref": "In Argentina it is called the Rouser NS200. The engine cover reads DTS-i and “triple spark”, and the tank shroud carries a huge “200”."
+   },
+   {
+    "scene": 4,
+    "wer": 0.0,
+    "hyp": "Owners love to modify it. This one has a non -factory exhaust, so it is not the stock version.",
+    "ref": "Owners love to modify it. This one has a non-factory exhaust, so it is not the stock version."
+   },
+   {
+    "scene": 5,
+    "wer": 0.0,
+    "hyp": "October 2026, Moscow, an NS200 with a top case and a courier bag. The photographer wrote, Indians are replacing the Japanese.",
+    "ref": "October 2026, Moscow. An NS200 with a top case and a courier bag. The photographer wrote: “Indians are replacing the Japanese.”"
+   }
+  ],
+  "words_outside_scenes": ""
+ },
+ {
+  "lang": "es",
+  "kind": "mix",
+  "scenes": [
+   {
+    "scene": 1,
+    "wer": 0.087,
+    "hyp": "Una moto Naked Sport de la India. Motor monosilíndrico, refrigerado por líquido, con una cilindrada de 199 .5 cc.",
+    "ref": "Una moto naked sport de la India. Motor monocilíndrico, refrigerado por líquido, con una cilindrada de 199,5 cc."
+   },
+   {
+    "scene": 2,
+    "wer": 0.0,
+    "hyp": "Bastidor perimetral de acero prensado, escape bajo el motor, llantas de aleación de 17 pulgadas. Esta versión tiene inyección de combustible, como muestran los adhesivos.",
+    "ref": "Bastidor perimetral de acero prensado, escape bajo el motor, llantas de aleación de 17 pulgadas. Esta versión tiene inyección de combustible, como muestran los adhesivos."
+   },
+   {
+    "scene": 3,
+    "wer": 0.143,
+    "hyp": "En Argentina se llama Rouser NS200. La tapa del motor dice DTSI y Triple Spark, y el panel del tanque lleva un enorme 200.",
+    "ref": "En Argentina se llama Rouser NS200. La tapa del motor dice «de te ese i» y «triple spark», y el panel del tanque lleva un enorme «200»."
+   },
+   {
+    "scene": 4,
+    "wer": 0.0,
+    "hyp": "A los dueños les encanta modificarla. Esta tiene un escape que no es de fábrica, así que no es la versión original.",
+    "ref": "A los dueños les encanta modificarla. Esta tiene un escape que no es de fábrica, así que no es la versión original."
+   },
+   {
+    "scene": 5,
+    "wer": 0.0,
+    "hyp": "Octubre de 2026, Moscú. Una NS200 con baúl y bolso de reparto. El fotógrafo escribió, los indios están reemplazando a los japoneses.",
+    "ref": "Octubre de 2026, Moscú. Una NS200 con baúl y bolso de reparto. El fotógrafo escribió: «Los indios están reemplazando a los japoneses»."
+   }
+  ],
+  "words_outside_scenes": ""
+ },
+ {
+  "lang": "es",
+  "kind": "voice",
+  "scenes": [
+   {
+    "scene": 1,
+    "wer": 0.087,
+    "hyp": "Una moto Naked Sport de la India. Motor monosilíndrico, refrigerado por líquido, con una cilindrada de 199 .5 cc.",
+    "ref": "Una moto naked sport de la India. Motor monocilíndrico, refrigerado por líquido, con una cilindrada de 199,5 cc."
+   },
+   {
+    "scene": 2,
+    "wer": 0.04,
+    "hyp": "Pastidor perimetral de acero prensado, escape bajo el motor, llantas de aleación de 17 pulgadas. Esta versión tiene inyección de combustible, como muestran los adhesivos.",
+    "ref": "Bastidor perimetral de acero prensado, escape bajo el motor, llantas de aleación de 17 pulgadas. Esta versión tiene inyección de combustible, como muestran los adhesivos."
+   },
+   {
+    "scene": 3,
+    "wer": 0.143,
+    "hyp": "En Argentina se llama Rouser NS200. La tapa del motor dice DTSI y Triple Spark, y el panel del tanque lleva un enorme 200.",
+    "ref": "En Argentina se llama Rouser NS200. La tapa del motor dice «de te ese i» y «triple spark», y el panel del tanque lleva un enorme «200»."
+   },
+   {
+    "scene": 4,
+    "wer": 0.0,
+    "hyp": "A los dueños les encanta modificarla. Esta tiene un escape que no es de fábrica, así que no es la versión original.",
+    "ref": "A los dueños les encanta modificarla. Esta tiene un escape que no es de fábrica, así que no es la versión original."
+   },
+   {
+    "scene": 5,
+    "wer": 0.04,
+    "hyp": "En octubre de 2026, Moscú, una NS200 con baúl y bolso de reparto. El fotógrafo escribió, Los indios están reemplazando a los japoneses.",
+    "ref": "Octubre de 2026, Moscú. Una NS200 con baúl y bolso de reparto. El fotógrafo escribió: «Los indios están reemplazando a los japoneses»."
+   }
+  ],
+  "words_outside_scenes": ""
+ },
+ {
+  "lang": "hi",
+  "kind": "mix",
+  "scenes": [
+   {
+    "scene": 1,
+    "wer": 0.186,
+    "hyp": "भारत की एक नेकेर स्पोर्ट बाइक सिंगल सिलेंडर लिक्विर कूलड इंजन जिसकी क्षमता एक सो निन्यान्बे दश्मलव पांच सीसी हैं",
+    "ref": "भारत की एक नेकेड स्पोर्ट बाइक। सिंगल-सिलेंडर, लिक्विड-कूल्ड इंजन, जिसकी क्षमता एक सौ निन्यानबे दशमलव पाँच सीसी है।"
+   },
+   {
+    "scene": 2,
+    "wer": 0.175,
+    "hyp": "प्रेस्थ स्टील का पेरीमेटर फ्रेम, इंजन के नीचे से निकलता इग्जास्ट, 17 इंच के अलोई भील, इस वर्जन में फ्यूल इंजेक्षन हैं, जैसा स्टिक्रों से दिखता हैं",
+    "ref": "प्रेस्ड स्टील का पेरिमीटर फ्रेम, इंजन के नीचे से निकलता एग्ज़ॉस्ट, 17 इंच के अलॉय व्हील। इस वर्ज़न में फ्यूल इंजेक्शन है, जैसा स्टिकरों से दिखता है।"
+   },
+   {
+    "scene": 3,
+    "wer": 0.229,
+    "hyp": "अर्जिन्टिना में इसे राउजर इन एस 200 कहा जाता है, इंजन कवर पर दीटी एस आई और ट्रिपल स्पार्क लिखा है, और टेंक श्रावड पर बढ़ा सा 200 है",
+    "ref": "अर्जेंटीना में इसे राउज़र एन एस दो सौ कहा जाता है। इंजन कवर पर डी टी एस आई और “ट्रिपल स्पार्क” लिखा है, और टैंक श्राउड पर बड़ा-सा “दो सौ” है।"
+   },
+   {
+    "scene": 4,
+    "wer": 0.178,
+    "hyp": "मालिको को इसे मौरिफाई करना पसंद है, इस भाईक में फैक्टरी वाला नहीं, बादमे लगाया गया एग्सॉस्ट है, इसलिए यहा स्टॉक वर्जन नहीं है",
+    "ref": "मालिकों को इसे मॉडिफ़ाई करना पसंद है। इस बाइक में फ़ैक्टरी वाला नहीं, बाद में लगाया गया एग्ज़ॉस्ट है, इसलिए यह स्टॉक वर्ज़न नहीं है।"
+   },
+   {
+    "scene": 5,
+    "wer": 0.318,
+    "hyp": "अक्टूबर दोहाजार चब बीस, मौस्को टॉप केस और कौरियर बैग वाली, एक इन इस 200 फोटोग्राफर ने लिखा, भारती जापानियों की जगह ले रहे हैं",
+    "ref": "अक्टूबर 2026, मॉस्को। टॉप केस और कूरियर बैग वाली एक एन एस दो सौ। फ़ोटोग्राफ़र ने लिखा: “भारतीय जापानियों की जगह ले रहे हैं।”"
+   }
+  ],
+  "words_outside_scenes": ""
+ },
+ {
+  "lang": "hi",
+  "kind": "voice",
+  "scenes": [
+   {
+    "scene": 1,
+    "wer": 0.209,
+    "hyp": "भारत की एक नेकेर स्पोर्ट भाइक सिंगल सिलेंडर लिक्विर कूलड इंजन जिसकी क्षमता एक सो निन्यान्बे दश्मलव पांच सीसी है।",
+    "ref": "भारत की एक नेकेड स्पोर्ट बाइक। सिंगल-सिलेंडर, लिक्विड-कूल्ड इंजन, जिसकी क्षमता एक सौ निन्यानबे दशमलव पाँच सीसी है।"
+   },
+   {
+    "scene": 2,
+    "wer": 0.193,
+    "hyp": "प्रेस्थ स्टील का पेरीमेटर प्रेम, इंजन के नीचे से निकलता इग्जोस्ट, 17 इंच के अलोई भील, इस वर्जन में फ्यूल इंजेक्षन है, जैसा स्टिक्रों से दिखता है।",
+    "ref": "प्रेस्ड स्टील का पेरिमीटर फ्रेम, इंजन के नीचे से निकलता एग्ज़ॉस्ट, 17 इंच के अलॉय व्हील। इस वर्ज़न में फ्यूल इंजेक्शन है, जैसा स्टिकरों से दिखता है।"
+   },
+   {
+    "scene": 3,
+    "wer": 0.312,
+    "hyp": "अर्जिन्टिना में इसे राूजर इन इस 200 कहा जाता है, इंजन कवर पर DTSI और ट्रिपल स्पार्क लिखा है, और टेंक श्रावड पर बढ़ा सा 200 है।",
+    "ref": "अर्जेंटीना में इसे राउज़र एन एस दो सौ कहा जाता है। इंजन कवर पर डी टी एस आई और “ट्रिपल स्पार्क” लिखा है, और टैंक श्राउड पर बड़ा-सा “दो सौ” है।"
+   },
+   {
+    "scene": 4,
+    "wer": 0.156,
+    "hyp": "मालिको को इसे मौरिफाई करना पसंद है, इस भाइक में फैक्टरी वाला नहीं, बादमे लगाया गया इग्जोस्ट है, इसलिए यहा स्टॉक वर्जन नहीं है।",
+    "ref": "मालिकों को इसे मॉडिफ़ाई करना पसंद है। इस बाइक में फ़ैक्टरी वाला नहीं, बाद में लगाया गया एग्ज़ॉस्ट है, इसलिए यह स्टॉक वर्ज़न नहीं है।"
+   },
+   {
+    "scene": 5,
+    "wer": 0.295,
+    "hyp": "अक्टूबर दो हजार छबबीस, मौस्को टॉप केस और कूरियर बैग वाली, एक इन इस 200 फोटोग्राफर नहीं लिखा, भारती जापानियों की जगह ले रहे हैं।",
+    "ref": "अक्टूबर 2026, मॉस्को। टॉप केस और कूरियर बैग वाली एक एन एस दो सौ। फ़ोटोग्राफ़र ने लिखा: “भारतीय जापानियों की जगह ले रहे हैं।”"
+   }
+  ],
+  "words_outside_scenes": ""
+ }
+]
