@@ -1,0 +1,127 @@
+[
+ {
+  "scene": 1,
+  "id": "pg1o",
+  "dir": "ph2",
+  "file": "pg1o.jpg",
+  "place": "pangong",
+  "crop": null,
+  "start": [
+   0.3,
+   0.5,
+   1.0
+  ],
+  "end": [
+   0.7,
+   0.5,
+   1.0
+  ],
+  "author": "Krzysztof Popławski",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Pnagong_lake,_Pangong_Tso,_view_form_Pangong_Lake_Rd,_194201.jpg",
+  "title": "File:Panoramic view of Pnagong lake, Pangong Tso, view form Pangong Lake Rd, 194201.jpg",
+  "date": "2022-07-05 08:17:56"
+ },
+ {
+  "scene": 2,
+  "id": "vn3",
+  "dir": "ph",
+  "file": "vn3.jpg",
+  "place": "varanasi",
+  "crop": null,
+  "start": [
+   0.45,
+   0.55,
+   1.0
+  ],
+  "end": [
+   0.55,
+   0.5,
+   1.15
+  ],
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Varanasi,_India,_Ganges_River,_ghats,_temples_and_embankments.jpg",
+  "title": "File:Varanasi, India, Ganges River, ghats, temples and embankments.jpg",
+  "date": "2007-11-17 11:45:04"
+ },
+ {
+  "scene": 3,
+  "id": "kl1",
+  "dir": "ph",
+  "file": "kl1.jpg",
+  "place": "kuttanad",
+  "crop": null,
+  "start": [
+   0.5,
+   0.55,
+   1.0
+  ],
+  "end": [
+   0.52,
+   0.5,
+   1.15
+  ],
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Kerala_backwaters,_Canal,_Palm_trees,_India.jpg",
+  "title": "File:Kerala backwaters, Canal, Palm trees, India.jpg",
+  "date": "2010-01-12 16:03:21"
+ },
+ {
+  "scene": 4,
+  "id": "rk1",
+  "dir": "ph",
+  "file": "rk1.jpg",
+  "place": "rann",
+  "crop": [
+   0,
+   280,
+   3840,
+   2440
+  ],
+  "start": [
+   0.5,
+   0.55,
+   1.0
+  ],
+  "end": [
+   0.5,
+   0.45,
+   1.18
+  ],
+  "author": "Rudolph.A.furtado",
+  "license": "CC0",
+  "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "page": "https://commons.wikimedia.org/wiki/File:%27WHITE_DESERT%27_at_Dhordo_in_Great_Rann_of_Kutch.JPG",
+  "title": "File:'WHITE DESERT' at Dhordo in Great Rann of Kutch.JPG",
+  "date": ""
+ },
+ {
+  "scene": 5,
+  "id": "rd1",
+  "dir": "ph",
+  "file": "rd1.jpg",
+  "place": "radhanagar",
+  "crop": null,
+  "start": [
+   0.5,
+   0.55,
+   1.0
+  ],
+  "end": [
+   0.48,
+   0.5,
+   1.15
+  ],
+  "author": "Vyacheslav Argenberg",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "page": "https://commons.wikimedia.org/wiki/File:Havelock_Island,_Radhanagar_Beach_before_sunset,_Andaman_Islands.jpg",
+  "title": "File:Havelock Island, Radhanagar Beach before sunset, Andaman Islands.jpg",
+  "date": "2009-11-22 15:42:10"
+ }
+]
