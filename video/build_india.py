@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Buduje obraz (bez dźwięku) filmu 'Indie. Pięć twarzy wody' w wybranym języku.
-Użycie: FILM_LANG=pl INDIA_PHOTOS=/ścieżka FILM_DURS="13 13 13 13 13" build_india.py render|preview [s0,s1,...]
+Użycie: FILM_LANG=pl INDIA_PHOTOS=/ścieżka FILM_DURS="16.5 16.5 16.5 13 16.5" FILM_VOICE="9 9 10 12 9" build_india.py render|preview [s0,s1,...]
 INDIA_PHOTOS: katalog z plikami zdjęć (nazwy z india/photos.json). Wyjście: $FILM_OUT/s0..s6.mp4 (+ concat.txt)."""
 import json, os, subprocess, sys
 from multiprocessing import Pool
@@ -21,23 +21,26 @@ else:
     FONT_B, FONT_R = "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"
 MUSIC_LINE = {"en": "Music", "es": "Música", "hi": "संगीत", "pl": "Muzyka"}
 durs = [float(x) for x in os.environ.get("FILM_DURS", "13 13 13 13 13").split()]
-TITLE_S, END_S = 5.0, 8.0
+TITLE_S, END_S = 5.0, 10.0
+VOICE = [float(x) for x in os.environ.get("FILM_VOICE", "9 9 9 9 9").split()]
+LEAD, XF = 0.6, 0.8   # start lektora w scenie; czas przenikania zdjęć (s)
 SCENES = [dict(name="s0", kind="title", dur=TITLE_S)]
 for i in range(5):
-    SCENES.append(dict(name=f"s{i+1}", kind="photo", n=i, dur=durs[i], tag=CAP["tags"][i], sub=CAP["subs"][i]))
+    SCENES.append(dict(name=f"s{i+1}", kind="photo", n=i, dur=durs[i], voice=VOICE[i], tag=CAP["tags"][i], sub=CAP["subs"][i]))
 SCENES.append(dict(name="s6", kind="end", dur=END_S))
 
 _cache = {}
-def load(n):
-    if n not in _cache:
-        p = PH[n]
+def load(n, k=0):
+    key = (n, k)
+    if key not in _cache:
+        p = PH[n]["shots"][k]
         im = Image.open(f"{PDIR}/{p['file']}").convert("RGB")
         if p["crop"]:
             im = im.crop(tuple(p["crop"]))
         if im.width > 7000:                      # panorama: lżejsza kopia robocza (okno nadal > 3000 px szer.)
             im = im.resize((7000, round(im.height * 7000 / im.width)), Image.LANCZOS)
-        _cache[n] = im
-    return _cache[n]
+        _cache[key] = im
+    return _cache[key]
 
 ease = lambda t: t * t * (3 - 2 * t)
 lerp = lambda a, b, t: tuple(a[i] + (b[i] - a[i]) * t for i in range(len(a)))
@@ -83,17 +86,31 @@ def draw_tag(img, text):
     d.rounded_rectangle((60, 54, 60 + tw + 44, 54 + 62), 14, fill=(0, 0, 0, 150))
     d.text((82, 54 + 10), text, font=f, fill=(255, 255, 255, 255))
 
+def shot_img(n, k, u):
+    p = PH[n]["shots"][k]
+    im = load(n, k)
+    box = window(im, lerp(p["start"], p["end"], ease(min(max(u, 0.0), 1.0))))
+    return im.resize((W, H), Image.BICUBIC, box=box)
+
 def photo_frame(sc, t):
-    p = PH[sc["n"]]
-    im = load(sc["n"])
-    box = window(im, lerp(p["start"], p["end"], ease(t)))
-    img = im.resize((W, H), Image.BICUBIC, box=box)
+    n = sc["n"]; shots = PH[n]["shots"]; m = len(shots)
+    sec = t * sc["dur"]
+    seg = sc["dur"] / m
+    k = min(int(sec / seg), m - 1)
+    # postęp ruchu kamery w ramach własnego odcinka (z zapasem na przenikanie)
+    lo, hi = k * seg - XF / 2, (k + 1) * seg + XF / 2
+    img = shot_img(n, k, (sec - lo) / (hi - lo))
+    if k + 1 < m and sec > (k + 1) * seg - XF / 2:          # przenikanie do następnego ujęcia
+        a = (sec - ((k + 1) * seg - XF / 2)) / XF
+        lo2, hi2 = (k + 1) * seg - XF / 2, (k + 2) * seg + XF / 2
+        img = Image.blend(img, shot_img(n, k + 1, (sec - lo2) / (hi2 - lo2)), min(max(a, 0.0), 1.0))
     draw_tag(img, sc["tag"])
-    draw_sub(img, sc["sub"])
+    if LEAD - 0.2 <= sec <= LEAD + sc["voice"] + 0.5:         # napisy tylko, gdy mówi lektor
+        draw_sub(img, sc["sub"])
     return img
 
 def title_frame(sc, t):
-    im = load(0)
+    im = load(0, 0)
     box = window(im, (0.5, 0.5, 1.0 + 0.04 * t))
     img = im.resize((W, H), Image.BICUBIC, box=box).filter(ImageFilter.GaussianBlur(10))
     img = Image.eval(img, lambda v: int(v * 0.45))
@@ -107,22 +124,29 @@ def title_frame(sc, t):
     d.text(((W - d.textlength(t2, font=f2)) / 2, 590), t2, font=f2, fill=(235, 235, 235, int(255 * a2)))
     return img
 
-def end_lines():
+def end_lines(d, f):
     short = [tg.split(",")[0] for tg in CAP["tags"]]
     lines = [(CAP["credits_head"], "head")]
-    for tg, p in zip(short, PH):
-        lines.append((f"{tg} — {p['author']}, {p['license']}", "r"))
+    for tg, sc in zip(short, PH):
+        seen, parts = set(), []
+        for p in sc["shots"]:
+            key = (p["author"], p["license"])
+            if key not in seen:
+                seen.add(key); parts.append(f"{p['author']} ({p['license']})")
+        for j, ln in enumerate(wrap(d, f"{tg} — " + ", ".join(parts), f, 1700)):
+            lines.append((("   " if j else "") + ln, "r"))
     lines += [(CAP["changes"], "r"), ("", "r"), (f"{CAP['music']}: HoliznaCC0 — Transformations 3 — CC0 1.0", "r"), (CAP["links"], "r")]
     return lines
 
 def end_frame(sc, t):
     img = Image.new("RGB", (W, H), (11, 11, 12))
     d = ImageDraw.Draw(img)
-    lines = end_lines()
-    step = 66
+    fr, fh = font(FONT_R, 32), font(FONT_B, 42)
+    lines = end_lines(d, fr)
+    step = min(58, (H - 120) // len(lines))
     y = (H - step * len(lines)) // 2
     for ln, kind in lines:
-        f = font(FONT_B if kind == "head" else FONT_R, 46 if kind == "head" else 38)
+        f = fh if kind == "head" else fr
         d.text(((W - d.textlength(ln, font=f)) / 2, y), ln, font=f, fill=(255, 255, 255) if kind == "head" else (220, 220, 220))
         y += step
     return img
