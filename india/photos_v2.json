@@ -1,0 +1,278 @@
+{
+ "hook": [
+  {
+   "id": "pg1o",
+   "file": "pg1o.jpg",
+   "crop": null,
+   "start": [
+    0.4,
+    0.5,
+    1.0
+   ],
+   "end": [
+    0.46,
+    0.5,
+    1.18
+   ],
+   "author": "Krzysztof Popławski",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Pnagong_lake,_Pangong_Tso,_view_form_Pangong_Lake_Rd,_194201.jpg",
+   "title": "File:Panoramic view of Pnagong lake, Pangong Tso, view form Pangong Lake Rd, 194201.jpg",
+   "date": "2022-07-05 08:17:56"
+  }
+ ],
+ "s1": [
+  {
+   "id": "pg2o",
+   "file": "pg2o.jpg",
+   "crop": null,
+   "start": [
+    0.35,
+    0.5,
+    1.0
+   ],
+   "end": [
+    0.62,
+    0.5,
+    1.0
+   ],
+   "author": "Krzysztof Popławski",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Pnagong_lake,_Pangong_Tso,_view_form_Spangmik_area,_july_2022.jpg",
+   "title": "File:Panoramic view of Pnagong lake, Pangong Tso, view form Spangmik area, july 2022.jpg",
+   "date": "2022-07-04 19:26:32"
+  },
+  {
+   "id": "xpg2",
+   "file": "xpg2.jpg",
+   "crop": null,
+   "start": [
+    0.5,
+    0.5,
+    1.0
+   ],
+   "end": [
+    0.45,
+    0.5,
+    1.15
+   ],
+   "author": "Lianguanlun",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Saddled_yak_at_Pangong_Lake_Ladakh.jpg",
+   "title": "File:Saddled yak at Pangong Lake Ladakh.jpg",
+   "date": "2017-07-27 15:45:54"
+  }
+ ],
+ "s2": [
+  {
+   "id": "xvn5",
+   "file": "xvn5.jpg",
+   "crop": null,
+   "start": [
+    0.5,
+    0.5,
+    1.0
+   ],
+   "end": [
+    0.4,
+    0.55,
+    1.15
+   ],
+   "author": "Ninara",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Varanasi,_India_(33483934528).jpg",
+   "title": "File:Varanasi, India (33483934528).jpg",
+   "date": "2019-02-21 06:58"
+  },
+  {
+   "id": "xvn1",
+   "file": "xvn1.jpg",
+   "crop": null,
+   "start": [
+    0.6,
+    0.5,
+    1.0
+   ],
+   "end": [
+    0.55,
+    0.5,
+    1.12
+   ],
+   "author": "orvalrochefort",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Boat_ride_at_Sunrise,_on_the_Ganges,_Varanasi.jpg",
+   "title": "File:Boat ride at Sunrise, on the Ganges, Varanasi.jpg",
+   "date": "2009-10-23 02:44:25"
+  }
+ ],
+ "s3": [
+  {
+   "id": "rk1",
+   "file": "rk1.jpg",
+   "crop": [
+    0,
+    280,
+    3840,
+    2440
+   ],
+   "start": [
+    0.5,
+    0.55,
+    1.0
+   ],
+   "end": [
+    0.5,
+    0.5,
+    1.12
+   ],
+   "author": "Rudolph.A.furtado",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:%27WHITE_DESERT%27_at_Dhordo_in_Great_Rann_of_Kutch.JPG",
+   "title": "File:'WHITE DESERT' at Dhordo in Great Rann of Kutch.JPG",
+   "date": ""
+  },
+  {
+   "id": "rk1",
+   "file": "rk1.jpg",
+   "crop": [
+    0,
+    280,
+    3840,
+    2440
+   ],
+   "start": [
+    0.33,
+    0.55,
+    1.5
+   ],
+   "end": [
+    0.67,
+    0.55,
+    1.5
+   ],
+   "author": "Rudolph.A.furtado",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:%27WHITE_DESERT%27_at_Dhordo_in_Great_Rann_of_Kutch.JPG",
+   "title": "File:'WHITE DESERT' at Dhordo in Great Rann of Kutch.JPG",
+   "date": ""
+  }
+ ],
+ "s4": [
+  {
+   "id": "rd1",
+   "file": "rd1.jpg",
+   "crop": null,
+   "start": [
+    0.5,
+    0.55,
+    1.0
+   ],
+   "end": [
+    0.48,
+    0.5,
+    1.15
+   ],
+   "author": "Vyacheslav Argenberg",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Havelock_Island,_Radhanagar_Beach_before_sunset,_Andaman_Islands.jpg",
+   "title": "File:Havelock Island, Radhanagar Beach before sunset, Andaman Islands.jpg",
+   "date": "2009-11-22 15:42:10"
+  },
+  {
+   "id": "rd3",
+   "file": "rd3.jpg",
+   "crop": null,
+   "start": [
+    0.5,
+    0.5,
+    1.0
+   ],
+   "end": [
+    0.55,
+    0.5,
+    1.12
+   ],
+   "author": "Vyacheslav Argenberg",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Havelock_Island,_Radhanagar_Beach,_tropical_bliss,_Andaman_Islands.jpg",
+   "title": "File:Havelock Island, Radhanagar Beach, tropical bliss, Andaman Islands.jpg",
+   "date": "2009-11-22 13:32:21"
+  }
+ ],
+ "s5": [
+  {
+   "id": "ypd1",
+   "file": "ypd1.jpg",
+   "crop": null,
+   "start": [
+    0.5,
+    0.55,
+    1.0
+   ],
+   "end": [
+    0.5,
+    0.5,
+    1.12
+   ],
+   "author": "McKay Savage from London, UK",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:India_-_Kerala_-_007_-_paddy_fields_line_the_backwaters_(2068840278).jpg",
+   "title": "File:India - Kerala - 007 - paddy fields line the backwaters (2068840278).jpg",
+   "date": "2007-11-22 13:28"
+  },
+  {
+   "id": "xkl2",
+   "file": "xkl2.jpg",
+   "crop": null,
+   "start": [
+    0.5,
+    0.5,
+    1.1
+   ],
+   "end": [
+    0.5,
+    0.5,
+    1.0
+   ],
+   "author": "RndmCrs",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:A_Houseboat_in_Backwaters_of_Kerala.jpg",
+   "title": "File:A Houseboat in Backwaters of Kerala.jpg",
+   "date": "2010-05-12 20:26:13"
+  }
+ ],
+ "payoff": [
+  {
+   "id": "pg1o",
+   "file": "pg1o.jpg",
+   "crop": null,
+   "start": [
+    0.46,
+    0.5,
+    1.18
+   ],
+   "end": [
+    0.4,
+    0.5,
+    1.0
+   ],
+   "author": "Krzysztof Popławski",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Panoramic_view_of_Pnagong_lake,_Pangong_Tso,_view_form_Pangong_Lake_Rd,_194201.jpg",
+   "title": "File:Panoramic view of Pnagong lake, Pangong Tso, view form Pangong Lake Rd, 194201.jpg",
+   "date": "2022-07-05 08:17:56"
+  }
+ ]
+}

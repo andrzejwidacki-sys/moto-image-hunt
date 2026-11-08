@@ -10,7 +10,7 @@ S["pl"] = [
  [("Pięć miejsc w Indiach.", "Pięć miejsc w Indiach."), ("Pięć rodzajów wody.", "Pięć rodzajów wody."),
   ("W jednym z nich ludzie uprawiają ryż poniżej poziomu morza.", "W jednym z nich ludzie uprawiają ryż poniżej poziomu morza."), ("Zgadniesz, w którym?", "Zgadniesz, w którym?")],
  # iv1 Pangong
- [("Najwyżej: Pangong Tso w Ladakhu, ponad cztery tysiące dwieście metrów nad poziomem morza.", "Najwyżej: Pangong Tso w Ladakhu, ponad 4200 m n.p.m."),
+ [("Najwyżej: Pangong Co w Ladaku, ponad cztery tysiące dwieście metrów nad poziomem morza.", "Najwyżej: Pangong Tso w Ladakhu, ponad 4200 m n.p.m."),
   ("Jezioro ma sto trzydzieści cztery kilometry długości.", "Jezioro ma 134 km długości."),
   ("Mimo zasolenia zimą zamarza.", "Mimo zasolenia zimą zamarza.")],
  # iv2 Varanasi
@@ -22,7 +22,7 @@ S["pl"] = [
   ("W porze monsunowej wypełnia go woda, a gdy ta wyparuje, zostaje biała, słona równina.", "W porze monsunowej wypełnia go woda, a gdy ta wyparuje, zostaje biała, słona równina."),
   ("To jedno z najgorętszych miejsc w Indiach, a zimą temperatura potrafi spaść poniżej zera.", "To jedno z najgorętszych miejsc w Indiach, a zimą temperatura potrafi spaść poniżej zera.")],
  # iv4 Radhanagar
- [("Radha Nagar na wyspie Havelok w archipelagu Andamanów: biały piasek, turkusowa woda, łagodne fale.", "Radhanagar na wyspie Havelock (Andamany): biały piasek, turkusowa woda, łagodne fale."),
+ [("Rada Nagar na wyspie Havelok w archipelagu Andamanów: biały piasek, turkusowa woda, łagodne fale.", "Radhanagar na wyspie Havelock (Andamany): biały piasek, turkusowa woda, łagodne fale."),
   ("Plaża ma międzynarodowy certyfikat Blue Flag, przyznawany za czystość i bezpieczeństwo.", "Plaża ma międzynarodowy certyfikat Blue Flag, przyznawany za czystość i bezpieczeństwo."),
   ("W dwa tysiące czwartym roku magazyn Time wymienił ją wśród najlepszych plaż świata.", "W 2004 roku magazyn Time wymienił ją wśród najlepszych plaż świata.")],
  # iv5 Kuttanad
@@ -41,7 +41,7 @@ S["en"] = [
   ("The lake is one hundred and thirty-four kilometres long.", "The lake is 134 km long."),
   ("Despite its salinity, it freezes over in winter.", "Despite its salinity, it freezes over in winter.")],
  [("Varanasi, one of the world's oldest living cities.", "Varanasi, one of the world's oldest living cities."),
-  ("More than eighty [ghats](/ɡɑːts/) lead down to the Ganges.", "More than 80 ghats lead down to the Ganges."),
+  ("More than eighty gahts lead down to the Ganges.", "More than 80 ghats lead down to the Ganges."),
   ("For thousands of years, pilgrims have hoped to bathe in this river.", "For thousands of years, pilgrims have hoped to bathe in this river.")],
  [("The Great Rann of Kutch in Gujarat covers about seven and a half thousand square kilometres.", "The Great Rann of Kutch in Gujarat covers about 7,500 km²."),
   ("In the monsoon, water fills it; when the water evaporates, a white salt plain is left.", "In the monsoon, water fills it; when the water evaporates, a white salt plain is left."),
@@ -68,7 +68,7 @@ S["es"] = [
  [("El Gran Ran de Kuch, en Guyarat, abarca unos siete mil quinientos kilómetros cuadrados.", "El Gran Rann de Kutch, en Gujarat, abarca unos 7500 km²."),
   ("En el monzón se llena de agua; cuando esta se evapora, queda una llanura blanca de sal.", "En el monzón se llena de agua; cuando esta se evapora, queda una llanura blanca de sal."),
   ("Es uno de los lugares más calurosos de la India, pero en invierno la temperatura puede bajar de cero.", "Es uno de los lugares más calurosos de la India, pero en invierno la temperatura puede bajar de cero.")],
- [("Radha Nagar, en la isla Havelok, en las Andamán: arena blanca, agua turquesa y olas suaves.", "Radhanagar, en la isla Havelock (Andamán): arena blanca, agua turquesa y olas suaves."),
+ [("Rada Nagar, en la isla Havelok, en las islas Andamán: arena blanca, agua turquesa y olas suaves.", "Radhanagar, en la isla Havelock (Andamán): arena blanca, agua turquesa y olas suaves."),
   ("La playa tiene la certificación internacional Bandera Azul, que se concede por limpieza y seguridad.", "La playa tiene la certificación internacional Bandera Azul, que se concede por limpieza y seguridad."),
   ("En dos mil cuatro, la revista Time la incluyó entre las mejores playas del mundo.", "En 2004, la revista Time la incluyó entre las mejores playas del mundo.")],
  [("La respuesta: Kuttanad, en Kerala, la región más baja de la India.", "La respuesta: Kuttanad, en Kerala, la región más baja de la India."),
