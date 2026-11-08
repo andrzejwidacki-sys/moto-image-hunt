@@ -1,0 +1,34 @@
+name: Audio probe (Commons ambience)
+
+on:
+  workflow_dispatch:
+    inputs:
+      places_json:
+        description: 'JSON {"id": "zapytanie Commons", ...}'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe
+        env:
+          PLACES: ${{ inputs.places_json }}
+          OUT: audio-out
+        run: python3 audio/probe.py
+      - name: Publish
+        if: always() && hashFiles('audio-out/audio.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd audio-out
+          git init -q -b audio-probe
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "places probe ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" audio-probe
