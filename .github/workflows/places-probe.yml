@@ -1,0 +1,41 @@
+name: Places probe (Commons image availability)
+
+on:
+  workflow_dispatch:
+    inputs:
+      places_json:
+        description: 'JSON {"id": "zapytanie Commons", ...}'
+        required: true
+      min_width:
+        description: "Minimalna szerokość zdjęcia (px)"
+        default: "2400"
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Probe
+        env:
+          PLACES: ${{ inputs.places_json }}
+          MIN_WIDTH: ${{ inputs.min_width }}
+          OUT: places-out
+        run: python3 places/probe.py
+      - name: Summary
+        if: always() && hashFiles('places-out/places.md') != ''
+        run: cat places-out/places.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Publish
+        if: always() && hashFiles('places-out/places.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd places-out
+          git init -q -b places-probe
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "places probe ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" places-probe
