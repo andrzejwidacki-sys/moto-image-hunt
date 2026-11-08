@@ -1,0 +1,38 @@
+name: Places download (Commons photos + licence metadata)
+
+on:
+  workflow_dispatch:
+    inputs:
+      items_json:
+        description: 'JSON [{"id":"...","title":"File:...","width":3840}, ...]'
+        required: true
+      branch:
+        description: "Gałąź wynikowa"
+        default: "places-photos"
+
+permissions:
+  contents: write
+
+jobs:
+  dl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download
+        env:
+          ITEMS: ${{ inputs.items_json }}
+          OUT: photos-out
+        run: python3 places/download.py
+      - name: Publish
+        if: always() && hashFiles('photos-out/manifest.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BR: ${{ inputs.branch }}
+        run: |
+          cd photos-out
+          git init -q -b "$BR"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "photos ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BR"
