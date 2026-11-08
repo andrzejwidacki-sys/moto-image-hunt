@@ -27,7 +27,7 @@ for it in ITEMS:
                    artist=v("Artist"), credit=v("Credit"), description=v("ImageDescription")[:400], date=v("DateTimeOriginal"),
                    attribution_required=v("AttributionRequired"), restrictions=v("Restrictions"), usage_terms=v("UsageTerms"),
                    page=ii["descriptionurl"], sha1=ii.get("sha1"), categories=[c["title"] for c in pg.get("categories", [])][:30])
-        turl = ii.get("thumburl") or ii["url"]
+        turl = ii["url"] if it.get("original") else (ii.get("thumburl") or ii["url"])
         data = get(turl, binary=True)
         fn = f"{it['id']}.jpg"
         open(f"{OUT}/{fn}", "wb").write(data)
