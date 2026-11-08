@@ -49,7 +49,7 @@ for pid, q in PLACES.items():
     ok = [r for r in big if r["klass"] in ("CC0", "PD", "BY")]
     sa = [r for r in big if r["klass"] == "BY-SA"]
     res[pid] = dict(query=q, found=len(allr), landscape_big=len(big), ok_cc0_pd_by=len(ok), by_sa=len(sa),
-                    featured_found=len(feat), featured=feat[:6], top_ok=ok[:10], top_sa=sa[:4])
+                    featured_found=len(feat), featured=feat[:6], top_ok=ok[:30], top_sa=sa[:4])
     print(pid, res[pid]["found"], res[pid]["landscape_big"], res[pid]["ok_cc0_pd_by"], res[pid]["by_sa"], res[pid]["featured_found"], flush=True)
 json.dump(res, open(f"{OUT}/places.json", "w"), ensure_ascii=False, indent=1)
 with open(f"{OUT}/places.md", "w") as f:
