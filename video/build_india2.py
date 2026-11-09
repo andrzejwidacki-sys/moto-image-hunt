@@ -12,6 +12,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 LANG = os.environ["FILM_LANG"]
 CAP = json.load(open(os.environ.get("FILM_CAPTIONS", f"{HERE}/../india/captions_v2.json")))[LANG]
 SHOTS = json.load(open(os.environ.get("FILM_SHOTS", f"{HERE}/../india/photos_v2.json")))
+PICK = SHOTS.pop("_pick", {})
+def pick(name, n): return [SHOTS[name][i] for i in PICK.get(name, {}).get(str(n), range(n))]
 PLAN = json.load(open(os.environ["FILM_PLAN"]))
 PDIR, OUT = os.environ["INDIA_PHOTOS"], os.environ["FILM_OUT"]
 W, H, FPS, XF = 1920, 1080, 30, 0.7
@@ -142,7 +144,7 @@ def end_lines(d, f):
         seen, parts = set(), []
         for k in keys:
             nsh = USED.get(k, len(SHOTS[k]))
-            for p in SHOTS[k][:nsh]:
+            for p in pick(k, nsh):
                 key = (p["author"], p["license"])
                 if key not in seen: seen.add(key); parts.append(f"{p['author']} ({p['license']})")
         return parts
@@ -175,7 +177,7 @@ def segment_frame(seg, i):
         fade = min(1.0, sec / (0.8 if kind == "hook" else 0.5), (d - sec) / (0.5 if kind == "hook" else 1.0))
         return img, fade
     # scena: n ujęć, cięcia (przenikanie) w środkach przerw między zdaniami
-    k = SCENE_OF[seg["name"]]; shots = SHOTS[seg["name"]][:seg["n_shots"]]; cuts = seg["cuts"]
+    k = SCENE_OF[seg["name"]]; shots = pick(seg["name"], seg["n_shots"]); cuts = seg["cuts"]
     bounds = [0.0] + list(cuts) + [d]
     j = max(i_ for i_ in range(len(shots)) if sec >= bounds[i_] - (XF / 2 if i_ else 0))
     def prog(m): return (sec - (bounds[m] - (XF / 2 if m else 0))) / ((bounds[m + 1] + (XF / 2 if m + 1 < len(shots) else 0)) - (bounds[m] - (XF / 2 if m else 0)))

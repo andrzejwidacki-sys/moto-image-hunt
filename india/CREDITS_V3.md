@@ -20,7 +20,7 @@
 | Kuttanad | Paul Arps from The Netherlands | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Houseboat on Alleppey backwaters (Kerala, India 2023) (52704809623).jpg](https://commons.wikimedia.org/wiki/File:Houseboat_on_Alleppey_backwaters_(Kerala,_India_2023)_(52704809623).jpg) | 2023-02-22 |
 | Kuttanad | McKay Savage from London, UK | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [File:India - Kerala - 007 - paddy fields line the backwaters (2068840278).jpg](https://commons.wikimedia.org/wiki/File:India_-_Kerala_-_007_-_paddy_fields_line_the_backwaters_(2068840278).jpg) | 2007-11-22 13:28 |
 | Kuttanad | RndmCrs | [CC0](http://creativecommons.org/publicdomain/zero/1.0/deed.en) | [File:A Houseboat in Backwaters of Kerala.jpg](https://commons.wikimedia.org/wiki/File:A_Houseboat_in_Backwaters_of_Kerala.jpg) | 2010-05-12 20:26:13 |
-| Kuttanad | https://www.flickr.com/photos/thursdaynext/ | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Kerala backwater scene.jpg](https://commons.wikimedia.org/wiki/File:Kerala_backwater_scene.jpg) | 2006-12-20 |
+| Kuttanad | thursdaynext (Flickr) | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Kerala backwater scene.jpg](https://commons.wikimedia.org/wiki/File:Kerala_backwater_scene.jpg) | 2006-12-20 |
 
 Uwaga: zdjęcia sceny „Havelock” pochodzą z plaż wyspy Havelock; nie każde jest opisane jako Radhanagar.
 Zmiany: kadrowanie, ruch kamery (zoom/przesunięcie), jednolita korekcja kolorów, winieta.
