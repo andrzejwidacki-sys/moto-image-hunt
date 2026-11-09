@@ -1,0 +1,847 @@
+{
+ "rk_a": {
+  "query": "Rann of Kutch",
+  "found": 50,
+  "landscape_big": 19,
+  "ok_cc0_pd_by": 4,
+  "by_sa": 15,
+  "featured_found": 1,
+  "featured": [
+   {
+    "title": "File:ISS-46 Northern India at night.jpg",
+    "w": 4928,
+    "h": 3280,
+    "lic": "Public domain",
+    "klass": "PD",
+    "artist": "NASA",
+    "date": "2016-01-18",
+    "page": "https://commons.wikimedia.org/wiki/File%3AISS-46_Northern_India_at_night.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a2/ISS-46_Northern_India_at_night.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   }
+  ],
+  "top_ok": [
+   {
+    "title": "File:India-Pakistan Boundary in the Rann of Kutch.jpg",
+    "w": 2895,
+    "h": 2082,
+    "lic": "Public domain",
+    "klass": "PD",
+    "artist": "US Department of State",
+    "date": "1968-12-02",
+    "page": "https://commons.wikimedia.org/wiki/File%3AIndia-Pakistan_Boundary_in_the_Rann_of_Kutch.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8f/India-Pakistan_Boundary_in_the_Rann_of_Kutch.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 4
+   },
+   {
+    "title": "File:Sunset at Chari Dand Bird Sanctuary Windmill, Greater Rann of Kutch, Gujarat DSCN7820.jpg",
+    "w": 4608,
+    "h": 3456,
+    "lic": "CC BY 4.0",
+    "klass": "BY",
+    "artist": "Rohitjahnavi",
+    "date": "2024-12-28 18:10:54",
+    "page": "https://commons.wikimedia.org/wiki/File%3ASunset_at_Chari_Dand_Bird_Sanctuary_Windmill%2C_Greater_Rann_of_Kutch%2C_Gujarat_DSCN7820.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Sunset_at_Chari_Dand_Bird_Sanctuary_Windmill%2C_Greater_Rann_of_Kutch%2C_Gujarat_DSCN7820.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 6
+   },
+   {
+    "title": "File:Western Yellow Wagtail (Motacilla flava) at Greater Rann of Kutch, Gujarat, India DSCN7806.jpg",
+    "w": 4608,
+    "h": 3456,
+    "lic": "CC BY 4.0",
+    "klass": "BY",
+    "artist": "Rohitjahnavi",
+    "date": "2024-12-28 17:22:15",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWestern_Yellow_Wagtail_%28Motacilla_flava%29_at_Greater_Rann_of_Kutch%2C_Gujarat%2C_India_DSCN7806.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1d/Western_Yellow_Wagtail_%28Motacilla_flava%29_at_Greater_Rann_of_Kutch%2C_Gujarat%2C_India_DSCN7806.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 7
+   },
+   {
+    "title": "File:Black-winged Kite (Elanus caeruleus) hovering in Greater Rann of Kutch, Gujarat, India DSCN7783.jpg",
+    "w": 3644,
+    "h": 2451,
+    "lic": "CC BY 4.0",
+    "klass": "BY",
+    "artist": "Rohitjahnavi",
+    "date": "2024-12-28 16:55:01",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABlack-winged_Kite_%28Elanus_caeruleus%29_hovering_in_Greater_Rann_of_Kutch%2C_Gujarat%2C_India_DSCN7783.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Black-winged_Kite_%28Elanus_caeruleus%29_hovering_in_Greater_Rann_of_Kutch%2C_Gujarat%2C_India_DSCN7783.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 16
+   }
+  ],
+  "top_sa": [
+   {
+    "title": "File:Rann of Kutch - White Desert.jpg",
+    "w": 2592,
+    "h": 1944,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Superfast1111",
+    "date": "2013-08-09 14:37:05",
+    "page": "https://commons.wikimedia.org/wiki/File%3ARann_of_Kutch_-_White_Desert.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Rann_of_Kutch_-_White_Desert.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   },
+   {
+    "title": "File:Rann of Kutch - White Desert 2.jpg",
+    "w": 2592,
+    "h": 1944,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Superfast1111",
+    "date": "2013-08-09 14:42:27",
+    "page": "https://commons.wikimedia.org/wiki/File%3ARann_of_Kutch_-_White_Desert_2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Rann_of_Kutch_-_White_Desert_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 2
+   },
+   {
+    "title": "File:Rann of Kutch - Highest Point.jpg",
+    "w": 2592,
+    "h": 1944,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Superfast1111",
+    "date": "2013-08-09 14:35:15",
+    "page": "https://commons.wikimedia.org/wiki/File%3ARann_of_Kutch_-_Highest_Point.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Rann_of_Kutch_-_Highest_Point.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 5
+   },
+   {
+    "title": "File:The great rann of kutch with lot of tourists.jpg",
+    "w": 4608,
+    "h": 3456,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "Ranjith Kumar Inbasekaran",
+    "date": "2017-12-22 23:34:20",
+    "page": "https://commons.wikimedia.org/wiki/File%3AThe_great_rann_of_kutch_with_lot_of_tourists.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/The_great_rann_of_kutch_with_lot_of_tourists.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 8
+   }
+  ]
+ },
+ "rk_b": {
+  "query": "Great Rann of Kutch salt flat",
+  "found": 2,
+  "landscape_big": 0,
+  "ok_cc0_pd_by": 0,
+  "by_sa": 0,
+  "featured_found": 0,
+  "featured": [],
+  "top_ok": [],
+  "top_sa": []
+ },
+ "rk_c": {
+  "query": "Kutch white desert Khavda",
+  "found": 0,
+  "landscape_big": 0,
+  "ok_cc0_pd_by": 0,
+  "by_sa": 0,
+  "featured_found": 0,
+  "featured": [],
+  "top_ok": [],
+  "top_sa": []
+ },
+ "rk_d": {
+  "query": "Rann of Kutch monsoon flooded",
+  "found": 4,
+  "landscape_big": 1,
+  "ok_cc0_pd_by": 1,
+  "by_sa": 0,
+  "featured_found": 0,
+  "featured": [],
+  "top_ok": [
+   {
+    "title": "File:Indus River Delta and Rann of Kutch (MODIS 2024-05-28).jpg",
+    "w": 2138,
+    "h": 1772,
+    "lic": "Public domain",
+    "klass": "PD",
+    "artist": "MODIS Land Rapid Response Team, NASA GSFC",
+    "date": "Taken on 23 May 2024",
+    "page": "https://commons.wikimedia.org/wiki/File%3AIndus_River_Delta_and_Rann_of_Kutch_%28MODIS_2024-05-28%29.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ed/Indus_River_Delta_and_Rann_of_Kutch_%28MODIS_2024-05-28%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   }
+  ],
+  "top_sa": []
+ },
+ "rk_e": {
+  "query": "Kala Dungar Kutch",
+  "found": 8,
+  "landscape_big": 8,
+  "ok_cc0_pd_by": 5,
+  "by_sa": 3,
+  "featured_found": 0,
+  "featured": [],
+  "top_ok": [
+   {
+    "title": "File:View of ran of Kachchh from Kala Dungar, Kachchh - panoramio.jpg",
+    "w": 3872,
+    "h": 2592,
+    "lic": "CC BY 3.0",
+    "klass": "BY",
+    "artist": "Raman Patel",
+    "date": "Taken on 5 November ",
+    "page": "https://commons.wikimedia.org/wiki/File%3AView_of_ran_of_Kachchh_from_Kala_Dungar%2C_Kachchh_-_panoramio.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/View_of_ran_of_Kachchh_from_Kala_Dungar%2C_Kachchh_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 2
+   },
+   {
+    "title": "File:Kala Dungar, Kachchh - panoramio.jpg",
+    "w": 3872,
+    "h": 2592,
+    "lic": "CC BY 3.0",
+    "klass": "BY",
+    "artist": "Raman Patel",
+    "date": "Taken on 5 November ",
+    "page": "https://commons.wikimedia.org/wiki/File%3AKala_Dungar%2C_Kachchh_-_panoramio.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Kala_Dungar%2C_Kachchh_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 3
+   },
+   {
+    "title": "File:Kala dungar, Kachchh - panoramio.jpg",
+    "w": 3872,
+    "h": 2592,
+    "lic": "CC BY 3.0",
+    "klass": "BY",
+    "artist": "Raman Patel",
+    "date": "Taken on 5 November ",
+    "page": "https://commons.wikimedia.org/wiki/File%3AKala_dungar%2C_Kachchh_-_panoramio.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Kala_dungar%2C_Kachchh_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 4
+   },
+   {
+    "title": "File:View of ran of Kachchh from Kala Dungar, Kachchh - panoramio (1).jpg",
+    "w": 3872,
+    "h": 2592,
+    "lic": "CC BY 3.0",
+    "klass": "BY",
+    "artist": "Raman Patel",
+    "date": "Taken on 5 November ",
+    "page": "https://commons.wikimedia.org/wiki/File%3AView_of_ran_of_Kachchh_from_Kala_Dungar%2C_Kachchh_-_panoramio_%281%29.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/00/View_of_ran_of_Kachchh_from_Kala_Dungar%2C_Kachchh_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 5
+   },
+   {
+    "title": "File:Sunset Point, Kala Dungar, Kachchh - panoramio.jpg",
+    "w": 3872,
+    "h": 2592,
+    "lic": "CC BY 3.0",
+    "klass": "BY",
+    "artist": "Raman Patel",
+    "date": "Taken on 5 November ",
+    "page": "https://commons.wikimedia.org/wiki/File%3ASunset_Point%2C_Kala_Dungar%2C_Kachchh_-_panoramio.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Sunset_Point%2C_Kala_Dungar%2C_Kachchh_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 6
+   }
+  ],
+  "top_sa": [
+   {
+    "title": "File:Rann of Kutch from Kala Dungar.jpg",
+    "w": 3264,
+    "h": 2448,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "Sudha Kulkarni",
+    "date": "2014-12-27 13:37:18",
+    "page": "https://commons.wikimedia.org/wiki/File%3ARann_of_Kutch_from_Kala_Dungar.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Rann_of_Kutch_from_Kala_Dungar.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   },
+   {
+    "title": "File:Rann of Kutch - White Desert.jpg",
+    "w": 2592,
+    "h": 1944,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Superfast1111",
+    "date": "2013-08-09 14:37:05",
+    "page": "https://commons.wikimedia.org/wiki/File%3ARann_of_Kutch_-_White_Desert.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Rann_of_Kutch_-_White_Desert.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 7
+   },
+   {
+    "title": "File:View from kala dunger kutch.JPG",
+    "w": 2816,
+    "h": 2112,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Bhargavinf",
+    "date": "2010-11-24 00:11:34",
+    "page": "https://commons.wikimedia.org/wiki/File%3AView_from_kala_dunger_kutch.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/4f/View_from_kala_dunger_kutch.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 8
+   }
+  ]
+ },
+ "rk_f": {
+  "query": "Banni grassland Kutch",
+  "found": 9,
+  "landscape_big": 4,
+  "ok_cc0_pd_by": 0,
+  "by_sa": 4,
+  "featured_found": 0,
+  "featured": [],
+  "top_ok": [],
+  "top_sa": [
+   {
+    "title": "File:Caprimulgus mahrattensis.JPG",
+    "w": 3595,
+    "h": 2254,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Pkspks",
+    "date": "2012-11-17 14:51:44",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACaprimulgus_mahrattensis.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Caprimulgus_mahrattensis.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   },
+   {
+    "title": "File:Maldhari with cattle, Kutch, Gujarat.jpg",
+    "w": 5600,
+    "h": 3728,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "Drashokk",
+    "date": "2022-10-19 09:51:07",
+    "page": "https://commons.wikimedia.org/wiki/File%3AMaldhari_with_cattle%2C_Kutch%2C_Gujarat.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/99/Maldhari_with_cattle%2C_Kutch%2C_Gujarat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 2
+   },
+   {
+    "title": "File:Rann of Kutch, India ESA377539.tiff",
+    "w": 4542,
+    "h": 3755,
+    "lic": "CC BY-SA 3.0 igo",
+    "klass": "BY-SA",
+    "artist": "European Space Agency",
+    "date": "2017-05-19",
+    "page": "https://commons.wikimedia.org/wiki/File%3ARann_of_Kutch%2C_India_ESA377539.tiff",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Rann_of_Kutch%2C_India_ESA377539.tiff?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 5
+   },
+   {
+    "title": "File:A flock of Common Cranes in flight DSCN4780 03.jpg",
+    "w": 4608,
+    "h": 3456,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "T. R. Shankar Raman",
+    "date": "2018-01-22 11:09:08",
+    "page": "https://commons.wikimedia.org/wiki/File%3AA_flock_of_Common_Cranes_in_flight_DSCN4780_03.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3d/A_flock_of_Common_Cranes_in_flight_DSCN4780_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 7
+   }
+  ]
+ },
+ "rk_g": {
+  "query": "Dhordo Kutch",
+  "found": 13,
+  "landscape_big": 10,
+  "ok_cc0_pd_by": 1,
+  "by_sa": 5,
+  "featured_found": 0,
+  "featured": [],
+  "top_ok": [
+   {
+    "title": "File:'WHITE DESERT' at Dhordo in Great Rann of Kutch.JPG",
+    "w": 4608,
+    "h": 3456,
+    "lic": "CC0",
+    "klass": "CC0",
+    "artist": "Rudolph.A.furtado",
+    "date": "",
+    "page": "https://commons.wikimedia.org/wiki/File%3A%27WHITE_DESERT%27_at_Dhordo_in_Great_Rann_of_Kutch.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/46/%27WHITE_DESERT%27_at_Dhordo_in_Great_Rann_of_Kutch.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 2
+   }
+  ],
+  "top_sa": [
+   {
+    "title": "File:Sunset at Rann of Kutch, Dhordo, Gujarat.jpg",
+    "w": 5909,
+    "h": 3325,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "NandaMunish",
+    "date": "2018-12-29",
+    "page": "https://commons.wikimedia.org/wiki/File%3ASunset_at_Rann_of_Kutch%2C_Dhordo%2C_Gujarat.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/21/Sunset_at_Rann_of_Kutch%2C_Dhordo%2C_Gujarat.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   },
+   {
+    "title": "File:Desert Wheatear Oenanthe deserti Rann of Kutch Bhuj Gujarat IMG 1725 (1).JPG",
+    "w": 2207,
+    "h": 1477,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Dr. Raju Kasambe",
+    "date": "2013-01-28 14:50:59",
+    "page": "https://commons.wikimedia.org/wiki/File%3ADesert_Wheatear_Oenanthe_deserti_Rann_of_Kutch_Bhuj_Gujarat_IMG_1725_%281%29.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Desert_Wheatear_Oenanthe_deserti_Rann_of_Kutch_Bhuj_Gujarat_IMG_1725_%281%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 9
+   },
+   {
+    "title": "File:Desert Wheatear Oenanthe deserti Rann of Kutch Bhuj Gujarat IMG 1725 (4).JPG",
+    "w": 2207,
+    "h": 1477,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Dr. Raju Kasambe",
+    "date": "2013-01-28 14:50:59",
+    "page": "https://commons.wikimedia.org/wiki/File%3ADesert_Wheatear_Oenanthe_deserti_Rann_of_Kutch_Bhuj_Gujarat_IMG_1725_%284%29.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Desert_Wheatear_Oenanthe_deserti_Rann_of_Kutch_Bhuj_Gujarat_IMG_1725_%284%29.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 10
+   },
+   {
+    "title": "File:Desert Wheatear Oenanthe deserti Rann of Kutch Bhuj Gujarat IMG 1725 (2).jpg",
+    "w": 2217,
+    "h": 1482,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Dr. Raju Kasambe",
+    "date": "2013-01-28 14:50:59",
+    "page": "https://commons.wikimedia.org/wiki/File%3ADesert_Wheatear_Oenanthe_deserti_Rann_of_Kutch_Bhuj_Gujarat_IMG_1725_%282%29.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Desert_Wheatear_Oenanthe_deserti_Rann_of_Kutch_Bhuj_Gujarat_IMG_1725_%282%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 11
+   }
+  ]
+ },
+ "rk_h": {
+  "query": "Little Rann of Kutch salt pans",
+  "found": 0,
+  "landscape_big": 0,
+  "ok_cc0_pd_by": 0,
+  "by_sa": 0,
+  "featured_found": 0,
+  "featured": [],
+  "top_ok": [],
+  "top_sa": []
+ },
+ "pg_c": {
+  "query": "Pangong Lake Ladakh",
+  "found": 50,
+  "landscape_big": 40,
+  "ok_cc0_pd_by": 5,
+  "by_sa": 34,
+  "featured_found": 1,
+  "featured": [
+   {
+    "title": "File:Pangong Tso 2.jpg",
+    "w": 4327,
+    "h": 2093,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "KennyOMG",
+    "date": "Taken on 12 Septembe",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Pangong_Tso_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   }
+  ],
+  "top_ok": [
+   {
+    "title": "File:Pangong Tso lake banner.jpg",
+    "w": 6300,
+    "h": 900,
+    "lic": "CC BY 2.5",
+    "klass": "BY",
+    "artist": "https://www.flickr.com/people/46888841@N00",
+    "date": "2007-06-24 17:13:41",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_lake_banner.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Pangong_Tso_lake_banner.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 13
+   },
+   {
+    "title": "File:Pangong Tso Lake, Ladakh, India.png",
+    "w": 7333,
+    "h": 4124,
+    "lic": "CC BY 2.0",
+    "klass": "BY",
+    "artist": "ManoharD",
+    "date": "2016-07-31",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_Lake%2C_Ladakh%2C_India.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Pangong_Tso_Lake%2C_Ladakh%2C_India.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 15
+   },
+   {
+    "title": "File:Panoramic view of Pnagong lake, Pangong Tso, view form Pangong Lake Rd, 194201.jpg",
+    "w": 11894,
+    "h": 3848,
+    "lic": "CC BY 4.0",
+    "klass": "BY",
+    "artist": "Krzysztof Popławski",
+    "date": "2022-07-05 08:17:56",
+    "page": "https://commons.wikimedia.org/wiki/File%3APanoramic_view_of_Pnagong_lake%2C_Pangong_Tso%2C_view_form_Pangong_Lake_Rd%2C_194201.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Panoramic_view_of_Pnagong_lake%2C_Pangong_Tso%2C_view_form_Pangong_Lake_Rd%2C_194201.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 23
+   },
+   {
+    "title": "File:Saddled yak at Pangong Lake Ladakh.jpg",
+    "w": 6000,
+    "h": 4000,
+    "lic": "CC BY 4.0",
+    "klass": "BY",
+    "artist": "Lianguanlun",
+    "date": "2017-07-27 15:45:54",
+    "page": "https://commons.wikimedia.org/wiki/File%3ASaddled_yak_at_Pangong_Lake_Ladakh.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/86/Saddled_yak_at_Pangong_Lake_Ladakh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 44
+   },
+   {
+    "title": "File:1851 map of Pangong Lake by Strachey.jpg",
+    "w": 3413,
+    "h": 2109,
+    "lic": "Public domain",
+    "klass": "PD",
+    "artist": "Sir Henry Strachey (1816-1912)",
+    "date": "1851",
+    "page": "https://commons.wikimedia.org/wiki/File%3A1851_map_of_Pangong_Lake_by_Strachey.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/47/1851_map_of_Pangong_Lake_by_Strachey.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 50
+   }
+  ],
+  "top_sa": [
+   {
+    "title": "File:Pangong Tso 2.jpg",
+    "w": 4327,
+    "h": 2093,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "KennyOMG",
+    "date": "Taken on 12 Septembe",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Pangong_Tso_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   },
+   {
+    "title": "File:Pangong Lake, Ladakh, India 07.jpg",
+    "w": 2048,
+    "h": 1153,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "Geet Arts",
+    "date": "2024-06-19 17:00:20",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Lake%2C_Ladakh%2C_India_07.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Pangong_Lake%2C_Ladakh%2C_India_07.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 2
+   },
+   {
+    "title": "File:Pangong Lake, Ladakh, India 04.jpg",
+    "w": 2048,
+    "h": 1153,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "Geet Arts",
+    "date": "2024-06-19 17:50:36",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Lake%2C_Ladakh%2C_India_04.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Pangong_Lake%2C_Ladakh%2C_India_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 3
+   },
+   {
+    "title": "File:Pangong Lake, Ladakh, India 05.jpg",
+    "w": 4000,
+    "h": 2251,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "Geet Arts",
+    "date": "2024-06-19 16:00:06",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Lake%2C_Ladakh%2C_India_05.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Pangong_Lake%2C_Ladakh%2C_India_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 4
+   }
+  ]
+ },
+ "pg_d": {
+  "query": "Pangong Tso Spangmik",
+  "found": 44,
+  "landscape_big": 32,
+  "ok_cc0_pd_by": 3,
+  "by_sa": 29,
+  "featured_found": 1,
+  "featured": [
+   {
+    "title": "File:Pangong Tso 2.jpg",
+    "w": 4327,
+    "h": 2093,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "KennyOMG",
+    "date": "Taken on 12 Septembe",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Pangong_Tso_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   }
+  ],
+  "top_ok": [
+   {
+    "title": "File:Panoramic view of Pnagong lake, Pangong Tso, view form Spangmik area, july 2022.jpg",
+    "w": 11256,
+    "h": 3886,
+    "lic": "CC BY 4.0",
+    "klass": "BY",
+    "artist": "Krzysztof Popławski",
+    "date": "2022-07-04 19:26:32",
+    "page": "https://commons.wikimedia.org/wiki/File%3APanoramic_view_of_Pnagong_lake%2C_Pangong_Tso%2C_view_form_Spangmik_area%2C_july_2022.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/ee/Panoramic_view_of_Pnagong_lake%2C_Pangong_Tso%2C_view_form_Spangmik_area%2C_july_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 5
+   },
+   {
+    "title": "File:Spangmik 2011 Sunset over snowy mountain (6890826591).jpg",
+    "w": 5184,
+    "h": 3456,
+    "lic": "CC BY 2.0",
+    "klass": "BY",
+    "artist": "Saad Faruque from Bangalore, India",
+    "date": "2011-06-25 19:28",
+    "page": "https://commons.wikimedia.org/wiki/File%3ASpangmik_2011_Sunset_over_snowy_mountain_%286890826591%29.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Spangmik_2011_Sunset_over_snowy_mountain_%286890826591%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 26
+   },
+   {
+    "title": "File:Pang Gong Tso.jpg",
+    "w": 3888,
+    "h": 2592,
+    "lic": "CC BY 2.0",
+    "klass": "BY",
+    "artist": "sushmita balasubramani",
+    "date": "2011-07-26 12:31:43",
+    "page": "https://commons.wikimedia.org/wiki/File%3APang_Gong_Tso.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Pang_Gong_Tso.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 32
+   }
+  ],
+  "top_sa": [
+   {
+    "title": "File:Pangong Tso 2.jpg",
+    "w": 4327,
+    "h": 2093,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "KennyOMG",
+    "date": "Taken on 12 Septembe",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_2.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/Pangong_Tso_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   },
+   {
+    "title": "File:Pangong Tso (167275769).jpeg",
+    "w": 2048,
+    "h": 1365,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Aditya Laghate",
+    "date": "26 June 2016, 17:13:",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_%28167275769%29.jpeg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Pangong_Tso_%28167275769%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 2
+   },
+   {
+    "title": "File:Pangong Tso (28527629251).jpg",
+    "w": 3824,
+    "h": 2168,
+    "lic": "CC BY-SA 2.0",
+    "klass": "BY-SA",
+    "artist": "Ashwin Kumar from Bangalore, India",
+    "date": "2016-07-06 16:05",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_%2828527629251%29.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/92/Pangong_Tso_%2828527629251%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 4
+   },
+   {
+    "title": "File:Pangong Tso (28573700896).jpg",
+    "w": 3824,
+    "h": 2168,
+    "lic": "CC BY-SA 2.0",
+    "klass": "BY-SA",
+    "artist": "Ashwin Kumar from Bangalore, India",
+    "date": "2016-07-07 09:12",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_%2828573700896%29.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Pangong_Tso_%2828573700896%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 7
+   }
+  ]
+ },
+ "pg_e": {
+  "query": "Pangong Lake frozen winter",
+  "found": 0,
+  "landscape_big": 0,
+  "ok_cc0_pd_by": 0,
+  "by_sa": 0,
+  "featured_found": 0,
+  "featured": [],
+  "top_ok": [],
+  "top_sa": []
+ },
+ "pg_f": {
+  "query": "Pangong Tso Ladakh blue",
+  "found": 31,
+  "landscape_big": 26,
+  "ok_cc0_pd_by": 9,
+  "by_sa": 17,
+  "featured_found": 0,
+  "featured": [],
+  "top_ok": [
+   {
+    "title": "File:Pangong Tso Lake, Ladakh, India.png",
+    "w": 7333,
+    "h": 4124,
+    "lic": "CC BY 2.0",
+    "klass": "BY",
+    "artist": "ManoharD",
+    "date": "2016-07-31",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_Lake%2C_Ladakh%2C_India.png",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Pangong_Tso_Lake%2C_Ladakh%2C_India.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 1
+   },
+   {
+    "title": "File:Panoramic view of Pnagong lake, Pangong Tso, view form Pangong Lake Rd, 194201.jpg",
+    "w": 11894,
+    "h": 3848,
+    "lic": "CC BY 4.0",
+    "klass": "BY",
+    "artist": "Krzysztof Popławski",
+    "date": "2022-07-05 08:17:56",
+    "page": "https://commons.wikimedia.org/wiki/File%3APanoramic_view_of_Pnagong_lake%2C_Pangong_Tso%2C_view_form_Pangong_Lake_Rd%2C_194201.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Panoramic_view_of_Pnagong_lake%2C_Pangong_Tso%2C_view_form_Pangong_Lake_Rd%2C_194201.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 4
+   },
+   {
+    "title": "File:Pangong Tso (70426023).jpeg",
+    "w": 2048,
+    "h": 1365,
+    "lic": "CC BY 3.0",
+    "klass": "BY",
+    "artist": "Arindam Das",
+    "date": "23 April 2014, 19:57",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_%2870426023%29.jpeg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Pangong_Tso_%2870426023%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 10
+   },
+   {
+    "title": "File:Pangong Lake (233023585).jpeg",
+    "w": 2048,
+    "h": 1059,
+    "lic": "CC BY 3.0",
+    "klass": "BY",
+    "artist": "Mann Mishra",
+    "date": "22 August 2017, 07:2",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Lake_%28233023585%29.jpeg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Pangong_Lake_%28233023585%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 18
+   },
+   {
+    "title": "File:Blue Valley of the North.jpg",
+    "w": 6000,
+    "h": 2858,
+    "lic": "CC0",
+    "klass": "CC0",
+    "artist": "Ogboiz",
+    "date": "2025-06-08 08:48:20",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABlue_Valley_of_the_North.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Blue_Valley_of_the_North.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 19
+   },
+   {
+    "title": "File:Moon Rise At Pangong Lake (202633119).jpeg",
+    "w": 2048,
+    "h": 1356,
+    "lic": "CC BY 3.0",
+    "klass": "BY",
+    "artist": "Amit Patel",
+    "date": "before 12 March 2017",
+    "page": "https://commons.wikimedia.org/wiki/File%3AMoon_Rise_At_Pangong_Lake_%28202633119%29.jpeg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Moon_Rise_At_Pangong_Lake_%28202633119%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 20
+   },
+   {
+    "title": "File:Pangong Lake (233022883).jpeg",
+    "w": 2048,
+    "h": 1165,
+    "lic": "CC BY 3.0",
+    "klass": "BY",
+    "artist": "Mann Mishra",
+    "date": "21 August 2017, 17:5",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Lake_%28233022883%29.jpeg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/78/Pangong_Lake_%28233022883%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 23
+   },
+   {
+    "title": "File:Pangontso (64845859).jpeg",
+    "w": 2048,
+    "h": 1365,
+    "lic": "CC BY 3.0",
+    "klass": "BY",
+    "artist": "Ravi Kumar",
+    "date": "before 25 March 2014",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangontso_%2864845859%29.jpeg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/65/Pangontso_%2864845859%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 27
+   },
+   {
+    "title": "File:Azure (3746152287).jpg",
+    "w": 3833,
+    "h": 2566,
+    "lic": "CC BY 2.0",
+    "klass": "BY",
+    "artist": "Alosh Bennett from Hyderabad, India",
+    "date": "2009-06-23 15:29",
+    "page": "https://commons.wikimedia.org/wiki/File%3AAzure_%283746152287%29.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Azure_%283746152287%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 28
+   }
+  ],
+  "top_sa": [
+   {
+    "title": "File:Pangong tso ladakh.jpg",
+    "w": 6000,
+    "h": 3775,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "Reflectionsbyprajakta",
+    "date": "2018-06-26 10:03:59",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_tso_ladakh.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Pangong_tso_ladakh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 3
+   },
+   {
+    "title": "File:Pangong Tso Blue water.JPG",
+    "w": 2304,
+    "h": 1728,
+    "lic": "CC BY-SA 3.0",
+    "klass": "BY-SA",
+    "artist": "Coolgama",
+    "date": "2010-08-01 12:00:39",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Tso_Blue_water.JPG",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Pangong_Tso_Blue_water.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 5
+   },
+   {
+    "title": "File:Blue Pangong lake ladakh.jpg",
+    "w": 5184,
+    "h": 3888,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "Harsh243919",
+    "date": "2016-06-05 15:05:53",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABlue_Pangong_lake_ladakh.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Blue_Pangong_lake_ladakh.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 6
+   },
+   {
+    "title": "File:Pangong Glacial Lake3 (Ladakh-India).jpg",
+    "w": 4288,
+    "h": 2848,
+    "lic": "CC BY-SA 4.0",
+    "klass": "BY-SA",
+    "artist": "Kashmir photographer",
+    "date": "2011-06-25 21:12:08",
+    "page": "https://commons.wikimedia.org/wiki/File%3APangong_Glacial_Lake3_%28Ladakh-India%29.jpg",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Pangong_Glacial_Lake3_%28Ladakh-India%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "index": 7
+   }
+  ]
+ }
+}
