@@ -10,8 +10,8 @@ Image.MAX_IMAGE_PIXELS = None
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 LANG = os.environ["FILM_LANG"]
-CAP = json.load(open(f"{HERE}/../india/captions_v2.json"))[LANG]
-SHOTS = json.load(open(f"{HERE}/../india/photos_v2.json"))
+CAP = json.load(open(os.environ.get("FILM_CAPTIONS", f"{HERE}/../india/captions_v2.json")))[LANG]
+SHOTS = json.load(open(os.environ.get("FILM_SHOTS", f"{HERE}/../india/photos_v2.json")))
 PLAN = json.load(open(os.environ["FILM_PLAN"]))
 PDIR, OUT = os.environ["INDIA_PHOTOS"], os.environ["FILM_OUT"]
 W, H, FPS, XF = 1920, 1080, 30, 0.7

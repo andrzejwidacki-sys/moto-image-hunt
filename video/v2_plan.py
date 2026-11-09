@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from assemble_audio import pad_pauses, prep_clip, dur
 
 LEAD, HOOK_LEAD, TAIL = 0.6, 0.8, 1.3
-BLACK, END_S, MIN_SHOT = 2.0, 9.0, 6.0
+BLACK, END_S, MIN_SHOT, MIN_SHOT_V3 = 2.0, 9.0, 6.0, 5.0
 ceil_half = lambda x: math.ceil(x * 2) / 2
 
 
@@ -58,13 +58,17 @@ def main():
         i = info[clip]
         d = ceil_half(max(LEAD + i["dur"] + TAIL, 15.0))
         mids = [LEAD + m for m in i["mids"]]
-        n = 2 if name == "s3" else (3 if d >= 19.0 else 2)
+        import itertools, math
+        cands = [m for m in mids if MIN_SHOT_V3 <= m <= d - MIN_SHOT_V3]
         cuts = []
-        for q in range(1, n):
-            want = d * q / n
-            ok = [m for m in mids if m not in cuts and m >= MIN_SHOT and m <= d - MIN_SHOT and all(abs(m - c) >= MIN_SHOT for c in cuts)]
-            if not ok: break
-            cuts.append(min(ok, key=lambda m: abs(m - want)))
+        for n in range(min(4, max(2, math.ceil(d / 8.0))), 1, -1):
+            best = None
+            for combo in itertools.combinations(cands, n - 1):
+                gaps = [y - x for x, y in zip((0,) + combo, combo + (d,))]
+                if min(gaps) < MIN_SHOT_V3: continue
+                key = (max(gaps), max(gaps) - min(gaps))
+                if best is None or key < best[0]: best = (key, list(combo))
+            if best: cuts = best[1]; break
         cuts.sort()
         s = dict(name=name, kind="scene", start=t + black, black=black, dur=d, voice_start=t + black + LEAD, clip=clip, cuts=cuts, n_shots=len(cuts) + 1)
         segs.append(s); t += black + d

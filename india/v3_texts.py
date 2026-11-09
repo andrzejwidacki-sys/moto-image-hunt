@@ -45,6 +45,7 @@ if __name__ == "__main__":
             spoken = " ".join(sp for sp, _ in sc)
             assert len(re.split(r"(?<=[.!?।])\s+", spoken.strip())) == len(sc), (lang, k, spoken)
             if 1 <= k <= 5: tx.setdefault(f"iw{k}", {})[lang] = spoken
+        cap[lang]["tags"] = list(cap[lang]["tags"]); cap[lang]["tags"][3] = dict(pl="Wyspa Havelock, Andamany", en="Havelock Island, Andamans", es="Isla Havelock, Andamán", hi="हैवलॉक द्वीप, अंडमान")[lang]
         cap[lang]["subs"] = [[c for _, c in sc] for sc in scenes]
     json.dump(tx, open(ROOT / "tts/texts.json", "w"), ensure_ascii=False, indent=1)
     json.dump(cap, open(ROOT / "india/captions_v3.json", "w"), ensure_ascii=False, indent=1)
