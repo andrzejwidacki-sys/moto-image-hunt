@@ -18,6 +18,7 @@ W, H, FPS, XF = 1920, 1080, 30, 0.7
 DEV = LANG == "hi"
 FB = "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf" if DEV else "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"
 FR = "/usr/share/fonts/truetype/freefont/FreeSans.ttf" if DEV else "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf"
+USED = {sg["name"]: sg["n_shots"] for sg in PLAN["segments"] if "n_shots" in sg}
 SCENE_OF = {"s1": 0, "s2": 1, "s3": 2, "s4": 3, "s5": 4}
 AMB_CREDITS = ["ezwa", "earthcalling", "Anthropic42 (en.wikipedia)"]
 
@@ -140,7 +141,8 @@ def end_lines(d, f):
     def who(keys):
         seen, parts = set(), []
         for k in keys:
-            for p in SHOTS[k]:
+            nsh = USED.get(k, len(SHOTS[k]))
+            for p in SHOTS[k][:nsh]:
                 key = (p["author"], p["license"])
                 if key not in seen: seen.add(key); parts.append(f"{p['author']} ({p['license']})")
         return parts
@@ -172,13 +174,14 @@ def segment_frame(seg, i):
         if txt: draw_sub(img, txt)
         fade = min(1.0, sec / (0.8 if kind == "hook" else 0.5), (d - sec) / (0.5 if kind == "hook" else 1.0))
         return img, fade
-    # scena
-    k = SCENE_OF[seg["name"]]; shots = SHOTS[seg["name"]]; cut = seg["cut"]
-    a_ = shot_img(shots[0], sec / (cut + XF / 2))
-    if sec > cut - XF / 2:
-        b_ = shot_img(shots[1], (sec - (cut - XF / 2)) / (d - (cut - XF / 2)))
-        img = Image.blend(a_, b_, min(1.0, (sec - (cut - XF / 2)) / XF))
-    else: img = a_
+    # scena: n ujęć, cięcia (przenikanie) w środkach przerw między zdaniami
+    k = SCENE_OF[seg["name"]]; shots = SHOTS[seg["name"]][:seg["n_shots"]]; cuts = seg["cuts"]
+    bounds = [0.0] + list(cuts) + [d]
+    j = max(i_ for i_ in range(len(shots)) if sec >= bounds[i_] - (XF / 2 if i_ else 0))
+    def prog(m): return (sec - (bounds[m] - (XF / 2 if m else 0))) / ((bounds[m + 1] + (XF / 2 if m + 1 < len(shots) else 0)) - (bounds[m] - (XF / 2 if m else 0)))
+    img = shot_img(shots[j], prog(j))
+    if j + 1 < len(shots) and sec > bounds[j + 1] - XF / 2:
+        img = Image.blend(img, shot_img(shots[j + 1], prog(j + 1)), min(1.0, (sec - (bounds[j + 1] - XF / 2)) / XF))
     draw_tag(img, CAP["tags"][k], min(1.0, sec / 0.6))
     txt = cur_sub(seg, abs_t, k + 1 if k < 4 else 5)
     if txt: draw_sub(img, txt)

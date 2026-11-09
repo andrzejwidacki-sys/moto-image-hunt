@@ -64,6 +64,27 @@
    "page": "https://commons.wikimedia.org/wiki/File:Saddled_yak_at_Pangong_Lake_Ladakh.jpg",
    "title": "File:Saddled yak at Pangong Lake Ladakh.jpg",
    "date": "2017-07-27 15:45:54"
+  },
+  {
+   "id": "xpg1",
+   "file": "xpg1.jpg",
+   "crop": null,
+   "start": [
+    0.5,
+    0.55,
+    1.0
+   ],
+   "end": [
+    0.5,
+    0.5,
+    1.12
+   ],
+   "author": "ManoharD",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Pangong_Tso_Lake,_Ladakh,_India.png",
+   "title": "File:Pangong Tso Lake, Ladakh, India.png",
+   "date": "2016-07-31"
   }
  ],
  "s2": [
@@ -108,6 +129,27 @@
    "page": "https://commons.wikimedia.org/wiki/File:Boat_ride_at_Sunrise,_on_the_Ganges,_Varanasi.jpg",
    "title": "File:Boat ride at Sunrise, on the Ganges, Varanasi.jpg",
    "date": "2009-10-23 02:44:25"
+  },
+  {
+   "id": "vn3",
+   "file": "vn3.jpg",
+   "crop": null,
+   "start": [
+    0.45,
+    0.55,
+    1.0
+   ],
+   "end": [
+    0.55,
+    0.5,
+    1.12
+   ],
+   "author": "Vyacheslav Argenberg",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Varanasi,_India,_Ganges_River,_ghats,_temples_and_embankments.jpg",
+   "title": "File:Varanasi, India, Ganges River, ghats, temples and embankments.jpg",
+   "date": "2007-11-17 11:45:04"
   }
  ],
  "s3": [
@@ -162,6 +204,32 @@
    "page": "https://commons.wikimedia.org/wiki/File:%27WHITE_DESERT%27_at_Dhordo_in_Great_Rann_of_Kutch.JPG",
    "title": "File:'WHITE DESERT' at Dhordo in Great Rann of Kutch.JPG",
    "date": ""
+  },
+  {
+   "id": "rk1",
+   "file": "rk1.jpg",
+   "crop": [
+    0,
+    280,
+    3840,
+    2440
+   ],
+   "start": [
+    0.72,
+    0.55,
+    1.3
+   ],
+   "end": [
+    0.3,
+    0.55,
+    1.3
+   ],
+   "author": "Rudolph.A.furtado",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "page": "https://commons.wikimedia.org/wiki/File:%27WHITE_DESERT%27_at_Dhordo_in_Great_Rann_of_Kutch.JPG",
+   "title": "File:'WHITE DESERT' at Dhordo in Great Rann of Kutch.JPG",
+   "date": ""
   }
  ],
  "s4": [
@@ -206,6 +274,27 @@
    "page": "https://commons.wikimedia.org/wiki/File:Havelock_Island,_Radhanagar_Beach,_tropical_bliss,_Andaman_Islands.jpg",
    "title": "File:Havelock Island, Radhanagar Beach, tropical bliss, Andaman Islands.jpg",
    "date": "2009-11-22 13:32:21"
+  },
+  {
+   "id": "rd4",
+   "file": "rd4.jpg",
+   "crop": null,
+   "start": [
+    0.5,
+    0.5,
+    1.1
+   ],
+   "end": [
+    0.5,
+    0.5,
+    1.0
+   ],
+   "author": "Vyacheslav Argenberg",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Havelock_Island,_Radhanagar_Beach,_Andaman_Islands.jpg",
+   "title": "File:Havelock Island, Radhanagar Beach, Andaman Islands.jpg",
+   "date": "2009-11-22 13:32:03"
   }
  ],
  "s5": [
@@ -250,6 +339,27 @@
    "page": "https://commons.wikimedia.org/wiki/File:A_Houseboat_in_Backwaters_of_Kerala.jpg",
    "title": "File:A Houseboat in Backwaters of Kerala.jpg",
    "date": "2010-05-12 20:26:13"
+  },
+  {
+   "id": "xkl3",
+   "file": "xkl3.jpg",
+   "crop": null,
+   "start": [
+    0.5,
+    0.5,
+    1.0
+   ],
+   "end": [
+    0.5,
+    0.5,
+    1.1
+   ],
+   "author": "Vyacheslav Argenberg",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Kerala_backwaters,_Vembanad_Lake,_India.jpg",
+   "title": "File:Kerala backwaters, Vembanad Lake, India.jpg",
+   "date": "2010-01-12 17:48:12"
   }
  ],
  "payoff": [

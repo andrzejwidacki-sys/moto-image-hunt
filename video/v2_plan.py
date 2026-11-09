@@ -58,9 +58,15 @@ def main():
         i = info[clip]
         d = ceil_half(max(LEAD + i["dur"] + TAIL, 15.0))
         mids = [LEAD + m for m in i["mids"]]
-        good = [m for m in mids if MIN_SHOT <= m <= d - MIN_SHOT]
-        cut = min(good or mids or [d / 2], key=lambda m: abs(m - d / 2))
-        s = dict(name=name, kind="scene", start=t + black, black=black, dur=d, voice_start=t + black + LEAD, clip=clip, cut=cut)
+        n = 2 if name == "s3" else (3 if d >= 19.0 else 2)
+        cuts = []
+        for q in range(1, n):
+            want = d * q / n
+            ok = [m for m in mids if m not in cuts and m >= MIN_SHOT and m <= d - MIN_SHOT and all(abs(m - c) >= MIN_SHOT for c in cuts)]
+            if not ok: break
+            cuts.append(min(ok, key=lambda m: abs(m - want)))
+        cuts.sort()
+        s = dict(name=name, kind="scene", start=t + black, black=black, dur=d, voice_start=t + black + LEAD, clip=clip, cuts=cuts, n_shots=len(cuts) + 1)
         segs.append(s); t += black + d
     for k in range(1, 5): scene(f"s{k}", k)
     black_start = t
