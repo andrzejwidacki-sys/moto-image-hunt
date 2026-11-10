@@ -5,7 +5,7 @@
  - Rann: usunięte „gdy woda wyparuje, zostaje biała równina” (niepotwierdzone) -> „w porze monsunowej wypełnia się stojącą wodą” (Wikipedia);
  - Radhanagar: „łagodne fale” (brak w źródle) -> „tropikalny las” (Wikipedia: white sand, clear turquoise waters, dense tropical forests);
  - Kuttanad: kettuvallam = barki wożące ryż i przyprawy, deski połączone włóknem kokosowym (Kerala Tourism); bez gatunku drewna.
- - EN: „ghats” z jawną fonetyką dla Kokoro."""
+ - EN: „ghats” z jawną fonetyką dla Kokoro; zdanie 2 sceny Waranasi przebudowane na liczbę pojedynczą (Whisper: „ghats” -> „gods” w każdym wariancie)."""
 import json, pathlib, re, importlib.util, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 spec = importlib.util.spec_from_file_location("v3t", ROOT / "india/v3_texts.py"); v3 = importlib.util.module_from_spec(spec); sys.modules["v3t"] = v3; spec.loader.exec_module(v3)
@@ -37,10 +37,11 @@ rep(5, 3, dict(
  es=("Las casas flotantes de hoy son versiones reformadas de los kettuvalam: barcazas que antes transportaban arroz y especias, hechas de tablones de madera unidos con fibra de coco.", "Las casas flotantes de hoy son versiones reformadas de los kettuvallam: barcazas que antes transportaban arroz y especias, hechas de tablones de madera unidos con fibra de coco."),
  hi=("आज के हाउसबोट केट्टुवल्लम का नया रूप हैं: ऐसी नावें जो कभी चावल और मसाले ढोती थीं, और लकड़ी के तख़्तों को नारियल के रेशे से जोड़कर बनाई जाती थीं।", "आज के हाउसबोट केट्टुवल्लम का नया रूप हैं: ऐसी नावें जो कभी चावल और मसाले ढोती थीं, और लकड़ी के तख़्तों को नारियल के रेशे से जोड़कर बनाई जाती थीं।"),
  pl=("Dzisiejsze domy na wodzie to przebudowane kettuvallam: barki, które dawniej wiozły ryż i przyprawy, zbudowane z drewnianych desek połączonych włóknem kokosowym.", "Dzisiejsze domy na wodzie to przebudowane kettuvallam: barki, które dawniej wiozły ryż i przyprawy, zbudowane z drewnianych desek połączonych włóknem kokosowym.")))
+rep(2, 1, dict(en=("More than eighty riverside stairways, each one a ghat, lead down to the Ganges.", "More than 80 riverside stairways, each one a ghat, lead down to the Ganges.")))   # liczba mnoga „ghats” Whisper słyszał jako „gods” w 3 wariantach; liczba pojedyncza jest rozpoznawana
 # EN: jawna fonetyka dla „ghat(s)” (Kokoro czytał „gahts” jako „gods”); [słowo](/IPA/) to składnia misaki
 for sc in S["en"]:
     for i, (sp, cp) in enumerate(sc):
-        sp2 = sp.replace("gahts", "[ghats](/ɡɔːts/)").replace("Dashashwamedh Ghat", "Dashashwamedh [Ghat](/ɡɔːt/)")
+        sp2 = sp.replace("gahts", "[ghats](/ɡɔːts/)").replace("each one a ghat,", "each one a [ghat](/ɡɔːt/),").replace("Dashashwamedh Ghat", "Dashashwamedh [Ghat](/ɡɔːt/)")
         sc[i] = (sp2, cp)
 
 if __name__ == "__main__":
