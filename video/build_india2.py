@@ -14,6 +14,16 @@ CAP = json.load(open(os.environ.get("FILM_CAPTIONS", f"{HERE}/../india/captions_
 SHOTS = json.load(open(os.environ.get("FILM_SHOTS", f"{HERE}/../india/photos_v2.json")))
 PICK = SHOTS.pop("_pick", {})
 def pick(name, n): return [SHOTS[name][i] for i in PICK.get(name, {}).get(str(n), range(n))]
+PAN = 0.07   # połowa przesunięcia środka okna (<= ~15 % szerokości zdjęcia po przycięciu do okna)
+def assign_moves(shots):
+    """Naprzemiennie: najazd + w prawo, odjazd + w lewo. Zoom 1.00-1.14 (zmax na ujęcie, do 1.3 dla detalu)."""
+    out = []
+    for i, sh in enumerate(shots):
+        z1 = sh.get("zmax", 1.14); cy = sh["start"][1]; sh = dict(sh)
+        if i % 2 == 0: sh["start"], sh["end"] = [0.5 - PAN, cy, 1.0], [0.5 + PAN, cy, z1]
+        else: sh["start"], sh["end"] = [0.5 + PAN, cy, z1], [0.5 - PAN, cy, 1.0]
+        out.append(sh)
+    return out
 PLAN = json.load(open(os.environ["FILM_PLAN"]))
 PDIR, OUT = os.environ["INDIA_PHOTOS"], os.environ["FILM_OUT"]
 W, H, FPS, XF = 1920, 1080, 30, 0.7
@@ -177,7 +187,7 @@ def segment_frame(seg, i):
         fade = min(1.0, sec / (0.8 if kind == "hook" else 0.5), (d - sec) / (0.5 if kind == "hook" else 1.0))
         return img, fade
     # scena: n ujęć, cięcia (przenikanie) w środkach przerw między zdaniami
-    k = SCENE_OF[seg["name"]]; shots = pick(seg["name"], seg["n_shots"]); cuts = seg["cuts"]
+    k = SCENE_OF[seg["name"]]; shots = assign_moves(pick(seg["name"], seg["n_shots"])); cuts = seg["cuts"]
     bounds = [0.0] + list(cuts) + [d]
     j = max(i_ for i_ in range(len(shots)) if sec >= bounds[i_] - (XF / 2 if i_ else 0))
     def prog(m): return (sec - (bounds[m] - (XF / 2 if m else 0))) / ((bounds[m + 1] + (XF / 2 if m + 1 < len(shots) else 0)) - (bounds[m] - (XF / 2 if m else 0)))
@@ -190,19 +200,30 @@ def segment_frame(seg, i):
     fade = min(1.0, sec / 0.5, (d - sec) / 0.5)
     return img, fade
 
+NZ = np.random.default_rng(7).uniform(-0.7, 0.7, (H, W, 1)).astype(np.float32)   # stały ditheringu: usuwa prążkowanie nieba
 def frame(seg, i):
     img, fade = segment_frame(seg, i)
     a = np.asarray(img, dtype=np.float32)
-    if seg["kind"] in ("scene", "hook", "payoff"): a = a * VIG
+    if seg["kind"] in ("scene", "hook", "payoff"): a = a * VIG + NZ
     return np.clip(a * max(fade, 0.0), 0, 255).astype(np.uint8)
 
+import hashlib
+def _sig(seg):
+    return hashlib.sha1(json.dumps([seg, SHOTS, PICK, CAP, PAN, open(__file__).read()], sort_keys=True, ensure_ascii=False, default=str).encode()).hexdigest()
+def _valid(final, seg):
+    try:
+        d = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", final], capture_output=True, text=True).stdout)
+        return abs(d - seg["dur"]) < 0.1 and open(final + ".sig").read() == _sig(seg)
+    except Exception: return False
 def render(seg):
     final = f"{OUT}/{seg['name']}.mp4"; tmp = final + ".tmp.mp4"
+    if not os.environ.get("FORCE") and _valid(final, seg): return seg["name"], "skipped (valid)"
     p = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", str(FPS), "-i", "-",
                           "-c:v", "libx264", "-crf", "19", "-preset", "veryfast", "-pix_fmt", "yuv420p", "-movflags", "+faststart", tmp], stdin=subprocess.PIPE)
     for i in range(int(round(seg["dur"] * FPS))): p.stdin.write(frame(seg, i).tobytes())
     p.stdin.close(); rc = p.wait()
-    if rc == 0: os.replace(tmp, final)
+    if rc == 0:
+        open(final + ".sig", "w").write(_sig(seg)); os.replace(tmp, final)
     return seg["name"], rc
 
 if __name__ == "__main__":

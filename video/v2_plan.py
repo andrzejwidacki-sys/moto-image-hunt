@@ -39,7 +39,9 @@ def main():
     ap.add_argument("--lang", required=True); ap.add_argument("--clips", nargs=7, required=True)
     ap.add_argument("--out", required=True); ap.add_argument("--pause", type=float, default=1.0)
     ap.add_argument("--nsent", type=int, nargs=7, help="oczekiwana liczba zdań w klipach (kontrola)")
+    ap.add_argument("--photos", help="JSON ze zdjęciami (liczba ujęć w scenie <= liczba zdjęć)")
     a = ap.parse_args()
+    PH = json.load(open(a.photos)) if a.photos else {}
     tmp = Path(tempfile.mkdtemp(prefix="v2plan_"))
     info = []
     for k, c in enumerate(a.clips):
@@ -59,16 +61,18 @@ def main():
         d = ceil_half(max(LEAD + i["dur"] + TAIL, 15.0))
         mids = [LEAD + m for m in i["mids"]]
         import itertools, math
-        cands = [m for m in mids if MIN_SHOT_V3 <= m <= d - MIN_SHOT_V3]
         cuts = []
-        for n in range(min(4, max(2, math.ceil(d / 8.0))), 1, -1):
-            best = None
-            for combo in itertools.combinations(cands, n - 1):
-                gaps = [y - x for x, y in zip((0,) + combo, combo + (d,))]
-                if min(gaps) < MIN_SHOT_V3: continue
-                key = (max(gaps), max(gaps) - min(gaps))
-                if best is None or key < best[0]: best = (key, list(combo))
-            if best: cuts = best[1]; break
+        for minshot in (6.0, MIN_SHOT_V3):          # najpierw ujęcia >= 6 s, dopiero potem >= 5 s
+            cands = [m for m in mids if minshot <= m <= d - minshot]
+            for n in range(min(4, len(PH.get(name, [0] * 9)), max(2, math.ceil(d / 8.0))), 1, -1):
+                best = None
+                for combo in itertools.combinations(cands, n - 1):
+                    gaps = [y - x for x, y in zip((0,) + combo, combo + (d,))]
+                    if min(gaps) < minshot: continue
+                    key = (max(gaps), max(gaps) - min(gaps))
+                    if best is None or key < best[0]: best = (key, list(combo))
+                if best: cuts = best[1]; break
+            if cuts: break
         cuts.sort()
         s = dict(name=name, kind="scene", start=t + black, black=black, dur=d, voice_start=t + black + LEAD, clip=clip, cuts=cuts, n_shots=len(cuts) + 1)
         segs.append(s); t += black + d
