@@ -30,7 +30,7 @@ for vid, d in ids.items():
             if len(b) > 3000: open(f"{OUT}/thumbs/{vid}.jpg", "wb").write(b); o["thumb"] = f"thumbs/{vid}.jpg"; break
         except Exception: pass
     k = d["known"]
-    if k: o.update({x: k.get(x) for x in ("title", "channel", "license", "duration_s", "views", "upload_date", "language", "description") if k.get(x) is not None})
+    if k: o.update({x: k.get(x) for x in ("title", "channel", "license", "duration_s", "views", "upload_date", "language") if k.get(x) is not None})
     if not o.get("description"):
         try:
             p = get(o["url"] + "&hl=en&bpctr=9999999999&has_verified=1")
