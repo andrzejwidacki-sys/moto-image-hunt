@@ -1,0 +1,26 @@
+name: YouTube details (thumbnails and descriptions)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  details:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: yt-search
+          path: ytin
+      - name: Fetch
+        run: python3 yt/details.py ytin/results.json yt-det || true
+      - name: Publish
+        if: always() && hashFiles('yt-det/details.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd yt-det && git init -q -b yt-details
+          git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "yt-details ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" yt-details
