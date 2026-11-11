@@ -31,7 +31,7 @@ rep(4, 0, dict(
  en=("Radha Nagar on Havelock Island in the Andamans: white sand, turquoise water and tropical forest.", "Radhanagar on Havelock Island in the Andamans: white sand, turquoise water and tropical forest."),
  es=("Rada Nagar, en la isla Havelok, en las islas Andamán: arena blanca, agua turquesa y selva tropical.", "Radhanagar, en la isla Havelock (Andamán): arena blanca, agua turquesa y selva tropical."),
  hi=("अंडमान के हैवलॉक द्वीप पर राधानगर: सफ़ेद रेत, फ़िरोज़ी पानी और उष्णकटिबंधीय जंगल।", "अंडमान के हैवलॉक द्वीप पर राधानगर: सफ़ेद रेत, फ़िरोज़ी पानी और उष्णकटिबंधीय जंगल।"),
- pl=("Rada Nagar na wyspie Havelok w archipelagu Andamanów: biały piasek, turkusowa woda i tropikalny las.", "Radhanagar na wyspie Havelock (Andamany): biały piasek, turkusowa woda i tropikalny las.")))
+ pl=("Rada Nagar na wyspie Havelok w arhipelagu Andamanów: biały piasek, turkusowa woda i tropikalny las.", "Radhanagar na wyspie Havelock (Andamany): biały piasek, turkusowa woda i tropikalny las.")))
 rep(5, 3, dict(
  en=("Today's houseboats are rebuilt kettuvallam: barges that once carried rice and spices, made of wooden planks joined with coconut fibre.", "Today's houseboats are rebuilt kettuvallam: barges that once carried rice and spices, made of wooden planks joined with coconut fibre."),
  es=("Las casas flotantes de hoy son versiones reformadas de los kettuvalam: barcazas que antes transportaban arroz y especias, hechas de tablones de madera unidos con fibra de coco.", "Las casas flotantes de hoy son versiones reformadas de los kettuvallam: barcazas que antes transportaban arroz y especias, hechas de tablones de madera unidos con fibra de coco."),
