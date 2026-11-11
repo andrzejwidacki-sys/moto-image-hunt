@@ -1,0 +1,49 @@
+[
+ {
+  "lang": "pl",
+  "scenes": [
+   {
+    "scene": "hook",
+    "wer": 0.0,
+    "hyp": "5 miejsc w Indiach 5 rodzajów wody W jednym z nich ludzie uprawiają ryż poniżej poziomu morza. Zgadniesz, w którym?",
+    "ref": "Pięć miejsc w Indiach. Pięć rodzajów wody. W jednym z nich ludzie uprawiają ryż poniżej poziomu morza. Zgadniesz, w którym?"
+   },
+   {
+    "scene": "s1",
+    "wer": 0.265,
+    "hyp": "Najwyżej, Pangong co w Ladaku, około 4300 m n .p .m. Jezioro ma 134 km długości. Około 2 trzecie Jeziora leży na obszarze administrowanym przez Chiny. Mimo zasolenia zimą zamarza.",
+    "ref": "Najwyżej: Pangong Co w Ladaku, około czterech tysięcy trzystu metrów nad poziomem morza. Jezioro ma sto trzydzieści cztery kilometry długości. Około dwie trzecie jeziora leży na obszarze administrowanym przez Chiny. Mimo zasolenia zimą zamarza."
+   },
+   {
+    "scene": "s2",
+    "wer": 0.222,
+    "hyp": "Varanasi, jedno z najstarszych żywych miast świata. Ponad 80 gatów schodzi tu do Gangesu. Wielbrzymi używają większości z nich do kąpieli i ceremonii modlitewnych. Każdego dnia o zmieszku kapłani odprawiają na gacie deshwamedh ceremonie Ganga Arti.",
+    "ref": "Waranasi, jedno z najstarszych żywych miast świata. Ponad osiemdziesiąt ghatów schodzi tu do Gangesu. Pielgrzymi używają większości z nich do kąpieli i ceremonii modlitewnych. Każdego dnia o zmierzchu kapłani odprawiają na ghacie Daśaśwamedh ceremonię Ganga aarti."
+   },
+   {
+    "scene": "s3",
+    "wer": 0.173,
+    "hyp": "Wielki rankuj w Gujaracie ma około 7500 km2. W porze monsunowej ta równina słonej gliny i błota wypełnia się stojącą wodą. To także miejsce lęgowe jednych z największych stad flamingów różowych i małych. To jedno z najgorętszych miejsc w Indiach, a zimą temperatura potrafi spaść poniżej zera.",
+    "ref": "Wielki Ran Kucz w Gudżaracie ma około siedmiu i pół tysiąca kilometrów kwadratowych. W porze monsunowej ta równina słonej gliny i błota wypełnia się stojącą wodą. To także miejsce lęgowe jednych z największych stad flamingów różowych i małych. To jedno z najgorętszych miejsc w Indiach, a zimą temperatura potrafi spaść poniżej zera."
+   },
+   {
+    "scene": "s4",
+    "wer": 0.156,
+    "hyp": "Rada Nagar na wyspie Hawalog w arsipelagu andamanów, biały piasek, turkusowa woda i tropikalny las. Plaża ma około 2 km długości. Plaża ma międzynarodowy certyfikat Błękitna Flaga, przyznawany za czystość i bezpieczeństwo. W 2004 roku Magazine Time wymienił ją wśród najlepszych plaż świata.",
+    "ref": "Rada Nagar na wyspie Havelok w arhipelagu Andamanów: biały piasek, turkusowa woda i tropikalny las. Plaża ma około dwóch kilometrów długości. Plaża ma międzynarodowy certyfikat Błękitna Flaga, przyznawany za czystość i bezpieczeństwo. W dwa tysiące czwartym roku magazyn Tajm wymienił ją wśród najlepszych plaż świata."
+   },
+   {
+    "scene": "s5",
+    "wer": 0.106,
+    "hyp": "Odpowiedź – Kuttanath w Kerali, region o najniższym położeniu w Indiach. Rysz uprawia się tu od ponad metra do trzech metrów poniżej poziomu morza. W 2013 roku Organizacja ONZ ds. wyżywienia i rolnictwa uznała ten system uprawy za globalnie ważny system dziedzictwa rolniczego. Dzisiejsze domy na wodzie to przebudowane ketuwalam, barki, które dawniej wiozły ryż i przyprawy, zbudowane z drewnianych desek połączony włóknem kokosowym.",
+    "ref": "Odpowiedź: Kuttanad w Kerali, region o najniższym położeniu w Indiach. Ryż uprawia się tu od ponad metra do trzech metrów poniżej poziomu morza. W dwa tysiące trzynastym roku organizacja ONZ do spraw wyżywienia i rolnictwa uznała ten system uprawy za Globalnie Ważny System Dziedzictwa Rolniczego. Dzisiejsze domy na wodzie to przebudowane kettuvallam: barki, które dawniej wiozły ryż i przyprawy, zbudowane z drewnianych desek połączonych włóknem kokosowym."
+   },
+   {
+    "scene": "payoff",
+    "wer": 0.067,
+    "hyp": "Jezioro, które zamarza na ponad czterech tysiącach metrów i pola ryżowe poniżej poziomu morza. To są ten same Indie. Która z tych pięciu wódz zaskoczyła Cię najbardziej? Napisz w komentarzu.",
+    "ref": "Jezioro, które zamarza na ponad czterech tysiącach metrów, i pola ryżowe poniżej poziomu morza. To są te same Indie. Która z tych pięciu wód zaskoczyła cię najbardziej? Napisz w komentarzu."
+   }
+  ]
+ }
+]
