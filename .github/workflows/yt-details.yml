@@ -14,7 +14,7 @@ jobs:
           ref: yt-search
           path: ytin
       - name: Fetch
-        run: python3 yt/details.py ytin/results.json yt-det || true
+        run: python3 yt/details.py ytin/results.json yt-det yt/select_ids.txt || true
       - name: Publish
         if: always() && hashFiles('yt-det/details.json') != ''
         env:
