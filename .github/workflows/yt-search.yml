@@ -19,7 +19,7 @@ jobs:
       - name: Search
         run: |
           python3 -m venv /tmp/yt && /tmp/yt/bin/pip install -q yt-dlp
-          /tmp/yt/bin/python yt/search.py "${{ inputs.queries }}" "${{ inputs.n }}" yt-out || true
+          FLAT=1 /tmp/yt/bin/python yt/search.py "${{ inputs.queries }}" "${{ inputs.n }}" yt-out || true
       - name: Publish
         if: always() && hashFiles('yt-out/results.md') != ''
         env:

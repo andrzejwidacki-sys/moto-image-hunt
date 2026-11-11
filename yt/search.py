@@ -19,14 +19,18 @@ def meta(vid):
                 "description": (i.get("description") or "")[:400], "url": f"https://www.youtube.com/watch?v={vid}"}
     except Exception as e:
         return {"id": vid, "error": str(e)[:200], "url": f"https://www.youtube.com/watch?v={vid}"}
+FLAT = os.environ.get("FLAT") == "1"
+def from_flat(e, vid):
+    return {"id": vid, "title": e.get("title"), "channel": e.get("channel") or e.get("uploader"), "duration_s": e.get("duration"), "views": e.get("view_count"),
+            "description": (e.get("description") or None), "url": f"https://www.youtube.com/watch?v={vid}"}
 res = []
 for q in queries:
     for mode, url in (("CC", f"https://www.youtube.com/results?search_query={urllib.parse.quote_plus(q)}&sp={CC}"), ("all", f"ytsearch{N}:{q}")):
-        try: ids = [e["id"] for e in search(url) if e.get("id") and len(e["id"]) == 11]
-        except Exception as e: print("SEARCH FAIL", mode, q, str(e)[:150]); ids = []
-        print(f"{mode} | {q} | {len(ids)} wyników", flush=True)
-        for v in ids[:N]:
-            m = meta(v); m["query"] = q; m["mode"] = mode; res.append(m)
+        try: ents = [e for e in search(url) if e.get("id") and len(e["id"]) == 11]
+        except Exception as e: print("SEARCH FAIL", mode, q, str(e)[:150]); ents = []
+        print(f"{mode} | {q} | {len(ents)} wyników", flush=True)
+        for e in ents[:N]:
+            m = from_flat(e, e["id"]) if FLAT else meta(e["id"]); m["query"] = q; m["mode"] = mode; res.append(m)
 json.dump(res, open(f"{OUT}/results.json", "w"), ensure_ascii=False, indent=1)
 with open(f"{OUT}/results.md", "w") as f:
     for r in res:
