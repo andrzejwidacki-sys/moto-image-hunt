@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ścieżka dźwiękowa wersji 2 wg planu z v2_plan.py: lektor, muzyka z wyciszaniem pod głos, ambient na scenach,
 całkowita cisza w czarnym kadrze (zwrot akcji), normalizacja do −14 LUFS, podłożenie pod wideo."""
-import argparse, json, subprocess, sys
+import argparse, json, os, subprocess, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from assemble_audio import run, dur
@@ -79,14 +79,16 @@ def main():
     tgt = f"I={a.lufs}:TP=-1.5:LRA=11"
     p1 = run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(mixwav), "-af", f"loudnorm={tgt}:print_format=json", "-f", "null", "-"])
     m = json.loads(p1.stderr[p1.stderr.rindex("{"):])
+    part = a.out + ".part.mp4"
     ln = (f"loudnorm={tgt}:measured_I={m['input_i']}:measured_TP={m['input_tp']}:measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true,alimiter=limit=0.8:level=disabled")
-    run(["ffmpeg", "-v", "error", "-y", "-i", a.video, "-i", str(mixwav), "-af", ln, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-t", f"{vdur}", a.out])
-    r_ = run(["ffmpeg", "-hide_banner", "-nostats", "-i", a.out, "-af", "ebur128=peak=true", "-f", "null", "-"])
+    run(["ffmpeg", "-v", "error", "-y", "-i", a.video, "-i", str(mixwav), "-af", ln, "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-t", f"{vdur}", part])
+    r_ = run(["ffmpeg", "-hide_banner", "-nostats", "-i", part, "-af", "ebur128=peak=true", "-f", "null", "-"])
     for line in r_.stderr.split("Summary:")[-1].splitlines():
         line = line.strip()
         if line.startswith("I:"): report["integrated_lufs"] = float(line.split()[1])
         if line.startswith("Peak:"): report["true_peak_dbfs"] = float(line.split()[1])
-    report["out_s"] = round(dur(a.out), 2)
+    report["out_s"] = round(dur(part), 2)
+    os.replace(part, a.out)   # final pojawia się dopiero po pełnym sukcesie
     print(json.dumps(report, ensure_ascii=False, indent=1))
 
 
