@@ -33,9 +33,16 @@ for vid, d in ids.items():
         try:
             p = get(o["url"] + "&hl=en&bpctr=9999999999&has_verified=1")
             o["description"] = jstr(p, "shortDescription"); o["title"] = o.get("title") or jstr(p, "title"); o["channel"] = o.get("channel") or jstr(p, "author")
+            if not o.get("description"):
+                m = re.search(r'<meta (?:name|property)="(?:og:)?description" content="([^"]*)"', p)
+                if m: o["description"] = html.unescape(m.group(1)); o["description_src"] = "meta (skrócony)"
+            def num(x):
+                try: return int(re.sub(r"\D", "", x))
+                except Exception: return None
             ls = jstr(p, "lengthSeconds"); vc = jstr(p, "viewCount")
-            if ls and not o.get("duration_s"): o["duration_s"] = int(ls)
-            if vc and not o.get("views"): o["views"] = int(vc)
+            if ls and not o.get("duration_s"): o["duration_s"] = num(ls)
+            if vc and not o.get("views"): o["views"] = num(vc)
+            o["page_len"] = len(p); o["has_player_response"] = "ytInitialPlayerResponse" in p; o["has_consent"] = "consent.youtube.com" in p
             if "Creative Commons" in p: o["license"] = "Creative Commons Attribution license (reuse allowed)"
             if not o.get("description"): o["page_note"] = "strona bez opisu (bot-check/consent?)"
         except Exception as e: o["page_error"] = str(e)[:100]
