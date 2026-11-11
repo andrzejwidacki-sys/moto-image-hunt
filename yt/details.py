@@ -34,8 +34,15 @@ for vid, d in ids.items():
             p = get(o["url"] + "&hl=en&bpctr=9999999999&has_verified=1")
             o["description"] = jstr(p, "shortDescription"); o["title"] = o.get("title") or jstr(p, "title"); o["channel"] = o.get("channel") or jstr(p, "author")
             if not o.get("description"):
+                m = re.search(r'"attributedDescription":\{"content":"((?:[^"\\]|\\.)*)"', p)
+                if m:
+                    try: o["description"] = json.loads('"' + m.group(1) + '"'); o["description_src"] = "attributedDescription"
+                    except Exception: pass
+            ps = re.search(r'"playabilityStatus":\{"status":"([A-Z_]+)"(?:,"reason":"([^"]*)")?', p)
+            o["playability"] = (ps.group(1) + " " + (ps.group(2) or "")) if ps else None
+            if not o.get("description"):
                 m = re.search(r'<meta (?:name|property)="(?:og:)?description" content="([^"]*)"', p)
-                if m: o["description"] = html.unescape(m.group(1)); o["description_src"] = "meta (skrócony)"
+                if m and "Enjoy the videos and music" not in m.group(1): o["description"] = html.unescape(m.group(1)); o["description_src"] = "meta"
             def num(x):
                 try: return int(re.sub(r"\D", "", x))
                 except Exception: return None
