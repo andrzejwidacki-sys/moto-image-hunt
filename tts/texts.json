@@ -200,7 +200,7 @@
   "hi": "गुजरात का कच्छ का बड़ा रण लगभग साढ़े सात हज़ार वर्ग किलोमीटर में फैला है। मानसून में नमकीन मिट्टी और कीचड़ का यह मैदान ठहरे हुए पानी से भर जाता है। यह बड़े और छोटे फ़्लेमिंगो के कुछ सबसे बड़े झुंडों का प्रजनन स्थल भी है। यह भारत की सबसे गर्म जगहों में से एक है, फिर भी सर्दियों में तापमान शून्य से नीचे जा सकता है।"
  },
  "ix4": {
-  "pl": "Rada Nagar na wyspie Havelok w archipelagu Andamanów: biały piasek, turkusowa woda i tropikalny las. Plaża ma około dwóch kilometrów długości. Plaża ma międzynarodowy certyfikat Blue Flag, przyznawany za czystość i bezpieczeństwo. W dwa tysiące czwartym roku magazyn Time wymienił ją wśród najlepszych plaż świata.",
+  "pl": "Rada Nagar na wyspie Havelok w archipelagu Andamanów: biały piasek, turkusowa woda i tropikalny las. Plaża ma około dwóch kilometrów długości. Plaża ma międzynarodowy certyfikat Błękitna Flaga, przyznawany za czystość i bezpieczeństwo. W dwa tysiące czwartym roku magazyn Tajm wymienił ją wśród najlepszych plaż świata.",
   "en": "Radha Nagar on Havelock Island in the Andamans: white sand, turquoise water and tropical forest. The beach is about two kilometres long. The beach holds the international Blue Flag certification, awarded for cleanliness and safety. In two thousand and four, Time magazine listed it among the best beaches in the world.",
   "es": "Rada Nagar, en la isla Havelok, en las islas Andamán: arena blanca, agua turquesa y selva tropical. La playa mide unos dos kilómetros de largo. La playa tiene la certificación internacional Bandera Azul, que se concede por limpieza y seguridad. En dos mil cuatro, la revista Time la incluyó entre las mejores playas del mundo.",
   "hi": "अंडमान के हैवलॉक द्वीप पर राधानगर: सफ़ेद रेत, फ़िरोज़ी पानी और उष्णकटिबंधीय जंगल। यह समुद्र तट लगभग दो किलोमीटर लंबा है। इस समुद्र तट को सफ़ाई और सुरक्षा के लिए अंतरराष्ट्रीय ब्लू फ़्लैग प्रमाणन मिला है। दो हज़ार चार में टाइम पत्रिका ने इसे दुनिया के सबसे अच्छे समुद्र तटों में गिना।"
@@ -213,5 +213,8 @@
  },
  "ix2n": {
   "en": "Varanasi, one of the world's oldest living cities. More than eighty riverside stairways, each one a [ghat](/ɡɔːt/), lead down to the Ganges. Pilgrims use most of them for bathing and prayer ceremonies. Every day at dusk, priests perform the Ganga aarti ceremony at the Dashashwamedh [Ghat](/ɡɔːt/)."
+ },
+ "ix4n": {
+  "pl": "Rada Nagar na wyspie Havelok w archipelagu Andamanów: biały piasek, turkusowa woda i tropikalny las. Plaża ma około dwóch kilometrów długości. Plaża ma międzynarodowy certyfikat Błękitna Flaga, przyznawany za czystość i bezpieczeństwo. W dwa tysiące czwartym roku magazyn Tajm wymienił ją wśród najlepszych plaż świata."
  }
 }

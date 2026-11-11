@@ -38,6 +38,8 @@ rep(5, 3, dict(
  hi=("आज के हाउसबोट केट्टुवल्लम का नया रूप हैं: ऐसी नावें जो कभी चावल और मसाले ढोती थीं, और लकड़ी के तख़्तों को नारियल के रेशे से जोड़कर बनाई जाती थीं।", "आज के हाउसबोट केट्टुवल्लम का नया रूप हैं: ऐसी नावें जो कभी चावल और मसाले ढोती थीं, और लकड़ी के तख़्तों को नारियल के रेशे से जोड़कर बनाई जाती थीं।"),
  pl=("Dzisiejsze domy na wodzie to przebudowane kettuvallam: barki, które dawniej wiozły ryż i przyprawy, zbudowane z drewnianych desek połączonych włóknem kokosowym.", "Dzisiejsze domy na wodzie to przebudowane kettuvallam: barki, które dawniej wiozły ryż i przyprawy, zbudowane z drewnianych desek połączonych włóknem kokosowym.")))
 rep(2, 1, dict(en=("More than eighty riverside stairways, each one a ghat, lead down to the Ganges.", "More than 80 riverside stairways, each one a ghat, lead down to the Ganges.")))   # liczba mnoga „ghats” Whisper słyszał jako „gods” w 3 wariantach; liczba pojedyncza jest rozpoznawana
+rep(4, 2, dict(pl=("Plaża ma międzynarodowy certyfikat Błękitna Flaga, przyznawany za czystość i bezpieczeństwo.", "Plaża ma międzynarodowy certyfikat Błękitna Flaga, przyznawany za czystość i bezpieczeństwo.")))   # Piper czytał „Blue Flag” jako „Blue of Lack”
+rep(4, 3, dict(pl=("W dwa tysiące czwartym roku magazyn Tajm wymienił ją wśród najlepszych plaż świata.", "W 2004 roku magazyn Time wymienił ją wśród najlepszych plaż świata.")))   # mówione „Tajm”, napis „Time”
 # EN: jawna fonetyka dla „ghat(s)” (Kokoro czytał „gahts” jako „gods”); [słowo](/IPA/) to składnia misaki
 for sc in S["en"]:
     for i, (sp, cp) in enumerate(sc):
