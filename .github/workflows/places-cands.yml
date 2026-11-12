@@ -1,0 +1,37 @@
+name: Places candidates (Commons thumbnails and licences)
+on:
+  workflow_dispatch:
+    inputs:
+      queries_json:
+        description: 'JSON {"miejsce": ["zapytanie", ...]}'
+        required: true
+      min_width:
+        default: "2400"
+      per:
+        default: "14"
+      branch:
+        default: "places-cands"
+permissions:
+  contents: write
+jobs:
+  cands:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - env:
+          QUERIES: ${{ inputs.queries_json }}
+          MIN_WIDTH: ${{ inputs.min_width }}
+          PER: ${{ inputs.per }}
+          OUT: cands-out
+        run: python3 places/cands.py
+      - name: Publish
+        if: always() && hashFiles('cands-out/cands.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BR: ${{ inputs.branch }}
+        run: |
+          cd cands-out && git init -q -b "$BR"
+          git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "cands ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BR"
