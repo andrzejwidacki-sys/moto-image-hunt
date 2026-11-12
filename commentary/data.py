@@ -7,16 +7,16 @@ Zdania PL i EN muszą mieć tę samą liczbę (sprawdza make_texts.py).
 
 SRC = {
     "id": "eCtUQp9aISc",
-    "title": "Najbardziej malownicze miejsca ... (film #1)",
+    "title": "The 10 Most Beautiful Places I've ever Visited!",
     "author": "Ryan Van Duzer",
     "url": "https://www.youtube.com/watch?v=eCtUQp9aISc",
     "license": "Creative Commons Attribution license (reuse allowed)",
 }
 
 # okno oryginału (sekundy źródła) -> 7 s
-WINDOWS = {"nepal": (163.9, 170.9), "machu": (253.95, 260.95), "utah": (322.95, 329.95),
-           "fuego": (385.0, 392.0), "copper": (402.8, 409.8), "burning": (595.7, 602.7),
-           "grand": (663.9, 670.9), "ometepe": (721.7, 728.7)}
+WINDOWS = {"nepal": (163.86, 170.66), "machu": (254.0, 261.0), "utah": (322.9, 329.75),
+           "fuego": (385.5, 392.1), "copper": (403.0, 410.0), "burning": (595.4, 602.3),
+           "grand": (663.95, 670.8), "ometepe": (721.7, 728.7)}
 
 INTRO = {
     "spoken": {
@@ -36,13 +36,13 @@ INTRO = {
 PLACES = [
  {"id": "nepal", "name": {"pl": "Region Everestu, Nepal", "en": "Everest region, Nepal"},
   "spoken": {
-   "pl": ["W kadrze są zbliżenia szczytów, małe jezioro i flagi modlitewne.",
+   "pl": ["Na ekranie widać zbliżenia szczytów, małe jezioro i flagi modlitewne.",
           "A tak wygląda Ama Dablam, sześć tysięcy osiemset dwanaście metrów, która przez kilka dni dominuje na wschodnim niebie każdemu, kto idzie do bazy pod Everestem.",
           "A to jeziora Gokjo w Parku Narodowym Sagarmata, na wysokości od czterech tysięcy siedmiuset do pięciu tysięcy metrów.",
           "Zobacz dwie malutkie postacie na zboczu: to jest prawdziwa skala tego krajobrazu."],
    "en": ["The clip shows close-ups of peaks, a small lake and prayer flags.",
           "This is Ama Dablam, six thousand eight hundred twelve metres high, which for several days dominates the eastern sky for anyone trekking to Everest Base Camp.",
-          "And these are the Gokyo Lakes in Sagarmatha National Park, at an elevation of forty-seven hundred to five thousand metres.",
+          "And these are the [Gokyo](/ɡˈOkjO/) Lakes in Sagarmatha National Park, at an elevation of forty-seven hundred to five thousand metres.",
           "Look at the two tiny figures on the slope: that is the real scale of this landscape."]},
   "caption": {
    "pl": ["W kadrze: zbliżenia szczytów, małe jezioro, flagi modlitewne.",
@@ -81,7 +81,7 @@ PLACES = [
 
  {"id": "utah", "name": {"pl": "White Rim Road, Utah", "en": "White Rim Road, Utah"},
   "spoken": {
-   "pl": ["W kadrze dwóch rowerzystów na polnej drodze i czerwona mesa w tle.",
+   "pl": ["Na ekranie widać dwóch rowerzystów na polnej drodze i czerwoną mesę w tle.",
           "To droga Łajt Rim w Parku Narodowym Kenionlends: siedemdziesiąt jeden mil, czyli około stu piętnastu kilometrów drogi bez asfaltu.",
           "Poprowadzono ją w latach pięćdziesiątych pod szczytem mesy Ajlend in de Skaj, żeby poszukiwacze mogli dojechać do złóż uranu.",
           "A tak ten krajobraz wygląda z góry, z punktu widokowego nad rzeką Grin Riwer, gdzie rzeka wije się w kanionach daleko w dole."],
@@ -103,7 +103,7 @@ PLACES = [
 
  {"id": "fuego", "name": {"pl": "Wulkan Fuego, Gwatemala", "en": "Fuego volcano, Guatemala"},
   "spoken": {
-   "pl": ["W kadrze erupcja w ciągu dnia: kolumna popiołu nad zboczem.",
+   "pl": ["Na ekranie widać erupcję w ciągu dnia: kolumnę popiołu nad zboczem.",
           "Fuego w Gwatemali jest niemal stale aktywny: mały wybuch z krateru zdarza się co piętnaście do dwudziestu minut.",
           "W nocy krater żarzy się na czerwono, jak na tym zdjęciu z listopada dwa tysiące siedemnastego roku, a większe erupcje, ponad osiemdziesiąt od tysiąc dziewięćset dziewięćdziesiątego dziewiątego roku, zdarzają się dużo rzadziej."],
    "en": ["The clip shows a daytime eruption: a column of ash rising over the slope.",
@@ -125,7 +125,7 @@ PLACES = [
           "Ale Kanion Miedziany to nie jeden kanion: to system sześciu kanionów wyżłobionych przez sześć rzek, o powierzchni sześćdziesięciu pięciu tysięcy kilometrów kwadratowych w Sierra Madre Zachodniej.",
           "Z góry wygląda to jak labirynt grzbietów i wąwozów, który ciągnie się aż po horyzont."],
    "en": ["This viewpoint shows a single stretch of the canyon, with a small shelter at the edge.",
-          "But Copper Canyon is not one canyon: it is a system of six canyons cut by six rivers, covering sixty-five thousand square kilometres in the Sierra Madre Occidental.",
+          "But Copper Canyon is not one canyon: it is a system of six canyons cut by six rivers, covering sixty-five thousand square kilometres in the [Sierra](/siˈɛɹə/) [Madre](/mˈɑdɹA/) Occidental.",
           "From above it looks like a maze of ridges and gorges that stretches all the way to the horizon."]},
   "caption": {
    "pl": ["W kadrze: jeden punkt widokowy z wiatą na krawędzi.",
@@ -157,7 +157,7 @@ PLACES = [
 
  {"id": "grand", "name": {"pl": "Wielki Kanion, Arizona", "en": "Grand Canyon, Arizona"},
   "spoken": {
-   "pl": ["W kadrze obraz jest miękki i zamglony, a na pierwszym planie widać gałąź.",
+   "pl": ["Na ekranie widać miękki, zamglony obraz, a na pierwszym planie gałąź.",
           "Wielki Kanion ma dwieście siedemdziesiąt siedem mil, czyli czterysta czterdzieści sześć kilometrów długości, do osiemnastu mil szerokości i ponad milę głębokości.",
           "Na szlaku Brajt Endżel ścieżka to tylko cienka linia zakosów na ścianie kanionu.",
           "A o zachodzie słońca pojedynczy turysta pokazuje skalę, podczas gdy skalne świątynie poniżej łapią ostatnie światło."],
@@ -184,7 +184,7 @@ PLACES = [
           "Konsepsjon to aktywny wulkan o symetrycznym stożku, a jego podstawa ma szesnaście kilometrów średnicy.",
           "Zbocza porasta gęsta zieleń, a wyżej grzbiet znika w chmurach."],
    "en": ["The clip begins with close-ups of leaves, and then shows two volcanoes far across the lake.",
-          "Ometepe is one island built from two volcanoes, Concepción and Maderas, joined by a low isthmus: it is thirty-one kilometres long and five to ten wide.",
+          "[Ometepe](/ˌOmɛtˈɛpA/) is one island built from two volcanoes, Concepción and [Maderas](/mɑdˈɛɹɑs/), joined by a low isthmus: it is thirty-one kilometres long and five to ten wide.",
           "Concepción is an active volcano with a symmetrical cone, and its base is sixteen kilometres across.",
           "Its slopes are covered in dense green vegetation, and higher up the ridge disappears into cloud."]},
   "caption": {
