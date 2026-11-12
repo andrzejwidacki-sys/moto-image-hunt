@@ -46,9 +46,11 @@ MOVES = {
     "utah3": ((0.50, 0.50, 1.00), (0.50, 0.55, 1.15)),
     "utah2": ((0.50, 0.50, 1.00), (0.55, 0.50, 1.25)),
     "fuego1": ((0.50, 0.50, 1.00), (0.50, 0.55, 1.45)),
+    "fuego1@1": ((0.55, 0.55, 1.30), (0.45, 0.50, 1.00)),
+    "fuego3": ((0.50, 0.45, 1.00), (0.58, 0.42, 1.12)),
     "copper1": ((0.50, 0.45, 1.00), (0.55, 0.50, 1.12)),
     "copper2": ((0.40, 0.50, 1.00), (0.60, 0.50, 1.12)),
-    "burning1": ((0.35, 0.50, 1.00), (0.65, 0.50, 1.10)),
+    "burning1": ((0.62, 0.50, 1.00), (0.62, 0.52, 1.10)),
     "burning3": ((0.75, 0.50, 1.00), (0.60, 0.50, 1.12)),
     "grand2": ((0.40, 0.50, 1.00), (0.60, 0.50, 1.12)),
     "grand1": ((0.50, 0.50, 1.00), (0.45, 0.60, 1.30)),
@@ -66,7 +68,7 @@ LIC_URL = {"CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/",
 ARTIST = {"nepal1": "Lerian", "nepal2": "Vyacheslav Argenberg", "nepal3": "Vyacheslav Argenberg",
           "machu1": "Scott Umstattd", "machu2": "Hiram Bingham III (1912)", "machu3": "Tomas Sobek",
           "utah1": "NPS / Canyonlands NP", "utah2": "NPS / Rhodes Smartt", "utah3": "NPS / Neal Herbert",
-          "fuego1": "Rick Thomas", "copper1": "Jens Uhlenbrock (wg Commons)",
+          "fuego1": "Rick Thomas", "fuego3": "Pierre Markuse (Landsat 8 / USGS)", "copper1": "Jens Uhlenbrock (wg Commons)",
           "copper2": "Jesus Alejandro Guer… (nazwisko ucięte u źródła)",
           "burning1": "Steve Jurvetson", "burning3": "BLM (mypubliclands)",
           "grand1": "Grand Canyon NP (NPS)", "grand2": "Bernard Spragg", "grand3": "Grand Canyon NP (NPS)",
@@ -184,20 +186,19 @@ def to48(x, sr):
 
 
 def split_by_silence(x, sr, n_expected):
-    """Dzieli klip na zdania po przerwach z cyfrowej ciszy (generator TTS wstawia zera)."""
-    for min_run in (0.18, 0.12, 0.08):
-        quiet = np.abs(x) <= 3 / 32768
-        L = int(min_run * sr)
-        idx = np.flatnonzero(~quiet)
-        if idx.size == 0:
-            break
-        d = np.diff(idx)
-        cuts = np.flatnonzero(d > L)
-        starts = np.r_[idx[0], idx[cuts + 1]]
-        ends = np.r_[idx[cuts], idx[-1]] + 1
-        if len(starts) == n_expected:
-            return [x[a:b] for a, b in zip(starts, ends)]
-    raise RuntimeError(f"nie umiem podzielić klipu na {n_expected} zdań (znalazłem {len(starts)})")
+    """Dzieli klip na zdania: n-1 najdłuższych przerw z cyfrowej ciszy (generator TTS wstawia zera między zdaniami)."""
+    quiet = np.abs(x) <= 3 / 32768
+    idx = np.flatnonzero(~quiet)
+    d = np.diff(idx)
+    gaps = [(int(g), int(idx[g]), int(idx[g + 1])) for g in np.flatnonzero(d > int(0.08 * sr))]
+    if len(gaps) < n_expected - 1:
+        raise RuntimeError(f"za mało przerw: {len(gaps)} dla {n_expected} zdań")
+    top = sorted(sorted(gaps, key=lambda q: q[2] - q[1], reverse=True)[:n_expected - 1], key=lambda q: q[1])
+    lens = sorted((q[2] - q[1]) / sr for q in gaps)
+    if len(gaps) > n_expected - 1 and lens[-n_expected] > 0.6 * lens[-(n_expected - 1)]:
+        print("UWAGA: niejednoznaczne przerwy", [round(v, 2) for v in lens[-n_expected - 1:]], flush=True)
+    bounds = [idx[0]] + [v for q in top for v in (q[1], q[2])] + [idx[-1] + 1]
+    return [x[bounds[2 * k]:bounds[2 * k + 1] + (0 if k < n_expected - 1 else 0)] for k in range(n_expected)]
 
 
 def narration(lang, key, n):
@@ -254,6 +255,10 @@ def credit_tag(pid):
 
 def place_label(i, p, lang):
     return text_box(f"{i + 1}/8 · {p['name'][lang]}", size=34, maxw=1100, path=FONT_M, bg=(8, 10, 14, 150), pad=(24, 14))
+
+
+def mv(pid, k):
+    return MOVES.get(f"{pid}@{k}", MOVES[pid])
 
 
 def load_shots(place):
@@ -317,7 +322,7 @@ def render_photos(args):
             else:
                 a = 1.0
             prog = (t - lo) / (hi - lo)
-            acc += photo_frame(im, MOVES[pid], prog).astype(np.float32) * a
+            acc += photo_frame(im, mv(pid, k), prog).astype(np.float32) * a
             wsum += a
             if a >= 0.5:
                 cur = pid
@@ -535,10 +540,10 @@ def cmd_preview(lang):
     outd.mkdir(parents=True, exist_ok=True)
     tiles = []
     for i, place in enumerate(data.PLACES):
-        for pid, idx in place["shots"]:
+        for k, (pid, idx) in enumerate(place["shots"]):
             im = Image.open(PH / f"{pid}.jpg").convert("RGB")
             for p in (0.0, 0.5, 1.0):
-                f = Image.fromarray(photo_frame(im, MOVES[pid], p)).resize((640, 360))
+                f = Image.fromarray(photo_frame(im, mv(pid, k), p)).resize((640, 360))
                 dr = ImageDraw.Draw(f)
                 dr.text((8, 8), f"{pid} {p}", fill=(255, 255, 0), font=font(FONT_M, 22))
                 tiles.append(f)
