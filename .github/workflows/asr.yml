@@ -1,0 +1,33 @@
+name: ASR (Whisper with timestamps)
+on:
+  workflow_dispatch:
+    inputs:
+      lang:
+        default: "en"
+      model:
+        default: "medium"
+permissions:
+  contents: write
+jobs:
+  asr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          ref: asr-in
+          path: in
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: |
+          python3 -m venv /tmp/asr && /tmp/asr/bin/pip install -q faster-whisper
+          /tmp/asr/bin/python music/asr.py in/audio.mp3 asr-out "${{ inputs.lang }}" "${{ inputs.model }}"
+      - name: Publish
+        if: always() && hashFiles('asr-out/transcript.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd asr-out && git init -q -b asr-out
+          git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "asr ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" asr-out
