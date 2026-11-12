@@ -1,0 +1,25 @@
+inv.nadeko.net API FAIL HTTP Error 403: Forbidden
+invidious.nerdvpn.de API FAIL HTTP Error 403: Forbidden
+yt.chocolatemoo53.com OK streams: [] adaptive: 8
+adaptive: [('139', 'audio/mp4; codecs="mp4a.40.5"', None, '5324989'), ('140', 'audio/mp4; codecs="mp4a.40.2"', None, '14129747'), ('251', 'audio/webm; codecs="opus"', None, '14071641'), ('160', 'video/mp4; codecs="avc1.4D400C', '144p', '7913043'), ('134', 'video/mp4; codecs="avc1.4D401E', '360p', '35942473'), ('243', 'video/webm; codecs="vp9"', '360p', '32751710'), ('136', 'video/mp4; codecs="avc1.4D401F', '720p', '103664078'), ('137', 'video/mp4; codecs="avc1.640028', '1080p', '331907672')]
+yt.chocolatemoo53.com adaptive download v.mp4 137 1080p 331907672 B 54 s
+yt.chocolatemoo53.com adaptive download a.m4a 140 None 14129747 B 3 s
+ffmpeg rc 0 9T18:38:00.000000Z
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (copy)
+  Stream #1:0 -> #0:1 (copy)
+Press [q] to stop, [?] for help
+size=       0kB time=-00:00:00.04 bitrate=  -0.0kbits/s speed=N/A    
+[mp4 @ 0x55adff989500] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0x55adffa02680] video:323864kB audio:13641kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.182666%
+size=  338121kB time=00:14:33.00 bitrate=3172.8kbits/s speed=3.06e+03x    
+
+probe codec_name=h264 width=1920 height=1080 avg_frame_rate=24000/1001 codec_name=aac avg_frame_rate=0/0 duration=873.023855  
+merged 346236374
+segment rc 0 9680] Opening 'inv-out/seg_04.mp4' for writing
+size=N/A time=00:12:37.45 bitrate=N/A speed=1.51e+03x    
+[out#0/segment @ 0x5602f7726f00] video:323864kB audio:13641kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+size=N/A time=00:14:33.00 bitrate=N/A speed=1.54e+03x    
+
