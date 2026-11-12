@@ -8,7 +8,9 @@ CC = "EgIwAQ%253D%253D"
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36", "Accept-Language": "en-US,en;q=0.9", "Cookie": "CONSENT=YES+1; SOCS=CAI"}
 opts = {"quiet": True, "no_warnings": True, "skip_download": True, "extract_flat": "in_playlist", "playlistend": N}
 cands = {}
-for q in queries:
+if os.environ.get("CANDS"):
+    cands = {o["id"]: {k: o[k] for k in ("id", "title", "channel", "duration_s", "views", "queries") if k in o} for o in json.load(open(os.environ["CANDS"]))}
+for q in ([] if cands else queries):
     try:
         with yt_dlp.YoutubeDL(opts) as y:
             ents = [e for e in (y.extract_info(f"https://www.youtube.com/results?search_query={urllib.parse.quote_plus(q)}&sp={CC}", download=False) or {}).get("entries", []) if e and e.get("id") and len(e["id"]) == 11]
@@ -23,7 +25,7 @@ res = []
 for vid, c in cands.items():
     try:
         p = urllib.request.urlopen(urllib.request.Request(f"https://www.youtube.com/watch?v={vid}&hl=en", headers=UA), timeout=30).read().decode("utf-8", "replace")
-        m = re.search(r'\{"text":"License"\}\]?,"contents":\[\{"runs":\[\{"text":"([^"]+)"', p)
+        m = re.search(r'"text":"License"\}\]\},"contents":\[\{"runs":\[\{"text":"([^"]+)"', p)
         c["license_row"] = m.group(1) if m else None
         c["is_cc_by"] = bool(m and "Creative Commons" in m.group(1))
         m2 = re.search(r'"shortDescription":"((?:[^"\\]|\\.)*)"', p)

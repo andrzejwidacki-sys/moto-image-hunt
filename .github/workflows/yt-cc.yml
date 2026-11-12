@@ -16,9 +16,11 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+      - name: Previous candidates
+        run: git fetch -q --depth 1 origin yt-cc && git show FETCH_HEAD:cc.json > /tmp/prev_cc.json || true
       - run: |
           python3 -m venv /tmp/yt && /tmp/yt/bin/pip install -q yt-dlp
-          /tmp/yt/bin/python yt/cc_hunt.py "${{ inputs.queries }}" "${{ inputs.n }}" cc-out || true
+          CANDS=$( [ "${{ inputs.queries }}" = "REVERIFY" ] && echo /tmp/prev_cc.json ) /tmp/yt/bin/python yt/cc_hunt.py "${{ inputs.queries }}" "${{ inputs.n }}" cc-out || true
       - name: Publish
         if: always() && hashFiles('cc-out/cc.json') != ''
         env:
