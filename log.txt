@@ -1,0 +1,20 @@
+TJjmY6E9qmc FAIL: ERROR: [youtube] TJjmY6E9qmc: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+-Ww7UN4W1UY FAIL: ERROR: [youtube] -Ww7UN4W1UY: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+RzfXjMHC1zo FAIL: ERROR: [youtube] RzfXjMHC1zo: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+QrMlE0LoYL8 FAIL: ERROR: [youtube] QrMlE0LoYL8: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+L0jTT8RpBrE OK client=tv_embedded /tmp/s_L0jTT8RpBrE.pl-orig.vtt /tmp/s_L0jTT8RpBrE.pl.vtt 
+_FzaYLiCB_k FAIL: ERROR: [youtube] _FzaYLiCB_k: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+KvVJ0FbEYR0 FAIL: ERROR: [youtube] KvVJ0FbEYR0: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+AKPDelVqWHI FAIL: ERROR: [youtube] AKPDelVqWHI: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+ByRCNE2n2IA FAIL: ERROR: [youtube] ByRCNE2n2IA: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+DSSZ0zkas_I FAIL: ERROR: [youtube] DSSZ0zkas_I: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+XLnn5tAGbyc FAIL: ERROR: [youtube] XLnn5tAGbyc: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+7ybqeNaYtw4 FAIL: ERROR: [youtube] 7ybqeNaYtw4: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+pZ7WLQbLDn8 FAIL: ERROR: [youtube] pZ7WLQbLDn8: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+tdgWEEOgdrU FAIL: ERROR: [youtube] tdgWEEOgdrU: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+cdVVWueGBio FAIL: ERROR: [youtube] cdVVWueGBio: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+dYQYL1TCKMY FAIL: ERROR: [youtube] dYQYL1TCKMY: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+RZYsPuqsFNg FAIL: ERROR: [youtube] RZYsPuqsFNg: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+w2gd-ZupyiY FAIL: ERROR: [youtube] w2gd-ZupyiY: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+muI6RVX23d4 FAIL: ERROR: [youtube] muI6RVX23d4: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
+mDXyoX4-YSw FAIL: ERROR: [youtube] mDXyoX4-YSw: Sign in to confirm you’re not a bot. This helps protect our community. Use --c
