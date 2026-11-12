@@ -1,0 +1,27 @@
+name: YouTube via Invidious
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        default: "eCtUQp9aISc"
+permissions:
+  contents: write
+jobs:
+  inv:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 yt/inv_dl.py "${{ inputs.id }}" inv-out || true
+      - run: ls -la inv-out; cat inv-out/inv.log | tail -30
+      - name: Publish
+        if: always() && hashFiles('inv-out/inv.log') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd inv-out
+          if [ -f video.mp4 ] && [ $(stat -c%s video.mp4) -lt 5000000 ]; then rm -f video.mp4; fi
+          git init -q -b yt-inv
+          git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "yt-inv ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" yt-inv

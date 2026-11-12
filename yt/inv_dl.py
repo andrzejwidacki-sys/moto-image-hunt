@@ -1,0 +1,29 @@
+"""Pobranie filmu przez instancje Invidious (omija blokadę IP runnera, jeśli instancja ma własny dostęp). Args: <id> <outdir>"""
+import json, sys, os, urllib.request, urllib.error, time
+VID, OUT = sys.argv[1], sys.argv[2]; os.makedirs(OUT, exist_ok=True)
+HOSTS = ["inv.nadeko.net", "invidious.nerdvpn.de", "yt.chocolatemoo53.com", "invidious.tiekoetter.com", "yewtu.be", "invidious.privacyredirect.com",
+         "iv.melmac.space", "invidious.f5.si", "invidious.materialio.us", "inv.thepixora.com", "invidious.lunar.icu", "invidious.jing.rocks", "invidious.perennialte.ch", "yt.artemislena.eu", "invidious.protokolla.fi"]
+UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"}
+log = open(f"{OUT}/inv.log", "w")
+def L(*a): s = " ".join(str(x) for x in a); print(s, flush=True); log.write(s + "\n"); log.flush()
+for h in HOSTS:
+    try:
+        r = urllib.request.urlopen(urllib.request.Request(f"https://{h}/api/v1/videos/{VID}?local=true", headers=UA), timeout=40)
+        j = json.loads(r.read().decode())
+    except Exception as e: L(h, "API FAIL", str(e)[:120]); continue
+    if "error" in j: L(h, "ERR", j["error"][:120]); continue
+    fs = j.get("formatStreams", []); L(h, "OK streams:", [(f.get("itag"), f.get("qualityLabel")) for f in fs], "adaptive:", len(j.get("adaptiveFormats", [])))
+    json.dump({k: j.get(k) for k in ("title", "author", "lengthSeconds", "license", "description")}, open(f"{OUT}/inv_meta.json", "w"), ensure_ascii=False)
+    for f in sorted(fs, key=lambda f: -int((f.get("qualityLabel") or "0p")[:-1] or 0)):
+        u = f["url"]; u = u if u.startswith("http") else f"https://{h}{u}"
+        try:
+            t = time.time(); n = 0
+            with urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=120) as r, open(f"{OUT}/video.mp4", "wb") as o:
+                while True:
+                    b = r.read(1 << 20)
+                    if not b: break
+                    o.write(b); n += len(b)
+            L(h, "download", f.get("itag"), f.get("qualityLabel"), n, "B", round(time.time() - t), "s")
+            if n > 5_000_000: open(f"{OUT}/source.txt", "w").write(f"{h} itag {f.get('itag')} {f.get('qualityLabel')}"); sys.exit(0)
+        except Exception as e: L(h, "DL FAIL", f.get("itag"), str(e)[:120])
+sys.exit(1)
