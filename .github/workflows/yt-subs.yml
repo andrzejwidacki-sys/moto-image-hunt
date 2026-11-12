@@ -1,0 +1,24 @@
+name: YouTube subtitles (try several clients)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  subs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Subs
+        run: |
+          python3 -m venv /tmp/yt && /tmp/yt/bin/pip install -q yt-dlp
+          bash yt/subs.sh || true
+      - name: Publish
+        if: always() && hashFiles('subs-out/log.txt') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd subs-out && git init -q -b yt-subs
+          git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "yt-subs ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" yt-subs
