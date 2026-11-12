@@ -24,16 +24,22 @@ for h in HOSTS:
                     if not b: break
                     o.write(b); n += len(b)
             L(h, "adaptive download", name, f.get("itag"), f.get("qualityLabel"), n, "B", round(time.time() - t), "s"); return n
-        vids = [f for f in ad if f.get("type", "").startswith("video/mp4") and "avc1" in f.get("type", "") and int((f.get("qualityLabel") or "0p").split("p")[0] or 0) <= 480]
+        vids = [f for f in ad if f.get("type", "").startswith("video/mp4") and "avc1" in f.get("type", "") and int((f.get("qualityLabel") or "0p").split("p")[0] or 0) <= int(os.environ.get("Q", "720"))]
         auds = [f for f in ad if f.get("type", "").startswith("audio/mp4")]
         vids.sort(key=lambda f: -int((f.get("qualityLabel") or "0p").split("p")[0] or 0)); auds.sort(key=lambda f: -int(f.get("bitrate") or 0))
         try:
             if vids and auds:
                 nv = fetch(vids[0], "v.mp4"); na = fetch(auds[0], "a.m4a")
                 if nv > 1_000_000 and na > 100_000:
-                    os.system(f"ffmpeg -y -loglevel error -i {OUT}/v.mp4 -i {OUT}/a.m4a -c copy {OUT}/video.mp4"); os.remove(f"{OUT}/v.mp4"); os.remove(f"{OUT}/a.m4a")
+                    import subprocess
+                    p = subprocess.run(["ffmpeg", "-y", "-i", f"{OUT}/v.mp4", "-i", f"{OUT}/a.m4a", "-c", "copy", "-movflags", "+faststart", f"{OUT}/video.mp4"], capture_output=True, text=True)
+                    L("ffmpeg rc", p.returncode, p.stderr[-600:])
+                    pr = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration:stream=codec_name,width,height,avg_frame_rate", "-of", "default=nw=1", f"{OUT}/video.mp4"], capture_output=True, text=True); L("probe", pr.stdout.replace("\n", " "), pr.stderr[-200:])
+                    os.remove(f"{OUT}/v.mp4"); os.remove(f"{OUT}/a.m4a")
                     n = os.path.getsize(f"{OUT}/video.mp4"); L("merged", n)
-                    if n > 5_000_000: open(f"{OUT}/source.txt", "w").write(f"{h} adaptive {vids[0].get('itag')} {vids[0].get('qualityLabel')}"); sys.exit(0)
+                    if n > 90_000_000:
+                        p = subprocess.run(["ffmpeg", "-y", "-i", f"{OUT}/video.mp4", "-c", "copy", "-f", "segment", "-segment_time", "180", "-reset_timestamps", "1", f"{OUT}/seg_%02d.mp4"], capture_output=True, text=True); L("segment rc", p.returncode, p.stderr[-300:]); os.remove(f"{OUT}/video.mp4")
+                    open(f"{OUT}/source.txt", "w").write(f"{h} adaptive {vids[0].get('itag')} {vids[0].get('qualityLabel')}"); sys.exit(0)
         except Exception as e: L(h, "ADAPTIVE FAIL", str(e)[:160])
     for f in sorted(fs, key=lambda f: -int((f.get("qualityLabel") or "0p")[:-1] or 0)):
         u = f["url"]; u = u if u.startswith("http") else f"https://{h}{u}"

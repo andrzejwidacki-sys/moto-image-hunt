@@ -20,7 +20,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           cd inv-out
-          if [ -f video.mp4 ] && [ $(stat -c%s video.mp4) -lt 5000000 ]; then rm -f video.mp4; fi
+          rm -f v.mp4 a.m4a; for f in video.mp4 seg_*.mp4; do [ -f "$f" ] && [ $(stat -c%s "$f") -gt 95000000 ] && rm -f "$f"; done; true
           git init -q -b yt-inv
           git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A && git commit -q -m "yt-inv ${GITHUB_RUN_ID}"
