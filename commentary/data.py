@@ -145,17 +145,17 @@ PLACES = [
   "spoken": {
    "pl": ["Z lotu ptaka, tak jak na ekranie, Blek Rok Siti wygląda jak uporządkowany układ ulic pośrodku pustyni.",
           "W dwa tysiące dziewiętnastym roku wzięło w nim udział siedemdziesiąt osiem tysięcy osiemset pięćdziesiąt osób, przez dziewięć dni do amerykańskiego Święta Pracy, na pustyni Blek Rok w Nevadzie.",
-          "Na ziemi obraz jest inny: w powietrzu wisi kurz, a miasto widać z siodełka roweru, jak na tym zdjęciu Biura Zarządzania Gruntami."],
+          "Na ziemi obraz jest inny: w powietrzu wisi kurz, a miasto widać z siodełka roweru, jak na tym zdjęciu z dwa tysiące dwunastego roku."],
    "en": ["From the air, as in the clip, Black Rock City looks like an orderly pattern of streets in an empty desert.",
           "In twenty nineteen it had seventy-eight thousand eight hundred fifty participants, over nine days leading up to Labor Day, in the Black Rock Desert in Nevada.",
-          "On the ground the picture is different: dust hangs in the air, and the city is seen from the saddle of a bicycle, as in this photograph from the Bureau of Land Management."]},
+          "On the ground the picture is different: dust hangs in the air, and the city is seen from the saddle of a bicycle, as in this photograph from twenty twelve."]},
   "caption": {
    "pl": ["W kadrze: Black Rock City z lotu ptaka.",
           "2019: 78 850 uczestników, 9 dni do Labor Day, pustynia Black Rock, Nevada.",
-          "Na ziemi: kurz i rowery (zdjęcie BLM, 2012)."],
+          "Na ziemi: kurz i rowery (zdjęcie z 2012 r.)."],
    "en": ["In the clip: Black Rock City from the air.",
           "2019: 78,850 participants, 9 days up to Labor Day, Black Rock Desert, Nevada.",
-          "On the ground: dust and bicycles (BLM photo, 2012)."]},
+          "On the ground: dust and bicycles (photo from 2012)."]},
   "shots": [("burning1", [0, 1]), ("burning3", [2])],
   "sources": ["https://en.wikipedia.org/wiki/Burning_Man"]},
 

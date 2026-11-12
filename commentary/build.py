@@ -47,7 +47,7 @@ MOVES = {
     "utah2": ((0.50, 0.50, 1.00), (0.55, 0.50, 1.25)),
     "fuego1": ((0.50, 0.50, 1.00), (0.50, 0.55, 1.45)),
     "fuego1@1": ((0.55, 0.55, 1.30), (0.45, 0.50, 1.00)),
-    "fuego3": ((0.50, 0.45, 1.00), (0.58, 0.42, 1.12)),
+    "fuego3": ((0.50, 0.44, 1.00), (0.60, 0.46, 1.15)),
     "copper1": ((0.50, 0.45, 1.00), (0.55, 0.50, 1.12)),
     "copper2": ((0.40, 0.50, 1.00), (0.60, 0.50, 1.12)),
     "burning1": ((0.62, 0.50, 1.00), (0.62, 0.52, 1.10)),
@@ -67,11 +67,11 @@ LIC_URL = {"CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/",
            "Public domain": ""}
 ARTIST = {"nepal1": "Lerian", "nepal2": "Vyacheslav Argenberg", "nepal3": "Vyacheslav Argenberg",
           "machu1": "Scott Umstattd", "machu2": "Hiram Bingham III (1912)", "machu3": "Tomas Sobek",
-          "utah1": "NPS / Canyonlands NP", "utah2": "NPS / Rhodes Smartt", "utah3": "NPS / Neal Herbert",
+          "utah1": "CanyonlandsNPS", "utah2": "CanyonlandsNPS", "utah3": "CanyonlandsNPS",
           "fuego1": "Rick Thomas", "fuego3": "Pierre Markuse (Landsat 8 / USGS)", "copper1": "Jens Uhlenbrock (wg Commons)",
           "copper2": "Jesus Alejandro Guer… (nazwisko ucięte u źródła)",
-          "burning1": "Steve Jurvetson", "burning3": "BLM (mypubliclands)",
-          "grand1": "Grand Canyon NP (NPS)", "grand2": "Bernard Spragg", "grand3": "Grand Canyon NP (NPS)",
+          "burning1": "Steve Jurvetson", "burning3": "mypubliclands",
+          "grand1": "Grand Canyon National Park", "grand2": "Bernard Spragg", "grand3": "Grand Canyon National Park",
           "ometepe1": "Ridiculopathy", "ometepe2": "Ridiculopathy"}
 
 
@@ -703,6 +703,38 @@ def cmd_master(lang):
     print("final", out)
 
 
+def cmd_docs():
+    """CREDITS.md + opis do YouTube (PL/EN) z tych samych danych co plansza końcowa."""
+    m = manifest()
+    L = ["# Źródła i licencje / Credits and licences", "",
+         "## Film oryginalny / Original video", "",
+         f"- „{data.SRC['title']}” — {data.SRC['author']} — {data.SRC['url']}",
+         f"- Licencja / Licence: {data.SRC['license']} (YouTube: Creative Commons Attribution, CC BY 3.0)",
+         "- Użyte fragmenty / Excerpts used (s): " + ", ".join(f"{k} {a:.1f}–{b:.1f}" for k, (a, b) in data.WINDOWS.items()), "",
+         "## Zdjęcia / Photos (Wikimedia Commons)", ""]
+    for p in data.PLACES:
+        L.append(f"### {p['name']['pl']} / {p['name']['en']}")
+        seen = set()
+        for pid, _ in p["shots"]:
+            if pid in seen:
+                continue
+            seen.add(pid)
+            x = m[pid]
+            lu = LIC_URL.get(x["license"], "") or x.get("license_url", "")
+            L.append(f"- **{x['title'].replace('File:', '')}** — {ARTIST[pid]} — {x['license']}" + (f" ({lu})" if lu else "") + f" — {x['page']}")
+        L.append("- Źródła faktów / fact sources: " + ", ".join(p["sources"]))
+        L.append("")
+    L += ["## Zmiany / Changes", "- Zdjęcia: kadrowanie 16:9, powolny ruch kamery; bez korekty kolorów. / Photos: 16:9 crop and slow camera move; no colour grading.",
+          "- Oryginał: fragmenty ≤7 s, skalowanie do 1080p, wyciszenie na końcu fragmentu. / Original: excerpts ≤7 s, scaled to 1080p, fade-out at the end.", "",
+          "## Dźwięk / Sound",
+          "- Muzyka / Music: „Transformations 3”, HoliznaCC0, CC0 1.0 — https://freemusicarchive.org/music/holiznacc0/transformations/transformations-3/",
+          "- Lektor PL: Piper pl_PL-gosia-medium (synteza mowy). Lektor EN: Kokoro-82M, af_heart (Apache-2.0), synthetic speech.",
+          "- Efekt planszy „And what it really looks like” generowany w kodzie. / Card sound generated in code.", ""]
+    out = WD / "CREDITS.md"
+    out.write_text("\n".join(L), encoding="utf-8")
+    print("wrote", out)
+
+
 if __name__ == "__main__":
     c = sys.argv[1]
     if c == "prep": cmd_prep()
@@ -711,4 +743,5 @@ if __name__ == "__main__":
     elif c == "concat": cmd_concat(sys.argv[2])
     elif c == "mix": cmd_mix(sys.argv[2])
     elif c == "master": cmd_master(sys.argv[2])
+    elif c == "docs": cmd_docs()
     else: raise SystemExit(c)
