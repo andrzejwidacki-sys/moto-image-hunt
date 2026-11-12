@@ -125,17 +125,17 @@ PLACES = [
 
  {"id": "copper", "name": {"pl": "Kanion Miedziany, Meksyk", "en": "Copper Canyon, Mexico"},
   "spoken": {
-   "pl": ["Ten punkt widokowy pokazuje jeden fragment kanionu, z małą wiatą na krawędzi.",
+   "pl": ["Ten fragment pokazuje punkt widokowy z wiatą na krawędzi, a potem jeden stok kanionu sfilmowany z góry.",
           "Ale Kanion Miedziany to nie jeden kanion: to system sześciu kanionów wyżłobionych przez sześć rzek, o powierzchni sześćdziesięciu pięciu tysięcy kilometrów kwadratowych w Sierra Madre Zachodniej.",
           "Z góry wygląda to jak labirynt grzbietów i wąwozów, który ciągnie się aż po horyzont."],
-   "en": ["This viewpoint shows a single stretch of the canyon, with a small shelter at the edge.",
+   "en": ["This clip shows a viewpoint with a shelter on the edge, and then a single slope of the canyon filmed from above.",
           "But Copper Canyon is not one canyon: it is a system of six canyons cut by six rivers, covering sixty-five thousand square kilometres in the [Sierra](/siˈɛɹə/) [Madre](/mˈɑdɹA/) Occidental.",
           "From above it looks like a maze of ridges and gorges that stretches all the way to the horizon."]},
   "caption": {
-   "pl": ["W kadrze: jeden punkt widokowy z wiatą na krawędzi.",
+   "pl": ["W kadrze: punkt widokowy z wiatą, potem jeden stok kanionu z góry.",
           "Kanion Miedziany: 6 kanionów, 6 rzek, 65 000 km² w Sierra Madre Zachodniej.",
           "Z góry: labirynt grzbietów i wąwozów po horyzont."],
-   "en": ["In the clip: one viewpoint with a shelter at the edge.",
+   "en": ["In the clip: a viewpoint with a shelter, then one canyon slope from above.",
           "Copper Canyon: 6 canyons, 6 rivers, 65,000 km² in the Sierra Madre Occidental.",
           "From above: a maze of ridges and gorges to the horizon."]},
   "shots": [("copper1", [0, 1]), ("copper2", [2])],
@@ -143,10 +143,10 @@ PLACES = [
 
  {"id": "burning", "name": {"pl": "Burning Man, Nevada", "en": "Burning Man, Nevada"},
   "spoken": {
-   "pl": ["Z lotu ptaka, tak jak w kadrze, Blek Rok Siti wygląda jak uporządkowany krąg pośrodku pustyni.",
+   "pl": ["Z lotu ptaka, tak jak na ekranie, Blek Rok Siti wygląda jak uporządkowany układ ulic pośrodku pustyni.",
           "W dwa tysiące dziewiętnastym roku wzięło w nim udział siedemdziesiąt osiem tysięcy osiemset pięćdziesiąt osób, przez dziewięć dni do amerykańskiego Święta Pracy, na pustyni Blek Rok w Nevadzie.",
           "Na ziemi obraz jest inny: w powietrzu wisi kurz, a miasto widać z siodełka roweru, jak na tym zdjęciu Biura Zarządzania Gruntami."],
-   "en": ["From the air, as in the clip, Black Rock City looks like a tidy circle in an empty desert.",
+   "en": ["From the air, as in the clip, Black Rock City looks like an orderly pattern of streets in an empty desert.",
           "In twenty nineteen it had seventy-eight thousand eight hundred fifty participants, over nine days leading up to Labor Day, in the Black Rock Desert in Nevada.",
           "On the ground the picture is different: dust hangs in the air, and the city is seen from the saddle of a bicycle, as in this photograph from the Bureau of Land Management."]},
   "caption": {
@@ -161,20 +161,20 @@ PLACES = [
 
  {"id": "grand", "name": {"pl": "Wielki Kanion, Arizona", "en": "Grand Canyon, Arizona"},
   "spoken": {
-   "pl": ["Na ekranie widać miękki, zamglony obraz, a na pierwszym planie gałąź.",
+   "pl": ["Na ekranie widać gałąź na pierwszym planie, a za nią rozmyty kanion, potem zamglony szeroki widok.",
           "Wielki Kanion ma dwieście siedemdziesiąt siedem mil, czyli czterysta czterdzieści sześć kilometrów długości, do osiemnastu mil szerokości i ponad milę głębokości.",
           "Na szlaku Brajt Endżel ścieżka to tylko cienka linia zakosów na ścianie kanionu.",
           "A o zachodzie słońca pojedynczy turysta pokazuje skalę, podczas gdy skalne świątynie poniżej łapią ostatnie światło."],
-   "en": ["In the clip the image is soft and hazy, with a branch in the foreground.",
+   "en": ["The clip shows a branch in the foreground with the canyon blurred behind it, then a hazy wide view.",
           "The Grand Canyon is two hundred seventy-seven miles, four hundred forty-six kilometres, long, up to eighteen miles wide, and over a mile deep.",
           "On the Bright Angel Trail the path is only a thin line of switchbacks down the canyon wall.",
           "And at sunset a single hiker shows the scale, while the rock temples below catch the last light."]},
   "caption": {
-   "pl": ["W kadrze: miękki, zamglony obraz, gałąź na pierwszym planie.",
+   "pl": ["W kadrze: gałąź na pierwszym planie, rozmyty kanion, zamglony widok.",
           "Wielki Kanion: 277 mil (446 km) długości, do 18 mil szerokości, ponad milę głębokości.",
           "Szlak Bright Angel: cienka linia zakosów na ścianie kanionu.",
           "Zachód słońca: jeden turysta pokazuje skalę."],
-   "en": ["In the clip: a soft, hazy image, a branch in the foreground.",
+   "en": ["In the clip: a branch in the foreground, a blurred canyon, a hazy wide view.",
           "Grand Canyon: 277 miles (446 km) long, up to 18 miles wide, over a mile deep.",
           "Bright Angel Trail: a thin line of switchbacks on the canyon wall.",
           "Sunset: a single hiker shows the scale."]},
