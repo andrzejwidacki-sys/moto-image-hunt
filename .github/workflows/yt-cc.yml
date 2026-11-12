@@ -1,0 +1,30 @@
+name: YouTube CC hunt
+on:
+  workflow_dispatch:
+    inputs:
+      queries:
+        description: "Zapytania rozdzielone |"
+        default: "najpiękniejsze miejsca na wakacje"
+      n:
+        description: "Wyników na zapytanie"
+        default: "15"
+permissions:
+  contents: write
+jobs:
+  hunt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 -m venv /tmp/yt && /tmp/yt/bin/pip install -q yt-dlp
+          /tmp/yt/bin/python yt/cc_hunt.py "${{ inputs.queries }}" "${{ inputs.n }}" cc-out || true
+      - name: Publish
+        if: always() && hashFiles('cc-out/cc.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd cc-out && git init -q -b yt-cc
+          git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "yt-cc ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" yt-cc
