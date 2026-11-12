@@ -12,6 +12,7 @@ jobs:
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
       - run: python3 yt/inv_dl.py "${{ inputs.id }}" inv-out || true
       - run: ls -la inv-out; cat inv-out/inv.log | tail -30
       - name: Publish
