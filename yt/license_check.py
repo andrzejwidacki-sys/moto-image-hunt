@@ -15,6 +15,10 @@ for vid in open("yt/select_ids.txt").read().split():
         o["is_unlisted"] = '"isUnlisted":true' in p; o["is_live"] = '"isLiveContent":true' in p
         o["category"] = (re.search(r'"category":"([^"]+)"', p) or [None, None])[1]
         o["publish_date"] = (re.search(r'"publishDate":"([^"]+)"', p) or [None, None])[1]
+        o["has_meta_row_container"] = "metadataRowContainerRenderer" in p
+        o["has_license_title_row"] = '{"text":"License"}' in p
+        m2 = re.search(r'"shortDescription":"((?:[^"\\]|\\.)*)"', p); d = (m2.group(1) if m2 else "").encode().decode("unicode_escape", "ignore") if m2 else ""
+        o["desc_rights"] = [l.strip()[:300] for l in re.split(r"[\n\r]+", d) if re.search(r"(?i)copyright|rights|licen|credit|source|fair use|©|prawa|reusable|creative", l)][:8]
         o["has_music_panel"] = "musicSection" in p or "Music in this video" in p
         o["content_id_markers"] = [x for x in ("copyright", "Content ID") if re.search(x, p)]
     except Exception as e: o["error"] = str(e)[:150]
