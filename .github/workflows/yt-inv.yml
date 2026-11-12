@@ -4,6 +4,8 @@ on:
     inputs:
       id:
         default: "eCtUQp9aISc"
+      q:
+        default: "720"
 permissions:
   contents: write
 jobs:
@@ -13,7 +15,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
-      - run: python3 yt/inv_dl.py "${{ inputs.id }}" inv-out || true
+      - env:
+          Q: ${{ inputs.q }}
+        run: python3 yt/inv_dl.py "${{ inputs.id }}" inv-out || true
       - run: ls -la inv-out; cat inv-out/inv.log | tail -30
       - name: Publish
         if: always() && hashFiles('inv-out/inv.log') != ''
