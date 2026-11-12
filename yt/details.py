@@ -7,7 +7,7 @@ if len(sys.argv) > 3:
     keep = set(open(sys.argv[3]).read().split()); rows = [r for r in rows if r["id"] in keep]
 for r in rows:
     d = ids.setdefault(r["id"], {"id": r["id"], "queries": set(), "modes": set(), "known": {}})
-    d["queries"].add(r["query"]); d["modes"].add(r["mode"])
+    d["queries"].add(r.get("query") or (r.get("queries") or [""])[0]); d["modes"].add(r.get("mode", "CC"))
     if "error" not in r: d["known"] = r
 UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36", "Accept-Language": "en-US,en;q=0.9", "Cookie": "CONSENT=YES+1; SOCS=CAI"}
 def get(url, binary=False, timeout=25):
@@ -53,7 +53,7 @@ for vid, d in ids.items():
             if ls and not o.get("duration_s"): o["duration_s"] = num(ls)
             if vc and not o.get("views"): o["views"] = num(vc)
             o["page_len"] = len(p); o["has_player_response"] = "ytInitialPlayerResponse" in p; o["has_consent"] = "consent.youtube.com" in p
-            if "Creative Commons" in p: o["license"] = "Creative Commons Attribution license (reuse allowed)"
+            lm = re.search(r'"text":"License"\}\]\},"contents":\[\{"runs":\[\{"text":"([^"]+)"', p); o["license_row"] = lm.group(1) if lm else None
             if not o.get("description"): o["page_note"] = "strona bez opisu (bot-check/consent?)"
         except Exception as e: o["page_error"] = str(e)[:100]
     res.append(o); print(vid, o.get("title"), "| opis:", bool(o.get("description")), "| miniatura:", bool(o.get("thumb")), flush=True)
