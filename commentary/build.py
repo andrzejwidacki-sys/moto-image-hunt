@@ -68,11 +68,21 @@ LIC_URL = {"CC BY 4.0": "https://creativecommons.org/licenses/by/4.0/",
 ARTIST = {"nepal1": "Lerian", "nepal2": "Vyacheslav Argenberg", "nepal3": "Vyacheslav Argenberg",
           "machu1": "Scott Umstattd", "machu2": "Hiram Bingham III (1912)", "machu3": "Tomas Sobek",
           "utah1": "CanyonlandsNPS", "utah2": "CanyonlandsNPS", "utah3": "CanyonlandsNPS",
-          "fuego1": "Rick Thomas", "fuego3": "Pierre Markuse (Landsat 8 / USGS)", "copper1": "Jens Uhlenbrock (wg Commons)",
-          "copper2": "Jesus Alejandro Guer… (nazwisko ucięte u źródła)",
+          "fuego1": "Rick Thomas", "fuego3": "Pierre Markuse (Landsat 8 / USGS)", "copper1": "Jens Uhlenbrock",
+          "copper2": "Jesus Alejandro Guer…",
           "burning1": "Steve Jurvetson", "burning3": "mypubliclands",
           "grand1": "Grand Canyon National Park", "grand2": "Bernard Spragg", "grand3": "Grand Canyon National Park",
           "ometepe1": "Ridiculopathy", "ometepe2": "Ridiculopathy"}
+
+
+ARTIST_NOTE = {"copper2": {"pl": "nazwisko ucięte u źródła", "en": "name truncated at source"},
+               "copper1": {"pl": "wg Commons", "en": "per Commons"}}
+
+
+def artist(pid, lang):
+    a = ARTIST[pid]
+    n = ARTIST_NOTE.get(pid, {}).get(lang)
+    return f"{a} ({n})" if n else a
 
 
 def manifest():
@@ -179,6 +189,11 @@ def read_wav(path):
     return x, sr
 
 
+def read_f32(path):
+    r = subprocess.run(["ffmpeg", "-v", "error", "-i", str(path), "-f", "f32le", "-ac", "2", "-ar", str(SR), "-"], capture_output=True, check=True)
+    return np.frombuffer(r.stdout, dtype="<f4").reshape(-1, 2).copy()
+
+
 def to48(x, sr):
     from scipy.signal import resample_poly
     g = gcd(SR, sr)
@@ -249,8 +264,8 @@ def synth_card_fx():
 
 
 # ---------- sceny ----------
-def credit_tag(pid):
-    return f"Foto / Photo: {ARTIST[pid]} · {lic_of(pid)}"
+def credit_tag(pid, lang):
+    return f"{'Foto' if lang == 'pl' else 'Photo'}: {artist(pid, lang)} · {lic_of(pid)}"
 
 
 def place_label(i, p, lang):
@@ -304,7 +319,7 @@ def render_photos(args):
     XF = 0.35
     label = place_label(i, place, lang)
     caps = [text_box(c, size=40, maxw=1560) for c in place["caption"][lang]]
-    tags = {pid: text_box(credit_tag(pid), size=26, maxw=900, path=FONT_R, bg=(8, 10, 14, 150), pad=(18, 10)) for pid, _, _ in shots}
+    tags = {pid: text_box(credit_tag(pid, lang), size=26, maxw=900, path=FONT_R, bg=(8, 10, 14, 150), pad=(18, 10)) for pid, _, _ in shots}
     pipe, tmp = ffmpeg_pipe(out)
     for fr in range(frames):
         t = fr / FPS
@@ -380,20 +395,20 @@ def render_card(i, lang):
     return out
 
 
-def orig_tag():
-    return text_box(f"ORYGINAŁ · {data.SRC['author']} · CC BY", size=30, maxw=900, path=FONT_M, bg=(8, 10, 14, 170), pad=(20, 12))
+def orig_tag(lang):
+    return text_box(f"{'ORYGINAŁ' if lang == 'pl' else 'ORIGINAL'} · {data.SRC['author']} · CC BY", size=30, maxw=900, path=FONT_M, bg=(8, 10, 14, 170), pad=(20, 12))
 
 
-def make_orig(i, full):
+def make_orig(i, full, lang):
     place = data.PLACES[i]
     s, e = data.WINDOWS[place["id"]]
-    out = WD / f"orig_{place['id']}.mp4"
+    out = WD / f"orig_{lang}_{place['id']}.mp4"
     frames = orig_frames(place["id"])
     dur = frames / FPS
     if valid(out, frames):
         return
-    tag = WD / "orig_tag.png"
-    Image.fromarray(orig_tag(), "RGBA").save(tag)
+    tag = WD / f"orig_tag_{lang}.png"
+    Image.fromarray(orig_tag(lang), "RGBA").save(tag)
     tmp = str(out) + ".tmp.mp4"
     fc = ("[0:v]scale=1920:1080:flags=lanczos,fps=30,setsar=1,format=rgb24[v];[v][1:v]overlay=40:H-h-40:format=auto,"
           f"fade=t=in:st=0:d=0.2,fade=t=out:st={dur - 0.3:.3f}:d=0.3,format=yuv420p[o]")
@@ -461,7 +476,7 @@ def credit_lines(lang):
         L.append(("s", p["name"][lang]))
         for pid, _ in p["shots"]:
             m = manifest()[pid]
-            L.append(("p", f"{ARTIST[pid]} — {m['license']} — {m['page']}"))
+            L.append(("p", f"{artist(pid, lang)} — {m['license']} — {m['page']}"))
     L.append(("s", "Dźwięk" if pl else "Sound"))
     L.append(("p", "Muzyka: „Transformations 3”, HoliznaCC0 (CC0 1.0), Free Music Archive" if pl else "Music: “Transformations 3” by HoliznaCC0 (CC0 1.0), Free Music Archive"))
     L.append(("p", "Lektor: Piper pl_PL-gosia-medium (synteza mowy)" if pl else "Voice: Kokoro-82M, af_heart (Apache-2.0), synthetic speech"))
@@ -530,7 +545,8 @@ def cmd_prep():
     if not (WD / "bg.jpg").exists():
         sh(["ffmpeg", "-y", "-loglevel", "error", "-ss", "170", "-i", str(full), "-frames:v", "1", "-q:v", "2", str(WD / "bg.jpg")])
     for i in range(len(data.PLACES)):
-        make_orig(i, full)
+        make_orig(i, full, "pl")
+        make_orig(i, full, "en")
         make_orig_audio(i, full)
         print("orig", data.PLACES[i]["id"], flush=True)
 
@@ -582,7 +598,7 @@ def cmd_render(lang):
 def scene_list(lang):
     sc = [("intro", WD / lang / "intro.mp4")]
     for p in data.PLACES:
-        sc += [("orig", WD / f"orig_{p['id']}.mp4"), ("card", WD / lang / f"card_{p['id']}.mp4"), ("photos", WD / lang / f"photos_{p['id']}.mp4")]
+        sc += [("orig", WD / f"orig_{lang}_{p['id']}.mp4"), ("card", WD / lang / f"card_{p['id']}.mp4"), ("photos", WD / lang / f"photos_{p['id']}.mp4")]
     for k in range(len(paginate(credit_lines(lang)))):
         sc.append(("credits", WD / lang / f"credits_{k}.mp4"))
     return sc
@@ -612,11 +628,7 @@ def cmd_mix(lang):
     speech_mask = np.zeros(N, bool)
     meter = pyln.Meter(SR)
     # muzyka
-    mus_path = WD / "music.wav"
-    if not mus_path.exists():
-        sh(["ffmpeg", "-y", "-loglevel", "error", "-i", os.environ["MUSIC"], "-ac", "2", "-ar", str(SR), "-c:a", "pcm_f32le", str(mus_path)])
-    with wave.open(str(mus_path), "rb") as w:
-        mus = np.frombuffer(w.readframes(w.getnframes()), dtype="<f4").reshape(-1, 2).copy()
+    mus = read_f32(os.environ["MUSIC"])
     mus *= 10 ** ((-16 - meter.integrated_loudness(mus)) / 20)
     fxs = synth_card_fx()
     pos = 0.0
@@ -624,10 +636,9 @@ def cmd_mix(lang):
     sections = []   # (start_s, dur_s, kind)
     for (kind, p), dur in zip(sc, durs):
         s = int(round(pos * SR))
-        pid = p.stem.split("_", 1)[-1]
+        pid = p.stem.split("_")[-1]
         if kind == "orig":
-            with wave.open(str(WD / f"orig_{pid}.wav"), "rb") as w:
-                x = np.frombuffer(w.readframes(w.getnframes()), dtype="<f4").reshape(-1, 2).copy()
+            x = read_f32(WD / f"orig_{pid}.wav")
             g = 10 ** ((-18 - meter.integrated_loudness(x)) / 20)
             x *= g
             n = min(len(x), int(orig_frames(pid) / FPS * SR))
@@ -681,6 +692,9 @@ def cmd_mix(lang):
     json.dump(stats, open(sf / "mix_stats.json", "w"), indent=1)
     print(json.dumps(stats, indent=1))
     wav = sf / "mix_raw.wav"
+    pk = float(np.abs(mix).max())
+    if pk > 0.9:
+        mix = mix * (0.9 / pk)   # skala liniowa przed loudnorm (bez obcinania)
     pcm = (np.clip(mix, -1, 1) * 32767).astype("<i2")
     with wave.open(str(wav), "wb") as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR); w.writeframes(pcm.tobytes())
@@ -721,7 +735,7 @@ def cmd_docs():
             seen.add(pid)
             x = m[pid]
             lu = LIC_URL.get(x["license"], "") or x.get("license_url", "")
-            L.append(f"- **{x['title'].replace('File:', '')}** — {ARTIST[pid]} — {x['license']}" + (f" ({lu})" if lu else "") + f" — {x['page']}")
+            L.append(f"- **{x['title'].replace('File:', '')}** — {artist(pid, 'en')} — {x['license']}" + (f" ({lu})" if lu else "") + f" — {x['page']}")
         L.append("- Źródła faktów / fact sources: " + ", ".join(p["sources"]))
         L.append("")
     L += ["## Zmiany / Changes", "- Zdjęcia: kadrowanie 16:9, powolny ruch kamery; bez korekty kolorów. / Photos: 16:9 crop and slow camera move; no colour grading.",

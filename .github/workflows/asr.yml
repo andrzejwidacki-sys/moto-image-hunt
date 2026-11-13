@@ -6,6 +6,10 @@ on:
         default: "en"
       model:
         default: "medium"
+      in_branch:
+        default: "asr-in"
+      out_branch:
+        default: "asr-out"
 permissions:
   contents: write
 jobs:
@@ -16,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/checkout@v4
         with:
-          ref: asr-in
+          ref: ${{ inputs.in_branch }}
           path: in
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - run: |
@@ -27,7 +31,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          cd asr-out && git init -q -b asr-out
+          cd asr-out && git init -q -b "${{ inputs.out_branch }}"
           git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A && git commit -q -m "asr ${GITHUB_RUN_ID}"
-          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" asr-out
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "${{ inputs.out_branch }}"
