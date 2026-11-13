@@ -34,7 +34,7 @@ def main():
         assert cov == list(range(len(ch["b"]))), (ch["id"], "shots", cov)
         for k in ch["pops"]:
             assert k < len(ch["b"])
-        assert ch["b"][-1][0].startswith("Werdykt") and ch["b"][-1][1].startswith("Verdict"), ch["id"]
+        assert ch["b"][-1][0].startswith("Wyrok") and ch["b"][-1][1].startswith("Verdict"), ch["id"]
     assert len(d.MECH_WORDS["pl"]) == len(d.HOOK4_WORD_IDX) == 7
     t = d.tally()
     assert t == {"W": 3, "H": 3, "U": 2}, t
