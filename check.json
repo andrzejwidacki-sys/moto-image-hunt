@@ -1,0 +1,34 @@
+[
+ {
+  "model": "kokoro",
+  "text": "w7b",
+  "lang": "en",
+  "voice": "af_heart",
+  "ok": true,
+  "file": "kokoro_w7b_en_af_heart.wav",
+  "audio_s": 29.15,
+  "compute_s": 11.16,
+  "rtf": 0.38,
+  "transcript": "Ometepe is one island made of two volcanoes. Concepcion and Maderas are joined by a low isthmus. The island is 31 kilometers long and 5 to 10 kilometers wide. Concepcion is active with a textbook cone. Its base is 16 kilometers across. The slopes are covered in dense green. Higher up, the mountain vanishes into cloud. Verdict and honest frame.",
+  "wer": 0.127,
+  "probes": {},
+  "probes_pass": 0,
+  "probes_total": 0
+ },
+ {
+  "model": "kokoro",
+  "text": "w7b",
+  "lang": "en",
+  "voice": "am_michael",
+  "ok": true,
+  "file": "kokoro_w7b_en_am_michael.wav",
+  "audio_s": 33.08,
+  "compute_s": 6.38,
+  "rtf": 0.19,
+  "transcript": "Ometepe is one island made of two volcanoes. Concepcion and Maderas are joined by a low isthmus. The island is 31 kilometers long and 5 to 10 kilometers wide. Concepcion is active with a textbook cone. Its base is 16 kilometers across. The slopes are covered in dense green. Higher up, the mountain vanishes into cloud. Verdict in Honest Frame.",
+  "wer": 0.127,
+  "probes": {},
+  "probes_pass": 0,
+  "probes_total": 0
+ }
+]
