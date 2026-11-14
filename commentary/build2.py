@@ -25,6 +25,12 @@ PH = b.PH
 ACCENT = b.ACCENT
 LEAD, GAP = 0.12, 0.28
 LEAD_ORIG = 0.15
+
+
+def orig_lead(sents, window_s):
+    """luz w oknie oryginału dzielona po połowie przed i po mowie (przerwy <= 3 s po obu stronach)."""
+    span = sum(len(x) for x in sents) / SR + GAP * (len(sents) - 1)
+    return max(LEAD_ORIG, (window_s - span) / 2)
 CARD2_S, CARD2_HIT = 1.4, 0.42
 CRED_S = 5.0
 NCH = len(d.CH)
@@ -82,7 +88,7 @@ def plan(lang):
                       shots=[(pid, idx, None) for pid, idx in ch["shots"]], pops=ch["pops"], chip=chip,
                       verdict=ch["verdict"], tail=1.2))
     P.append(dict(id="outro", kind="outro", key="w9", pairs=d.OUTRO, tail=0.8))
-    for k in range(len(b.paginate(credit_lines(lang)))):
+    for k in range(len(b.paginate(credit_lines(lang), per=24))):
         P.append(dict(id=f"credits_{k}", kind="credits", page=k))
     return P
 
@@ -260,7 +266,7 @@ def render_orig2(args):
     s0, e0 = d.WINDOWS[spec["win"]]
     frames = win_frames(spec["win"])
     sents = narr(lang, spec["key"], len(spec["pairs"]))
-    dur, starts, _ = timeline2(sents, 0.0, LEAD_ORIG)
+    dur, starts, _ = timeline2(sents, 0.0, orig_lead(sents, frames / FPS))
     end = starts[-1] + dur[-1]
     if end > frames / FPS - 0.12:
         raise RuntimeError(f"{spec['id']} {lang}: lektor {end:.2f}s dłuższy niż fragment {frames / FPS:.2f}s")
@@ -473,8 +479,9 @@ def cmd_plan(lang):
         elif sp["kind"] == "orig":
             dur = win_frames(sp["win"]) / FPS
             sents = narr(lang, sp["key"], len(sp["pairs"]))
-            dd, st, _ = timeline2(sents, 0, LEAD_ORIG)
-            print(f"   voice end {st[-1] + dd[-1]:.2f} / {dur:.2f}  (words fill {(st[-1] + dd[-1] - LEAD_ORIG) / dur:.0%})")
+            ld = orig_lead(sents, dur)
+            dd, st, _ = timeline2(sents, 0, ld)
+            print(f"   voice {st[0]:.2f}-{st[-1] + dd[-1]:.2f} / {dur:.2f}")
         else:
             sents = narr(lang, sp["key"], len(sp["pairs"]))
             dd, st, fr = timeline2(sents, sp["tail"])
@@ -586,7 +593,7 @@ def cmd_mix(lang, orig_lufs=-26.0, music_below=15.0):
             continue
         sents = narr(lang, sp["key"], len(sp["pairs"]))
         if k == "orig":
-            dd, st, _ = timeline2(sents, 0, LEAD_ORIG)
+            dd, st, _ = timeline2(sents, 0, orig_lead(sents, dur))
             x = orig_audio(sp["win"])
             x *= 10 ** ((orig_lufs - meter.integrated_loudness(x)) / 20)
             n = min(len(x), int(dur * SR), N - s)
