@@ -1,0 +1,34 @@
+[
+ {
+  "model": "piper",
+  "text": "w7b",
+  "lang": "pl",
+  "voice": "pl_PL-gosia-medium",
+  "ok": true,
+  "file": "piper_w7b_pl_pl_PL-gosia-medium.wav",
+  "audio_s": 29.0,
+  "compute_s": 0.83,
+  "rtf": 0.03,
+  "transcript": "Wyspa Ome Tepę składa się z dwóch wulkanów. Koncepcion i Maderas łączy niski przesnyk. Wyspa ma 31 km długości i od 5 do 10 km szerokości. Koncepcion jest aktywny, ze stożkiem jak z podręcznika. Jego podstawa ma 16 km średnicy. Gęsta zieleń pokrywa zbocza. Wyżej góra znika w obłokach. Wyrok, ten kadr jest uczciwy.",
+  "wer": 0.185,
+  "probes": {},
+  "probes_pass": 0,
+  "probes_total": 0
+ },
+ {
+  "model": "piper",
+  "text": "w7b",
+  "lang": "pl",
+  "voice": "pl_PL-darkman-medium",
+  "ok": true,
+  "file": "piper_w7b_pl_pl_PL-darkman-medium.wav",
+  "audio_s": 32.51,
+  "compute_s": 0.95,
+  "rtf": 0.03,
+  "transcript": "Wyspa Ometepę składa się z dwóch wulkanów. Koncepcion i Maderas łączy niski przesmyk. Wyspa ma 31 kilometrów długości i od 5 do 10 kilometrów szerokości. Koncepcion jest aktywny, ze stożkiem jak z podręcznika. Jego podstawa ma 16 kilometrów średnicy. Dęsta zieleń pokrywa zbocza. Wyżej góra znika w obłokach. Wyrok ten kada jest uczciwy.",
+  "wer": 0.13,
+  "probes": {},
+  "probes_pass": 0,
+  "probes_total": 0
+ }
+]
