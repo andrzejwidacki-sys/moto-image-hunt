@@ -167,7 +167,7 @@ CH = [
         ("[[Concepción||Konsepsjon]] jest aktywny, ze stożkiem jak z podręcznika.", "Concepción is active, with a textbook cone."),
         ("[[Jego podstawa ma 16 km średnicy||Jego podstawa ma szesnaście kilometrów średnicy]].", "[[Its base is 16 km across||Its base is sixteen kilometres across]]."),
         ("Zbocza porasta gęsta zieleń.", "The slopes are covered in dense green."),
-        ("Wyżej grzbiet znika w obłokach.", "Higher up, the ridge vanishes into cloud."),
+        ("Wyżej góra znika w obłokach.", "Higher up, the mountain vanishes into cloud."),
         ("Wyrok: ten kadr jest uczciwy.", "Verdict: an honest frame.")],
   "shots": [("ometepe1", [0, 1, 2, 3]), ("ometepe1", [4, 5]), ("ometepe2", [6, 7, 8])],
   "pops": {2: ("31 km", "31 km"), 5: ("16 km", "16 km")},
