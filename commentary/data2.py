@@ -160,7 +160,7 @@ CH = [
   "a": [("Liście, potem dwa wulkany.", "Leaves, then two volcanoes across the lake."),
         ("Chmury nad szczytem.", "Clouds sit over the summit."),
         ("Tu pogoda robi połowę roboty.", "Here the weather does half the work.")],
-  "b": [("[[Ometepe||Ometepe]] to jedna wyspa z dwóch wulkanów.", "[[Ometepe||[Ometepe](/ˌOmɛtˈɛpA/)]] is one island made of two volcanoes."),
+  "b": [("Wyspa Ometepe składa się z dwóch wulkanów.", "[[Ometepe||[Ometepe](/ˌOmɛtˈɛpA/)]] is one island made of two volcanoes."),
         ("[[Concepción||Konsepsjon]] i [[Maderas||Maderas]] łączy niski przesmyk.", "Concepción and [[Maderas||[Maderas](/mɑdˈɛɹɑs/)]] are joined by a low isthmus."),
         ("[[Wyspa ma 31 km długości||Wyspa ma trzydzieści jeden kilometrów długości]].", "[[The island is 31 km long||The island is thirty-one kilometres long]]."),
         ("[[I od 5 do 10 km szerokości||I od pięciu do dziesięciu kilometrów szerokości]].", "[[And 5 to 10 km wide||And five to ten kilometres wide]]."),
