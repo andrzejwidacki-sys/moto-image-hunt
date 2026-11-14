@@ -1,0 +1,65 @@
+[
+ {
+  "url": "https://en.wikipedia.org/wiki/Machu_Picchu",
+  "file": "00-en-wikipedia-org-wiki-machu-picchu.txt",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "chars": 99508
+ },
+ {
+  "url": "https://en.wikipedia.org/wiki/Copper_Canyon",
+  "file": "01-en-wikipedia-org-wiki-copper-canyon.txt",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "chars": 18648
+ },
+ {
+  "url": "https://en.wikipedia.org/wiki/Volc%C3%A1n_de_Fuego",
+  "file": "02-en-wikipedia-org-wiki-volc-c3-a1n-de-fuego.txt",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "chars": 27952
+ },
+ {
+  "url": "https://en.wikipedia.org/wiki/Ometepe",
+  "file": "03-en-wikipedia-org-wiki-ometepe.txt",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "chars": 20488
+ },
+ {
+  "url": "https://en.wikipedia.org/wiki/Burning_Man",
+  "file": "04-en-wikipedia-org-wiki-burning-man.txt",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "chars": 155137
+ },
+ {
+  "url": "https://en.wikipedia.org/wiki/Grand_Canyon",
+  "file": "05-en-wikipedia-org-wiki-grand-canyon.txt",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "chars": 97729
+ },
+ {
+  "url": "https://en.wikipedia.org/wiki/White_Rim_Road",
+  "file": "06-en-wikipedia-org-wiki-white-rim-road.txt",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "chars": 9211
+ },
+ {
+  "url": "https://en.wikipedia.org/wiki/Gokyo_Lakes",
+  "file": "07-en-wikipedia-org-wiki-gokyo-lakes.txt",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "chars": 8642
+ },
+ {
+  "url": "https://en.wikipedia.org/wiki/Ama_Dablam",
+  "file": "08-en-wikipedia-org-wiki-ama-dablam.txt",
+  "status": 200,
+  "content_type": "text/html; charset=UTF-8",
+  "chars": 15133
+ }
+]
