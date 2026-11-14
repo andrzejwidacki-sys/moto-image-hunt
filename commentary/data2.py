@@ -39,17 +39,17 @@ HOOK2 = [("A to też jest [[Machu Picchu||Maczu Piczu]].", "And this is also Mac
          ("To samo miejsce.", "The same place."),
          ("Ponad sto lat i jedna decyzja: co pokazać.", "Over a hundred years, and one decision: what to show.")]
 HOOK3 = [("W każdym vlogu zobaczysz tę wersję.", "Every vlog shows you this version."),
-         ("I nikt cię nie okłamuje.", "And nobody is lying to you.")]
+         ("I nikt tu nie kłamie.", "And nobody is lying to you.")]
 MECH_WORDS = {"pl": ["Czas", "Skala", "Zasięg", "Pora dnia", "Wybór", "Wysokość", "Pogoda"],
               "en": ["Time", "Scale", "Reach", "Hour", "Choice", "Height", "Weather"]}
 # lista zdań obietnicy (para PL/EN); indeksy 5..11 to siedem mechanizmów (napisy słów na ekranie)
 HOOK4 = [("Kadr nie kłamie.", "A frame does not lie."),
          ("Kadr wybiera.", "A frame chooses."),
          ("Osiem miejsc z jednego vloga.", "Eight places from one vlog."),
-         ("Potem pokazuję, jak jest naprawdę.", "Then I show you how it really is."),
+         ("Potem sprawdzam, jak jest naprawdę.", "Then I show you how it really is."),
          ("Siedem sposobów, na jakie kadr zmienia świat.", "Seven ways a frame changes the world."),
-         ("[[Czas||To czas]].", "Time."), ("[[Skala||To skala]].", "Scale."), ("[[Zasięg||To zasięg]].", "Reach."), ("[[Pora dnia||To pora dnia]].", "Hour."),
-         ("[[Wybór||To wybór]].", "Choice."), ("[[Wysokość||To wysokość]].", "Height."), ("[[Pogoda||To pogoda]].", "Weather."),
+         ("[[Czas||To jest czas]].", "Time."), ("[[Skala||To jest skala]].", "Scale."), ("[[Zasięg||To jest zasięg]].", "Reach."), ("[[Pora dnia||To jest pora dnia]].", "Hour."),
+         ("[[Wybór||To jest wybór]].", "Choice."), ("[[Wysokość||To jest wysokość]].", "Height."), ("[[Pogoda||To jest pogoda]].", "Weather."),
          ("Każde miejsce dostaje wyrok.", "Every place gets a verdict."),
          ("Zaczynamy od [[Machu Picchu||Maczu Piczu]].", "We start with Machu Picchu.")]
 HOOK4_WORD_IDX = [5, 6, 7, 8, 9, 10, 11]
@@ -65,7 +65,7 @@ CH = [
         ("Vlog pokazuje miejsce po remoncie.", "The vlog shows the place after the work."),
         ("A dziś do cytadeli wchodzi do [[4500||czterech tysięcy pięciuset]] osób dziennie.", "And today the citadel admits up to [[4,500||forty-five hundred]] visitors a day."),
         ("Czasem nawet [[5600||pięć tysięcy sześćset]].", "In peak season: [[5,600||fifty-six hundred]]."),
-        ("Tłumu tu nie widać, a to też wybór.", "The clip shows no crowd, and that is a choice too."),
+        ("Ludzi tu prawie nie widać, a to też wybór.", "The clip shows no crowd, and that is a choice too."),
         ("Wyrok: kadr wybiera.", "Verdict: the frame chooses.")],
   "shots": [("machu2", [0, 1, 2]), ("machu3", [3, 4, 5]), ("machu1", [6, 7])],
   "pops": {0: ("1912", "1912"), 2: ("1929–1971", "1929–1971"), 4: ("4500 / dzień", "4,500 / day"), 5: ("5600", "5,600")},
@@ -76,7 +76,7 @@ CH = [
   "a": [("Piękny kadr.", "A beautiful frame."),
         ("I ani jednego człowieka.", "And not one person in it."),
         ("A bez człowieka góra nie ma skali.", "Without a person, a mountain has no scale.")],
-  "b": [("Popatrz na [[Ama Dablam||Ama Dabłam]].", "Look at Ama Dablam."),
+  "b": [("Popatrz na [[Ama Dablam||Ama Dabłam]].", "Look at [[Ama Dablam||[Ama Dablam](/ˈɑmɑ dˈɑblɑm/)]]."),
         ("Ma [[6812 m||sześć tysięcy osiemset dwanaście metrów]].", "[[6,812 m||Six thousand eight hundred twelve metres]]."),
         ("Przez kilka dni dominuje na wschodnim niebie każdemu, kto idzie do bazy pod Everestem.", "For several days it dominates the eastern sky for anyone trekking to Everest Base Camp."),
         ("A to jeziora [[Gokyo||Gokjo]] w Parku Narodowym Sagarmata.", "And these are the [[Gokyo||[Gokyo](/ɡˈOkjO/)]] Lakes, in Sagarmatha National Park."),
@@ -110,7 +110,7 @@ CH = [
   "a": [("Efektowna erupcja w dzień.", "A spectacular daytime eruption."),
         ("Ale ten wulkan ma drugą twarz.", "But this volcano has a second face.")],
   "b": [("Wulkan Fuego w Gwatemali jest niemal stale aktywny.", "Fuego in Guatemala is almost constantly active."),
-        ("[[Mały wybuch co 15–20 minut||Mały wybuch z krateru co piętnaście do dwudziestu minut]].", "[[A small explosion every 15–20 minutes||A small explosion from the crater every fifteen to twenty minutes]]."),
+        ("[[Mała eksplozja co 15–20 minut||Mała eksplozja z krateru co piętnaście do dwudziestu minut]].", "[[A small explosion every 15–20 minutes||A small explosion from the crater every fifteen to twenty minutes]]."),
         ("W nocy krater żarzy się na czerwono.", "At night the crater glows red."),
         ("[[Tak wygląda w listopadzie 2017||Tak wygląda w listopadzie dwa tysiące siedemnastego roku]].", "[[This is November 2017||This is November twenty seventeen]]."),
         ("Większe erupcje: [[Ponad 80 od 1999 roku||Ponad osiemdziesiąt od tysiąc dziewięćset dziewięćdziesiątego dziewiątego roku]].", "Larger eruptions: [[Over 80 since 1999||Over eighty since nineteen ninety-nine]]."),
@@ -149,7 +149,7 @@ CH = [
         ("Na pustyni [[Black Rock||Blek Rok]] w Nevadzie.", "In the Black Rock Desert in Nevada."),
         ("Teraz zejdź na ziemię.", "Now come down to the ground."),
         ("Kurz wisi nad miastem.", "Dust hangs in the air."),
-        ("Miasto widać z siodełka roweru.", "The city is seen from a bicycle saddle."),
+        ("Miasto widać z poziomu roweru.", "The city is seen from bicycle level."),
         ("Wyrok: kadr wybiera.", "Verdict: the frame chooses.")],
   "shots": [("burning1", [0, 1, 2, 3]), ("burning3", [4, 5, 6, 7])],
   "pops": {1: ("78 850", "78,850"), 2: ("9 dni", "9 days")},
@@ -167,7 +167,7 @@ CH = [
         ("[[Concepción||Konsepsjon]] jest aktywny, ze stożkiem jak z podręcznika.", "Concepción is active, with a textbook cone."),
         ("[[Jego podstawa ma 16 km średnicy||Jego podstawa ma szesnaście kilometrów średnicy]].", "[[Its base is 16 km across||Its base is sixteen kilometres across]]."),
         ("Zbocza porasta gęsta zieleń.", "The slopes are covered in dense green."),
-        ("Wyżej grzbiet znika w chmurach.", "Higher up, the ridge vanishes into cloud."),
+        ("Wyżej grzbiet znika w obłokach.", "Higher up, the ridge vanishes into cloud."),
         ("Wyrok: ten kadr jest uczciwy.", "Verdict: an honest frame.")],
   "shots": [("ometepe1", [0, 1, 2, 3]), ("ometepe1", [4, 5]), ("ometepe2", [6, 7, 8])],
   "pops": {2: ("31 km", "31 km"), 5: ("16 km", "16 km")},
