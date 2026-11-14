@@ -166,7 +166,7 @@ CH = [
         ("[[I od 5 do 10 km szerokości||I od pięciu do dziesięciu kilometrów szerokości]].", "[[And 5 to 10 km wide||And five to ten kilometres wide]]."),
         ("[[Concepción||Konsepsjon]] jest aktywny, ze stożkiem jak z podręcznika.", "Concepción is active, with a textbook cone."),
         ("[[Jego podstawa ma 16 km średnicy||Jego podstawa ma szesnaście kilometrów średnicy]].", "[[Its base is 16 km across||Its base is sixteen kilometres across]]."),
-        ("Zbocza porasta gęsta zieleń.", "The slopes are covered in dense green."),
+        ("Stoki pokrywa gęsta zieleń.", "The slopes are covered in dense green."),
         ("Wyżej góra znika w obłokach.", "Higher up, the mountain vanishes into cloud."),
         ("Wyrok: ten kadr jest uczciwy.", "Verdict: an honest frame.")],
   "shots": [("ometepe1", [0, 1, 2, 3]), ("ometepe1", [4, 5]), ("ometepe2", [6, 7, 8])],
