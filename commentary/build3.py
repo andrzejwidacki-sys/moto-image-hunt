@@ -23,6 +23,7 @@ PH = b.PH
 ACCENT = b.ACCENT
 CARD_S, CARD_HIT = 1.4, 0.42
 VDELAY = 0.5
+ORIG_TAIL = 0.55
 
 b.ARTIST["ometepe3"] = "Ridiculopathy"
 b.MOVES.update({
@@ -245,6 +246,7 @@ def render_orig3(args):
     end = starts[-1] + dur[-1]
     if end > frames / FPS - 0.12:
         raise RuntimeError(f"{spec['id']} {lang}: lektor {end:.2f}s dłuższy niż fragment {frames / FPS:.2f}s")
+    frames = min(frames, int(math.ceil((end + ORIG_TAIL) * FPS)))   # klip kończy się tuż po lektorze: szybsze tempo, bez martwej ciszy
     if b.valid(out, frames):
         return str(out), frames
     caps = v2.caption_boxes(spec["pairs"], lang)
@@ -318,7 +320,7 @@ def render_promise3(args):
         if k in stamp_idx:
             continue
         top = k >= 9
-        texts[k] = v2.shadow_text(d.disp(p[li]), 70 if top else 86, 1600 if top else 1500, (255, 255, 255))
+        texts[k] = v2.shadow_text(d.disp(p[li]), 70 if top else 86, 1450 if top else 1400, (255, 255, 255))
     stamps = {idx: v2.stamp_img(code, lang, 62) for code, idx in d.HOOK4_STAMPS}
     caps = v2.caption_boxes(spec["pairs"], lang)
     pipe, tmp = b.ffmpeg_pipe(out)
@@ -359,7 +361,7 @@ def render_mid3(args):
         return str(out), frames
     base = v2.bg_gradient()
     srct = v2.src_tag(lang)
-    texts = [v2.shadow_text(d.disp(p[li]), 66, 1600, (255, 255, 255)) for p in spec["pairs"]]
+    texts = [v2.shadow_text(d.disp(p[li]), 66, 1400, (255, 255, 255)) for p in spec["pairs"]]
     caps = v2.caption_boxes(spec["pairs"], lang)
     nums = [b.text_box(str(i + 1), size=56, maxw=100, path=b.FONT_B, bg=None, fill=(10, 12, 18), pad=(0, 0)) for i in range(8)]
     names = {i: b.text_box(d.MID_SHORT[cid], size=32, maxw=300, path=b.FONT_M, bg=None, fill=(220, 225, 235), pad=(0, 0)) for i, cid in enumerate(d.ORDER[:4])}
@@ -408,7 +410,7 @@ def render_outro3(args):
     tally = d.tally()
     stamps = [(code, idx, v2.stamp_img(code, lang, 62)) for code, idx in d.OUTRO_TALLY]
     counts = {c: v2.shadow_text(f"{tally[c]}×", 110, 400, d.VERDICT[c]["rgb"]) for c, _ in d.OUTRO_TALLY}
-    texts = [v2.shadow_text(d.disp(p[li]), 76 if k < 10 else 70, 1560, (255, 255, 255)) for k, p in enumerate(spec["pairs"])]
+    texts = [v2.shadow_text(d.disp(p[li]), 76 if k < 10 else 70, 1440, (255, 255, 255)) for k, p in enumerate(spec["pairs"])]
     ome = v2.shadow_text("Ometepe", 78, 500, d.VERDICT["B"]["rgb"])
     caps = v2.caption_boxes(spec["pairs"], lang)
     srct = v2.src_tag(lang)
@@ -422,10 +424,10 @@ def render_outro3(args):
             for row, (code, idx, st) in enumerate(stamps):
                 if t >= starts[idx]:
                     y = 190 + row * 150
-                    v2.blend_c(f, counts[code], 560, y)
-                    f = v2.slam_frame(f, st, t - starts[idx], 1180, y)
+                    v2.blend_c(f, counts[code], 440, y)
+                    f = v2.slam_frame(f, st, t - starts[idx], 1060, y)
             if t >= starts[5]:
-                v2.blend_c(f, ome, 1722, 190 + 3 * 150, b.smooth((t - starts[5]) / 0.2))
+                v2.blend_c(f, ome, 1690, 190 + 3 * 150, b.smooth((t - starts[5]) / 0.2))
         if k not in (1, 2, 3, 4):
             q = t - starts[k]
             s = 1.0 + 0.2 * max(0.0, 1 - q / 0.16) ** 2
