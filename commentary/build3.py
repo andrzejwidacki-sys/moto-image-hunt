@@ -434,10 +434,7 @@ def render_outro3(args):
             y = 480 if k == 0 else (820 if k < 10 else H / 2 - 40)
             v2.blend_c(f, v2.scaled(texts[k], s), W / 2, y)
         b.blend(f, srct, W - srct.shape[1] - 40, 36)
-        c = caps[k]
-        if starts[k] - 0.05 <= t <= starts[k] + dur[k] + 0.25:
-            b.blend(f, c, (W - c.shape[1]) // 2, H - c.shape[0] - 56, min(1.0, (t - starts[k] + 0.05) / 0.12))
-        pipe.stdin.write(f.tobytes())
+        pipe.stdin.write(f.tobytes())  # w outro duży tekst jest napisem: bez drugiego, dolnego
     b.finish_pipe(pipe, tmp, out)
     return str(out), frames
 
