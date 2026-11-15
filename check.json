@@ -1,0 +1,34 @@
+[
+ {
+  "model": "piper",
+  "text": "v3w0e",
+  "lang": "pl",
+  "voice": "pl_PL-gosia-medium",
+  "ok": true,
+  "file": "piper_v3w0e_pl_pl_PL-gosia-medium.wav",
+  "audio_s": 10.98,
+  "compute_s": 0.4,
+  "rtf": 0.04,
+  "transcript": "Siedem sposobów, na jakie kadrowanie zmienia świat. Siedem sposobów, w jakie kadrowanie zmienia świat. Siedem sposobów, na jakie wybór kadru zmienia świat.",
+  "wer": 0.0,
+  "probes": {},
+  "probes_pass": 0,
+  "probes_total": 0
+ },
+ {
+  "model": "piper",
+  "text": "v3w0e",
+  "lang": "pl",
+  "voice": "pl_PL-darkman-medium",
+  "ok": true,
+  "file": "piper_v3w0e_pl_pl_PL-darkman-medium.wav",
+  "audio_s": 12.02,
+  "compute_s": 0.48,
+  "rtf": 0.04,
+  "transcript": "Siedem sposobów, na jakie kadrowanie zmienia świat. Siedem sposobów, w jakie kadrowanie zmienia świat. Siedem sposobów, na jakie wybór kadru zmienia świat.",
+  "wer": 0.0,
+  "probes": {},
+  "probes_pass": 0,
+  "probes_total": 0
+ }
+]
