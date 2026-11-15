@@ -409,7 +409,7 @@ def render_outro3(args):
     stamps = [(code, idx, v2.stamp_img(code, lang, 62)) for code, idx in d.OUTRO_TALLY]
     counts = {c: v2.shadow_text(f"{tally[c]}×", 110, 400, d.VERDICT[c]["rgb"]) for c, _ in d.OUTRO_TALLY}
     texts = [v2.shadow_text(d.disp(p[li]), 76 if k < 10 else 70, 1560, (255, 255, 255)) for k, p in enumerate(spec["pairs"])]
-    ome = v2.shadow_text("Ometepe", 92, 700, d.VERDICT["B"]["rgb"])
+    ome = v2.shadow_text("Ometepe", 78, 500, d.VERDICT["B"]["rgb"])
     caps = v2.caption_boxes(spec["pairs"], lang)
     srct = v2.src_tag(lang)
     base = v2.bg_gradient()
@@ -425,7 +425,7 @@ def render_outro3(args):
                     v2.blend_c(f, counts[code], 560, y)
                     f = v2.slam_frame(f, st, t - starts[idx], 1180, y)
             if t >= starts[5]:
-                v2.blend_c(f, ome, 1640, 190 + 3 * 150, b.smooth((t - starts[5]) / 0.2))
+                v2.blend_c(f, ome, 1722, 190 + 3 * 150, b.smooth((t - starts[5]) / 0.2))
         if k not in (1, 2, 3, 4):
             q = t - starts[k]
             s = 1.0 + 0.2 * max(0.0, 1 - q / 0.16) ** 2
