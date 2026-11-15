@@ -169,7 +169,7 @@ CH = [
         ("To Ometepe na jeziorze Nikaragua.", "This is [[Ometepe||[Ometepe](/ˌOmɛtˈɛpA/)]], in Lake Nicaragua.")],
   "b": [("[[Concepción||Konsepsjon]] i [[Maderas||Maderas]] łączy niski przesmyk.", "Concepción and [[Maderas||[Maderas](/mɑðˈɛɹɑs/)]] are joined by a low isthmus."),
         ("[[Concepción||Konsepsjon]] jest aktywny, ze stożkiem jak z podręcznika.", "Concepción is the active one, with a textbook cone."),
-        ("[[Maderas||Maderas]] ma jezioro w kraterze, wśród lasu deszczowego.", "Maderas has a crater lake, in rainforest."),
+        ("[[Maderas||Maderas]] ma jezioro w kraterze, wśród lasu deszczowego.", "[[Maderas||[Maderas](/mɑðˈɛɹɑs/)]] has a crater lake, in rainforest."),
         ("W vlogu górę zasłania chmura.", "In the vlog, cloud covers the mountain."),
         ("Mechanizm szósty: pogoda.", "Mechanism six: weather."),
         ("Chmura decyduje, ile stożka zobaczysz.", "Cloud decides how much of the cone you get."),

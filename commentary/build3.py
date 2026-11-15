@@ -634,6 +634,86 @@ def cmd_master(lang):
     (sf / "final_measure.txt").write_text(tail)
 
 
+def used_photos():
+    seen = []
+    def add(pid):
+        if pid not in seen:
+            seen.append(pid)
+    for pid in ("machu2", "machu1"):
+        add(pid)
+    for pid in PROMISE_BG:
+        add(pid)
+    for cid in d.ORDER:
+        ch = d.CH_BY[cid]
+        for pid, _, _ in ch["shots"]:
+            add(pid)
+    return seen
+
+
+def scene_starts(lang):
+    t, out = 0.0, {}
+    for sp in plan(lang):
+        out[sp["id"]] = t
+        t += b.nframes(spec_out(sp, lang)) / FPS
+    return out, t
+
+
+def fmt_t(x):
+    x = int(x)
+    return f"{x // 60}:{x % 60:02d}"
+
+
+def cmd_docs():
+    m = b.manifest()
+    used = used_photos()
+    L = ["# Źródła i licencje / Credits and licences (v3)", "", "## Film oryginalny / Original video", "",
+         f"- „{d.SRC['title']}” — {d.SRC['author']} — {d.SRC['url']}",
+         f"- Licencja / Licence: {d.SRC['license']} (YouTube: Creative Commons Attribution)",
+         "- Użyte fragmenty / Excerpts used (s): " + ", ".join(f"{k} {a:.1f}–{e:.1f}" for k, (a, e) in d.WINDOWS.items()),
+         "- Fragment „coast” to nienazwane ujęcie z wybrzeża z tego samego filmu. / “coast” is unnamed coastline footage from the same video.", "",
+         "## Zdjęcia / Photos (Wikimedia Commons)", ""]
+    for pid in used:
+        x = m[pid]
+        lu = b.LIC_URL.get(x["license"], "") or x.get("license_url", "")
+        L.append(f"- **{x['title'].replace('File:', '')}** — {b.artist(pid, 'en')} — {x['license']}" + (f" ({lu})" if lu else "") + f" — {x['page']}")
+    L += ["", "## Źródła faktów / Fact sources", ""]
+    for ch in d.CH:
+        L.append(f"- {ch['name']['en']}: " + ", ".join(ch["sources"]))
+    L += ["", "## Zmiany / Changes",
+          "- Zdjęcia: kadrowanie 16:9, ruch kamery, nakładki (stempel, pierścień, schemat); bez korekty kolorów. / Photos: 16:9 crop, camera move, overlays (stamp, ring, diagram); no colour grading.",
+          "- Oryginał: fragmenty do 7 s, skalowanie do 1080p, dźwięk oryginału ściszony pod lektorem. / Original: excerpts up to 7 s, scaled to 1080p, original sound lowered under the voice-over.", "",
+          "## Dźwięk / Sound",
+          "- Muzyka / Music: „Transformations 3”, HoliznaCC0, CC0 1.0 — https://freemusicarchive.org/music/holiznacc0/transformations/transformations-3/",
+          "- Lektor PL: Piper pl_PL-gosia-medium. Lektor EN: Kokoro-82M, af_heart (Apache-2.0). Mowa syntetyczna / synthetic speech.",
+          "- Dźwięki planszy i stempla generowane w kodzie. / Card and stamp sounds generated in code.", ""]
+    out = WD3 / "CREDITS_v3.md"
+    out.write_text("\n".join(L), encoding="utf-8")
+    print("wrote", out)
+    for lang in ("pl", "en"):
+        try:
+            st, total = scene_starts(lang)
+        except Exception as e:
+            print("no timings for", lang, e); continue
+        chap = [(st["hook1"], "Machu Picchu, 1912" if lang == "en" else "Machu Picchu, 1912"), (st["promise"], "The promise: four verdicts" if lang == "en" else "Obietnica: cztery wyroki")]
+        for cid in d.ORDER:
+            if cid == "machu":
+                chap.append((st["machu_pre"], "Machu Picchu: the loop closes" if lang == "en" else "Machu Picchu: pętla się zamyka"))
+            else:
+                chap.append((st[f"{cid}_orig"], f"{d.CH_BY[cid]['n']}. {d.CH_BY[cid]['name'][lang]} ({d.CH_BY[cid]['mech'][lang].title()})"))
+        chap.append((st["outro"], "The count and your vote" if lang == "en" else "Podsumowanie i Twój głos"))
+        lines = [f"{fmt_t(t)} {n}" for t, n in chap]
+        head = {
+            "en": ["Eight places from one travel vlog, and what the frame leaves out. Four verdicts: the frame chooses, reality is bigger, honest frame, better than the vlog.",
+                   f"Original footage: \"{d.SRC['title']}\" by {d.SRC['author']} (CC BY) — {d.SRC['url']}"],
+            "pl": ["Osiem miejsc z jednego vloga podróżniczego i to, czego kadr nie pokazuje. Cztery wyroki: kadr wybiera, rzeczywistość większa, uczciwy kadr, lepiej niż w vlogu.",
+                   f"Materiał źródłowy: „{d.SRC['title']}” — {d.SRC['author']} (CC BY) — {d.SRC['url']}"]}[lang]
+        cred = ["", "Photos (Wikimedia Commons): "] + [f"- {m[p]['title'].replace('File:', '')} — {b.artist(p, 'en')} — {m[p]['license']} — {m[p]['page']}" for p in used]
+        cred += ["", "Music: Transformations 3 by HoliznaCC0 (CC0).", "Voice: synthetic (Piper / Kokoro)." if lang == "en" else "Lektor: mowa syntetyczna (Piper / Kokoro)."]
+        txt = "\n".join(head + [""] + lines + cred)
+        (WD3 / f"description_{lang}.txt").write_text(txt, encoding="utf-8")
+        print("wrote description", lang, f"{total:.1f}s")
+
+
 if __name__ == "__main__":
     c = sys.argv[1]
     WD3.mkdir(parents=True, exist_ok=True)
@@ -642,4 +722,5 @@ if __name__ == "__main__":
     elif c == "concat": cmd_concat(sys.argv[2])
     elif c == "mix": cmd_mix(sys.argv[2])
     elif c == "master": cmd_master(sys.argv[2])
+    elif c == "docs": cmd_docs()
     else: raise SystemExit(c)
