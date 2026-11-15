@@ -41,6 +41,11 @@ PROMISE_BG = ["machu1", "burning1", "copper1", "grand1", "nepal3", "utah3", "fue
 
 
 # ---------- czas i narracja ----------
+def orig_lead3(sents, window_s):
+    """narracja wchodzi w pierwszej klatce klipu (skrypt 3.0): luz zostaje na końcu fragmentu."""
+    return 0.10
+
+
 def li_of(lang):
     return 0 if lang == "pl" else 1
 
@@ -210,7 +215,7 @@ def render_photos3(args):
             s0 = starts[schema["from"]] - 0.05; s1 = starts[schema["to"]] + dur[schema["to"]] + 0.2
             if s0 <= t <= s1:
                 al = min(1.0, (t - s0) / 0.25, (s1 - t) / 0.25)
-                b.blend(frame, sp_img, W - sp_img.shape[1] - 40, 190, max(0.0, al))
+                b.blend(frame, sp_img, 40, 190, max(0.0, al))
         if ch and t >= t_v:
             q = t - t_v
             pos1 = (40 + small.shape[1] / 2, 114 + small.shape[0] / 2)
@@ -236,7 +241,7 @@ def render_orig3(args):
     s0, e0 = d.WINDOWS[spec["win"]]
     frames = win_frames(spec["win"])
     sents = narr(lang, spec["key"], len(spec["pairs"]))
-    dur, starts, _ = v2.timeline2(sents, 0.0, v2.orig_lead(sents, frames / FPS))
+    dur, starts, _ = v2.timeline2(sents, 0.0, orig_lead3(sents, frames / FPS))
     end = starts[-1] + dur[-1]
     if end > frames / FPS - 0.12:
         raise RuntimeError(f"{spec['id']} {lang}: lektor {end:.2f}s dłuższy niż fragment {frames / FPS:.2f}s")
@@ -332,7 +337,7 @@ def render_promise3(args):
         if k in texts:
             q = t - starts[k]
             s = 1.0 + 0.22 * max(0.0, 1 - q / 0.16) ** 2
-            v2.blend_c(frame, v2.scaled(texts[k], s), W / 2, 150 if k >= 9 else H / 2 - 20)
+            v2.blend_c(frame, v2.scaled(texts[k], s), W / 2, 205 if k >= 9 else H / 2 - 20)
         b.blend(frame, srct, W - srct.shape[1] - 40, 36)
         tg = tags[pid]
         b.blend(frame, tg, W - tg.shape[1] - 40, 36 + srct.shape[0] + 8)
@@ -453,7 +458,7 @@ def cmd_plan(lang):
         elif sp["kind"] == "orig":
             dur = win_frames(sp["win"]) / FPS
             sents = narr(lang, sp["key"], len(sp["pairs"]))
-            dd, st, _ = v2.timeline2(sents, 0, v2.orig_lead(sents, dur))
+            dd, st, _ = v2.timeline2(sents, 0, orig_lead3(sents, dur))
             print(f"   voice {st[0]:.2f}-{st[-1] + dd[-1]:.2f} / {dur:.2f}" + ("   !!! ZA DŁUGO" if st[-1] + dd[-1] > dur - 0.12 else ""))
         else:
             sents = narr(lang, sp["key"], len(sp["pairs"]))
@@ -556,7 +561,7 @@ def cmd_mix(lang, orig_lufs=-26.0, music_below=15.0):
             continue
         sents = narr(lang, sp["key"], len(sp["pairs"]))
         if k == "orig":
-            dd, st, _ = v2.timeline2(sents, 0, v2.orig_lead(sents, dur))
+            dd, st, _ = v2.timeline2(sents, 0, orig_lead3(sents, dur))
             x = orig_audio(sp["win"])
             x *= 10 ** ((orig_lufs - meter.integrated_loudness(x)) / 20)
             n = min(len(x), int(dur * SR), N - s)

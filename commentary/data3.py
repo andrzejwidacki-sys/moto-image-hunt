@@ -29,7 +29,7 @@ SRC = {
 }
 
 # okna oryginału (s źródła). coast: ujęcie z wybrzeża bez ludzi, cięcia wykryte ffmpeg scene na 501.58 i 503.29, brak do 512.
-WINDOWS = {"coast": (503.4, 508.2), "machu": (279.0, 284.25), "nepal": (163.86, 170.66), "utah": (322.9, 329.75),
+WINDOWS = {"coast": (503.4, 510.0), "machu": (279.0, 284.25), "nepal": (163.86, 170.66), "utah": (322.9, 329.75),
            "fuego": (385.5, 391.55), "copper": (403.0, 410.0), "burning": (595.4, 602.3),
            "grand": (663.95, 670.8), "ometepe": (721.7, 728.7)}
 
@@ -84,7 +84,7 @@ CH = [
         ("Wyrok: rzeczywistość jest większa.", "Verdict: reality is bigger."),
         ("Moim zdaniem vlog niedoceniał tego miejsca, bo ekran telefonu nie pokaże wysokości.",
          "My read: the vlog undersold this place, because a phone screen cannot show you altitude.")],
-  "shots": [("nepal1", [0, 1], None), ("nepal2", [2, 3], None), ("nepal3", [4, 5, 6], None), ("nepal3", [7, 8], "nepal3@2")],
+  "shots": [("nepal1", [0, 1], None), ("nepal3", [2, 3, 4, 5, 6], None), ("nepal3", [7, 8], "nepal3~2")],
   "ring": {"photo": "nepal3", "xy": (0.70, 0.78), "from": 4, "to": 6},
   "pops": {1: ("6812 m", "6,812 m"), 4: ("2 postacie", "2 figures")},
   "sources": ["https://en.wikipedia.org/wiki/Ama_Dablam", "https://en.wikipedia.org/wiki/Gokyo_Lakes"]},
@@ -104,7 +104,7 @@ CH = [
         ("Moim zdaniem złota godzina stała się wymówką.", "My read: golden hour has become an excuse."),
         ("Przestaliśmy pytać, jak wygląda miejsce, a zaczęliśmy pytać, jak wygląda oświetlone.",
          "We stopped asking what a place looks like, and started asking what it looks like lit.")],
-  "shots": [("utah1", [0, 1, 2, 3], None), ("utah3", [4, 5, 6], None), ("utah1", [7, 8, 9], "utah1@2")],
+  "shots": [("utah1", [0, 1, 2, 3], None), ("utah3", [4, 5, 6], None), ("utah1", [7, 8, 9], "utah1~2")],
   "pops": {0: ("71 mil", "71 miles"), 1: ("lata 50.", "1950s")},
   "sources": ["https://en.wikipedia.org/wiki/White_Rim_Road"]},
 
@@ -121,7 +121,7 @@ CH = [
         ("Wyrok: kadr wybiera.", "Verdict: the frame chooses."),
         ("Moim zdaniem filmowanie erupcji nie jest nieuczciwe.", "My read: filming an eruption is not dishonest."),
         ("Nieuczciwe jest nazywanie tego krajobrazem.", "Calling it a landscape is.")],
-  "shots": [("fuego1", [0, 1, 2], None), ("fuego3", [3, 4, 5], None), ("fuego3", [6, 7, 8], "fuego3@2")],
+  "shots": [("fuego1", [0, 1, 2], None), ("fuego3", [3, 4, 5], None), ("fuego3", [6, 7, 8], "fuego3~2")],
   "pops": {0: ("co 15–20 min", "every 15–20 min"), 3: ("1 II 2018", "1 Feb 2018")},
   "sources": ["https://en.wikipedia.org/wiki/Volc%C3%A1n_de_Fuego"]},
 
@@ -139,7 +139,7 @@ CH = [
         ("Vlog pokazał jeden stok systemu o powierzchni [[65 000 km²||sześćdziesięciu pięciu tysięcy kilometrów kwadratowych]].", "The vlog showed one slope of a system covering [[65,000 km²||sixty-five thousand square kilometres]]."),
         ("Wyrok: rzeczywistość jest większa.", "Verdict: reality is bigger."),
         ("Moim zdaniem punkt widokowy daje stok, a nie system.", "My read: a viewpoint gives you a slope, not a system.")],
-  "shots": [("copper1", [0, 1, 2, 3], None), ("copper2", [4, 5, 6], None), ("copper2", [7, 8], "copper2@2")],
+  "shots": [("copper1", [0, 1, 2, 3], None), ("copper2", [4, 5, 6], None), ("copper2", [7, 8], "copper2~2")],
   "schema": {"from": 5, "to": 6},
   "pops": {1: ("6 kanionów", "6 canyons"), 6: ("65 000 km²", "65,000 km²")},
   "sources": ["https://en.wikipedia.org/wiki/Copper_Canyon"]},
@@ -152,14 +152,14 @@ CH = [
          "In 2019 it had [[78,850 participants||seventy-eight thousand eight hundred fifty participants]]."),
         ("Przez dziewięć dni, na pustyni.", "For nine days, in a desert."),
         ("Teraz zejdź na ziemię.", "Now come down to the ground."),
-        ("Pył w powietrzu, miasto z wysokości roweru.", "Dust in the air, the city at bicycle height."),
+        ("Pył wszędzie, miasto z wysokości roweru.", "Dust everywhere, the city at bicycle height."),
         ("Mechanizm piąty: wysokość.", "Mechanism five: height."),
         ("Z góry widać plan.", "From above you see a plan."),
         ("I ten plan jest prawdziwy, bo miasto zaprojektowano.", "And the plan is real, because the city is designed."),
         ("Z ziemi widać pył.", "From the ground you see dust."),
         ("Wyrok: kadr wybiera.", "Verdict: the frame chooses."),
         ("Moim zdaniem zdjęcie z drona to lepsza fotografia i gorsza prawda.", "My read: the drone shot is the better photograph and the worse truth.")],
-  "shots": [("burning1", [0, 1], None), ("burning3", [2, 3, 4], None), ("burning1", [5, 6], "burning1@2"), ("burning3", [7, 8, 9], "burning3@2")],
+  "shots": [("burning1", [0, 1], None), ("burning3", [2, 3, 4], None), ("burning1", [5, 6], "burning1~2"), ("burning3", [7, 8, 9], "burning3~2")],
   "pops": {0: ("78 850", "78,850")},
   "sources": ["https://en.wikipedia.org/wiki/Burning_Man"]},
 
@@ -167,7 +167,7 @@ CH = [
   "name": {"pl": "Wyspa Ometepe, Nikaragua", "en": "Ometepe Island, Nicaragua"},
   "a": [("Jedna wyspa, dwa wulkany.", "One island, two volcanoes."),
         ("To Ometepe na jeziorze Nikaragua.", "This is [[Ometepe||[Ometepe](/ˌOmɛtˈɛpA/)]], in Lake Nicaragua.")],
-  "b": [("[[Concepción||Konsepsjon]] i [[Maderas||Maderas]] łączy niski przesmyk.", "Concepción and [[Maderas||[Maderas](/mɑdˈɛɾɑs/)]] are joined by a low isthmus."),
+  "b": [("[[Concepción||Konsepsjon]] i [[Maderas||Maderas]] łączy niski przesmyk.", "Concepción and [[Maderas||[Maderas](/mɑðˈɛɹɑs/)]] are joined by a low isthmus."),
         ("[[Concepción||Konsepsjon]] jest aktywny, ze stożkiem jak z podręcznika.", "Concepción is the active one, with a textbook cone."),
         ("[[Maderas||Maderas]] ma jezioro w kraterze, wśród lasu deszczowego.", "Maderas has a crater lake, in rainforest."),
         ("W vlogu górę zasłania chmura.", "In the vlog, cloud covers the mountain."),
@@ -177,7 +177,7 @@ CH = [
         ("Wyrok: lepiej niż w vlogu.", "Verdict: better than the vlog."),
         ("Moim zdaniem tu rzeczywistość pokonała vloga.", "My read: here the place beat its vlog."),
         ("Jeśli któreś z tych miejsc jest warte podróży, to właśnie to.", "If any place on this list is worth the trip, it is this one.")],
-  "shots": [("ometepe2", [0, 1, 2, 3], None), ("ometepe3", [4, 5], None), ("ometepe1", [6, 7], None), ("ometepe1", [8, 9], "ometepe1@2")],
+  "shots": [("ometepe2", [0, 1, 2], None), ("ometepe3", [3, 4, 5], None), ("ometepe1", [6, 7, 8, 9], None)],
   "pops": {},
   "sources": ["https://en.wikipedia.org/wiki/Ometepe"]},
 
@@ -194,7 +194,7 @@ CH = [
         ("Wyrok: uczciwy kadr.", "Verdict: honest frame."),
         ("Moim zdaniem właśnie surowość czyni go uczciwym.", "My read: its plainness is what makes it honest."),
         ("Mniej ładny, bardziej prawdziwy.", "Less pretty, more true.")],
-  "shots": [("grand2", [0, 1], None), ("grand1", [2, 3], None), ("grand3", [4, 5, 6], None), ("grand3", [7, 8], "grand3@2")],
+  "shots": [("grand2", [0, 1], None), ("grand1", [2, 3], None), ("grand3", [4, 5, 6], None), ("grand3", [7, 8], "grand3~2")],
   "pops": {},
   "sources": ["https://en.wikipedia.org/wiki/Grand_Canyon"]},
 
