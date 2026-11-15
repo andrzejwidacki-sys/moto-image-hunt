@@ -54,7 +54,7 @@ HOOK3 = [("Każdy vlog podróżniczy pokazuje tę drugą wersję.", "Every trave
 HOOK4 = [("Kadr nie kłamie.", "A frame does not lie."),
          ("Kadr wybiera.", "A frame chooses."),
          ("Osiem miejsc z jednego vloga na licencji [[Creative Commons||Kriejtiw Komons]].", "Eight places, from one Creative Commons vlog."),
-         ("Siedem sposobów, na jakie kadr potrafi zmienić świat.", "Seven ways a frame changes the world."),
+         ("Siedem sposobów, na jakie kadrowanie zmienia świat.", "Seven ways a frame changes the world."),
          ("Każde miejsce dostaje wyrok, a ja mam tylko cztery.", "Every place gets a verdict, and I only have four."),
          ("Kadr wybiera.", "The frame chooses."),
          ("Rzeczywistość jest większa.", "Reality is bigger."),
