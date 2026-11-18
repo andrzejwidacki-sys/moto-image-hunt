@@ -21,6 +21,21 @@ PH = Path(os.environ.get("NS_PHOTOS", "photos"))
 CANVAS = OUT / "canvas"
 FILL = {"topique"}   # kadr 16:9 uciąłby motocykl: całe ujęcie na rozmytym tle (pionowe robią to same)
 XF = 0.35
+LANG = os.environ.get("NS_LANG", "en")
+VOICE = {"en": "af_heart", "hi": "hf_alpha"}[LANG]
+FR = b.FONT_M if LANG == "en" else "/usr/share/fonts/truetype/freefont/FreeSans.ttf"       # dewanagari: FreeSans
+FB = b.FONT_B if LANG == "en" else "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf"
+SZ = 0 if LANG == "en" else 6                                                                   # FreeSans wygląda mniejszy
+CAPS_HI = {
+    "s1": ["भारत की एक नेकेड स्पोर्ट बाइक।", "सिंगल-सिलेंडर, लिक्विड-कूल्ड इंजन, जिसकी क्षमता 199.5 सीसी है।"],
+    "s2": ["प्रेस्ड स्टील का पेरिमीटर फ्रेम, 17 इंच के अलॉय व्हील और चार वाल्व।", "मौजूदा वर्ज़न में फ़्यूल इंजेक्शन है।",
+           "इस बाइक में ABS है: फ़ोर्क पर लगा लेबल यही बताता है।"],
+    "s3": ["अर्जेंटीना में यह राउज़र NS200 के नाम से बिकती है।", "इंजन कवर पर DTS-i का बैज है, और टैंक श्राउड पर बड़ा सा 200 लिखा है।"],
+    "s4": ["हर बाइक स्टॉक नहीं रहती।", "इस बाइक का एग्ज़ॉस्ट बाद में लगाया हुआ लगता है।"],
+    "s5": ["अक्टूबर 2026, मॉस्को।", "एक NS200, जिस पर टॉप केस और कूरियर बैग लगा है।",
+           "फ़ोटोग्राफ़र का रूसी कैप्शन कहता है: “भारतीय जापानियों की जगह ले रहे हैं।”"],
+}
+POPS_HI = {"s1": {1: "199.5 cc"}, "s2": {0: "17 इंच अलॉय", 2: "ABS"}, "s3": {0: "राउज़र NS200", 1: "DTS-i · 200"}, "s5": {0: "मॉस्को · अक्टूबर 2026"}}
 
 # plik, kadr (część zdjęcia, ułamki x0,y0,x1,y1) lub None, autor, licencja (tag w rogu), licencja pełna
 PHOTOS = {
@@ -103,7 +118,8 @@ def cmd_prep():
 
 # --------- głos i plan ---------
 def narr(key, n):
-    f = Path(os.environ["NS_TTS"]) / f"kokoro_{key}_en_af_heart.wav"
+    key = key if LANG == "en" else key.replace("ns", "nh")
+    f = Path(os.environ["NS_TTS"]) / f"kokoro_{key}_{LANG}_{VOICE}.wav"
     x, sr = b.read_wav(f)
     return [b.to48(s, sr) for s in b.split_by_silence(x, sr, n)]
 
@@ -136,7 +152,7 @@ def cmd_plan():
 
 # --------- rysowanie ---------
 def pop_box(text):
-    return b.text_box(text, size=84, maxw=1500, bg=(8, 10, 14, 205), pad=(40, 22), path=b.FONT_B, radius=26)
+    return b.text_box(text, size=84 + SZ, maxw=1500, bg=(8, 10, 14, 205), pad=(40, 22), path=FB, radius=26)
 
 
 def scaled(rgba, s):
@@ -148,6 +164,9 @@ def scaled(rgba, s):
 
 def tag_box(pid):
     _, _, author, tag, _ = PHOTOS[pid]
+    if LANG == "hi":
+        tag = "CC0" if tag == "CC0" else "मुफ़्त उपयोग लाइसेंस"
+        return b.text_box(f"फ़ोटो: {author} · {tag}", size=26 + SZ, maxw=900, bg=(8, 10, 14, 150), pad=(16, 9), radius=10, path=FR)
     return b.text_box(f"Photo: {author} · {tag}", size=26, maxw=900, bg=(8, 10, 14, 150), pad=(16, 9), radius=10)
 
 
@@ -164,11 +183,14 @@ def render_scene(p):
         a, c = shots[k - 1][1][-1], shots[k][1][0]
         bounds.append((starts[a] + dur[a] + starts[c]) / 2)
     bounds.append(frames / FPS)
-    caps = [b.text_box(c, size=42, maxw=1560) for c in sc["caps"]]
-    pops = {i: pop_box(t) for i, t in sc["pops"].items()}
+    texts = sc["caps"] if LANG == "en" else CAPS_HI[sc["id"]]
+    assert len(texts) == len(dur), (sc["id"], len(texts), len(dur))
+    caps = [b.text_box(c, size=42 + SZ, maxw=1560, path=FR) for c in texts]
+    pops = {i: pop_box(t) for i, t in (sc["pops"] if LANG == "en" else POPS_HI.get(sc["id"], {})).items()}
     tags = {pid: tag_box(pid) for pid, *_ in shots}
     title = b.text_box("Bajaj Pulsar NS200", size=104, maxw=1700, bg=(8, 10, 14, 190), pad=(54, 26), path=b.FONT_B, radius=30) if sc.get("title") else None
-    sub = b.text_box("Naked sport bike from India", size=44, maxw=1500, bg=(8, 10, 14, 150), pad=(30, 14), radius=16) if title is not None else None
+    subt = "Naked sport bike from India" if LANG == "en" else "भारत की एक नेकेड स्पोर्ट बाइक"
+    sub = b.text_box(subt, size=44 + SZ, maxw=1500, bg=(8, 10, 14, 150), pad=(30, 14), radius=16, path=FR) if title is not None else None
     pipe, tmp = b.ffmpeg_pipe(out)
     for fr in range(frames):
         t = fr / FPS
@@ -224,16 +246,24 @@ def render_end():
     if b.valid(out, n):
         return
     im = Image.new("RGB", (W, H), (12, 14, 20)); d = ImageDraw.Draw(im)
-    FB, FM = b.font(b.FONT_B, 70), b.font(b.FONT_M, 38)
-    lines = [("Bajaj Pulsar NS200", FB, (255, 255, 255)),
-             ("Photos: Abhivishrut Bishnoi · Arghya Banerjee · Sebastian Monroy", FM, (225, 228, 235)),
-             ("Juan Ignacio Escobar Tosi · Topique SL · Retired electrician (CC0)", FM, (225, 228, 235)),
-             ("Music: “Drama” by HoliznaCC0 (CC0 1.0)", FM, (225, 228, 235)),
-             ("Voice: synthetic (Kokoro). Specifications: Autocar India, Bajaj.", FM, (225, 228, 235)),
-             ("Licence details are in the description.", FM, (170, 176, 190))]
+    FB_, FM = b.font(b.FONT_B, 70), b.font(FR, 38 + SZ)
+    if LANG == "en":
+        lines = [("Bajaj Pulsar NS200", FB_, (255, 255, 255)),
+                 ("Photos: Abhivishrut Bishnoi · Arghya Banerjee · Sebastian Monroy", FM, (225, 228, 235)),
+                 ("Juan Ignacio Escobar Tosi · Topique SL · Retired electrician (CC0)", FM, (225, 228, 235)),
+                 ("Music: “Drama” by HoliznaCC0 (CC0 1.0)", FM, (225, 228, 235)),
+                 ("Voice: synthetic (Kokoro). Specifications: Autocar India, Bajaj.", FM, (225, 228, 235)),
+                 ("Licence details are in the description.", FM, (170, 176, 190))]
+    else:
+        lines = [("Bajaj Pulsar NS200", FB_, (255, 255, 255)),
+                 ("फ़ोटो: Abhivishrut Bishnoi · Arghya Banerjee · Sebastian Monroy", FM, (225, 228, 235)),
+                 ("Juan Ignacio Escobar Tosi · Topique SL · Retired electrician (CC0)", FM, (225, 228, 235)),
+                 ("संगीत: “Drama”, HoliznaCC0 (CC0 1.0)", FM, (225, 228, 235)),
+                 ("आवाज़: सिंथेटिक (Kokoro)। विनिर्देश: Autocar India, Bajaj।", FM, (225, 228, 235)),
+                 ("लाइसेंस का ब्योरा विवरण में है।", FM, (170, 176, 190))]
     y = 250
     for t, f, c in lines:
-        w = d.textlength(t, font=f); d.text(((W - w) / 2, y), t, font=f, fill=c); y += 110 if f is FB else 78
+        w = d.textlength(t, font=f); d.text(((W - w) / 2, y), t, font=f, fill=c); y += 110 if f is FB_ else 78
     base = np.asarray(im)
     pipe, tmp = b.ffmpeg_pipe(out)
     for fr in range(n):
@@ -310,7 +340,7 @@ def cmd_master():
            f"measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true:print_format=summary,alimiter=limit=0.84:level=disabled")
     mast = OUT / "mix_master.wav"
     b.sh(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", flt, "-ar", str(SR), "-c:a", "pcm_s16le", str(mast)])
-    out = OUT / "ns200_en.mp4"; tmp = str(out) + ".tmp.mp4"
+    out = OUT / f"ns200_{LANG}.mp4"; tmp = str(out) + ".tmp.mp4"
     b.sh(["ffmpeg", "-y", "-loglevel", "error", "-i", str(OUT / "video_silent.mp4"), "-i", str(mast), "-map", "0:v", "-map", "1:a",
           "-c:v", "copy", "-af", "alimiter=limit=1:level=disabled", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-f", "mp4", tmp]) if False else \
         b.sh(["ffmpeg", "-y", "-loglevel", "error", "-i", str(OUT / "video_silent.mp4"), "-i", str(mast), "-map", "0:v", "-map", "1:a",
