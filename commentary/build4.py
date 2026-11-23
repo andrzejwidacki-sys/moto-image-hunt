@@ -65,6 +65,9 @@ b.MOVES.update({
     "mys1~2": ((0.68, 0.50, 1.12), (0.55, 0.50, 1.00)),
     "mys2": ((0.50, 0.50, 1.00), (0.50, 0.45, 1.12)),
     "mys3": ((0.50, 0.50, 1.00), (0.45, 0.50, 1.12)),
+    "coorg2~2": ((0.50, 0.50, 1.15), (0.55, 0.55, 1.00)),
+    "ooty2~2": ((0.50, 0.40, 1.15), (0.45, 0.50, 1.00)),
+    "chik3~2": ((0.50, 0.60, 1.15), (0.50, 0.50, 1.00)),
 })
 
 
@@ -91,8 +94,8 @@ def chip_text(ch, lang):
 
 def plan(lang):
     P = []
-    P.append(dict(id="hook1", kind="photos", key="v4h1", pairs=d.HOOK1, shots=[(d.HOOK1_PHOTO[0], [0, 1, 2], d.HOOK1_PHOTO[1])], pops=d.HOOK1_POPS, tail=0.10))
-    P.append(dict(id="hook2", kind="photos", key="v4h2", pairs=d.HOOK2, shots=[(d.HOOK2_PHOTO[0], [0, 1, 2], d.HOOK2_PHOTO[1])], pops=d.HOOK2_POPS, tail=0.10))
+    P.append(dict(id="hook1", kind="photos", key="v4h1", pairs=d.HOOK1, shots=d.HOOK1_SHOTS, pops=d.HOOK1_POPS, tail=0.10))
+    P.append(dict(id="hook2", kind="photos", key="v4h2", pairs=d.HOOK2, shots=d.HOOK2_SHOTS, pops=d.HOOK2_POPS, tail=0.10))
     P.append(dict(id="promise", kind="promise", key="v4h3", pairs=d.HOOK3, tail=0.25))
     for cid in d.ORDER:
         ch = d.CH_BY[cid]
@@ -469,7 +472,10 @@ def cmd_plan(lang):
         elif sp["kind"] == "orig":
             sents, dd, st = orig_times(lang, sp)
             full = win_frames(sp["win"]) / FPS
-            dur = orig_frames_used(lang, sp) / FPS
+            try:
+                dur = orig_frames_used(lang, sp) / FPS
+            except RuntimeError as e:
+                print("   !!!", e); dur = win_frames(sp["win"]) / FPS
             print(f"   voice {st[0]:.2f}-{st[-1] + dd[-1]:.2f} / okno {full:.2f}, użyte {dur:.2f}")
         else:
             sents = narr(lang, sp["key"], len(sp["pairs"]))
@@ -630,7 +636,7 @@ def cmd_master(lang):
 
 def used_photos():
     seen = []
-    for pid in (d.HOOK1_PHOTO[0], d.HOOK2_PHOTO[0], *d.PROMISE_BG):
+    for pid in ([s[0] for s in d.HOOK1_SHOTS] + [s[0] for s in d.HOOK2_SHOTS] + list(d.PROMISE_BG)):
         if pid not in seen:
             seen.append(pid)
     for cid in d.ORDER:

@@ -44,13 +44,13 @@ VERDICT = {
 HOOK1 = [("Wypad na dwa dni do [[Gokarny||Gokarny]].", "A two-day trip to Gokarna."),
          ("Droga w jedną stronę: dziewięć i pół godziny.", "One way by road: nine and a half hours."),
          ("W obie strony: dziewiętnaście.", "Round trip: nineteen.")]
-HOOK1_PHOTO = ("gok1", "gok1@h1")
+HOOK1_SHOTS = [("gok1", [0, 1], "gok1@h1"), ("gok2", [2], None)]
 HOOK1_POPS = {1: ("9,5 h", "9.5 h"), 2: ("19 h", "19 h")}
 
 HOOK2 = [("A [[Mysuru||Majsuru]]?", "And [[Mysuru||[Mysuru](/maɪˈsuːɹuː/)]]?"),
          ("Dwie i pół godziny w jedną stronę.", "Two and a half hours each way."),
          ("Ten sam film obiecuje oba wypady na dwa dni.", "The same video promises both trips in two days.")]
-HOOK2_PHOTO = ("mys1", "mys1@h2")
+HOOK2_SHOTS = [("mys1", [0, 1], "mys1@h2"), ("mys2", [2], None)]
 HOOK2_POPS = {1: ("2,5 h", "2.5 h")}
 
 # obietnica: stemple na zdaniach 3, 4, 5
@@ -74,7 +74,7 @@ CH = [
   "b": [("Tak wygląda [[Promenade Beach||Promenejd Biecz]]: czarne głazy i fale.", "This is Promenade Beach: black boulders and surf."),
         ("W filmie był piasek i słomiane parasole.", "The video showed sand and thatched umbrellas."),
         ("A tu stare molo.", "And here, an old pier."),
-        ("Ludzie kąpią się w morzu.", "People are swimming in the sea."),
+        ("Ludzie kąpią się w morzu mimo fal.", "People are swimming in the sea despite the surf."),
         ("Dzielnica Francuska: dom z kolumnami i palmy.", "The French Quarter: a house with columns and palms."),
         ("[[Z Bangalore: około 300 km i 7 godzin||Z Bengaluru: około trzystu kilometrów i siedem godzin]].", "From Bangalore: about [[300 km and 7 hours||three hundred kilometres and seven hours]]."),
         ("W obie strony: czternaście godzin w aucie.", "Round trip: fourteen hours in the car."),
@@ -87,7 +87,7 @@ CH = [
   "sources": ["https://www.savaari.com/blog/bangalore/bangalore-to-pondicherry/"]},
 
  {"id": "coorg", "n": 2, "km_author": 250, "name": {"pl": "Coorg (Kodagu)", "en": "Coorg (Kodagu)"},
-  "a": [("[[Coorg||Kurg]]: na ekranie [[250 km||dwieście pięćdziesiąt kilometrów]].", "[[Coorg||[Coorg](/kʊɹɡ/)]]: [[250 km||two hundred fifty kilometres]] on screen."),
+  "a": [("[[Coorg||Kurg]]: [[250 km||dwieście pięćdziesiąt kilometrów]].", "[[Coorg||[Coorg](/kʊɹɡ/)]]: [[250 km||two hundred fifty kilometres]]."),
         ("Autor mówi: tylko.", "The author says: only.")],
   "b": [("To widok z [[Raja's Seat||Radżas Sit]] w [[Madikeri||Madikeri]].", "This is the view from [[Raja's Seat||[Raja's Seat](/ˈɹɑːdʒɑːz ˈsiːt/)]], in [[Madikeri||[Madikeri](/mɑːdɪˈkeɪɹi/)]]."),
         ("W filmie na wzgórzu była tylko mgła.", "In the video, the hilltop was all mist."),
@@ -99,7 +99,7 @@ CH = [
         ("W obie strony: ponad dziesięć godzin.", "Round trip: over ten hours."),
         ("Werdykt: mieści się.", "Verdict: it fits."),
         ("Moim zdaniem to pierwsze miejsce, gdzie dwa dni mają sens.", "My read: the first place here where two days make sense.")],
-  "shots": [("coorg1", [0, 1, 2], None), ("coorg2", [3, 4], None), ("coorg3", [5, 6, 7], None), ("coorg1", [8, 9], "coorg1~2")],
+  "shots": [("coorg1", [0, 1, 2], None), ("coorg2", [3, 4], None), ("coorg3", [5, 6], None), ("coorg2", [7, 8], "coorg2~2"), ("coorg1", [9], "coorg1~2")],
   "vi": 8,
   "pops": {6: ("264 km · 5 h 10", "264 km · 5 h 10"), 7: ("10 h 20", "10 h 20")},
   "apop": {0: ("autor: 250 km", "author: 250 km")},
@@ -126,8 +126,8 @@ CH = [
   "sources": ["https://www.savaari.com/blog/bangalore/bangalore-to-gokarna/"]},
 
  {"id": "ooty", "n": 4, "km_author": 260, "name": {"pl": "Ooty (Udhagamandalam)", "en": "Ooty (Udhagamandalam)"},
-  "a": [("[[Ooty||Uti]]: na ekranie [[260 km||dwieście sześćdziesiąt kilometrów]].", "[[Ooty||[Ooty](/ˈuːti/)]]: [[260 km||two hundred sixty kilometres]] on screen."),
-        ("Plantacje herbaty, góry, jezioro.", "Tea plantations, mountains, a lake.")],
+  "a": [("[[Ooty||Uti]]: [[260 km||dwieście sześćdziesiąt kilometrów]].", "[[Ooty||[Ooty](/ˈuːti/)]]: [[260 km||two hundred sixty kilometres]]."),
+        ("Herbata i góry.", "Tea and mountains.")],
   "b": [("Tak wygląda [[Ooty||Uti]] z bliska: domy na zboczu i słupy energetyczne.", "This is [[Ooty||[Ooty](/ˈuːti/)]] up close: houses on a slope and power pylons."),
         ("W kadrze filmu była tylko herbata i góry.", "In the video's frame there was only tea and mountains."),
         ("A to przystań łodzi nad jeziorem.", "And this is the boat dock on the lake."),
@@ -138,14 +138,14 @@ CH = [
         ("W obie strony: trzynaście godzin.", "Round trip: thirteen hours."),
         ("Werdykt: na styk.", "Verdict: tight."),
         ("Moim zdaniem warto dołożyć trzeci dzień.", "My read: give it a third day.")],
-  "shots": [("ooty1", [0, 1], None), ("ooty2", [2, 3], None), ("ooty3", [4, 5], None), ("ooty1", [6, 7, 8, 9], "ooty1~2")],
+  "shots": [("ooty1", [0, 1], None), ("ooty2", [2, 3], None), ("ooty3", [4, 5], None), ("ooty1", [6, 7], "ooty1~2"), ("ooty2", [8, 9], "ooty2~2")],
   "vi": 8,
   "pops": {5: ("2240 m", "2,240 m"), 6: ("270 km · 6,5 h", "270 km · 6.5 h"), 7: ("13 h", "13 h")},
   "apop": {0: ("autor: 260 km", "author: 260 km")},
   "sources": ["https://www.savaari.com/blog/bangalore/bangalore-to-ooty/", "https://en.wikipedia.org/wiki/Ooty"]},
 
  {"id": "chik", "n": 5, "km_author": 250, "name": {"pl": "Chikmagalur", "en": "Chikmagalur"},
-  "a": [("[[Chikmagalur||Czikmagalur]]: na ekranie [[250 km||dwieście pięćdziesiąt kilometrów]].", "[[Chikmagalur||[Chikmagalur](/tʃɪkmɑːˈɡɑːlʊɹ/)]]: [[250 km||two hundred fifty kilometres]] on screen."),
+  "a": [("[[Chikmagalur||Czikmagalur]]: [[250 km||dwieście pięćdziesiąt kilometrów]].", "[[Chikmagalur||[Chikmagalur](/tʃɪkmɑːˈɡɑːlʊɹ/)]]: [[250 km||two hundred fifty kilometres]]."),
         ("Kraina kawy.", "Coffee country.")],
   "b": [("[[Mullayanagiri||Mulajanagiri]], najwyższy szczyt [[Karnataki||Karnataki]]: [[1925 m||tysiąc dziewięćset dwadzieścia pięć metrów]].", "[[Mullayanagiri||[Mullayanagiri](/mʊlɑːjɑːnɑːˈɡɪɹi/)]], the highest peak in Karnataka: [[1,925 metres||nineteen hundred twenty-five metres]]."),
         ("Widok ze szczytu: równina w mgiełce.", "The view from the top: a plain under haze."),
@@ -155,7 +155,7 @@ CH = [
         ("W obie strony: dziewięć godzin.", "Round trip: nine hours."),
         ("Werdykt: mieści się.", "Verdict: it fits."),
         ("Moim zdaniem tu autor ma rację: dwa dni wystarczą.", "My read: here the author is right, two days are enough.")],
-  "shots": [("chik2", [0, 1, 2], None), ("chik3", [3, 4], None), ("chik2", [5, 6, 7], "chik2~2")],
+  "shots": [("chik2", [0, 1], None), ("chik3", [2, 3], None), ("chik2", [4, 5], "chik2~2"), ("chik3", [6, 7], "chik3~2")],
   "vi": 6,
   "pops": {0: ("1925 m", "1,925 m"), 4: ("244 km · 4,5 h", "244 km · 4.5 h"), 5: ("9 h", "9 h")},
   "apop": {0: ("autor: 250 km", "author: 250 km")},
@@ -163,7 +163,7 @@ CH = [
 
  {"id": "mys", "n": 6, "km_author": 140, "name": {"pl": "Mysuru (Mysore)", "en": "Mysuru (Mysore)"},
   "a": [("[[Mysuru||Majsuru]]: [[140 km||sto czterdzieści kilometrów]].", "Mysuru: [[140 km||a hundred forty kilometres]]."),
-        ("Najbliżej z sześciu.", "The closest of six.")],
+        ("Najbliżej.", "The closest.")],
   "b": [("Pałac w [[Mysuru||Majsuru]].", "The palace in Mysuru."),
         ("Autor: jeden z najczęściej odwiedzanych pałaców w Indiach.", "The author: one of the most visited palaces in India."),
         ("Fontanny w ogrodach [[Brindavan||Brindawan]] po zmroku.", "Fountains in Brindavan Gardens after dark."),
