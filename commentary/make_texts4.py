@@ -43,7 +43,7 @@ def main():
         for k in ch["apop"]:
             assert k < len(ch["a"]), (ch["id"], k)
         vi = ch["vi"]
-        assert ch["b"][vi][0].startswith("Wyrok") and ch["b"][vi][1].startswith("Verdict"), (ch["id"], vi)
+        assert ch["b"][vi][0].startswith("Werdykt") and ch["b"][vi][1].startswith("Verdict"), (ch["id"], vi)
         word = {"F": "mieści", "T": "styk", "N": "daleko"}[ch["verdict"]]
         assert word in ch["b"][vi][0], (ch["id"], "werdykt w tekście != obliczony", ch["verdict"])
         assert d.code_for(d.HOURS_ONE_WAY[ch["id"]]) == ch["verdict"]
