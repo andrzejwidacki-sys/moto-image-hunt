@@ -361,7 +361,7 @@ def render_promise4(args):
         tg = tags[pid]
         b.blend(frame, tg, W - tg.shape[1] - 40, 36 + srct.shape[0] + 8)
         c = caps[k]
-        if starts[k] - 0.05 <= t <= starts[k] + dur[k] + 0.25:
+        if k not in texts and starts[k] - 0.05 <= t <= starts[k] + dur[k] + 0.25:
             b.blend(frame, c, (W - c.shape[1]) // 2, H - c.shape[0] - 56, min(1.0, (t - starts[k] + 0.05) / 0.12))
         pipe.stdin.write(frame.tobytes())
     b.finish_pipe(pipe, tmp, out)
