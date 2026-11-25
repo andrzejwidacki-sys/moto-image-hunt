@@ -1,0 +1,38 @@
+name: YouTube CC hunt (min views)
+on:
+  workflow_dispatch:
+    inputs:
+      queries:
+        description: "Zapytania rozdzielone |"
+        default: "best places to visit"
+      n:
+        description: "Wyników na zapytanie"
+        default: "40"
+      min_views:
+        description: "Minimalna liczba wyświetleń"
+        default: "500000"
+      sp:
+        description: "Parametr sp (domyślnie: filtr CC + sortowanie po wyświetleniach)"
+        default: "CAMSAjAB"
+      out_branch:
+        default: "yt-ccviews"
+permissions:
+  contents: write
+jobs:
+  hunt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python3 -m venv /tmp/yt && /tmp/yt/bin/pip install -q yt-dlp
+          SPP="${{ inputs.sp }}" MIN_VIEWS="${{ inputs.min_views }}" /tmp/yt/bin/python yt/cc_hunt.py "${{ inputs.queries }}" "${{ inputs.n }}" cc-out || true
+      - name: Publish
+        if: always() && hashFiles('cc-out/cc.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd cc-out && git init -q -b "${{ inputs.out_branch }}"
+          git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "yt-ccviews ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "${{ inputs.out_branch }}"
