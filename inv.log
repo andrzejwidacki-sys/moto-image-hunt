@@ -1,0 +1,22 @@
+inv.nadeko.net API FAIL HTTP Error 403: Forbidden
+invidious.nerdvpn.de API FAIL <urlopen error [Errno 101] Network is unreachable>
+yt.chocolatemoo53.com OK streams: [] adaptive: 32
+adaptive: [('139', 'audio/mp4; codecs="mp4a.40.5"', None, '5304813'), ('139', 'audio/mp4; codecs="mp4a.40.5"', None, '5304643'), ('140', 'audio/mp4; codecs="mp4a.40.2"', None, '14075671'), ('140', 'audio/mp4; codecs="mp4a.40.2"', None, '14075667'), ('249', 'audio/webm; codecs="opus"', None, '5427438'), ('249', 'audio/webm; codecs="opus"', None, '5486146'), ('250', 'audio/webm; codecs="opus"', None, '6678758'), ('250', 'audio/webm; codecs="opus"', None, '6718927'), ('251', 'audio/webm; codecs="opus"', None, '12367500'), ('251', 'audio/webm; codecs="opus"', None, '12435940'), ('160', 'video/mp4; codecs="avc1.4D400C', '144p', '3853461'), ('278', 'video/webm; codecs="vp9"', '144p', '6520467'), ('394', 'video/mp4; codecs="av01.0.00M.', '144p', '5354096'), ('133', 'video/mp4; codecs="avc1.4D4015', '240p', '8838286'), ('242', 'video/webm; codecs="vp9"', '240p', '8766496'), ('395', 'video/mp4; codecs="av01.0.00M.', '240p', '7450064'), ('134', 'video/mp4; codecs="avc1.4D401E', '360p', '18366858'), ('243', 'video/webm; codecs="vp9"', '360p', '21218774'), ('396', 'video/mp4; codecs="av01.0.01M.', '360p', '15296620'), ('135', 'video/mp4; codecs="avc1.4D401F', '480p', '29654467'), ('244', 'video/webm; codecs="vp9"', '480p', '31007456'), ('397', 'video/mp4; codecs="av01.0.04M.', '480p', '28090051'), ('136', 'video/mp4; codecs="avc1.4D401F', '720p', '45153705'), ('247', 'video/webm; codecs="vp9"', '720p', '60662967'), ('398', 'video/mp4; codecs="av01.0.05M.', '720p', '52983931'), ('137', 'video/mp4; codecs="avc1.640028', '1080p', '192699655'), ('248', 'video/webm; codecs="vp9"', '1080p', '112159112'), ('399', 'video/mp4; codecs="av01.0.08M.', '1080p', '99793407'), ('271', 'video/webm; codecs="vp9"', '1440p', '461149116'), ('400', 'video/mp4; codecs="av01.0.12M.', '1440p', '355438440'), ('313', 'video/webm; codecs="vp9"', '2160p', '1189146940'), ('401', 'video/mp4; codecs="av01.0.12M.', '2160p', '738279364')]
+yt.chocolatemoo53.com adaptive download v.mp4 137 1080p 192699655 B 31 s
+yt.chocolatemoo53.com adaptive download a.m4a 140 None 14075667 B 3 s
+ffmpeg rc 0  44100 Hz, stereo, fltp, 128 kb/s (default)
+    Metadata:
+      creation_time   : 2025-05-10T16:25:18.000000Z
+      handler_name    : ISO Media file produced by Google Inc.
+      vendor_id       : [0][0][0][0]
+Press [q] to stop, [?] for help
+[mp4 @ 0x62637d80ae80] Starting second pass: moving the moov atom to the beginning of the file
+[out#0/mp4 @ 0x62637d80ad40] video:187859KiB audio:13589KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: 0.435469%
+frame=26088 fps=0.0 q=-1.0 Lsize=  202325KiB time=00:14:29.56 bitrate=1906.1kbits/s speed=2.41e+03x elapsed=0:00:00.36    
+
+probe codec_name=h264 width=1920 height=1080 avg_frame_rate=30/1 codec_name=aac avg_frame_rate=0/0 duration=869.656961  
+merged 207180533
+segment rc 0 45a8351b00] Opening 'inv-out/seg_04.mp4' for writing
+[out#0/segment @ 0x6545a8507180] video:187859KiB audio:13589KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame=26088 fps=0.0 q=-1.0 Lsize=N/A time=00:14:29.56 bitrate=N/A speed=2.76e+03x elapsed=0:00:00.31    
+
