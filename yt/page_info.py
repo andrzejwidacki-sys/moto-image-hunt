@@ -8,6 +8,11 @@ m = re.search(r'"text":"License"\}\]\},"contents":\[\{"runs":\[\{"text":"([^"]+)
 m2 = re.search(r'"shortDescription":"((?:[^"\\]|\\.)*)"', p); r["description"] = json.loads('"' + m2.group(1) + '"') if m2 else None
 for k, rx in (("title", r'"title":"((?:[^"\\]|\\.)*)","lengthSeconds"'), ("owner", r'"ownerChannelName":"([^"]+)"'), ("publishDate", r'"publishDate":"([^"]+)"'), ("uploadDate", r'"uploadDate":"([^"]+)"'), ("viewCount", r'"viewCount":"(\d+)"'), ("lengthSeconds", r'"lengthSeconds":"(\d+)"'), ("isUnlisted", r'"isUnlisted":(true|false)'), ("isLive", r'"isLiveContent":(true|false)'), ("category", r'"category":"([^"]+)"')):
     mm = re.search(rx, p); r[k] = mm.group(1) if mm else None
+for k, rx in (("attributed_description", r'"attributedDescription":\{"content":"((?:[^"\\]|\\.)*)"'), ("desc_simple", r'"description":\{"simpleText":"((?:[^"\\]|\\.)*)"'), ("og_description", r'<meta name="description" content="([^"]*)"'), ("og_title", r'<meta property="og:title" content="([^"]*)"'), ("date_text", r'"dateText":\{"simpleText":"([^"]+)"'), ("views_text", r'"viewCount":\{"videoViewCountRenderer":\{"viewCount":\{"simpleText":"([^"]+)"')):
+    mm = re.search(rx, p)
+    try: r[k] = json.loads('"' + mm.group(1) + '"') if mm else None
+    except Exception: r[k] = mm.group(1) if mm else None
+open(f"{OUT}/page.html", "w", encoding="utf-8").write(p)
 r["license_ctx"] = [p[max(0, x.start() - 200): x.end() + 300] for x in re.finditer(r'(?i)creative commons|"License"', p)][:6]
 r["chapters_in_page"] = bool(re.search(r'"chapters"', p))
 json.dump(r, open(f"{OUT}/page.json", "w"), ensure_ascii=False, indent=1)
