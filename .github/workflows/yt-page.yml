@@ -1,0 +1,26 @@
+name: YouTube page info
+on:
+  workflow_dispatch:
+    inputs:
+      id:
+        default: "Pufqk2m0BSA"
+      out_branch:
+        default: "yt-page"
+permissions:
+  contents: write
+jobs:
+  page:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 yt/page_info.py "${{ inputs.id }}" page-out || true
+      - name: Publish
+        if: always() && hashFiles('page-out/page.json') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cd page-out && git init -q -b "${{ inputs.out_branch }}"
+          git config user.name "github-actions[bot]" && git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A && git commit -q -m "yt-page ${GITHUB_RUN_ID}"
+          git push -q --force "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "${{ inputs.out_branch }}"
